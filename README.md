@@ -1,2 +1,2 @@
 # PTI_Doa-Ayah
-Repositori untuk tugas kuliah Proyek Teknologi Informasi
+ Repository untuk tugas kuliah Proyek Teknologi Informasi
