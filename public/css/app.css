@@ -1,0 +1,73 @@
+/* CSS untuk sidebar */
+.sidebar {
+    background-color: #0051B9;
+    color: #fff;
+    width: 250px;
+    height: 100%;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+}
+
+
+/* CSS untuk kotak menu */
+.menu-box {
+    background-color: #0D72F2;
+    padding: 20px;
+    width: 200px; /* Sesuaikan lebar kotak menu */
+    border-radius: 15px; /* Membuat sudut kotak menjadi melengkung */
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    padding: 10px;
+    margin: 10px 0;
+    /* display: flex; */
+    align-items: center; /* Mengatur ikon dan teks secara vertikal */
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #fff;
+    display: block; /* Membuat tautan menjadi blok agar dapat menutupi seluruh area kotak */
+    margin-left: 10px; /* Menambahkan jarak antara ikon dan teks */
+    
+}
+
+/* Hover efek ketika kursor diarahkan ke menu */
+.menu li:hover {
+    background-color: #555;
+}
+
+
+/* Atur tampilan konten utama */
+.content {
+    margin-left: 250px;
+    padding: 20px;
+}
+
+/* Atur warna teks pada navbar */
+.navbar {
+    color: #333;
+}
+/* ... CSS untuk sidebar dan kotak menu seperti yang telah dijelaskan sebelumnya ... */
+
+/* CSS untuk footer */
+.footer {
+    margin-top: 10px;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+}
+.logo {
+    height: 71px;
+    width: 66;
+}
