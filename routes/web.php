@@ -23,6 +23,10 @@ Route::get('/arsip', function () {
     return view('arsip');
 });
 
+Route::get('/kelolapengguna', function () {
+    return view('kelolapengguna');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
