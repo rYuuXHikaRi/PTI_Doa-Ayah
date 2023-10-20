@@ -1,0 +1,99 @@
+body {
+    background-color: #CFE1F8;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background: linear-gradient(51deg, #0051B9 0.78%, #0760C0 35.49%, #3EDCFF 100%);
+    box-shadow: 10px 0px 8px 0px rgba(0, 0, 0, 0.25);
+    width: 1000px;
+    height: 100%;
+    position: absolute;
+}
+
+.container h1 {
+    color: white;
+    font-size: 50;
+    margin-left: 37;
+    margin-top: 160;
+}
+
+.container h2 {
+    color: white;
+    font-size: 50;
+    margin-left: 37;
+    margin-top: -40;
+}
+
+.img {
+    margin-top: 50px;
+    margin-left: 477px;
+}
+
+form {
+    position: absolute;
+    margin-left: 1120px;
+    margin-top: 300px;
+}
+
+.halo h1 {
+    font-size: 40;
+    color: #338BFD;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: 1350;
+    margin-top: 165;
+    position: absolute;
+}
+
+.halo h2 {
+    font-size: 40;
+    color: #338BFD;
+    margin-left: 1160;
+    margin-top: 200;
+    position: absolute;
+}
+
+.form-control {
+    background: #F9F9F9;
+    width: 300px;
+    height: 47px;
+    border-radius: 20px;
+    margin: 17;
+}
+
+.submit {
+    margin-top: 15;
+    margin-left: 17;
+}
+
+.btn-primary {
+    color: white;
+    background-color: #0051B9;
+    width: 300px;
+    height: 47px;
+}
+
+.icon {
+    position: relative;
+}
+
+.icon input {
+    text-indent: 28px;
+}
+
+.form-control::placeholder {
+    text-indent: 28px;
+}
+
+.user {
+    position: absolute;
+    color: #C7C7C7;
+    top: 50%;
+    right: 290px; /* Jarak antara ikon dan elemen input */
+    transform: translateY(-50%);
+}
+
+.btn-link {
+    margin-left: 17;
+}
