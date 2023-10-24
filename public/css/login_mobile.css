@@ -1,0 +1,97 @@
+@media screen and (min-width: 480px) {
+    body {
+        background-color: #CFE1F8;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        height: 50%;
+        background: linear-gradient(51deg, #0051B9 0.78%, #0760C0 35.49%, #3EDCFF 100%);
+        box-shadow: 10px 0px 8px 0px rgba(0, 0, 0, 0.25);
+        padding-top: 15rem;
+        padding-left: 2rem;
+        overflow: hidden;
+    }
+
+    .container .titleApp {
+        color: white;
+        font-size: 2rem;
+    }
+
+    .container .img {
+        margin-top: 300px;
+        margin-left: 30rem;
+    }
+    .halo {
+        font-size: 2.5rem;
+    }
+    .halo h1 {
+        color: #338BFD;
+        margin-top: 130px;
+        margin-left: 730px;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    .halo h2 {
+        color: #338BFD;
+        margin-top: -65px;
+        margin-left: 488;
+    }
+    .form-box {
+        background: #E6EFFA;
+        border-radius: 15px;
+        width: 80%;
+        margin-left: 73px;
+        padding: 20px;
+    }
+    .form-control {
+        background: #CFE2F9;
+        font-size: 30;
+        width: 700px;
+        height: 87px;
+        margin: 5;
+        margin-left: 42;
+        border-left: none;
+        border-top: none;
+        border-right: none;
+        border-bottom-width: 7;
+    }
+    .submit {
+        margin-top: 10;
+        margin-left: 42;
+    }
+    .btn.btn-primary {
+        font-size: 30;
+        color: white;
+        background-color: #0051B9;
+        width: 700px;
+        height: 87px;
+    }
+
+    .icon {
+        position: relative;
+    }
+
+    .icon input {
+        text-indent: 60px;
+    }
+
+    .form-control::placeholder {
+        text-indent: 60px;
+    }
+    
+    .user {
+        position: absolute;
+        color: #C7C7C7;
+        width: 100px;
+        height: 50px;
+        top: 50%;
+        right: 670px; /* Jarak antara ikon dan elemen input */
+        transform: translateY(-50%);
+    }
+    
+    .btn.btn-link {
+        font-size: 30;
+        margin-left: 42;
+    }
+}

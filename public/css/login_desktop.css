@@ -12,22 +12,13 @@ body {
     position: absolute;
 }
 
-.container h1 {
+.titleApp {
     color: white;
-    font-size: 50;
-    margin-left: 37;
-    margin-top: 160;
-}
-
-.container h2 {
-    color: white;
-    font-size: 50;
-    margin-left: 37;
-    margin-top: -40;
+    font-size: 2rem;
 }
 
 .img {
-    margin-top: 50px;
+    margin-top: 110px;
     margin-left: 477px;
 }
 
