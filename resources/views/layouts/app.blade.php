@@ -20,11 +20,10 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
+    <!-- Stylesheet -->
+    <!-- <link rel="stylesheet" href="css/login.css"> -->
     <link rel="stylesheet" href="css/login_desktop.css">
     <link rel="stylesheet" href="css/login_mobile.css">
-
-<!-- Stylesheet -->
-<!-- <link rel="stylesheet" href="css/login.css"> -->
 </head>
 <body>
     <div id="app">
