@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="css/login_desktop.css">
-<!-- <link rel="stylesheet" href="css/login_mobile.css">  -->
+{{-- <link rel="stylesheet" href="css/login_mobile.css"> --}}
 
 <div class="container">
     <div class="titleApp">

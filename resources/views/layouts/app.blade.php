@@ -18,16 +18,14 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
 
     <!-- Stylesheet -->
     <!-- <link rel="stylesheet" href="css/login.css"> -->
-    <link rel="stylesheet" href="css/login_desktop.css">
-    <link rel="stylesheet" href="css/login_mobile.css">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm showWhenDesktopMode">
+        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm showWhenDesktopMode">
             <div class="container" >
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -82,6 +80,7 @@
                             </li>
                         @endguest
                     </ul>
+                </nav> --}}
         <div class="sidebar">
             <img src="img/logo.png" alt="logo" style="width:40%;margin-left:50px;">
             <div class="menu-box">
@@ -157,6 +156,18 @@
                                         </form>
                                     </div>
                                 </li>
+                            <!-- Test Logout button, will be deleted -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </li>
                             @endguest
                         </ul>
                     </div>
