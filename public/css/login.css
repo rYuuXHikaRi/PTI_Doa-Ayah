@@ -1,0 +1,102 @@
+body {
+    background-color: #CFE1F8;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container {
+    background: linear-gradient(51deg, #0051B9 0.78%, #0760C0 35.49%, #3EDCFF 100%);
+    box-shadow: 10px 0px 8px 0px rgba(0, 0, 0, 0.25);
+    width: 67%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.titleApp {
+    color: white;
+    font-size: 2rem;
+    margin: 15px;
+}
+
+.img {
+    margin-top: 113px;
+    margin-left: 510px;
+}
+
+.lambang {
+    width: 500px;
+    height: 400px;
+}
+
+.halo {
+    font-size: 1.7rem;
+}
+
+.halo h1 {
+    color: #338BFD;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 60%;
+    margin-left: 266px;
+}
+
+.halo h2 {
+    color: #338BFD;
+    margin-top: -11%;
+    margin-left: 100px;
+}
+
+.form-box {
+    margin-top: 25%;
+    margin-left: -19%;
+}
+
+.form-control {
+    background: #F9F9F9;
+    font-size: 10px;
+    width: 285px;
+    height: 37px;
+    border-radius: 20px;
+    margin: 10px;
+}
+
+.form-control::placeholder {
+    text-indent: 35px;
+}
+
+.user {
+    position: absolute;
+    color: #C7C7C7;
+    width: 50px;
+    height: 20px;
+    top: 50%;
+    right: 256px; /* Jarak antara ikon dan elemen input */
+    transform: translateY(-50%);
+}
+
+.icon {
+    position: relative;
+}
+
+.icon input {
+    text-indent: 35px;
+}
+
+.submit {
+    margin-top: 10px;
+    margin-left: 4.4%;
+}
+
+.btn.btn-primary {
+    font-size: 20;
+    color: white;
+    background-color: #0051B9;
+    width: 285px;
+    height: 37px;
+}
+
+.btn.btn-link {
+    font-size: 20;
+    margin-left: 4.4%;
+}
