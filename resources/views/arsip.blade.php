@@ -14,14 +14,64 @@
         
         <div class="container py-6">
             <div class="card-header" style="background-color: blue; color: white; border-bottom: 2px solid white;">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <span class="font-weight-bold" style="font-size: 30px;">Arsip</span>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="font-weight-bold" style="font-size: 30px;">Arsip</span>
+                </div>
+                <div>
+                    <button class="btn btn-success" style="font-size: 24px; border-radius: 100px; background-color: #0D72F2">+</button>
+                    <button class="btn btn-primary" id="openPopupButton" style="font-size: 20px; border-radius: 20px;">Tambah Arsip Baru</button>
+                </div>
+            </div>
+            
+            <!-- Pop-up container -->
+            <div id="popupContainer" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); z-index: 999;">
+                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; border-radius: 10px;">
+                    <!-- Your pop-up content goes here -->
+                    <h2>Tambah Arsip Baru</h2>
+                    <div class="card" style="padding: 20px;">
+                        <form>
+                            <div class="form-group">
+                                <label for="namaArsip">Nama Arsip</label>
+                                <input type="text" class="form-control" id="namaArsip" placeholder="Masukkan nama arsip">
+                            </div>
+                            <div class="form-group">
+                                <label for="kategoriArsip">Kategori Arsip</label>
+                                <select class="form-control" id="kategoriArsip">
+                                    <option value="kategori1">Kategori 1</option>
+                                    <option value="kategori2">Kategori 2</option>
+                                    <option value="kategori3">Kategori 3</option>
+                                </select>
+                            </div>
+                        </form>
                     </div>
-                    <div>
-                        <button class="btn btn-success" style="font-size: 24px;border-radius:100px;background-color:#0D72F2">+</button>
-                        <button class="btn btn-primary" style="font-size: 20px;border-radius:20px;">Tambah Arsip Baru</button>
+                    <div class="text-center mt-3">
+                        <button id="saveButton" class="btn btn-primary">Simpan</button>
+                        <button id="cancelButton" class="btn btn-danger ml-2">Batal</button>
                     </div>
+                </div>
+            </div>
+            
+            <script>
+                const openPopupButton = document.getElementById("openPopupButton");
+                const popupContainer = document.getElementById("popupContainer");
+                const closePopupButton = document.getElementById("closePopupButton");
+                const saveButton = document.getElementById("saveButton");
+                const cancelButton = document.getElementById("cancelButton");
+            
+                openPopupButton.addEventListener("click", () => {
+                    popupContainer.style.display = "block";
+                });
+            
+                closePopupButton.addEventListener("click", () => {
+                    popupContainer.style.display = "none";
+                });
+            
+                cancelButton.addEventListener("click", () => {
+                    popupContainer.style.display = "none";
+                });
+            </script>
+            
                 </div><br>
             <div class="row py-6">
                 <div class="col-lg-12 mx-auto"> 
