@@ -7,6 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -18,24 +20,24 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     
     <!-- Scripts -->
-
+    <!-- {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}} -->
 
     <!-- Stylesheet -->
-    <!-- <link rel="stylesheet" href="css/login.css"> -->
+
 </head>
 <body>
     <div id="app">
-        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm showWhenDesktopMode">
+        <!-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm showWhenDesktopMode">
             <div class="container" >
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
+                    <! Left Side Of Navbar --
                     <ul class="navbar-nav me-auto">
 
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    <!- Right Side Of Navbar --
                     <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
+                        <!- Authentication Links --
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -66,7 +68,7 @@
                                     </form>
                                 </div>
                             </li>
-                            <!-- Test Logout button, will be deleted -->
+                            <!- Test Logout button, will be deleted --
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -80,7 +82,7 @@
                             </li>
                         @endguest
                     </ul>
-                </nav> --}}
+                </nav> -->
         <div class="sidebar">
             <img src="img/logo.png" alt="logo" style="width:40%;margin-left:50px;">
             <div class="menu-box">
