@@ -27,6 +27,10 @@ Route::get('/dashboardkabag', function () {
     return view('dashboardkabag');
 });
 
+Route::get('/daftarpermohonan', function () {
+    return view('daftarpermohonankabag');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
