@@ -27,8 +27,8 @@ Route::get('/dashboardkabag', function () {
     return view('dashboardkabag');
 });
 
-Route::get('/daftarpermohonan', function () {
-    return view('daftarpermohonankabag');
+Route::get('/daftarpermohonansuratmasuk', function () {
+    return view('daftarpermohonansuratmasuk');
 });
 
 Auth::routes();
