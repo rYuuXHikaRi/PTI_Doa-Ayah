@@ -35,6 +35,10 @@ Route::get('/kelolasuratkeluar', function () {
     return view('kelolasuratkeluar');
 });
 
+Route::get('/buatsuratkeluar', function () {
+    return view('buatsuratkeluar');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
