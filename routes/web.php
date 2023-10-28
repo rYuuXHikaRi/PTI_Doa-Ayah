@@ -39,6 +39,10 @@ Route::get('/buatsuratkeluar', function () {
     return view('buatsuratkeluar');
 });
 
+Route::get('/perubahansuratkeluar', function () {
+    return view('perubahansuratkeluar');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
