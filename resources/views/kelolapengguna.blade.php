@@ -50,10 +50,10 @@
                                         <table id="example" style="width: 100%" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
+                                                    <th>Sektor Tugas</th>
                                                     <th>Nama Pengguna</th>
                                                     <th>Nama</th>
-                                                    <th>No HP</th>
-                                                    <th>Sektor Tugas</th>
+                                                    <th>Nomor HP</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
