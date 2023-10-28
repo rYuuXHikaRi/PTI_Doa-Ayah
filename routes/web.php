@@ -27,8 +27,8 @@ Route::get('/templatesurat', function () {
     return view('templatesurat');
 });
 
-Route::get('/kelolasurat', function () {
-    return view('kelolasurat');
+Route::get('/kelolasuratmasuk', function () {
+    return view('kelolasuratmasuk');
 });
 
 Auth::routes();
