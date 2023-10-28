@@ -30,6 +30,11 @@ Route::get('/templatesurat', function () {
 Route::get('/buatsurattemplate', function () {
     return view('buatsurattemplate');
 }); 
+
+Route::get('/buatsuratupload', function () {
+    return view('buatsuratupload');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

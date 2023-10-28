@@ -61,16 +61,12 @@
                                     <div class="card-body">
                                         <form>
                                             <div class="form-group row">
-                                                <label for="kategoriSurat" class="col-md-4 col-form-label">Kategori Surat</label>
+                                                <label for="uploadSurat" class="col-md-4 col-form-label">Upload Surat</label>
                                                 <div class="col-md-8">
-                                                    <select class="form-control" id="kategoriSurat" name="kategoriSurat" style="background-color:#EBF1FA">
-                                                        <option value="option1">Pilih Kategori</option>
-                                                        <option value="option2">Kategori 1</option>
-                                                        <option value="option3">Kategori 2</option>
-                                                        <option value="option4">Kategori 3</option>
-                                                    </select>
+                                                    <input type="file" class="form-control" id="uploadSurat" name="uploadSurat" style="background-color:#EBF1FA">
                                                 </div>
                                             </div>
+                                            
                                             <div class="form-group row">
                                                 <label for="namaSurat" class="col-md-4 col-form-label">Nama Surat</label>
                                                 <div class="col-md-8">
