@@ -27,6 +27,9 @@ Route::get('/templatesurat', function () {
     return view('templatesurat');
 });
 
+Route::get('/buatsurattemplate', function () {
+    return view('buatsurattemplate');
+}); 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
