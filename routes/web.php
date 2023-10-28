@@ -31,6 +31,9 @@ Route::get('/tambahpengguna', function () {
     return view('tambahpengguna');
 });
 
+Route::get('/editpengguna', function () {
+    return view('editpengguna');
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
