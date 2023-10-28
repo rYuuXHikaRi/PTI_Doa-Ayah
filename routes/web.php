@@ -22,7 +22,9 @@ Route::get('/', function () {
 Route::get('/arsip', function () {
     return view('arsip');
 });
-
+Route::get('/tambaharsip', function () {
+    return view('tambaharsip');
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
