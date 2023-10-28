@@ -22,8 +22,13 @@ Route::get('/', function () {
 Route::get('/arsip', function () {
     return view('arsip');
 });
+
 Route::get('/tambaharsip', function () {
     return view('tambaharsip');
+});
+
+Route::get('/editarsip', function () {
+    return view('editarsip');
 });
 Auth::routes();
 
