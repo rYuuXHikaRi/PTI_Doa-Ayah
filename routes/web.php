@@ -19,26 +19,30 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/arsip', function () {
-    return view('arsip');
-});
+// Route::get('/arsip', function () {
+//     return view('arsip');
+// });
 
 Route::get('/dashboardkabag', function () {
     return view('dashboardkabag');
 });
 
-Route::get('/daftarpermohonan', function () {
-    return view('daftarpermohonankabag');
+// Route::get('/daftarpermohonan', function () {
+//     return view('daftarpermohonankabag');
+// });
+
+// Route::get('/templatesurat', function () {
+//     return view('templatesurat');
+// });
+
+// Route::get('/kelolasurat', function () {
+//     return view('kelolasurat');
+// });
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/dashboard', function () {
+    return view('layouts\appdashboardmobile');
 });
-
-Route::get('/templatesurat', function () {
-    return view('templatesurat');
-});
-
-Route::get('/kelolasurat', function () {
-    return view('kelolasurat');
-});
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
