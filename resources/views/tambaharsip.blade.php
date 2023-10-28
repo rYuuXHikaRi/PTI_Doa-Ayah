@@ -41,19 +41,19 @@
                             <div class="form-group row">
                                 <label for="namaArsip" class="col-md-4 col-form-label">Nama Arsip</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="namaArsip" placeholder="namaArsip" style="background-color: #E0E0E0;">
+                                    <input type="text" class="form-control" id="namaArsip" placeholder="Nama Arsip" style="background-color: #E0E0E0;">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="kodeArsip" class="col-md-4 col-form-label">Kode Arsip</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="kodeArsip" placeholder="kodeArsip" style="background-color: #E0E0E0;">
+                                    <input type="text" class="form-control" id="kodeArsip" placeholder="Kode Arsip" style="background-color: #E0E0E0;">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="perihal" class="col-md-4 col-form-label">Perihal</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="perihal" placeholder="perihal" style="background-color: #E0E0E0;">
+                                    <input type="text" class="form-control" id="perihal" placeholder="Perihal" style="background-color: #E0E0E0;">
                                 </div>
                             </div>
                             <div class="form-group row">
