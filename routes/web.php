@@ -27,6 +27,10 @@ Route::get('/kelolapengguna', function () {
     return view('kelolapengguna');
 });
 
+Route::get('/tambahpengguna', function () {
+    return view('tambahpengguna');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
