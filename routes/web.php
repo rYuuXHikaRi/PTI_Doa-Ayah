@@ -39,6 +39,10 @@ Route::get('/daftarpermohonanizin', function () {
     return view('daftarpermohonanizin');
 });
 
+Route::get('/daftarpermohonancuti', function () {
+    return view('daftarpermohonancuti');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
