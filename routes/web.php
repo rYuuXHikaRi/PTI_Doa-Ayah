@@ -31,6 +31,10 @@ Route::get('/kelolasuratmasuk', function () {
     return view('kelolasuratmasuk');
 });
 
+Route::get('/kelolasuratkeluar', function () {
+    return view('kelolasuratkeluar');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
