@@ -43,6 +43,6 @@ Route::get('/dashboardkabag', function () {
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/dashboard', function () {
-    return view('layouts\appdashboardmobile');
+Route::get('/homemobile', function () {
+    return view('homemobile');
 });

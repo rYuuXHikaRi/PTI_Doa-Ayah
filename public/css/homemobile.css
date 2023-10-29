@@ -1,0 +1,62 @@
+@media screen and (max-width:  575.98px) {
+    .container {
+        margin: 5%;
+        /* padding: 0; */
+    }
+    .card {
+        background: rgba(230, 239, 250, 0.80);
+        border-radius: 10px 10px 0px 0px;
+        width: 90%;
+        height: 50px;
+        margin-top: 20%;
+    }
+    .card h1 {
+        color: #0253BA;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 800px;
+        line-height: normal;
+        padding: 4.7%;
+    }
+    .card-body {
+        background: rgba(230, 239, 250, 0.65);
+        width: 90%;
+        height: 270px;
+    }
+    .box {
+        background: #E2ECF9;
+        border-radius: 10px;
+        width: 90%;
+        height: 24%;
+        margin-top: 9%;
+        margin-left: 5%;
+        display: flex;
+        flex-direction: row;
+    }
+    .box h1 {
+        color: #0253BA;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 800px;
+        line-height: normal;
+        margin: 8%;
+    }
+    .icons1 {
+        width: 25px;
+        height: 25px;
+        margin: 6%;
+        margin-left: 33%;
+    }
+    .icons2 {
+        width: 25px;
+        height: 25px;
+        margin: 6%;
+        margin-left: 12%;
+    }
+    .icons3 {
+        width: 25px;
+        height: 25px;
+        margin: 6%;
+        margin-left: 14%;
+    }
+}
