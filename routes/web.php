@@ -43,6 +43,10 @@ Route::get('/dashboardkabag', function () {
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/homemobile', function () {
+Route::get('/isi', function () {
+    return view('isifromsuratmobile');
+});
+
+Route::get('/mobile', function () {
     return view('homemobile');
 });

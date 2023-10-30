@@ -1,0 +1,112 @@
+@media screen and (max-width:  575.98px) {
+    .container {
+        margin: 5%;
+        /* padding: 0; */
+    }
+    .card {
+        background: rgba(230, 239, 250, 0.80);
+        border-radius: 10px 10px 0px 0px;
+        width: 90%;
+        height: 50px;
+        margin-top: 26%;
+    }
+    .card h1 {
+        color: #0253BA;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 800px;
+        line-height: normal;
+        padding: 4.7%;
+    }
+    .card-body {
+        background: rgba(230, 239, 250, 0.65);
+        width: 90%;
+        height: 480px;
+    }
+    .box {
+        background: #E2ECF9;
+        border-radius: 5px;
+        width: 90%;
+        height: 15%;
+        margin-top: 10%;
+        margin-left: 5%;
+        display: flex;
+        flex-direction: row;
+    }
+    .box_ket {
+        background: #E2ECF9;
+        border-radius: 10px;
+        width: 90%;
+        height: 23%;
+        margin-top: 9%;
+        margin-left: 5%;
+        display: flex;
+        flex-direction: row;
+    }
+    .box h1 {
+        color: rgba(0, 0, 0, 0.40);
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin: 5.6%;
+    }
+    .box_ket h1 {
+        color: rgba(0, 0, 0, 0.40);
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin: 5.6%;
+    }
+    .card-body h1 {
+        color: #0253BA;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-left: 5%;
+        margin-top: 5%;
+    }
+    .pilih {
+        background: #E2ECF9;
+        width: 90%;
+        height: 8%;
+        margin-left: 5%;
+        display: flex;
+        flex-direction: row;
+    }
+    .pilih h1 {
+        color: #0253BA;
+        text-align: center;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin-top: 2.3%;    
+    }
+    .isi {
+        background: #0253BA;
+        border-radius: 5px;
+        width: 30%;
+        height: 70%;
+        margin: 2%;
+    }
+    .isi h1 {
+        color: #E2ECF9;
+        text-align: center;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    button {
+        background: #0253BA;
+        color: white;
+        width: 90%;
+        height: 10%;
+        border-radius: 5px;
+        margin-top: 3%;
+        margin-left: 5%;
+    }
+}

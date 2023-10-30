@@ -8,7 +8,7 @@
         border-radius: 10px 10px 0px 0px;
         width: 90%;
         height: 50px;
-        margin-top: 20%;
+        margin-top: 26%;
     }
     .card h1 {
         color: #0253BA;
@@ -21,7 +21,7 @@
     .card-body {
         background: rgba(230, 239, 250, 0.65);
         width: 90%;
-        height: 270px;
+        height: 480px;
     }
     .box {
         background: #E2ECF9;
