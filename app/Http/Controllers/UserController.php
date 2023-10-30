@@ -30,9 +30,6 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
-       
-   
-     
         $request->validate([
             'id_roles' => 'required',
             'nama_karyawan' => 'required',
@@ -93,19 +90,92 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user,$id)
+    public function edit($nik)
     {
-        $user=User::where("id",$id)->first();
+       
+        $user=User::where("nik",$nik)->first();
+        
         return view("admin.user.update", compact("user"));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'id_roles' => 'required',
+            'nama_karyawan' => 'required',
+            'jabatan' => 'required',
+            'nik' => 'required|unique:users,nik,'.$id,
+            'alamat' => 'required',
+            'nomor_hp' => 'required',
+            'nama_bagian' => 'required',
+        ]);
+    
+        $validatedData = $request->validate([
+            'foto' => 'nullable|mimes:jpeg,png,jpg,gif|max:5120',
+            'tanda_tangan' => 'nullable|mimes:jpeg,png,jpg,gif|max:5120',
+        ]);
+    
+        $user = User::find($id);
+      
+    
+        if (!$user) {
+            return redirect()->route('users.index')->with('error', 'User not found.');
+        }
+    
+        // Update existing user data
+        $user->id_roles = $request->input('id_roles');
+        $user->nama_karyawan = $request->input('nama_karyawan');
+        $user->jabatan = $request->input('jabatan');
+        $user->nik = $request->input('nik');
+        $user->alamat = $request->input('alamat');
+        $user->nomor_hp = $request->input('nomor_hp');
+        $user->nama_bagian = $request->input('nama_bagian');
+    
+        // Update foto if provided
+        if ($request->hasFile('foto')) {
+            $file1 = $validatedData['foto'];
+            $filename1 = $file1->getClientOriginalName();
+            $location1 = '../public/assets/profil/';
+    
+            // Move the new photo to the destination
+            $file1->move(public_path($location1), $filename1);
+    
+            // Delete the old photo if it exists
+            if ($user->foto) {
+                unlink(public_path($location1 . $user->foto));
+            }
+    
+            // Update the user's foto attribute
+            $user->foto = $filename1;
+        }
+    
+        // Update tanda_tangan if provided
+        if ($request->hasFile('tanda_tangan')) {
+            $file2 = $validatedData['tanda_tangan'];
+            $filename2 = $file2->getClientOriginalName();
+            $location2 = '../public/assets/ttd/';
+    
+            // Move the new tanda_tangan to the destination
+            $file2->move(public_path($location2), $filename2);
+    
+            // Delete the old tanda_tangan if it exists
+            if ($user->tanda_tangan) {
+                unlink(public_path($location2 . $user->tanda_tangan));
+            }
+    
+            // Update the user's tanda_tangan attribute
+            $user->tanda_tangan = $filename2;
+        }
+    
+        // Save the updated user
+        $user->save();
+    
+        return redirect()->route('user.index')->with('success', 'User berhasil diupdate.');
     }
+    
 
     /**
      * Remove the specified resource from storage.

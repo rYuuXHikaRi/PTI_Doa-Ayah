@@ -34,90 +34,124 @@
             </div>
             <div class="row no-gutters row-bordered row-border-light" style="justify-content: center">
                 <div class="col-md-9">
-                    <div class="tab-pane fade active show" id="account-general">
-                        <div class="card-body media align-items-center">
-                            <img src="img/profil.jpeg" style="width:20%" class="rounded-circle">
-                            <div class="media-body ml-4">
-                                <label class="btn btn-outline-primary">
-                                    Upload Gambar
-                                </label>
+                    <form action="{{ route('user.update',$user->id) }}" method="post" enctype="multipart/form-data" >
+                        @csrf
+                        @method('PUT')
+                        <div class="tab-pane fade active show" id="account-general">
+                            <div class="card-body media align-items-center">
+                                <img src="img/profil.jpeg" style="width:20%" class="rounded-circle">
+                                <div class="media-body ml-4">
+                                    <label for="foto" >Upload Foto</label>
+                                    <img id="image-preview" src="#" alt="Preview" style="display:none; max-width: 200px; margin-top: 10px;">
+                                    <input name="foto" class="btn btn-outline-primary" title="Upload Foto" type="file" id="photo" onchange="previewImage(event)" accept="image/*" value="{{ $user->foto }}" placeholder="{{ $user->foto }}" >
+    
+                                
+                                </div>
+                            </div>
+                            <hr class="border-light m-0">
+            
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label class="form-label">Nama Pengguna</label>
+                                    <input type="text" class="form-control mb-1" placeholder="Nama Pengguna" name="nama_karyawan" style="background-color: #CCD9EC" value="{{ $user->nama_karyawan }}" placeholder="{{ $user->nama_karyawan }}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">NIK</label>
+                                    <input type="text" class="form-control mb-1" placeholder="NIK" name="nik" style="background-color: #CCD9EC" value="{{ $user->nik }}" placeholder="{{ $user->nik }}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Alamat</label>
+                                    <input type="text" class="form-control" placeholder="Alamat" name="alamat" style="background-color: #CCD9EC" value="{{ $user->alamat }}" placeholder="{{ $user->alamat }}" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Nomor Hp</label>
+                                    <input type="text" class="form-control" placeholder="Nomor Hp" name="nomor_hp" style="background-color: #CCD9EC" value="{{ $user->nomor_hp }}" placeholder="{{ $user->nomor_hp }}" required>
+                                </div>
+                                <div class="form-container" style="display: flex;justify-content: space-between;">
+                                 
+                                        <div class="form-group">
+                                            <label for="lang1">Nama Bagian</label>
+                                            <select  id="lang1" class="form-control" name="nama_bagian" style="background-color: #CCD9EC" aria-valuenow="{{ $user->nama_bagian }}" aria-placeholder="{{ $user->nama_bagian }}">
+                                                <option value="javascript">Pilih Bagian 1</option>
+                                                <option value="php">Pilih Bagian 2</option>
+                                                <!-- Opsi lainnya -->
+                                            </select>
+                                        </div>
+                                   
+                 
+                          
+                                        <div class="form-group">
+                                            <label for="lang2">Jabatan</label>
+                                            <select  id="lang2" name="jabatan" class="form-control" style="background-color: #CCD9EC" aria-valuenow="{{ $user->jabatan }}" aria-placeholder="{{ $user->jabatan }}">
+                                                <option value="java">Jabatan 1</option>
+                                                <option value="python">Jabatan 2</option>
+                                                <!-- Opsi lainnya -->
+                                            </select>
+                                        </div>
+                                 
+                                </div>
+                                
+                                <div class="form-container" style="display: flex; justify-content: space-between;">
+                             
+                                        <div class="form-group">
+                                            <label for="lang1">Roles</label>
+                                            <select  id="lang1" name="id_roles" class="form-control" style="background-color: #CCD9EC" aria-valuenow="{{ $user->id_roles }}" aria-placeholder="{{ $user->id_roles }}">
+                                                <option value=1>Pilih Roles 1</option>
+                                                <option value=2>Pilih Roles 2</option>
+                                                <!-- Opsi lainnya -->
+                                            </select>
+                                        </div>
+                            
+                                        <div class="form-group">
+                                            <label for="tanda_tangan">Tanda Tangan</label>
+                                            <img id="ttd-preview" src="#" alt="Preview" style="display:none; max-width: 200px; margin-top: 10px;">
+                                            <input name="tanda_tangan" class="btn btn-outline-primary" title="Upload Tanda Tangan" type="file" id="tanda_tangan" onchange="previewTTD(event)" accept="image/*" value="{{ $user->tanda_tangan }}" aria-placeholder="{{ $user->tanda_tangan }}">
+    
+                                        </div>
+                                  
+                                </div>
+                                
                             </div>
                         </div>
-                        <hr class="border-light m-0">
-        
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label class="form-label">Nama Pengguna</label>
-                                <input type="text" class="form-control mb-1" placeholder="Nama Pengguna" style="background-color: #CCD9EC">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Password</label>
-                                <input type="text" class="form-control" placeholder="Password" style="background-color: #CCD9EC">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">NPM</label>
-                                <input type="text" class="form-control mb-1" placeholder="NPM" style="background-color: #CCD9EC">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label">Alamat</label>
-                                <input type="text" class="form-control" placeholder="Alamat" style="background-color: #CCD9EC">
-                            </div>
-                            <div class="form-container" style="display: flex;justify-content: space-between;">
-                                <form action="#" class="form" style="flex: 1;">
-                                    <div class="form-group">
-                                        <label for="lang1">Nama Bagian</label>
-                                        <select name="languages1" id="lang1" class="form-control" style="background-color: #CCD9EC">
-                                            <option value="javascript">Pilih Bagian 1</option>
-                                            <option value="php">Pilih Bagian 2</option>
-                                            <!-- Opsi lainnya -->
-                                        </select>
-                                    </div>
-                                </form>
-                            
-                                <form action="#" class="form" style="flex: 1; margin: 0 10px;">
-                                    <div class="form-group">
-                                        <label for="lang2">Jabatan</label>
-                                        <select name="languages2" id="lang2" class="form-control" style="background-color: #CCD9EC">
-                                            <option value="java">Jabatan 1</option>
-                                            <option value="python">Jabatan 2</option>
-                                            <!-- Opsi lainnya -->
-                                        </select>
-                                    </div>
-                                </form>
-                            </div>
-                            
-                            <div class="form-container" style="display: flex; justify-content: space-between;">
-                                <form action="#" class="form" style="flex: 1;">
-                                    <div class="form-group">
-                                        <label for="lang1">Roles</label>
-                                        <select name="languages1" id="lang1" class="form-control" style="background-color: #CCD9EC">
-                                            <option value="javascript">Pilih Roles 1</option>
-                                            <option value="php">Pilih Roles 2</option>
-                                            <!-- Opsi lainnya -->
-                                        </select>
-                                    </div>
-                                </form>
-                            
-                                <form action="#" class="form" style="flex: 1; margin: 0 10px;">
-                                    <div class="form-group">
-                                        <label for="signature">Tanda Tangan</label>
-                                        <input type="file" name="signature" id="signature" class="form-control-file" style="background-color: #CCD9EC">
-                                    </div>
-                                </form>
-                            </div>
-                            
+                        <div class="text-center mt-3" >
+                            <button type="button" class="btn btn-outline-secondary">Cancel</button>
+                            <button type="submit" class="btn btn-default" style="background-color: blue;color:white">Save</button>
                         </div>
-                    </div>
-                    <div class="text-center mt-3" >
-                        <button type="button" class="btn btn-outline-secondary">Cancel</button>
-                        <button type="button" class="btn btn-default" style="background-color: blue;color:white">Save</button>
-                    </div>
-                    <br>
+                        <br>
+                        </form>
                 </div>
             </div>
         </div>
     </div>
        </div></div></div></div>
+       <script>
+        function previewImage(event) {
+            var input = event.target;
+            var reader = new FileReader();
+    
+            reader.onload = function () {
+                var output = document.getElementById('image-preview');
+                output.src = reader.result;
+                output.style.display = 'block';
+            };
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    </script>
+           <script>
+            function previewTTD(event) {
+                var input = event.target;
+                var reader = new FileReader();
+        
+                reader.onload = function () {
+                    var output = document.getElementById('ttd-preview');
+                    output.src = reader.result;
+                    output.style.display = 'block';
+                };
+        
+                reader.readAsDataURL(input.files[0]);
+            }
+        </script>
 </body>
 </html>
 

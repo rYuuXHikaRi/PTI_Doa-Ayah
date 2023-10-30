@@ -65,9 +65,8 @@
                                                     <td>{{ $user->jabatan }}</td>
                                                     <td>{{ $user->nik }}</td>
                                                     <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                                        <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                                                        <a  href="{{ route('user.edit',$user->nik) }}"><button class="btn btn-warning"><i class="fas fa-edit"></i></button></a>
                                                         <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                        <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
                                             
                                                 </tr>
                                                 @endforeach
