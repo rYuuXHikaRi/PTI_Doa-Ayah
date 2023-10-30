@@ -50,135 +50,28 @@
                                         <table id="example" style="width: 100%" class="table table-striped table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th>Sektor Tugas</th>
-                                                    <th>Nama Pengguna</th>
                                                     <th>Nama</th>
-                                                    <th>Nomor HP</th>
+                                                    <th>Bagian</th>
+                                                    <th>Jabatan</th>
+                                                    <th>Nik</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @foreach ($users as $user)
                                                 <tr>
-                                                  <td>Tiger Nixon</td>
-                                                  <td>System Architect</td>
-                                                  <td>Edinburgh</td>
-                                                  <td>61</td>
-                                                  
-                                                  <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                                      <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                                                      <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                      <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
+                                                    <td>{{ $user->nama_karyawan }}</td>
+                                                    <td>{{ $user->nama_bagian }}</td>
+                                                    <td>{{ $user->jabatan }}</td>
+                                                    <td>{{ $user->nik }}</td>
+                                                    <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
+                                                        <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                                                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                                        <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
+                                            
                                                 </tr>
-                                                <tr>
-                                                  <td>Garrett Winters</td>
-                                                  <td>Accountant</td>
-                                                  <td>Tokyo</td>
-                                                  <td>63</td>
-                                                 
-                                                  <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                                      <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                                                      <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                      <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                  <td>Ashton Cox</td>
-                                                  <td>Junior Technical Author</td>
-                                                  <td>San Francisco</td>
-                                                  <td>66</td>
-                                                  
-                                                  <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                                      <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                                                      <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                      <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                  <td>Cedric Kelly</td>
-                                                  <td>Senior Javascript Developer</td>
-                                                  <td>Edinburgh</td>
-                                                  <td>22</td>
-                                                  
-                                                  <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                                      <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                                                      <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                      <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                  <td>Airi Satou</td>
-                                                  <td>Accountant</td>
-                                                  <td>Tokyo</td>
-                                                  <td>33</td>
-                                                 
-                                                  <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                                      <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                                                      <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                      <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                  <td>Brielle Williamson</td>
-                                                  <td>Integration Specialist</td>
-                                                  <td>New York</td>
-                                                  <td>61</td>
-                                                  
-                                                  <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                                      <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                                                      <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                      <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                  <td>Herrod Chandler</td>
-                                                  <td>Sales Assistant</td>
-                                                  <td>San Francisco</td>
-                                                  <td>59</td>
-                                                  
-                                                  <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                                      <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                                                      <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                      <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                  <td>Rhona Davidson</td>
-                                                  <td>Integration Specialist</td>
-                                                  <td>Tokyo</td>
-                                                  <td>55</td>
-                                                  
-                                                  <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                                      <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                                                      <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                      <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                  <td>Colleen Hurst</td>
-                                                  <td>Javascript Developer</td>
-                                                  <td>San Francisco</td>
-                                                  <td>39</td>
-                                                  
-                                                  <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                                      <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                                                      <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                      <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                  <td>Sonya Frost</td>
-                                                  <td>Software Engineer</td>
-                                                  <td>Edinburgh</td>
-                                                  <td>23</td>
-                                                 
-                                                  <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                                      <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                                                      <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                      <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
-                                                </tr>
-                                                <tr>
-                                                  <td>Sonyi</td>
-                                                  <td>Software Engineer</td>
-                                                  <td>Edinburgh</td>
-                                                  <td>23</td>
-                                               
-                                                  <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                                      <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                                                      <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                                      <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
-                                                </tr>
+                                                @endforeach
+
                                               </tbody>
                                         </table>
                                     </div>
