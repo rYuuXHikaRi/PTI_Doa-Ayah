@@ -32,6 +32,15 @@
         margin-left: 5%;
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .icons {
+        margin-right: 20px;
+    }
+    .icon_ket {
+        margin: 8%;
+        margin-top: 3%;
     }
     .box_ket {
         background: #E2ECF9;
@@ -42,6 +51,7 @@
         margin-left: 5%;
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
     }
     .box h1 {
         color: rgba(0, 0, 0, 0.40);
@@ -60,7 +70,6 @@
         margin: 5.6%;
     }
     .card-body h1 {
-        color: #0253BA;
         font-size: 13px;
         font-style: normal;
         font-weight: 600;
@@ -99,6 +108,9 @@
         font-style: normal;
         font-weight: 600;
         line-height: normal;
+    }
+    .text h1 {
+        color: #0253BA;
     }
     button {
         background: #0253BA;

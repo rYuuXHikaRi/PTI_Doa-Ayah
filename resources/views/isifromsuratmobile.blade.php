@@ -10,15 +10,26 @@
     </div>
     <div class="card-body">
         <div class="box">
-            <h1>Tukar Jaga</h1>
+            <h1>Nama Pengguna</h1>
+            <div class="icons">
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
         </div>
         <div class="box">
-            <h1>Permohonan Cuti</h1>
+            <h1>Shift</h1>
+            <div class="icons">
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
         </div>
         <div class="box_ket">
-            <h1>Permohonan Izin</h1>
+            <h1>Keterangan</h1>
+            <div class="icon_ket">
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
         </div>
-        <h1>Lampiran Bukti (Optional)</h1>
+        <div class="text">
+            <h1>Lampiran Bukti (Optional)</h1>
+        </div>
         <div class="pilih">
             <div class="isi">
                 <h1>Pilih File</h1>

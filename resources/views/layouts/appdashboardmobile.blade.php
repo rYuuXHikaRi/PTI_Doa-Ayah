@@ -29,7 +29,7 @@
              background-repeat: no-repeat;">
     <div id="app">
         <div class="upbar">
-            <img src="img/logo.png" alt="logo" style="width:14%; height:70%; margin-top:12px; margin-left:100px;">
+            <img src="img/logo.png" alt="logo" style="width:12%; height:70%; margin-top:12px; margin-left:100px;">
             <p>Perizinan</p>
             <div class="elips">
                 <img src="img/chibi.png" alt="logo_user">

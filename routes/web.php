@@ -50,3 +50,11 @@ Route::get('/isi', function () {
 Route::get('/mobile', function () {
     return view('homemobile');
 });
+
+Route::get('/lihat', function () {
+    return view('lihatstatusmobile');
+});
+
+Route::get('/daftar', function () {
+    return view('daftarpermohonanmobile');
+});
