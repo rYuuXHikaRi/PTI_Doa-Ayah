@@ -5,7 +5,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
-    <link rel="stylesheet" href="../../css/arsip.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/create.css') }}">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://unpkg.com/cropperjs/dist/cropper.css" />
     <script src="https://unpkg.com/cropperjs/dist/cropper.js"></script>
@@ -41,7 +41,7 @@
                     @method('POST')
                     <div class="tab-pane fade active show" id="account-general">
                         <div class="card-body media align-items-center">
-                            <img src="img/profil.jpeg" style="width:20%" class="rounded-circle">
+                            <img src="{{ asset('assets/profil/imhim-low-resolution-logo-black-on-white-background.png') }}" alt="Logo" style="width:20%" class="rounded-circle">
                             <div class="media-body ml-4">
                                 <label for="foto" >Upload Foto</label>
                                 <img id="image-preview" src="#" alt="Preview" style="display:none; max-width: 200px; margin-top: 10px;">
@@ -85,7 +85,6 @@
                                         </select>
                                     </div>
                                
-                            
                       
                                     <div class="form-group">
                                         <label for="lang2">Jabatan</label>
