@@ -55,10 +55,10 @@
                                         </div>
                                         <div class="form-group row" hidden>
                                             <label for="tanggalSelesai" class="col-md-4 col-form-label">Tanggal
-                                                dibuat</label>
+                                                terbit</label>
                                             <div class="col-md-8">
                                                 <input type="date" class="form-control" id="tanggalSelesai"
-                                                    name="tanggal_selesai" style="background-color: #E0E0E0;" placeholder="{{$arsip->tanggal_selesai}}" value="{{ $arsip->tanggal_selesai }}">
+                                                    name="tanggal_selesai" style="background-color: #E0E0E0;" placeholder="{{$arsip->tanggal_terbit}}" value="{{ $arsip->tanggal_terbit }}">
                                             </div>
                                         </div>
                                         <div class="form-group row">

@@ -67,9 +67,33 @@ class ArsipController extends Controller
 
     }
 
-    public function update(UpdateArsipRequest $request, Arsip $arsip)
+    public function update(Request $request, $id)
     {
-        
+        $arsip = Arsip::where('id', $id)->first();
+        $arsip->nama_arsip = $request->input('nama_arsip');
+        $arsip->kode_arsip = $request->input('kode_arsip');
+        $arsip->perihal = $request->input('perihal');
+        $arsip->perihal = $request->input('perihal');
+        $arsip->kategori = $request->input('kategori');
+        $arsip->tanggal_terbit = $request->input('tanggal_terbit');
+        $arsip->tanggal_selesai = $request->input('tanggal_selesai');
+
+        if ($request->hasFile('file')) {
+            $validatedData = $request->validate([
+                'file' => 'required|mimes:jpeg,png,jpg,gif|max:5120 ',
+            ]);
+            $file = $validatedData[('file')];
+            $filename =  $file->getClientOriginalName();
+            // File upload location
+            $location = '../public/assets/file/';
+            $file->move(public_path($location), $filename);
+            $arsip->NamaFile = $filename;
+        }
+        $arsip->save();
+        $title = "Edit Arsip";
+        Session::flash('success', 'Data Arsip Berhasil DiUbah');
+        $arsips=Arsip::all();
+        return view('admin.arsip.edit',compact(['arsips','title']));
     }
 
     public function destroy($id)
