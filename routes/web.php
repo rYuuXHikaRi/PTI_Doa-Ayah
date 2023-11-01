@@ -28,6 +28,10 @@ Route::get('/kelolapengguna', function () {
     return view('kelolapengguna');
 });
 
+Route::get('/detail', function () {
+    return view('admin.user.detail');
+});
+
 Route::resource('user',UserController::class);
 
 Auth::routes();

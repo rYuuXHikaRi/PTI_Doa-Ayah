@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+.profile-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-picture {
+    text-align: center;
+}
+
+.profile-picture img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.profile-details {
+    margin-top: 20px;
+}
+
+.profile-details p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.profile-details label {
+    font-weight: bold;
+}
+.profile-details label {
+    width: 150px; /* Atur lebar label sesuai kebutuhan Anda */
+    display: inline-block;
+}
+
+.profile-details p {
+    margin: 5px 0; /* Menambahkan sedikit ruang antara setiap keterangan */
+}
