@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     
@@ -25,7 +25,7 @@
 <body>
     <div id="app">
         <div class="sidebar">
-            <img src="img/logo.png" alt="logo" style="width:40%;margin-left:50px;">
+            <img src="{{ asset('img/logo.png') }}" alt="Logo" style="width:40%;margin-left:50px;">
             <div class="menu-box">
                 <ul class="menu">
                     <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
