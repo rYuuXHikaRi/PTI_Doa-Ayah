@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Arsip;
-use App\Http\Requests\StoreArsipRequest;
-use App\Http\Requests\UpdateArsipRequest;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
+
+
 
 
 
@@ -50,7 +51,7 @@ class ArsipController extends Controller
         $title = "Tambah Arsip";
 
         $file1->move(public_path($location1), $filename1);
-         Session::flash('success', 'Data Arsip Berhasil Ditambahkan');
+        Session::flash('success', 'Data Arsip Berhasil Ditambahkan');
         return view('admin.arsip.create', compact(["title"]));
     }
 
@@ -112,22 +113,34 @@ class ArsipController extends Controller
         // return view('admin.arsip.index',compact(['arsips','title']));
         return redirect()->back();
     }
-    public function downloadarsip(Request $request, $id ,$file)
+    public function downloadarsip(Request $request, $id, $file)
     {
 
-           $arsip = Arsip::find($id);
-           dd($arsip);
+        $arsip = Arsip::find($id);
 
-           // Tentukan path file
-           $file_path = storage_path('app/public/assets/file/') . $arsip->file_name;
+        if (!$arsip) {
+            abort(404);
+        }
+        $file_path = storage_path('app/public/assets/file/') . $arsip->file;
+        // dd($file_path);
 
-           // Tentukan nama file yang akan di-download
-           $file_name = $arsip->file;
 
-           // Tentukan tipe mime sesuai dengan ekstensi file
-           $mime_type = mime_content_type($file_path);
+        // Tentukan nama file yang akan di-download
+        $file = $arsip->file;
+        // dd($file_path);
+        $extension = pathinfo($file_path, PATHINFO_EXTENSION);
 
-           // Return response untuk download file
-           return response()->download($file_path, $file_name, ['Content-Type' => $mime_type]);
+        // Map ekstensi ke tipe MIME (tambahkan ekstensi yang diperlukan)
+        $mime_types = [
+            'pdf' => 'application/pdf',
+            'doc' => 'application/msword',
+            'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        ];
+
+        // Tentukan tipe MIME berdasarkan ekstensi file
+        $mime_type = $mime_types[$extension] ?? 'application/octet-stream';
+
+        // Return response untuk download file
+        return response()->download($file_path, $file, ['Content-Type' => $mime_type]);
     }
 }
