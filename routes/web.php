@@ -2,34 +2,31 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\ArsipController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/arsip', function () {
-    return view('arsip');
-});
+// Route::get('/arsip', function () {
+//     return view('arsip');
+// });
 
-Route::get('/kelolapengguna', function () {
-    return view('kelolapengguna');
-});
+// Route::get('/tambaharsip', function () {
+//     return view('admin.arsip.create');
+// });
 
-Route::resource('user',UserController::class);
+Route::resource('arsip', ArsipController::class);
+Route::get('/arsip', [ArsipController::class, 'index'])->name('indexarsip');
+// Route::get('/tambaharsip', [ArsipController::class, 'create'])->name('createarsip');
+// Route::get('/arsip/{id}', [ArsipController::class, 'edit'])->name('editarsip');
+Route::delete('/arsip/{id}', [ArsipController::class, 'delete'])->name('destroyarsip');
+// route::post('/tambaharsip', [ArsipController::class,'store'])->name('storearsip');
+
+
+
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
