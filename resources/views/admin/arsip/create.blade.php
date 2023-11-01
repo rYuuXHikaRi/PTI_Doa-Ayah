@@ -1,6 +1,15 @@
 @extends('../layouts.app')
 
 @section('content')
+@if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @elseif (session('successdelete'))
+    <div class="alert alert-success">
+        {{ session('successdelete') }}
+    </div>
+    @endif
     <section>
         <body>
             <div class="container py-5" style="background-color: blue; border-radius: 25px;">

@@ -66,16 +66,20 @@
                                                         <td>{{ $arsip->created_at->format('Y-m-d') }}</td>
                                                         <td>{{ $arsip->tanggal_selesai }}</td>
                                                         <td>{{ $arsip->lokasi_arsip }}</td>
-                                                        <td><button class="btn btn-primary"><i
-                                                                    class="fas fa-eye"></i></button>
+                                                        <td hidden>{{ $arsip->file }}</td>
+
+                                                        <td>
+                                                            {{-- <button class="btn btn-primary"><i
+                                                                    class="fas fa-eye"></i></button> --}}
                                                             <a href="{{ route('arsip.edit', $arsip->id) }}"><button
                                                                     class="btn btn-warning">
                                                                     <i class="fas fa-edit"></i></button></a>
                                                             <a role="button"  class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm{{$arsip->id}}"><button
                                                                 class="btn btn-danger" data-toggle="modal" data-target="#hapusModal">
                                                                     <i class="fas fa-trash"></i></button></a>
-                                                            <button class="btn btn-success"><i
-                                                                    class="fas fa-download"></i></button>
+                                                            <a href="{{ route('arsipdownload', ['file' => $arsip->file, 'id' => $arsip->id]) }}"><button class="btn btn-success"><i
+                                                                class="fas fa-download"></i></button></a>
+
 
                                                             <div class="modal fade bd-example-modal-sm{{$arsip->id}}" tabindex="-1" role="dialog" aria-hidden="true">
                                                                 <div class="modal-dialog">
