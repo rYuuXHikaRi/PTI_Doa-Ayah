@@ -46,9 +46,6 @@
                                 <label for="foto" >Upload Foto</label>
                                 <img id="image-preview" src="#" alt="Preview" style="display:none; max-width: 200px; margin-top: 10px;">
                                 <input name="foto" class="btn btn-outline-primary" title="Upload Foto" type="file" id="photo" onchange="previewImage(event)" accept="image/*">
-
-                                    
-                                
                             </div>
                         </div>
                         <hr class="border-light m-0">
