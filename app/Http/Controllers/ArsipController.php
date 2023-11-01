@@ -70,17 +70,19 @@ class ArsipController extends Controller
     public function update(Request $request, $id)
     {
         $arsip = Arsip::where('id', $id)->first();
+        // dd($arsip);
         $arsip->nama_arsip = $request->input('nama_arsip');
         $arsip->kode_arsip = $request->input('kode_arsip');
         $arsip->perihal = $request->input('perihal');
-        $arsip->perihal = $request->input('perihal');
+        $arsip->lokasi_arsip = $request->input('lokasi_arsip');
         $arsip->kategori = $request->input('kategori');
         $arsip->tanggal_terbit = $request->input('tanggal_terbit');
         $arsip->tanggal_selesai = $request->input('tanggal_selesai');
+        $arsip->file = $request->input('file');
 
         if ($request->hasFile('file')) {
             $validatedData = $request->validate([
-                'file' => 'required|mimes:jpeg,png,jpg,gif|max:5120 ',
+                'file' => 'required|mimes:pdf,doc,docx|max:5120',
             ]);
             $file = $validatedData[('file')];
             $filename =  $file->getClientOriginalName();
@@ -94,6 +96,8 @@ class ArsipController extends Controller
         Session::flash('success', 'Data Arsip Berhasil DiUbah');
         $arsips=Arsip::all();
         return view('admin.arsip.edit',compact(['arsips','title']));
+        // return redirect()->route('arsip.index')->with('success', 'User berhasil diupdate.');
+
     }
 
     public function destroy($id)

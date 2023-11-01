@@ -34,7 +34,7 @@
                                         <div class="form-group row">
                                             <label for="namaArsip" class="col-md-4 col-form-label">Nama Arsip</label>
                                             <div class="col-md-8">
-                                                <input type="text" class="form-control" id="namaArsip"
+                                                <input type="text" class="form-control" id="namaArsip" name="nama_arsip"
                                                      style="background-color: #E0E0E0;" value="{{ $arsip->nama_arsip }}"
                                                     placeholder="{{ $arsip->nama_arsip }}">
                                             </div>
@@ -42,15 +42,15 @@
                                         <div class="form-group row">
                                             <label for="kodeArsip" class="col-md-4 col-form-label">Kode Arsip</label>
                                             <div class="col-md-8">
-                                                <input type="text" class="form-control" id="kodeArsip"
+                                                <input type="text" class="form-control" id="kodeArsip" name="kode_arsip"
                                                     placeholder="{{$arsip->kode_arsip}}" value="{{ $arsip->kode_arsip }}" style="background-color: #E0E0E0;">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="perihal" class="col-md-4 col-form-label">Perihal</label>
                                             <div class="col-md-8">
-                                                <input type="text" class="form-control" id="perihal"
-                                                placeholder="{{$arsip->perihal}}" value="{{ $arsip->perihal }}" style="background-color: #E0E0E0;">
+                                                <input type="text" class="form-control" id="perihal" name="perihal"
+                                                placeholder="{{$arsip->perihal}}" value="{{ $arsip->perihal }}" style="background-color: #E0E0E0;" >
                                             </div>
                                         </div>
                                         <div class="form-group row" hidden>
@@ -58,7 +58,7 @@
                                                 terbit</label>
                                             <div class="col-md-8">
                                                 <input type="date" class="form-control" id="tanggalSelesai"
-                                                    name="tanggal_selesai" style="background-color: #E0E0E0;" placeholder="{{$arsip->tanggal_terbit}}" value="{{ $arsip->tanggal_terbit }}">
+                                                    name="tanggal_terbit" style="background-color: #E0E0E0;" placeholder="{{$arsip->tanggal_terbit}}" value="{{ $arsip->tanggal_terbit }}">
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -72,7 +72,7 @@
                                         <div class="form-group row">
                                             <label for="lokasiArsip" class="col-md-4 col-form-label">Lokasi Arsip</label>
                                             <div class="col-md-8">
-                                                <select class="form-control" id="lokasiArsip" name="lokasi_arsip" style="background-color: #E0E0E0;">
+                                                <select class="form-control" id="lokasiArsip" name="lokasi_arsip" style="background-color: #E0E0E0;" name="lokasi_arsip">
                                                     <option value="" disabled selected>{{$arsip->lokasi_arsip}}</option>
                                                     <option value="Lemari" {{$arsip->lokasi_arsip == 'Lemari' ? 'selected' : ''}}>Lemari</option>
                                                     <option value="Rak" {{$arsip->lokasi_arsip == 'Rak' ? 'selected' : ''}}>Rak</option>
@@ -82,7 +82,7 @@
                                         <div class="form-group row">
                                             <label for="kategori" class="col-md-4 col-form-label">Kategori</label>
                                             <div class="col-md-8">
-                                                <select class="form-control" id="kategori" name="kategori" style="background-color: #E0E0E0;">
+                                                <select class="form-control" id="kategori" name="kategori" style="background-color: #E0E0E0;" name="kategori">
                                                     <option value="" disabled selected>{{$arsip->kategori}}</option>
                                                     <option value="Perizinan" {{$arsip->kategori == 'Perizinan' ? 'selected' : ''}}>Perizinan</option>
                                                     <option value="SIP" {{$arsip->kategori == 'SIP' ? 'selected' : ''}}>SIP (Surat Izin Praktik)</option>
