@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 </head>
 <body>
-    
+
     <div class="container py-5" style="background-color: blue; border-radius: 25px;">
-        
+
         <div class="container py-6">
             <div class="card-header" style="background-color: blue; color: white; border-bottom: 2px solid white;">
                 <div class="d-flex justify-content-between align-items-center">
@@ -19,10 +19,10 @@
                         <span class="font-weight-bold" style="font-size: 30px;">Kelola Pengguna</span>
                     </div>
                 </div><br>
-                
+
             <div class="row py-6">
-                <div class="col-lg-12 mx-auto"> 
-                    <div class="card rounded shadow border-2"> 
+                <div class="col-lg-12 mx-auto">
+                    <div class="card rounded shadow border-2">
                         <div class="card-body p-5 bg-white rounded">
                             <div style="text-align: right">
                                 <button class="btn btn-success" style="font-size: 24px;border-radius:100px;background-color:#0D72F2">+</button>
@@ -67,7 +67,7 @@
                                                     <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
                                                         <a  href="{{ route('user.edit',$user->nik) }}"><button class="btn btn-warning"><i class="fas fa-edit"></i></button></a>
                                                         <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                            
+
                                                 </tr>
                                                 @endforeach
 
@@ -76,9 +76,9 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                        
-                    
+
+
+
                     </div>
                   </div>
                 </div>

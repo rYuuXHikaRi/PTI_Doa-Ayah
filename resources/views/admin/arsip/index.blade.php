@@ -63,7 +63,7 @@
                                                         <td>{{ $arsip->kode_arsip }}</td>
                                                         <td>{{ $arsip->perihal }}</td>
                                                         <td>{{ $arsip->kategori }}</td>
-                                                        <td>{{ $arsip->tanggal_terbit }}</td>
+                                                        <td>{{ $arsip->created_at->format('Y-m-d') }}</td>
                                                         <td>{{ $arsip->tanggal_selesai }}</td>
                                                         <td>{{ $arsip->lokasi_arsip }}</td>
                                                         <td><button class="btn btn-primary"><i

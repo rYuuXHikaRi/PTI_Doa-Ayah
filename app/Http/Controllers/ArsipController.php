@@ -4,13 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Arsip;
 use App\Http\Requests\StoreArsipRequest;
-use App\Http\Requests\DestroyArsipRequest;
 use App\Http\Requests\UpdateArsipRequest;
-use App\Http\Resources\ArsipResource;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
 
 class ArsipController extends Controller
 {
@@ -25,7 +21,7 @@ class ArsipController extends Controller
         $title = "Tambah Arsip";
         return view("admin.arsip.create", compact(["title"]));
     }
-    public function store(StoreArsipRequest $request)
+    public function store(Request $request)
     {
         // Log::info('Received POST data:', $request->all());
         $validatedData = $request->validate([
@@ -38,14 +34,15 @@ class ArsipController extends Controller
             'perihal' =>  $request->perihal,
             'lokasi_arsip' => $request->lokasi_arsip,
             'kategori' => $request->kategori,
-            'tanggal_dibuat' => $request->tanggal_dibuat,
+            'tanggal_terbit' => $request->tanggal_terbit,
             'tanggal_selesai' => $request->tanggal_selesai,
             'file' => $request->file,
         ]);
+        $title = "Tambah Arsip";
 
         // $file->move(public_path($location), $filename);
         Session::flash('success', 'Data User Berhasil Ditambahkan');
-        return view('admin.arsip.create');
+        return view('admin.arsip.create', compact(["title"]));
     }
 
 
