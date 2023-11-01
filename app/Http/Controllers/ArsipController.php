@@ -27,6 +27,12 @@ class ArsipController extends Controller
         $validatedData = $request->validate([
             'file' => 'required|mimes:pdf,doc,docx|max:5120',
         ]);
+        $file1 = $validatedData[('file')];
+        $filename1 =  $file1->getClientOriginalName();
+
+
+        // File upload location
+        $location1 = '../public/assets/file/';
 
         Arsip::create([
             'nama_arsip' => $request->nama_arsip,
@@ -39,6 +45,7 @@ class ArsipController extends Controller
             'file' => $request->file,
         ]);
         $title = "Tambah Arsip";
+        $file1->move(public_path($location1), $filename1);
 
         // $file->move(public_path($location), $filename);
         Session::flash('success', 'Data User Berhasil Ditambahkan');
@@ -62,7 +69,7 @@ class ArsipController extends Controller
 
     public function update(UpdateArsipRequest $request, Arsip $arsip)
     {
-        //
+        
     }
 
     public function destroy($id)
