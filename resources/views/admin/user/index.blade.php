@@ -26,7 +26,7 @@
                         <div class="card-body p-5 bg-white rounded">
                             <div style="text-align: right">
                                 <button class="btn btn-success" style="font-size: 24px;border-radius:100px;background-color:#0D72F2">+</button>
-                                <button class="btn btn-primary" style="font-size: 20px;border-radius:20px;">Tambah Pengguna</button>
+                                <a href="{{ route('user.create') }}"><button class="btn btn-primary" style="font-size: 20px;border-radius:20px;">Tambah Pengguna</button></a>
                             </div><br><br>
 
 
@@ -66,7 +66,34 @@
                                                     <td>{{ $user->nik }}</td>
                                                     <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
                                                         <a  href="{{ route('user.edit',$user->nik) }}"><button class="btn btn-warning"><i class="fas fa-edit"></i></button></a>
-                                                        <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+                                                        <a role="button"  class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm{{$user->id}}"><button
+                                                            class="btn btn-danger" data-toggle="modal" data-target="#hapusModal">
+                                                                <i class="fas fa-trash"></i></button></a>
+
+                                                        
+                                                                <div class="modal fade bd-example-modal-sm{{$user->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+                                                                    <div class="modal-dialog">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title"><strong>Hapus Data</strong></h5>
+                                                                                <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">Apakah anda yakin ingin menghapus data?</div>
+                                                                            <div class="modal-footer" style="left:0px; height: 80px;">
+                                                                                <form action="{{route('user.destroy', $user->id)}}" method="POST">
+                                                                                @method('DELETE')
+                                                                                @csrf
+                                                                                <div style="display: flex; justify-content: space-between;">
+                                                                                    <button type="button" class="btn submit-btn submit-btn-yes" data-bs-dismiss="modal" style="width: 49%;">Tidak</button>
+                                                                                    <input type="submit" class="btn submit-btn submit-btn-no" name="" id="" value="Hapus" style="width: 49%;">
+                                                                                </div>
+    
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    </div>
 
                                                 </tr>
                                                 @endforeach

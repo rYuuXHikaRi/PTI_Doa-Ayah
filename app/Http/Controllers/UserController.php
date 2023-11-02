@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+
 class UserController extends Controller
 {
     /**
@@ -176,8 +180,15 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $data = User::where('id', $id)->first();
+        $data->delete();
+        Session::flash('success', 'Data Arsip Berhasil Dihapus');
+
+        // $title = "Arsip";
+        $arsips = User::all();
+        // return view('admin.arsip.index',compact(['arsips','title']));
+        return redirect()->back();
     }
 }

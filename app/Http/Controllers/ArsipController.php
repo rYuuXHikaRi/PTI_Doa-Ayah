@@ -43,7 +43,6 @@ class ArsipController extends Controller
             'perihal' => $request->perihal,
             'lokasi_arsip' => $request->lokasi_arsip,
             'kategori' => $request->kategori,
-            'tanggal_terbit' => $request->tanggal_terbit,
             'tanggal_selesai' => $request->tanggal_selesai,
             'file' => $filename1,
         ]);
@@ -79,22 +78,10 @@ class ArsipController extends Controller
         $arsip->perihal = $request->input('perihal');
         $arsip->lokasi_arsip = $request->input('lokasi_arsip');
         $arsip->kategori = $request->input('kategori');
-        $arsip->tanggal_terbit = $request->input('tanggal_terbit');
         $arsip->tanggal_selesai = $request->input('tanggal_selesai');
         $arsip->file = $request->input('file');
 
-        if ($request->hasFile('file')) {
-            $validatedData = $request->validate([
-                'file' => 'required|mimes:pdf,doc,docx|max:5120',
-            ]);
-            $file = $validatedData[('file')];
-            $filename =  $file->getClientOriginalName();
-            // File upload location
-            $location = '../public/assets/file/';
-            $file->move(public_path($location), $filename);
-            $arsip->file = $filename;
-        }
-        $arsip->save();
+
         $title = "Edit Arsip";
         Session::flash('success', 'Data Arsip Berhasil DiUbah');
         $arsip = Arsip::all();
