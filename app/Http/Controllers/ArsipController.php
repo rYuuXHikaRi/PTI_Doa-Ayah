@@ -121,7 +121,7 @@ class ArsipController extends Controller
         if (!$arsip) {
             abort(404);
         }
-        $file_path = storage_path('app/public/assets/file/') . $arsip->file;
+        $file_path = storage_path('../public/assets/file/') . $arsip->file;
         // dd($file_path);
 
 
