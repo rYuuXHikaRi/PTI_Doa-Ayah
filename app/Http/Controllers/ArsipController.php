@@ -51,8 +51,9 @@ class ArsipController extends Controller
         $title = "Tambah Arsip";
 
         $file1->move(public_path($location1), $filename1);
+        $arsips = Arsip::all();
         Session::flash('success', 'Data Arsip Berhasil Ditambahkan');
-        return view('admin.arsip.create', compact(["title"]));
+        return view('admin.arsip.create', compact(["title","arsips"]));
     }
 
 
@@ -96,8 +97,8 @@ class ArsipController extends Controller
         $arsip->save();
         $title = "Edit Arsip";
         Session::flash('success', 'Data Arsip Berhasil DiUbah');
-        $arsips = Arsip::all();
-        return view('admin.arsip.index', compact(['arsips', 'title']));
+        $arsip = Arsip::all();
+        return view('admin.arsip.index', compact(['arsip', 'title']));
         // return redirect()->route('arsip.index')->with('success', 'User berhasil diupdate.');
 
     }

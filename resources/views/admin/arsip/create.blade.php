@@ -99,7 +99,7 @@
                                                 <label for="uploadfile" class="col-md-4 col-form-label">Upload File</label>
                                                 <div class="col-md-8">
                                                     <input type="file" class="form-control" id="file"
-                                                        name="file" style="background-color: #E0E0E0;">
+                                                        name="file" style="background-color: #E0E0E0;" required>
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-primary"

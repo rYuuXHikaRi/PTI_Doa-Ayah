@@ -77,8 +77,13 @@
                                                             <a role="button"  class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm{{$arsip->id}}"><button
                                                                 class="btn btn-danger" data-toggle="modal" data-target="#hapusModal">
                                                                     <i class="fas fa-trash"></i></button></a>
-                                                            <a href="{{ route('arsipdownload', ['file' => $arsip->file, 'id' => $arsip->id]) }}"><button class="btn btn-success"><i
-                                                                class="fas fa-download"></i></button></a>
+                                                            {{-- <a href="{{ route('arsipdownload', ['file' => $arsip->file , 'id' => $arsip->id]) }}"><button class="btn btn-success"><i
+                                                                class="fas fa-download"></i></button></a> --}}
+
+                                                                @if ($arsip->file)
+                                                                <a href="{{ route('arsipdownload', ['id' => $arsip->id, 'file' => $arsip->file]) }}" class="btn btn-success" target="_blank"><i class="fas fa-download"></i></a>
+                                                            @endif
+
 
 
                                                             <div class="modal fade bd-example-modal-sm{{$arsip->id}}" tabindex="-1" role="dialog" aria-hidden="true">
