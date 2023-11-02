@@ -79,7 +79,11 @@ class ArsipController extends Controller
         $arsip->lokasi_arsip = $request->input('lokasi_arsip');
         $arsip->kategori = $request->input('kategori');
         $arsip->tanggal_selesai = $request->input('tanggal_selesai');
+<<<<<<< Updated upstream
   
+=======
+     
+>>>>>>> Stashed changes
 
         $arsip->save();
 
@@ -87,6 +91,10 @@ class ArsipController extends Controller
         $title = "Edit Arsip";
         Session::flash('success', 'Data Arsip Berhasil DiUbah');
         $arsips = Arsip::all();
+<<<<<<< Updated upstream
+=======
+        return view('admin.arsip.index', compact(['arsips', 'title']));
+>>>>>>> Stashed changes
         // return redirect()->route('arsip.index')->with('success', 'User berhasil diupdate.');
         return redirect()->route('arsip.index')->with('success', 'Arsip berhasil diupdate.');
 
