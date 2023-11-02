@@ -74,9 +74,10 @@ class UserController extends Controller
         ]);
         $file1->move(public_path($location1), $filename1);
         $file2->move(public_path($location2), $filename2);
+        Session::flash('success', 'Data User Berhasil Ditambahkan');
 
         // Redirect atau response sesuai kebutuhan aplikasi
-        return redirect()->route('users.index')->with('success', 'User berhasil ditambahkan.');
+        return redirect()->route('user.index')->with('success', 'User berhasil ditambahkan.');
     }
 
     /**
@@ -172,7 +173,7 @@ class UserController extends Controller
 
         // Save the updated user
         $user->save();
-
+        Session::flash('success', 'Data User Berhasil Diubah');
         return redirect()->route('user.index')->with('success', 'User berhasil diupdate.');
     }
 
@@ -184,7 +185,7 @@ class UserController extends Controller
     {
         $data = User::where('id', $id)->first();
         $data->delete();
-        Session::flash('success', 'Data Arsip Berhasil Dihapus');
+        Session::flash('success', 'Data User Berhasil Dihapus');
 
         // $title = "Arsip";
         $arsips = User::all();
