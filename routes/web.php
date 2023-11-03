@@ -58,3 +58,7 @@ Route::get('/lihat', function () {
 Route::get('/daftar', function () {
     return view('daftarpermohonanmobile');
 });
+
+Route::get('/profile', function () {
+    return view('profilemobile');
+});

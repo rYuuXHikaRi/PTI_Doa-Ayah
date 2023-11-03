@@ -35,16 +35,23 @@
                 <img src="img/chibi.png" alt="logo_user">
             </div>
             <div class="dropdown">
-                <button class="dropbtn"><i class="fa-solid fa-chevron-down"></i></button>
+                <ul class="menu">
+                    <i class="fa-solid fa-chevron-down"></i>
+                </ul>
                 <div class="dropdown-content">
-                    <a href="#">Pilihan 1</a>
-                    <a href="#">Pilihan 2</a>
+                    <div class="notif_text">
+                        <h1>Permohonan <b>Tukar Jaga dengan Ningguang</b> telah disetujui</h1>
+                    </div>
+                    <div class="line">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        <h1>Keluar</h1>
+                    </div>
                 </div>
             </div>
 
 <script>
 // Mengambil elemen tombol dropdown
-var dropdownButton = document.querySelector(".dropbtn");
+var dropdownButton = document.querySelector(".menu");
 
 // Mengambil elemen isi dropdown
 var dropdownContent = document.querySelector(".dropdown-content");

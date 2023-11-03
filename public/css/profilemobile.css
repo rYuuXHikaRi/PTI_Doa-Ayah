@@ -1,0 +1,92 @@
+@media screen and (max-width:  575.98px) {
+    .container {
+        margin: 5%;
+    }
+    .card {
+        background: rgba(230, 239, 250, 0.80);
+        border-radius: 10px 10px 0px 0px;
+        width: 90%;
+        height: 50px;
+    }
+    .card h1 {
+        color: #0253BA;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 800px;
+        line-height: normal;
+        padding: 4.7%;
+    }
+    .card-body {
+        background: rgba(230, 239, 250, 0.65);
+        width: 90%;
+        height: 580px;
+    }
+    .lapisan {
+        background: #E2ECF9;
+        width: 95%;
+        height: 90%;
+        margin: 2.3%;
+        border-radius: 10px;
+    }
+    .teks h1 {
+        color: #0253BA;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-left: 5.6%;
+    }
+    .box {
+        background: #E2ECF9;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        width: 90%;
+        height: 7%;
+        margin: 3%;
+        margin-left: 14px;
+        border-radius: 10px;
+    }
+    .box_gelap {
+        background: #CCD9EC;
+        width: 90%;
+        height: 7%;
+        margin: 3%;
+        margin-left: 14px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: row;
+    }
+    .pilih {
+        background: #0253BA;
+        width: 30%;
+        height: 70%;
+        margin: 2%;
+        border-radius: 5px;
+    }
+    .pilih h1 {
+        color: #E2ECF9;
+        text-align: center;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    .no h1 {
+        color: #0253BA;
+        text-align: center;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+        margin-top: 8px;
+    }
+    button {
+        background: #0253BA;
+        color: white;
+        width: 90%;
+        height: 40px;
+        flex-shrink: 0;
+        border-radius: 5px;
+        margin: 2%;
+        margin-left: 14.5px;
+    }
+}
