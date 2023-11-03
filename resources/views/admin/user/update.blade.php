@@ -68,48 +68,56 @@
                                     <input type="text" class="form-control" placeholder="Nomor Hp" name="nomor_hp" style="background-color: #CCD9EC" value="{{ $user->nomor_hp }}" placeholder="{{ $user->nomor_hp }}" required>
                                 </div>
                                 <div class="form-container" style="display: flex;justify-content: space-between;">
-                                 
-                                        <div class="form-group">
-                                            <label for="lang1">Nama Bagian</label>
-                                            <select  id="lang1" class="form-control" name="nama_bagian" style="background-color: #CCD9EC" aria-valuenow="{{ $user->nama_bagian }}" aria-placeholder="{{ $user->nama_bagian }}">
-                                                <option value="javascript">Pilih Bagian 1</option>
-                                                <option value="php">Pilih Bagian 2</option>
-                                                <!-- Opsi lainnya -->
-                                            </select>
-                                        </div>
-                                   
-                 
-                          
-                                        <div class="form-group">
-                                            <label for="lang2">Jabatan</label>
-                                            <select  id="lang2" name="jabatan" class="form-control" style="background-color: #CCD9EC" aria-valuenow="{{ $user->jabatan }}" aria-placeholder="{{ $user->jabatan }}">
-                                                <option value="java">Jabatan 1</option>
-                                                <option value="python">Jabatan 2</option>
-                                                <!-- Opsi lainnya -->
-                                            </select>
-                                        </div>
-                                 
-                                </div>
-                                
-                                <div class="form-container" style="display: flex; justify-content: space-between;">
                              
-                                        <div class="form-group">
-                                            <label for="lang1">Roles</label>
-                                            <select  id="lang1" name="id_roles" class="form-control" style="background-color: #CCD9EC" aria-valuenow="{{ $user->id_roles }}" aria-placeholder="{{ $user->id_roles }}">
-                                                <option value=1>Pilih Roles 1</option>
-                                                <option value=2>Pilih Roles 2</option>
-                                                <!-- Opsi lainnya -->
-                                            </select>
-                                        </div>
+                                    <div class="form-group">
+                                        <label for="lang1">Nama Bagian</label>
+                                        <select  id="lang1" class="form-control" name="nama_bagian" style="background-color: #CCD9EC">
+                                            <option value="Dokter">Dokter</option>
+                                            <option value="Perawat">Perawat</option>
+                                            <option value="IT">IT</option>
+                                            <option value="Keamanan">Keamanan</option>
+                                            <option value="Teknisi">Teknisi</option>
+                                            <!-- Opsi lainnya -->
+                                        </select>
+                                    </div>
+                               
+                      
+                                    <div class="form-group">
+                                        <label for="lang2">Jabatan</label>
+                                        <select  id="lang2" name="jabatan" class="form-control" style="background-color: #CCD9EC">
+                                            <option value="Direktur">Direktur</option>
+                                            <option value="Manajer">Manajer</option>
+                                            <option value="Kepala Bagian">Kepala Bagian</option>
+                                            <option value="HRD">HRD</option>
+                                            <option value="Staff">Staff</option>
+                                            <!-- Opsi lainnya -->
+                                        </select>
+                                    </div>
+                             
+                            </div>
                             
-                                        <div class="form-group">
-                                            <label for="tanda_tangan">Tanda Tangan</label>
-                                            <img id="ttd-preview" src="#" alt="Preview" style="display:none; max-width: 200px; margin-top: 10px;">
-                                            <input name="tanda_tangan" class="btn btn-outline-primary" title="Upload Tanda Tangan" type="file" id="tanda_tangan" onchange="previewTTD(event)" accept="image/*" value="{{ $user->tanda_tangan }}" aria-placeholder="{{ $user->tanda_tangan }}">
-    
-                                        </div>
-                                  
-                                </div>
+                            <div class="form-container" style="display: flex; justify-content: space-between;">
+                         
+                                    <div class="form-group">
+                                        <label for="lang1">Roles</label>
+                                        <select  id="lang1" name="id_roles" class="form-control" style="background-color: #CCD9EC">
+                                            <option value=1>Kepala Bagian</option>
+                                            <option value=2>Admin / HRD</option>
+                                            <option value=3>Karyawan / Staff</option>
+                                            <!-- Opsi lainnya -->
+                                        </select>
+                                    </div>
+                            
+                            
+                        
+                                    <div class="form-group">
+                                        <label for="tanda_tangan">Tanda Tangan</label>
+                                        <img id="ttd-preview" src="#" alt="Preview" style="display:none; max-width: 200px; margin-top: 10px;">
+                                        <input name="tanda_tangan" class="btn btn-outline-primary" title="Upload Tanda Tangan" type="file" id="tanda_tangan" onchange="previewTTD(event)" accept="image/*">
+
+                                    </div>
+                              
+                            </div>
                                 
                             </div>
                         </div>

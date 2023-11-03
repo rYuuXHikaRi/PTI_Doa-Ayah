@@ -76,8 +76,11 @@
                                     <div class="form-group">
                                         <label for="lang1">Nama Bagian</label>
                                         <select  id="lang1" class="form-control" name="nama_bagian" style="background-color: #CCD9EC">
-                                            <option value="javascript">Pilih Bagian 1</option>
-                                            <option value="php">Pilih Bagian 2</option>
+                                            <option value="Dokter">Dokter</option>
+                                            <option value="Perawat">Perawat</option>
+                                            <option value="IT">IT</option>
+                                            <option value="Keamanan">Keamanan</option>
+                                            <option value="Teknisi">Teknisi</option>
                                             <!-- Opsi lainnya -->
                                         </select>
                                     </div>
@@ -86,8 +89,11 @@
                                     <div class="form-group">
                                         <label for="lang2">Jabatan</label>
                                         <select  id="lang2" name="jabatan" class="form-control" style="background-color: #CCD9EC">
-                                            <option value="java">Jabatan 1</option>
-                                            <option value="python">Jabatan 2</option>
+                                            <option value="Direktur">Direktur</option>
+                                            <option value="Manajer">Manajer</option>
+                                            <option value="Kepala Bagian">Kepala Bagian</option>
+                                            <option value="HRD">HRD</option>
+                                            <option value="Staff">Staff</option>
                                             <!-- Opsi lainnya -->
                                         </select>
                                     </div>
@@ -99,8 +105,9 @@
                                     <div class="form-group">
                                         <label for="lang1">Roles</label>
                                         <select  id="lang1" name="id_roles" class="form-control" style="background-color: #CCD9EC">
-                                            <option value=1>Pilih Roles 1</option>
-                                            <option value=2>Pilih Roles 2</option>
+                                            <option value=1>Kepala Bagian</option>
+                                            <option value=2>Admin / HRD</option>
+                                            <option value=3>Karyawan / Staff</option>
                                             <!-- Opsi lainnya -->
                                         </select>
                                     </div>

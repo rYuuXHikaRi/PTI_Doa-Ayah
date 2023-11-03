@@ -64,7 +64,7 @@
                                                     <td>{{ $user->nama_bagian }}</td>
                                                     <td>{{ $user->jabatan }}</td>
                                                     <td>{{ $user->nik }}</td>
-                                                    <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
+                                                    <td> <a href="{{ route('user.show',$user->id) }}"><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a>
                                                         <a  href="{{ route('user.edit',$user->nik) }}"><button class="btn btn-warning"><i class="fas fa-edit"></i></button></a>
                                                         <a role="button"  class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm{{$user->id}}"><button
                                                             class="btn btn-danger" data-toggle="modal" data-target="#hapusModal">
@@ -94,7 +94,7 @@
                                                                         </div>
                                                                     </div>
                                                                     </div>
-
+                                                    </td>
                                                 </tr>
                                                 @endforeach
 
