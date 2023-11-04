@@ -25,7 +25,50 @@
             </div>
             <h1>Tidak ada file yang dipilih</h1>
         </div>
-        <button>Buat Pengajuan</button>
+
+        <!-- Button trigger modal -->
+        <button onclick="togglePopup()" class="btn btn-primary">
+            Buat Pengajuan
+        </button>
+        <div id="overlay" class="overlay"></div>
+        <div id="myPopup" class="popup">
+            <div class="header_popup">
+                <h1>Pratinjau Permohonan</h1>
+                <div onclick="closePopup()" class="close-button">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi possimus error totam velit ex, maxime a, debitis adipisci fugiat fuga culpa neque natus. 
+                Ipsum quia consectetur sunt, placeat provident laboriosam.</p>
+        </div>
+        <button id="prosesButton" class="popup_submit">
+            Proses Pengajuan
+        </button>
     </div>
+    <script>
+        // Fungsi untuk menampilkan pop-up
+        function togglePopup() {
+        var popup = document.getElementById("myPopup");
+        var overlay = document.getElementById("overlay");
+        popup.style.display = "block";
+        overlay.style.display = "block";
+
+        // Menampilkan tombol "Proses Pengajuan"
+        var prosesButton = document.getElementById("prosesButton");
+        prosesButton.style.display = "block";
+        }
+
+        // Fungsi untuk menutup pop-up
+        function closePopup() {
+        var popup = document.getElementById("myPopup");
+        var overlay = document.getElementById("overlay");
+        popup.style.display = "none";
+
+        // Menghilangkan tombol "Proses Pengajuan"
+        var prosesButton = document.getElementById("prosesButton");
+        prosesButton.style.display = "none";
+        overlay.style.display = "none";
+        }
+    </script>
 </div>
 @endsection
