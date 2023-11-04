@@ -35,9 +35,9 @@
                 <img src="img/chibi.png" alt="logo_user">
             </div>
             <div class="dropdown">
-                <ul class="menu">
+                <div class="menu">
                     <i class="fa-solid fa-chevron-down"></i>
-                </ul>
+                </div>
                 <div class="dropdown-content">
                     <div class="notif_text">
                         <h1>Permohonan <b>Tukar Jaga dengan Ningguang</b> telah disetujui</h1>

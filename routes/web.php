@@ -35,9 +35,9 @@ Route::get('/dashboardkabag', function () {
 //     return view('templatesurat');
 // });
 
-// Route::get('/kelolasurat', function () {
-//     return view('kelolasurat');
-// });
+Route::get('/kelolasurat', function () {
+    return view('kelolasurat');
+});
 
 // Auth::routes();
 

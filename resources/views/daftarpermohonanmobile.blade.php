@@ -22,11 +22,23 @@
                     <p>26/10/2023</p>
                 </div>
                 <div class="list">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 32" fill="none">
-                        <path d="M4 8C1.79086 8 0 6.20914 0 4C0 1.79086 1.79086 0 4 0C6.20914 0 8 1.79086 8 4C8 6.20914 6.20914 8 4 8Z" fill="#0253BA"/>
-                        <path d="M4 32C1.79086 32 0 30.2091 0 28C0 25.7909 1.79086 24 4 24C6.20914 24 8 25.7909 8 28C8 30.2091 6.20914 32 4 32Z" fill="#0253BA"/>
-                        <path d="M0 16C0 18.2091 1.79086 20 4 20C6.20914 20 8 18.2091 8 16C8 13.7909 6.20914 12 4 12C1.79086 12 0 13.7909 0 16Z" fill="#0253BA"/>
-                    </svg>
+                    <div class="svg_container" onclick="toggleBatal()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 32" fill="none">
+                            <path d="M4 8C1.79086 8 0 6.20914 0 4C0 1.79086 1.79086 0 4 0C6.20914 0 8 1.79086 8 4C8 6.20914 6.20914 8 4 8Z" fill="#0253BA"/>
+                            <path d="M4 32C1.79086 32 0 30.2091 0 28C0 25.7909 1.79086 24 4 24C6.20914 24 8 25.7909 8 28C8 30.2091 6.20914 32 4 32Z" fill="#0253BA"/>
+                            <path d="M0 16C0 18.2091 1.79086 20 4 20C6.20914 20 8 18.2091 8 16C8 13.7909 6.20914 12 4 12C1.79086 12 0 13.7909 0 16Z" fill="#0253BA"/>
+                        </svg>
+                    </div>
+                    <div class="popup_batal" id="svgPopup">
+                        <div class="click_batal">
+                            <h1>Batalkan</h1>
+                        </div>
+                        <div class="popup-options" style="display: none;">
+                            <p>Pilihan 1</p>
+                            <p>Pilihan 2</p>
+                            <p>Pilihan 3</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="box">
@@ -36,16 +48,21 @@
                     </svg>
                 </div>
                 <div class="info">
-                    <h1>Tukar jaga dengan Viper</h1>
-                    <p>Shift: Pagi</p>
-                    <p>26/10/2023</p>
+                    <h1>Tukar jaga dengan Phoenix</h1>
+                    <p>Shift: Malam</p>
+                    <p>27/10/2023</p>
                 </div>
                 <div class="list">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 32" fill="none">
-                        <path d="M4 8C1.79086 8 0 6.20914 0 4C0 1.79086 1.79086 0 4 0C6.20914 0 8 1.79086 8 4C8 6.20914 6.20914 8 4 8Z" fill="#0253BA"/>
-                        <path d="M4 32C1.79086 32 0 30.2091 0 28C0 25.7909 1.79086 24 4 24C6.20914 24 8 25.7909 8 28C8 30.2091 6.20914 32 4 32Z" fill="#0253BA"/>
-                        <path d="M0 16C0 18.2091 1.79086 20 4 20C6.20914 20 8 18.2091 8 16C8 13.7909 6.20914 12 4 12C1.79086 12 0 13.7909 0 16Z" fill="#0253BA"/>
-                    </svg>
+                    <div class="svg_container_unduh" onclick="toggleUnduh()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 32" fill="none">
+                            <path d="M4 8C1.79086 8 0 6.20914 0 4C0 1.79086 1.79086 0 4 0C6.20914 0 8 1.79086 8 4C8 6.20914 6.20914 8 4 8Z" fill="#0253BA"/>
+                            <path d="M4 32C1.79086 32 0 30.2091 0 28C0 25.7909 1.79086 24 4 24C6.20914 24 8 25.7909 8 28C8 30.2091 6.20914 32 4 32Z" fill="#0253BA"/>
+                            <path d="M0 16C0 18.2091 1.79086 20 4 20C6.20914 20 8 18.2091 8 16C8 13.7909 6.20914 12 4 12C1.79086 12 0 13.7909 0 16Z" fill="#0253BA"/>
+                        </svg>
+                    </div>
+                    <div class="popup_unduh" id="svgPopupUnduh">
+                        <h1>Unduh</h1>
+                    </div>
                 </div>
             </div>
             <div class="box">
@@ -59,21 +76,62 @@
                     <p>Shift: Pagi</p>
                     <p>26/10/2023</p>
                 </div>
-                <div class="list">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 32" fill="none">
-                        <path d="M4 8C1.79086 8 0 6.20914 0 4C0 1.79086 1.79086 0 4 0C6.20914 0 8 1.79086 8 4C8 6.20914 6.20914 8 4 8Z" fill="#0253BA"/>
-                        <path d="M4 32C1.79086 32 0 30.2091 0 28C0 25.7909 1.79086 24 4 24C6.20914 24 8 25.7909 8 28C8 30.2091 6.20914 32 4 32Z" fill="#0253BA"/>
-                        <path d="M0 16C0 18.2091 1.79086 20 4 20C6.20914 20 8 18.2091 8 16C8 13.7909 6.20914 12 4 12C1.79086 12 0 13.7909 0 16Z" fill="#0253BA"/>
-                    </svg>
-                </div>
             </div>
         </div>
         <div class="pencarian">
             <div class="search">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <h1>Cari berdasarkan tgl atau nama petugas</h1>
+            <input type="text" id="cariInput" class='pencarian_user' placeholder="Cari berdasarkan tgl atau nama petugas">
         </div>
     </div>
+    <script>
+    function toggleBatal() {
+    var popup = document.getElementById("svgPopup");
+    popup.style.display = popup.style.display === "none" ? "block" : "none";
+
+    var popupOptions = document.querySelector('.popup-options');
+    if (popupOptions.style.display === 'block') {
+        popupOptions.style.display = 'none';
+    } else {
+        popupOptions.style.display = 'block';
+    }
+    }
+    document.querySelector('.click_batal').addEventListener('click', toggleBatal);
+
+    function toggleUnduh() {
+    var popup = document.getElementById("svgPopupUnduh");
+    popup.style.display = popup.style.display === "none" ? "block" : "none";
+    }
+
+    // Fungsi untuk mengambil nilai input pencarian
+    function cariData() {
+        var input = document.getElementById('cariInput').value;
+
+        // Loop melalui setiap elemen dengan class "box"
+        var boxes = document.querySelectorAll('.box');
+        for (var i = 0; i < boxes.length; i++) {
+            var box = boxes[i];
+            var info = box.querySelector('.info');
+            var pengguna = info.querySelector('h1').textContent.toLowerCase();
+            var tanggal = info.querySelector('p:nth-child(3)').textContent;
+
+            // Bandingkan nilai "shift" dengan input pencarian
+            if (pengguna.includes(input) || tanggal.includes(input)) {
+                // Hapus kelas "hidden" jika ada
+                box.classList.remove('hidden');
+            } else {
+                // Sembunyikan elemen yang tidak cocok dengan kelas "hidden"
+                box.classList.add('hidden');
+            }
+        }
+    }
+
+    // Memanggil fungsi cariData() saat input berubah
+    document.getElementById('cariInput').addEventListener('input', cariData);
+
+    // Inisialisasi pencarian
+    cariData();
+</script>
 </div>
 @endsection
