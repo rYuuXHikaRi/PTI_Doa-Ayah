@@ -32,6 +32,8 @@
         margin-left: 5%;
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
     .box h1 {
         color: #0253BA;
@@ -41,22 +43,9 @@
         line-height: normal;
         margin: 8%;
     }
-    .icons1 {
+    .icons {
         width: 25px;
         height: 25px;
-        margin: 6%;
-        margin-left: 33%;
-    }
-    .icons2 {
-        width: 25px;
-        height: 25px;
-        margin: 6%;
-        margin-left: 12%;
-    }
-    .icons3 {
-        width: 25px;
-        height: 25px;
-        margin: 6%;
-        margin-left: 14%;
+        margin-right: 20px;
     }
 }
