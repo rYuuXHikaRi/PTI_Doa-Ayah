@@ -75,7 +75,7 @@
                             <td>
                               {{-- <button class="btn btn-primary"><i
                                       class="fas fa-eye"></i></button> --}}
-                              <a href="{{ route('suratmasuk.edit', $arsip->id) }}"><button
+                              <a href="{{ route('suratmasuk.edit', $item->id) }}"><button
                                       class="btn btn-warning">
                                       <i class="fas fa-edit"></i></button></a>
                               <a role="button"  class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm{{$item->id}}"><button
@@ -84,9 +84,9 @@
                               {{-- <a href="{{ route('arsipdownload', ['file' => $arsip->file , 'id' => $arsip->id]) }}"><button class="btn btn-success"><i
                                   class="fas fa-download"></i></button></a> --}}
 
-                                  @if ($item->file)
+                                  {{-- @if ($item->file)
                                   <a href="{{ route('suratdownload', ['id' => $item->id, 'file' => $item->file]) }}" class="btn btn-success" target="_blank"><i class="fas fa-download"></i></a>
-                              @endif
+                              @endif --}}
 
 
 

@@ -16,7 +16,7 @@ class SuratMasukController extends Controller
     public function index()
     {
         $items = SuratMasuk::all();
-        return view("kelolasuratmasuk", compact("items"));
+        return view("admin.suratmasuk.index", compact("items"));
     }
 
     /**
@@ -24,7 +24,7 @@ class SuratMasukController extends Controller
      */
     public function create()
     {
-        return view("buatsuratmasuk");
+        return view("admin.suratmasuk.create");
     }
 
     /**
@@ -72,7 +72,7 @@ class SuratMasukController extends Controller
     public function edit($id)
     {
         $surat= SuratMasuk::find($id);
-        return view('perubahansuratmasuk', compact('$surat'));
+        return view('admin.suratmasuk.update', compact('surat'));
     }
 
     /**
@@ -82,23 +82,21 @@ class SuratMasukController extends Controller
     {
         $request->validate([
             'nama_surat' => 'required',
-            'kategori_surat' => 'required',
+            'kategori' => 'required',
             'perihal' => 'required',
             'tanggal_dibuat' => 'required|date',
-            'asal_surat' => 'required',
-            'status' => 'required',
-            'file' => 'nullable|mimes:pdf|max:2048', // Batasan tipe file dan ukuran file (maksimal 2MB)
+            'asal_surat' => 'required' // Batasan tipe file dan ukuran file (maksimal 2MB)
         ]);
 
         $surat = SuratMasuk::findOrFail($id);
 
         // Update data surat
         $surat->nama_surat = $request->nama_surat;
-        $surat->kategori_surat = $request->kategori_surat;
+        $surat->kategori = $request->kategori;
         $surat->perihal = $request->perihal;
         $surat->tanggal_dibuat = $request->tanggal_dibuat;
         $surat->asal_surat = $request->asal_surat;
-        $surat->status = $request->status;
+      
 
         // Jika ada file yang diunggah, proses dan simpan
         if ($request->hasFile('file')) {
