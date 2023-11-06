@@ -78,8 +78,6 @@ document.addEventListener("click", function(event) {
 });
 </script>
         </div>
-
-
         <div class="content">
             <div class="container">
                 

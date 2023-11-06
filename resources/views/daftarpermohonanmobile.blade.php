@@ -29,13 +29,17 @@
                             <path d="M0 16C0 18.2091 1.79086 20 4 20C6.20914 20 8 18.2091 8 16C8 13.7909 6.20914 12 4 12C1.79086 12 0 13.7909 0 16Z" fill="#0253BA"/>
                         </svg>
                     </div>
-                    <div class="popup_batal" id="svgPopup">
-                        <div class="click_batal">
+                    <div class="popup_batal" id="svgPopup" style="display: none;">
+                        <div class="click_batal" onclick="toggleOpsi()">
                             <h1>Batalkan</h1>
                         </div>
                         <div class="popup-options" style="display: none;">
-                            <button onclick="pilihOpsi('batalkan')">Batalkan</button>
-                            <button onclick="pilihOpsi('tidak')">Tidak</button>
+                        <div id="overlay_daftar" class="overlay_daftar"></div>
+                            <div class="menu-popup">
+                                <h1>Batalkan Permohonan tukar jaga?</h1>
+                                <button class="button_ya">Ya</button>
+                                <button class="button_tidak">Tidak</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -86,17 +90,32 @@
     </div>
     <script>
     function toggleBatal() {
-    var popup = document.getElementById("svgPopup");
-    popup.style.display = popup.style.display === "none" ? "block" : "none";
+        var popup = document.getElementById("svgPopup");
+        var popupOptions = document.querySelector('.popup-options');
+        
+        if (popup.style.display === "none") {
+            popup.style.display = "block";
+        } else {
+            popup.style.display = 'none';
+            popupOptions.style.display = 'none';
+        }
+    }
+    function toggleOpsi() {
+        var popupOptions = document.querySelector('.popup-options');
+        var popup = document.getElementById("svgPopup");
 
-    var popupOptions = document.querySelector('.popup-options');
-    if (popupOptions.style.display === 'block') {
-        popupOptions.style.display = 'none';
-    } else {
-        popupOptions.style.display = 'block';
+        if (popupOptions.style.display === "none") {
+            popupOptions.style.display = 'block';
+            popup.style.display = "block";
+        } else {
+            popupOptions.style.display = 'none';
+            popup.style.display = 'none';
+        }
     }
-    }
-    // document.querySelector('.click_batal').addEventListener('click', toggleBatal);
+    // Memanggil fungsi toggleBatal() saat elemen dengan class 'click_batal' diklik
+    document.querySelector('.click_batal').addEventListener('click', toggleBatal);
+    // Memanggil fungsi toggleOpsi() saat elemen dengan class 'click_batal' diklik
+    document.querySelector('.popup_batal').addEventListener('click', toggleOpsi);
 
     function toggleUnduh() {
     var popup = document.getElementById("svgPopupUnduh");
@@ -125,22 +144,6 @@
             }
         }
     }
-
-    function pilihOpsi(opsi) {
-    if (opsi === 'batalkan') {
-        // Tindakan yang diambil saat "Batalkan" dipilih
-        alert('Anda memilih untuk membatalkan.');
-    } else if (opsi === 'tidak') {
-        // Tindakan yang diambil saat "Tidak" dipilih
-        alert('Anda memilih untuk tidak melakukan apa-apa.');
-    }
-
-    // Sembunyikan popup pilihan setelah memilih
-    var popupOptions = document.querySelector('.popup-options');
-    popupOptions.style.display = 'none';
-}
-
-
     // Memanggil fungsi cariData() saat input berubah
     document.getElementById('cariInput').addEventListener('input', cariData);
 
