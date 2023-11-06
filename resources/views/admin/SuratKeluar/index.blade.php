@@ -57,23 +57,23 @@
                             <th>Nama Surat</th>
                             <th>Kategori</th>
                             <th>Jenis Surat</th>
-                            <th>Status</th>
                             <th>Tanggal dibuat</th>
-                            <th>Kode Surat</th>
                             <th>Tujuan</th>
+                            <th>Nama File</th>
+                            <th>Status</th>
                             <th>Aksi</th>
                           </tr>
                         </thead>
                         <tbody>
-                            @foreach ($suratkeluar as $suratkeluarr)
+                            @foreach ($suratkeluars as $suratkeluar)
                             <tr>
-                                <td>Tiger Nixon</td>
-                                <td>System Architect</td>
-                                <td>karyawan</td>
-                                <td>Ditandatangani</td>
-                                <td>2011/04/25</td>
-                                <td>25</td>
-                                <td>Arab Saudi</td>
+                                <td>{{$suratkeluar->nama_surat}}</td>
+                                <td>{{$suratkeluar->kategori_surat}}</td>
+                                <td>{{$suratkeluar->jenis_surat}}</td>
+                                <td>{{$suratkeluar->tanggal_dibuat}}</td>
+                                <td>{{$suratkeluar->tujuan_surat}}</td>
+                                <td>{{$suratkeluar->file}}</td>
+                                <td>{{$suratkeluar->status}}</td>
                                 <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
                                     <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                     <button class="btn btn-success"><i class="fas fa-download"></i></button></td>

@@ -13,8 +13,8 @@ class SuratKeluarController extends Controller
      */
     public function index()
     {
-        $suratKeluar = SuratKeluar::all();
-        return view("", compact(""));
+        $suratkeluar = SuratKeluar::all();
+        return view("admin.SuratKeluar.index", compact("suratkeluar"));
     }
 
     /**

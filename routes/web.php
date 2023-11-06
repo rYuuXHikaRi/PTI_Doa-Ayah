@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SuratKeluarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,25 +20,27 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/arsip', function () {
-    return view('arsip');
-});
+// Route::get('/arsip', function () {
+//     return view('arsip');
+// });
 
-Route::get('/templatesurat', function () {
-    return view('templatesurat');
-});
+// Route::get('/templatesurat', function () {
+//     return view('templatesurat');
+// });
 
-Route::get('/kelolasuratmasuk', function () {
-    return view('kelolasuratmasuk');
-});
+// Route::get('/kelolasuratmasuk', function () {
+//     return view('kelolasuratmasuk');
+// });
 
-Route::get('/kelolasuratkeluar', function () {
-    return view('kelolasuratkeluar');
-});
+// Route::get('/kelolasuratkeluar', function () {
+//     return view('kelolasuratkeluar');
+// });
 
-Route::get('/buatsuratkeluar', function () {
-    return view('buatsuratkeluar');
-});
+// Route::get('/buatsuratkeluar', function () {
+//     return view('buatsuratkeluar');
+// });
+
+route::resource('suratkeluar', SuratKeluarController::class);
 
 Auth::routes();
 
