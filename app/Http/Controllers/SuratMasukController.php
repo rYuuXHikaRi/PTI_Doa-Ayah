@@ -120,8 +120,9 @@ class SuratMasukController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SuratMasuk $suratMasuk)
+    public function destroy($id)
     {
-        //
+        $surat = SuratMasuk::findOrFail($id);
+        $surat->delete();
     }
 }
