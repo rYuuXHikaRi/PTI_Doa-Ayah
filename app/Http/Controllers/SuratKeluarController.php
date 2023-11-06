@@ -6,6 +6,7 @@ use App\Models\SuratKeluar;
 use App\Http\Requests\StoreSuratKeluarRequest;
 use App\Http\Requests\UpdateSuratKeluarRequest;
 use Illuminate\Support\Facades\Session;
+use PDF;
 
 class SuratKeluarController extends Controller
 {
