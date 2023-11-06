@@ -54,7 +54,9 @@
 
                         <thead>
                           <tr>
+                            <th>No</th>
                             <th>Nama Surat</th>
+                            <th>Kategori</th>
                             <th>Kategori</th>
                             <th>Jenis Surat</th>
                             <th>Tanggal dibuat</th>
@@ -65,15 +67,20 @@
                           </tr>
                         </thead>
                         <tbody>
+                            @php
+                            $no = 1;
+                        @endphp
                             @foreach ($suratkeluar as $suratkeluarr)
                             <tr>
-                                <td>{{$suratkeluar->nama_surat}}</td>
-                                <td>{{$suratkeluar->kategori_surat}}</td>
-                                <td>{{$suratkeluar->jenis_surat}}</td>
-                                <td>{{$suratkeluar->tanggal_dibuat}}</td>
-                                <td>{{$suratkeluar->tujuan_surat}}</td>
-                                <td>{{$suratkeluar->file}}</td>
-                                <td>{{$suratkeluar->status}}</td>
+                                <td>{{$no++}}</td>
+                                <td>{{$suratkeluarr->nama_surat}}</td>
+                                <td>{{$suratkeluarr->kode_surat}}</td>
+                                <td>{{$suratkeluarr->kategori_surat}}</td>
+                                <td>{{$suratkeluarr->jenis_surat}}</td>
+                                <td>{{$suratkeluarr->tanggal_dibuat}}</td>
+                                <td>{{$suratkeluarr->tujuan_surat}}</td>
+                                <td>{{$suratkeluarr->file}}</td>
+                                <td>{{$suratkeluarr->status}}</td>
                                 <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
                                     <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                     <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
