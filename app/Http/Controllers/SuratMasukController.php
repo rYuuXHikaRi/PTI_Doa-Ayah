@@ -15,8 +15,8 @@ class SuratMasukController extends Controller
      */
     public function index()
     {
-        $suratmasuk = SuratMasuk::all();
-        return view("kelolasuratmasuk", compact("suratmasuk"));
+        $items = SuratMasuk::all();
+        return view("kelolasuratmasuk", compact("items"));
     }
 
     /**
@@ -34,30 +34,28 @@ class SuratMasukController extends Controller
     {
         $request->validate([
             'nama_surat' => 'required',
-            'kategori_surat' => 'required',
+            'kategori' => 'required',
             'perihal' => 'required',
             'tanggal_dibuat' => 'required|date',
             'asal_surat' => 'required',
-            'status' => 'required',
             'file' => 'required|mimes:pdf|max:2048', // Batasan tipe file dan ukuran file (maksimal 2MB)
         ]);
-
+       
         // Simpan data surat beserta file
         $file = $request->file('file');
-        $nama_file = time() . '_' . $file->getClientOriginalName();
+        $nama_file = $file->getClientOriginalName();
         $file->move(public_path('files'), $nama_file);
 
         $surat = SuratMasuk::create([
             'nama_surat' => $request->nama_surat,
-            'kategori_surat' => $request->kategori_surat,
+            'kategori' => $request->kategori,
             'perihal' => $request->perihal,
             'tanggal_dibuat' => $request->tanggal_dibuat,
             'asal_surat' => $request->asal_surat,
-            'status' => $request->status,
             'file' => $nama_file,
         ]);
 
-        return redirect()->route('surat.index')->with('success', 'Surat berhasil disimpan.');
+        return redirect()->route('suratmasuk.index')->with('success', 'Surat berhasil disimpan.');
     }
 
     /**

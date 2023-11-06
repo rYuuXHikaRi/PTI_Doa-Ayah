@@ -13,5 +13,5 @@ class SuratMasuk extends Model
 
     protected $table = "surat_masuk";
 
-    protected $fillable = ["nama_surat","kategori_surat","perihal","tanggal_dibuat","asal_surat","status"] ;
+    protected $fillable = ["nama_surat","kategori","perihal","tanggal_dibuat","asal_surat","status","file"] ;
 }

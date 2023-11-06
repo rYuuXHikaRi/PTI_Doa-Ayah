@@ -25,41 +25,43 @@
                             </div><br>
                                 <div class="card">
                                         <div class="card-body">
-                                            <form>   
+                                            <form method="POST" action="{{ route('suratmasuk.store') }}" enctype="multipart/form-data"> 
+                                                @csrf
+                                                @method('POST')  
                                                 <div class="form-group row">
                                                     <label for="namaSurat" class="col-md-4 col-form-label">Nama Surat</label>
                                                     <div class="col-md-8">
-                                                        <input type="text" class="form-control" id="namaSurat" placeholder="Nama Surat" style="background-color:#EBF1FA">
+                                                        <input type="text" class="form-control" name="nama_surat" id="namaSurat" placeholder="Nama Surat" style="background-color:#EBF1FA">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="kategoriSurat" class="col-md-4 col-form-label">Kategori</label>
                                                     <div class="col-md-8">
-                                                        <input type="text" class="form-control" id="kategori" placeholder="Kategori" style="background-color:#EBF1FA">
+                                                        <input type="text" class="form-control" name="kategori" id="kategori" placeholder="Kategori" style="background-color:#EBF1FA">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="perihal" class="col-md-4 col-form-label">Perihal</label>
                                                     <div class="col-md-8">
-                                                        <input type="text" class="form-control" id="perihal" placeholder="Perihal" style="background-color:#EBF1FA">
+                                                        <input type="text" class="form-control" name="perihal" id="perihal" placeholder="Perihal" style="background-color:#EBF1FA">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="tanggal" class="col-md-4 col-form-label">Tanggal</label>
                                                     <div class="col-md-8">
-                                                        <input type="date" class="form-control" id="tanggal" name="tanggal" style="background-color: #E0E0E0;">
+                                                        <input type="date" class="form-control" name="tanggal_dibuat"  id="tanggal" name="tanggal" style="background-color: #E0E0E0;">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="asalSurat" class="col-md-4 col-form-label">Asal Surat</label>
                                                     <div class="col-md-8">
-                                                        <input type="text" class="form-control" id="asalSurat" placeholder="Asal Surat" style="background-color:#EBF1FA">
+                                                        <input type="text" class="form-control" name="asal_surat" id="asalSurat" placeholder="Asal Surat" style="background-color:#EBF1FA">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <label for="uploadSurat" class="col-md-4 col-form-label">Upload File</label>
                                                     <div class="col-md-8">
-                                                        <input type="file" class="form-control" id="uploadSurat" name="uploadSurat" style="background-color:#EBF1FA">
+                                                        <input type="file" class="form-control" name="file" id="uploadSurat" name="uploadSurat" style="background-color:#EBF1FA">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">

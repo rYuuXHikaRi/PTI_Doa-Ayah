@@ -63,76 +63,20 @@
                           </tr>
                         </thead>
                         <tbody>
+                          @foreach ($items as $item)
+                              
+                          @endforeach
                           <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>2011/04/25</td>
-                            <td>PT PBB</td>
+                            <td>{{ $item->nama_surat }}</td>
+                            <td>{{ $item->kategori }}</td>
+                            <td>{{ $item->perihal }}</td>
+                            <td>{{ $item->tanggal_dibuat }}</td>
+                            <td>{{ $item->asal_surat }}</td>
                             <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
                                 <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                 <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
                           </tr>
-                          <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>2011/04/25</td>
-                            <td>PT PBB</td>
-                            <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
-                          </tr>
-                          <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>2011/04/25</td>
-                            <td>PT PBB</td>
-                            <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
-                          </tr>
-                          <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>2011/04/25</td>
-                            <td>PT PBB</td>
-                            <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
-                          </tr>
-                          <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>2011/04/25</td>
-                            <td>PT PBB</td>
-                            <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
-                          </tr>
-                          <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>2011/04/25</td>
-                            <td>PT PBB</td>
-                            <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
-                          </tr>
-                          <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>2011/04/25</td>
-                            <td>PT PBB</td>
-                            <td><button class="btn btn-primary"><i class="fas fa-eye"></i></button>
-                                <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
-                          </tr>
+                         
   
                         </tbody>
                       </table>
