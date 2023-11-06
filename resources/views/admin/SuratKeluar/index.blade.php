@@ -65,7 +65,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                            @foreach ($suratkeluars as $suratkeluar)
+                            @foreach ($suratkeluar as $suratkeluarr)
                             <tr>
                                 <td>{{$suratkeluar->nama_surat}}</td>
                                 <td>{{$suratkeluar->kategori_surat}}</td>
