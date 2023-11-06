@@ -34,9 +34,8 @@
                             <h1>Batalkan</h1>
                         </div>
                         <div class="popup-options" style="display: none;">
-                            <p>Pilihan 1</p>
-                            <p>Pilihan 2</p>
-                            <p>Pilihan 3</p>
+                            <button onclick="pilihOpsi('batalkan')">Batalkan</button>
+                            <button onclick="pilihOpsi('tidak')">Tidak</button>
                         </div>
                     </div>
                 </div>
@@ -97,7 +96,7 @@
         popupOptions.style.display = 'block';
     }
     }
-    document.querySelector('.click_batal').addEventListener('click', toggleBatal);
+    // document.querySelector('.click_batal').addEventListener('click', toggleBatal);
 
     function toggleUnduh() {
     var popup = document.getElementById("svgPopupUnduh");
@@ -126,6 +125,21 @@
             }
         }
     }
+
+    function pilihOpsi(opsi) {
+    if (opsi === 'batalkan') {
+        // Tindakan yang diambil saat "Batalkan" dipilih
+        alert('Anda memilih untuk membatalkan.');
+    } else if (opsi === 'tidak') {
+        // Tindakan yang diambil saat "Tidak" dipilih
+        alert('Anda memilih untuk tidak melakukan apa-apa.');
+    }
+
+    // Sembunyikan popup pilihan setelah memilih
+    var popupOptions = document.querySelector('.popup-options');
+    popupOptions.style.display = 'none';
+}
+
 
     // Memanggil fungsi cariData() saat input berubah
     document.getElementById('cariInput').addEventListener('input', cariData);
