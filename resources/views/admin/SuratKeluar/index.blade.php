@@ -1,6 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+        <link rel="stylesheet" href="css/kelolasuratkeluar.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    </head>
 
     <body>
 
@@ -69,6 +77,7 @@
                                                 @foreach ($suratkeluar as $suratkeluarr)
                                                     <tr>
                                                         <td>{{ $no++ }}</td>
+                                                        <td hidden>{{ $suratkeluarr->id }}</td>
                                                         <td>{{ $suratkeluarr->nama_surat }}</td>
                                                         <td>{{ $suratkeluarr->kode_surat }}</td>
                                                         <td>{{ $suratkeluarr->kategori_surat }}</td>
@@ -77,12 +86,60 @@
                                                         <td>{{ $suratkeluarr->tujuan_surat }}</td>
                                                         <td>{{ $suratkeluarr->file }}</td>
                                                         <td>{{ $suratkeluarr->status }}</td>
-                                                        <td><button class="btn btn-primary"><i
-                                                                    class="fas fa-eye"></i></button>
-                                                            <button class="btn btn-danger"><i
-                                                                    class="fas fa-trash"></i></button>
-                                                            <button class="btn btn-success"><i
-                                                                    class="fas fa-download"></i></button>
+                                                        <td>
+                                                            <a href=""><button class="btn btn-warning">
+                                                                    <i class="fas fa-edit"></i></button></a>
+                                                            <a role="button" class="delete-button" data-bs-toggle="modal"
+                                                                data-bs-target=".bd-example-modal-sm{{ $suratkeluarr->id }}"><button
+                                                                    class="btn btn-danger" data-toggle="modal"
+                                                                    data-target="#hapusModal">
+                                                                    <i class="fas fa-trash"></i></button></a>
+                                                            {{-- <a href="{{ route('arsipdownload', ['file' => $arsip->file , 'id' => $arsip->id]) }}"><button class="btn btn-success"><i
+                                                                        class="fas fa-download"></i></button></a> --}}
+
+                                                            {{-- @if ($arsip->file)
+                                                            <a href="{{ route('arsipdownload', ['id' => $arsip->id, 'file' => $arsip->file]) }}"
+                                                                class="btn btn-success" target="_blank"><i
+                                                                    class="fas fa-download"></i></a>
+                                                        @endif --}}
+
+
+
+                                                            <div class="modal fade bd-example-modal-sm{{ $suratkeluarr->id }}" tabindex="-1"
+                                                                role="dialog" aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title"><strong>Hapus
+                                                                                    Data</strong></h5>
+                                                                            <button type="button" class="btn-close"
+                                                                                data-bs-dismiss="modal">
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">Apakah anda yakin ingin
+                                                                            menghapus data?</div>
+                                                                        <div class="modal-footer"
+                                                                            style="left:0px; height: 80px;">
+                                                                            <form action="" method="POST">
+                                                                                @method('DELETE')
+                                                                                @csrf
+                                                                                <div
+                                                                                    style="display: flex; justify-content: space-between;">
+                                                                                    <button type="button"
+                                                                                        class="btn submit-btn submit-btn-yes"
+                                                                                        data-bs-dismiss="modal"
+                                                                                        style="width: 49%;">Tidak</button>
+                                                                                    <input type="submit"
+                                                                                        class="btn submit-btn submit-btn-no"
+                                                                                        name="" id=""
+                                                                                        value="Hapus" style="width: 49%;">
+                                                                                </div>
+
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -95,5 +152,15 @@
                     </div>
                 </div>
             </div>
+
+
+            <!-- Sisipkan script untuk jQuery -->
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+            <!-- Sisipkan script untuk DataTables -->
+            <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+            <!-- Sisipkan script untuk file JavaScript Anda -->
+            <script src="js/kelolasuratkeluar.js"></script>
     </body>
+
+    </html>
 @endsection
