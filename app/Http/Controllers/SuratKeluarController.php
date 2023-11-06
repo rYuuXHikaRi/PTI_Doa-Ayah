@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SuratKeluar;
 use App\Http\Requests\StoreSuratKeluarRequest;
 use App\Http\Requests\UpdateSuratKeluarRequest;
+use Illuminate\Support\Facades\Session;
 
 class SuratKeluarController extends Controller
 {
@@ -61,8 +62,11 @@ class SuratKeluarController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SuratKeluar $suratKeluar)
+    public function destroy($id)
     {
-        //
+        $data = SuratKeluar::where('id', $id)->first();
+        $data->delete();
+        Session::flash('success', 'Surat Berhasil Dihapus');
+        return redirect()->back();
     }
 }

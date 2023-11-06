@@ -9,6 +9,7 @@ use App\Http\Controllers\UserController;
 
 Route::resource('arsip', ArsipController::class);
 Route::resource('user', UserController::class);
+route::resource('suratkeluar', SuratKeluarController::class);
 Route::get('/arsip/{id}/{file}', [ArsipController::class, 'downloadarsip'])->name('arsipdownload');
 
 Route::get('/', function () {
@@ -16,7 +17,6 @@ Route::get('/', function () {
 });
 
 
-route::resource('suratkeluar', SuratKeluarController::class);
 
 Auth::routes();
 
