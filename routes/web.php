@@ -20,25 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/arsip', function () {
-//     return view('arsip');
-// });
-
-// Route::get('/templatesurat', function () {
-//     return view('templatesurat');
-// });
-
-// Route::get('/kelolasuratmasuk', function () {
-//     return view('kelolasuratmasuk');
-// });
-
-// Route::get('/kelolasuratkeluar', function () {
-//     return view('kelolasuratkeluar');
-// });
-
-// Route::get('/buatsuratkeluar', function () {
-//     return view('buatsuratkeluar');
-// });
 
 route::resource('suratkeluar', SuratKeluarController::class);
 

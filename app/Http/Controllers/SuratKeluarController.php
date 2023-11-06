@@ -22,7 +22,8 @@ class SuratKeluarController extends Controller
      */
     public function create()
     {
-        //
+        // $suratKeluar = SuratKeluar::all();
+        return view("admin.SuratKeluar.create");
     }
 
     /**
