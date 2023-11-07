@@ -34,30 +34,29 @@ class SuratKeluarController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $validatedData = $request->validate([
             'file' => 'required|mimes:pdf,doc,docx|max:5120',
         ]);
 
         $file1 = $validatedData['file'];
         $filename1 = $file1->getClientOriginalName();
-        $location1 = 'assets/file/';
+        $location1 = 'assets/surat/';
 
         SuratKeluar::create([
             'nama_surat' => $request->nama_surat,
+            'kategori_surat' => $request->kategori_surat,
+            'tanggal_dibuat' => $request->tanggal_dibuat,
+            'tujuan_surat' => $request->tujuan_surat,
             'kode_surat' => $request->kode_surat,
-            'perihal' => $request->perihal,
-            'lokasi_surat' => $request->lokasi_surat,
-            'kategori' => $request->kategori,
-            'tanggal_selesai' => $request->tanggal_selesai,
+            'pembuat_surat' => 1,
+            'jenis_surat' => $request->jenis_surat,
             'file' => $filename1,
         ]);
 
-        $title = "Tambah surat";
-
         $file1->move(public_path($location1), $filename1);
-        $surats = SuratKeluar::all();
         Session::flash('success', 'Data surat Berhasil Ditambahkan');
-        return redirect()->route('surat.index')->with('success', 'surat berhasil ditambahkan.');
+        return redirect()->route('suratkeluar.index')->with('success', 'surat berhasil ditambahkan.');
     }
 
     /**
@@ -71,17 +70,36 @@ class SuratKeluarController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SuratKeluar $suratKeluar)
+    public function edit($id)
     {
-        //
+        $suratkeluarr = SuratKeluar::where('id', $id)->first();
+        return view('admin.SuratKeluar.edit', compact(['suratkeluarr']));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSuratKeluarRequest $request, SuratKeluar $suratKeluar)
+    public function update(Request $request, $id)
     {
-        //
+
+        $suratkeluarr = SuratKeluar::where('id', $id)->first();
+        // dd($suratkeluarr);
+        $suratkeluarr->nama_surat = $request->input('nama_surat');
+        $suratkeluarr->kategori_surat = $request->input('kategori_surat');
+        $suratkeluarr->tanggal_dibuat = $request->input('tanggal_dibuat');
+        $suratkeluarr->jenis_surat = $request->input('jenis_surat');
+        $suratkeluarr->tujuan_surat = $request->input('tujuan_surat');
+        $suratkeluarr->kode_surat = $request->input('kode_surat');
+        $suratkeluarr->pembuat_surat = $request->input('pembuat_surat');
+
+        $suratkeluarr->save();
+
+        $title = "Edit Surat";
+        Session::flash('success', 'Data Surat Berhasil DiUbah');
+        $suratkeluarr = SuratKeluar::all();
+        // return redirect()->route('surat.index')->with('success', 'User berhasil diupdate.');
+        return redirect()->route('SuratKeluar.index')->with('success', 'Data Surat berhasil diupdate.');
+
     }
 
     /**

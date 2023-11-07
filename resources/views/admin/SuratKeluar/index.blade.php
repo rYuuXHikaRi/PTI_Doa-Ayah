@@ -6,7 +6,7 @@
 
     <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
-        <link rel="stylesheet" href="css/kelolasuratkeluar.css">
+        <link rel="stylesheet" href="../css/kelolasuratkeluar.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     </head>
 
@@ -60,10 +60,11 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Nama Surat</th>
-                                                    <th>Kategori</th>
+                                                    <th>Kode Surat</th>
+                                                    <th>Tanggal dibuat</th>
                                                     <th>Kategori</th>
                                                     <th>Jenis Surat</th>
-                                                    <th>Tanggal dibuat</th>
+                                                    <th>Pembuat Surat</th>
                                                     <th>Tujuan</th>
                                                     <th>Nama File</th>
                                                     <th>Status</th>
@@ -80,14 +81,15 @@
                                                         <td hidden>{{ $suratkeluarr->id }}</td>
                                                         <td>{{ $suratkeluarr->nama_surat }}</td>
                                                         <td>{{ $suratkeluarr->kode_surat }}</td>
+                                                        <td>{{ $suratkeluarr->tanggal_dibuat }}</td>
                                                         <td>{{ $suratkeluarr->kategori_surat }}</td>
                                                         <td>{{ $suratkeluarr->jenis_surat }}</td>
-                                                        <td>{{ $suratkeluarr->tanggal_dibuat }}</td>
+                                                        <td>{{ $suratkeluarr->pembuat_surat }}</td>
                                                         <td>{{ $suratkeluarr->tujuan_surat }}</td>
                                                         <td>{{ $suratkeluarr->file }}</td>
                                                         <td>{{ $suratkeluarr->status }}</td>
                                                         <td>
-                                                            <a href=""><button class="btn btn-warning">
+                                                            <a href="{{route('suratkeluar.edit', $suratkeluarr->id)}}"><button class="btn btn-warning">
                                                                     <i class="fas fa-edit"></i></button></a>
                                                             {{-- <a href="{{ route('arsipdownload', ['file' => $arsip->file , 'id' => $suratkeluarr->id]) }}"><button class="btn btn-success"><i
                                                                         class="fas fa-download"></i></button></a> --}}
