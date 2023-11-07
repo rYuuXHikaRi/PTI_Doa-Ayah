@@ -13,3 +13,11 @@ Route::get('/arsip/{id}/{file}', [ArsipController::class, 'downloadarsip'])->nam
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/updatestatus', function () {
+    return view('updatestatus');
+});
+
+Route::get('/riwayatdisposisi', function () {
+    return view('riwayatdisposisi');
+});
