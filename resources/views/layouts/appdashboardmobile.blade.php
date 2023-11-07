@@ -29,15 +29,19 @@
              background-repeat: no-repeat;">
     <div id="app">
         <div class="upbar">
-            <img src="img/logo.png" alt="logo" style="width:12%; height:70%; margin-top:12px; margin-left:100px;">
-            <p>Perizinan</p>
+            <div class="logo_aplikasi">
+                <img src="img/logo.png" alt="logo" style="width:100%; height:100%;">
+            </div>
+            <div class="atur_jarak">
+                <p>Perizinan</p>
+            </div>
             <div class="elips">
                 <img src="img/chibi.png" alt="logo_user">
             </div>
             <div class="dropdown">
-                <ul class="menu">
+                <div class="menu">
                     <i class="fa-solid fa-chevron-down"></i>
-                </ul>
+                </div>
                 <div class="dropdown-content">
                     <div class="notif_text">
                         <h1>Permohonan <b>Tukar Jaga dengan Ningguang</b> telah disetujui</h1>
@@ -48,6 +52,7 @@
                     </div>
                 </div>
             </div>
+
 <script>
 // Mengambil elemen tombol dropdown
 var dropdownButton = document.querySelector(".menu");
@@ -73,8 +78,6 @@ document.addEventListener("click", function(event) {
 });
 </script>
         </div>
-
-
         <div class="content">
             <div class="container">
                 
@@ -98,9 +101,9 @@ document.addEventListener("click", function(event) {
                 <path d="M0.0373937 9.02408C0.60635 7.27204 1.54359 5.66378 2.78026 4.30082C2.98937 4.07034 3.31746 3.98819 3.6112 4.09278L6.56659 5.14495C7.36782 5.43006 8.24948 5.01443 8.5358 4.21663C8.56395 4.13817 8.58565 4.05758 8.60063 3.97576L9.16367 0.898521C9.21965 0.592564 9.45565 0.350543 9.76115 0.285782C10.655 0.0963477 11.5715 0 12.5 0C13.4279 0 14.3439 0.096239 15.2372 0.285435C15.5426 0.35013 15.7786 0.591999 15.8347 0.897847L16.3993 3.97563C16.552 4.80908 17.3542 5.36152 18.1914 5.20954C18.2738 5.19458 18.3546 5.173 18.4333 5.145L21.3888 4.09278C21.6825 3.98819 22.0105 4.07034 22.2196 4.30082C23.4564 5.66378 24.3936 7.27204 24.9627 9.02408C25.0586 9.31965 24.9659 9.64369 24.7281 9.84473L22.3327 11.8698C21.6842 12.4181 21.6049 13.3862 22.1555 14.032C22.2096 14.0955 22.269 14.1545 22.3327 14.2084L24.7281 16.2335C24.9659 16.4345 25.0586 16.7586 24.9627 17.0541C24.3936 18.8063 23.4564 20.4145 22.2196 21.7774C22.0105 22.0078 21.6825 22.09 21.3888 21.9854L18.4333 20.9332C17.6323 20.6482 16.7505 21.0639 16.4642 21.8615C16.436 21.94 16.4143 22.0206 16.3993 22.1028L15.8347 25.1804C15.7786 25.4863 15.5426 25.728 15.2372 25.7928C14.3439 25.9819 13.4279 26.0782 12.5 26.0782C11.5715 26.0782 10.655 25.9819 9.76115 25.7924C9.45565 25.7276 9.21965 25.4856 9.16367 25.1797L8.60065 22.1026C8.448 21.2691 7.64569 20.7167 6.80863 20.8687C6.7263 20.8837 6.64537 20.9052 6.56672 20.9332L3.6112 21.9854C3.31746 22.09 2.98937 22.0078 2.78026 21.7774C1.54359 20.4145 0.60635 18.8063 0.0373937 17.0541C-0.0585845 16.7586 0.0339585 16.4345 0.271806 16.2335L2.66724 14.2084C3.31583 13.6601 3.39515 12.692 2.84444 12.0462C2.79028 11.9827 2.73102 11.9237 2.66726 11.8698L0.271806 9.84473C0.0339585 9.64369 -0.0585845 9.31965 0.0373937 9.02408ZM8.69539 13.039C8.69539 15.1401 10.3986 16.8433 12.4997 16.8433C14.6008 16.8433 16.3041 15.1401 16.3041 13.039C16.3041 10.9379 14.6008 9.23462 12.4997 9.23462C10.3986 9.23462 8.69539 10.9379 8.69539 13.039Z" fill="#E6EFFA"/>
             </svg>
         </div>
-      
     </div>
 
-    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </body>
 </html>

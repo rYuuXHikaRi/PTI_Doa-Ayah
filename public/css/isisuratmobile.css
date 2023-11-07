@@ -14,7 +14,6 @@
         color: #0253BA;
         font-size: 16px;
         font-style: normal;
-        font-weight: 800px;
         line-height: normal;
         padding: 4.7%;
     }
@@ -27,11 +26,19 @@
         background: #E2ECF9;
         border-radius: 5px;
         width: 90%;
-        height: 15%;
+        height: 46px;
         margin-top: 10%;
         margin-left: 5%;
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .btn{
+        background: #E2ECF9;
+        border: none;
+        width: 100%;
+        height: 100%;
     }
     .box_ket {
         background: #E2ECF9;
@@ -40,30 +47,35 @@
         height: 23%;
         margin-top: 9%;
         margin-left: 5%;
+        overflow: hidden;
         display: flex;
-        flex-direction: row;
+        flex-direction: column-reverse;
+    }
+    .input_ket {
+        background: #E2ECF9;
+        border-radius: 10px;
+        font-size: 12px;
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+        padding: 10px; /* Atur padding agar teks tidak terlalu dekat dengan tepi */
+    }
+    form {
+        width: 100%;
+        height: 100%;
     }
     .box h1 {
         color: rgba(0, 0, 0, 0.40);
         font-size: 10px;
         font-style: normal;
-        font-weight: 400;
         line-height: normal;
         margin: 5.6%;
     }
-    .box_ket h1 {
-        color: rgba(0, 0, 0, 0.40);
-        font-size: 10px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-        margin: 5.6%;
-    }
-    .card-body h1 {
+    .text_lampiran h1 {
         color: #0253BA;
         font-size: 13px;
         font-style: normal;
-        font-weight: 600px;
         line-height: normal;
         margin-left: 5%;
         margin-top: 5%;
@@ -81,9 +93,14 @@
         text-align: center;
         font-size: 13px;
         font-style: normal;
-        font-weight: 400px;
         line-height: normal;
         margin-top: 2.3%;    
+    }
+    .pilih_menu {
+        width: 15px;
+        height: 15px;
+        margin-top: -11px;
+        margin-right: 13px;
     }
     .isi {
         background: #0253BA;
@@ -97,7 +114,6 @@
         text-align: center;
         font-size: 13px;
         font-style: normal;
-        font-weight: 600px;
         line-height: normal;
     }
     .btn.btn-primary {
@@ -106,7 +122,7 @@
         width: 90%;
         height: 10%;
         border-radius: 5px;
-        margin-top: 3%;
+        margin-top: 11%;
         margin-left: 5%;
     }
     .popup {
@@ -135,7 +151,6 @@
         color: #0253BA;
         font-size: 16px;
         font-style: normal;
-        font-weight: 800px;
         line-height: normal;
       }
       .close-button {
@@ -164,7 +179,6 @@
         z-index: 50;
       }
       .overlay {
-        display: none;
         position: fixed;
         top: 0;
         left: 0;
@@ -172,5 +186,53 @@
         height: 100%;
         background: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan */
         z-index: 5; /* Atur z-index untuk menutupi elemen-elemen latar belakang */
+      }
+      .notif_berhasil {
+        background: #E6EFFA;
+        width: 345px;
+        height: 245px;
+        border-radius: 10px;
+        margin-top: -382px;
+        margin-left: -19px;
+        position: absolute;
+        z-index: 7;
+      }
+      .info_pengajuan {
+        display: flex;
+        width: 201px;
+        margin-top: 21px;
+        margin-left: 73px;
+      }
+      .info_pengajuan h1 {
+        color: #0253BA;
+        text-align: center;
+        font-size: 20px;
+        font-style: normal;
+        line-height: normal;
+      }
+      .icon_sukses {
+        color: #0253BA;
+        width: 120px;
+        height: 120px;
+        margin-top: 20px;
+        margin-left: 110px;
+      }
+      .ceklis {
+        margin-top: -93px;
+        margin-left: 23px;
+      }
+      .overlay_berhasil {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan */
+        z-index: 5; /* Atur z-index untuk menutupi elemen-elemen latar belakang */
+      }
+      .form-control {
+        background-color: #D3E2F4;
+        height: 100%;
+        font-size: 12px;
       }
 }

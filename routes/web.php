@@ -50,3 +50,7 @@ Route::get('/isi', function () {
 Route::get('/mobile', function () {
     return view('homemobile');
 });
+
+Route::get('/buat', function () {
+    return view('buatsurat');
+});

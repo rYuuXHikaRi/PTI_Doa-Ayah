@@ -6,7 +6,7 @@
 
 <div class="container">
     <div class="card">
-        <h1>Halo World, </h1>
+        <h1><b>Halo World,</b></h1>
     </div>
     <div class="card-body">
         <div class="box">
