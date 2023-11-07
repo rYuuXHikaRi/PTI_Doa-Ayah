@@ -12,8 +12,8 @@ Route::resource('user', UserController::class);
 route::resource('suratkeluar', SuratKeluarController::class);
 Route::get('/arsip/{id}/{file}', [ArsipController::class, 'downloadarsip'])->name('arsipdownload');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/template', function () {
+    return view('admin.suratkeluar.template');
 });
 
 
