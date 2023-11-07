@@ -90,7 +90,6 @@ class SuratKeluarController extends Controller
         $suratkeluarr->jenis_surat = $request->input('jenis_surat');
         $suratkeluarr->tujuan_surat = $request->input('tujuan_surat');
         $suratkeluarr->kode_surat = $request->input('kode_surat');
-        $suratkeluarr->pembuat_surat = $request->input('pembuat_surat');
 
         $suratkeluarr->save();
 
@@ -98,7 +97,7 @@ class SuratKeluarController extends Controller
         Session::flash('success', 'Data Surat Berhasil DiUbah');
         $suratkeluarr = SuratKeluar::all();
         // return redirect()->route('surat.index')->with('success', 'User berhasil diupdate.');
-        return redirect()->route('SuratKeluar.index')->with('success', 'Data Surat berhasil diupdate.');
+        return redirect()->route('suratkeluar.index')->with('success', 'Data Surat berhasil diupdate.');
 
     }
 

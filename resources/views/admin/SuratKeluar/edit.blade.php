@@ -62,7 +62,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="tanggal" class="col-md-4 col-form-label">jenis surat </label>
+                                                    <label for="tanggal" class="col-md-4 col-form-label">Jenis Surat </label>
                                                     <div class="col-md-8">
                                                         <input type="text" class="form-control" id="tanggal" style="background-color: #E0E0E0;"
                                                         name="jenis_surat" value="{{$suratkeluarr->jenis_surat}}"
@@ -94,12 +94,12 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="nomorSurat" class="col-md-4 col-form-label">Pembuat Surat</label>
+                                                    <label for="nomorSurat" class="col-md-4 col-form-label">Jenis Surat</label>
                                                     <div class="col-md-8">
-                                                        <select class="form-control" id="lokasiArsip" name="pembuat_surat" style="background-color: #E0E0E0;" name="lokasi_arsip">
-                                                            <option value="" disabled selected>{{$suratkeluarr->pembuat_surat}}</option>
-                                                            <option value="Karyawan" {{$suratkeluarr->pembuat_surat == 'karyawan' ? 'selected' : ''}}>Karyawan</option>
-                                                            <option value="LuarInstansi" {{$suratkeluarr->pembuat_surat == 'LuarInstansi' ? 'selected' : ''}}>Luar Instansi</option>
+                                                        <select class="form-control" id="lokasiArsip" name="jenis_surat" style="background-color: #E0E0E0;">
+                                                            <option value="" disabled selected>{{$suratkeluarr->jenis_surat}}</option>
+                                                            <option value="Karyawan" {{$suratkeluarr->jenis_surat == 'karyawan' ? 'selected' : ''}}>Karyawan</option>
+                                                            <option value="LuarInstansi" {{$suratkeluarr->jenis_surat == 'LuarInstansi' ? 'selected' : ''}}>Luar Instansi</option>
                                                         </select>
                                                     </div>
                                                 </div>
