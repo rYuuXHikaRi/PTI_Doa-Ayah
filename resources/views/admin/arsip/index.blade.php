@@ -69,17 +69,12 @@
                                                         <td hidden>{{ $arsip->file }}</td>
 
                                                         <td>
-                                                            {{-- <button class="btn btn-primary"><i
-                                                                    class="fas fa-eye"></i></button> --}}
                                                             <a href="{{ route('arsip.edit', $arsip->id) }}"><button
                                                                     class="btn btn-warning">
                                                                     <i class="fas fa-edit"></i></button></a>
                                                             <a role="button"  class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm{{$arsip->id}}"><button
                                                                 class="btn btn-danger" data-toggle="modal" data-target="#hapusModal">
                                                                     <i class="fas fa-trash"></i></button></a>
-                                                            {{-- <a href="{{ route('arsipdownload', ['file' => $arsip->file , 'id' => $arsip->id]) }}"><button class="btn btn-success"><i
-                                                                class="fas fa-download"></i></button></a> --}}
-
                                                                 @if ($arsip->file)
                                                                 <a href="{{ route('arsipdownload', ['id' => $arsip->id, 'file' => $arsip->file]) }}" class="btn btn-success" target="_blank"><i class="fas fa-download"></i></a>
                                                             @endif

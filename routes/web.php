@@ -9,12 +9,15 @@ use App\Http\Controllers\UserController;
 
 Route::resource('arsip', ArsipController::class);
 Route::resource('user', UserController::class);
-route::resource('suratkeluar', SuratKeluarController::class);
 Route::get('/arsip/{id}/{file}', [ArsipController::class, 'downloadarsip'])->name('arsipdownload');
 
-Route::get('/template', function () {
-    return view('admin.suratkeluar.template');
-});
+route::resource('suratkeluar', SuratKeluarController::class);
+Route::get('/suratkeluar/{id}/{file}', [SuratKeluarController::class, 'downloadSurat'])->name('Suratkeluar.download');
+
+
+// Route::get('/template', function () {
+//     return view('admin.suratkeluar.template');
+// });
 
 
 

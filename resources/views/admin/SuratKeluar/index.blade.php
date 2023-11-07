@@ -94,11 +94,12 @@
                                                             {{-- <a href="{{ route('arsipdownload', ['file' => $arsip->file , 'id' => $suratkeluarr->id]) }}"><button class="btn btn-success"><i
                                                                         class="fas fa-download"></i></button></a> --}}
 
-                                                            {{-- @if ($arsip->file)
-                                                            <a href="{{ route('arsipdownload', ['id' => $suratkeluarr->id, 'file' => $arsip->file]) }}"
+                                                            @if ($suratkeluarr->file)
+                                                            <a href="{{ route('Suratkeluar.download', ['id' => $suratkeluarr->id, 'file' => $suratkeluarr->file]) }}"
                                                                 class="btn btn-success" target="_blank"><i
                                                                     class="fas fa-download"></i></a>
-                                                        @endif --}}
+                                                            @endif
+
 
                                                             <a role="button" class="delete-button" data-bs-toggle="modal"
                                                                 data-bs-target=".bd-example-modal-sm{{ $suratkeluarr->id }}">
