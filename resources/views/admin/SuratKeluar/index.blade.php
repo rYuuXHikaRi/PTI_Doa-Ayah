@@ -1,15 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <!DOCTYPE html>
-    <html>
-
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
-        <link rel="stylesheet" href="../css/kelolasuratkeluar.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-    </head>
-
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+    <link rel="stylesheet" href="css/kelolasuratkeluar.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+</head>
     <body>
         <div class="container py-5" style="background-color: blue; border-radius: 25px;">
             <div class="container py-6">
@@ -88,15 +86,14 @@
                                                         <td>{{ $suratkeluarr->file }}</td>
                                                         <td>{{ $suratkeluarr->status }}</td>
                                                         <td>
-                                                            <a href="{{route('suratkeluar.edit', $suratkeluarr->id)}}"><button class="btn btn-warning">
+                                                            <a href="{{ route('suratkeluar.edit', $suratkeluarr->id) }}"><button
+                                                                    class="btn btn-warning">
                                                                     <i class="fas fa-edit"></i></button></a>
-                                                            {{-- <a href="{{ route('arsipdownload', ['file' => $arsip->file , 'id' => $suratkeluarr->id]) }}"><button class="btn btn-success"><i
-                                                                        class="fas fa-download"></i></button></a> --}}
 
                                                             @if ($suratkeluarr->file)
-                                                            <a href="{{ route('Suratkeluar.download', ['id' => $suratkeluarr->id, 'file' => $suratkeluarr->file]) }}"
-                                                                class="btn btn-success" target="_blank"><i
-                                                                    class="fas fa-download"></i></a>
+                                                                <a href="{{ route('Suratkeluar.download', ['id' => $suratkeluarr->id, 'file' => $suratkeluarr->file]) }}"
+                                                                    class="btn btn-success" target="_blank"><i
+                                                                        class="fas fa-download"></i></a>
                                                             @endif
 
 
@@ -119,7 +116,9 @@
                                                                         </div>
                                                                         <div class="modal-body">Apakah anda yakin ingin
                                                                             menghapus data?
-                                                                        <span class="badge bg-secondary" >{{$suratkeluarr->nama_surat}}</span></div>
+                                                                            <span
+                                                                                class="badge bg-secondary">{{ $suratkeluarr->nama_surat }}</span>
+                                                                        </div>
                                                                         <div class="modal-footer"
                                                                             style="left:0px; height: 80px;">
                                                                             <form
@@ -155,18 +154,11 @@
                 </div>
             </div>
 
-
-
+            {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
             <!-- Sisipkan script untuk DataTables -->
-            <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-            <!-- Sisipkan script untuk file JavaScript Anda -->
-            <script src="js/kelolasuratkeluar.js"></script>
-            <!-- Example: Loading Bootstrap and Popper.js from CDN -->
-            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-
-    </body>
-
+            <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script> --}}
+            <script src="{{ asset('js/kelolasuratkeluar.js') }}"></script>
+            {{-- <script src="{{ asset('js/arsip.js') }}"></script> --}}
+        </body>
     </html>
-@endsection
+        @endsection

@@ -10,31 +10,41 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
+    <!-- DNS Prefetch for Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+
+    <!-- External CSS Libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
-    <link rel="stylesheet" href="/css/arsip.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
 
-    <!-- Styles -->
-    <link rel="stylesheet" href="../../css/app.css">
+    <!-- Your Custom Styles -->
+    <link rel="stylesheet" href="{{ asset('css/arsip.css') }}">
+
+    <!-- Bootstrap CSS (Choose one version, don't include both) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <!-- Memasukkan Bootstrap CSS -->
+    <!-- OR -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-    <!-- Memasukkan Bootstrap JavaScript, jQuery, dan Popper.js -->
+    <!-- Laravel Default Styles (You may want to use a mix version to handle versioning) -->
+    <link rel="stylesheet" href="../../css/app.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <!-- Bootstrap JavaScript, jQuery, and Popper.js (Choose one version, don't include both) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <!-- OR -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+    <!-- DataTables JavaScript -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
-    <!-- Scripts -->
-    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+    <!-- Your Custom JavaScript -->
 </head>
 
 <body>
