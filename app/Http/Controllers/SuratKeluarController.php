@@ -147,4 +147,7 @@ class SuratKeluarController extends Controller
         // Return response untuk download file
         return response()->download($file_path, $file, ['Content-Type' => $mime_type]);
     }
+    public function template(){
+        return view("admin.SuratKeluar.formtemplate");
+    }
 }

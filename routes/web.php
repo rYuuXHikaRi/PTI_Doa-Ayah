@@ -13,6 +13,7 @@ Route::get('/arsip/{id}/{file}', [ArsipController::class, 'downloadarsip'])->nam
 
 route::resource('suratkeluar', SuratKeluarController::class);
 Route::get('/suratkeluar/{id}/{file}', [SuratKeluarController::class, 'downloadSurat'])->name('Suratkeluar.download');
+Route::get('/formtemplate', [SuratKeluarController::class, 'template'])->name('template');
 
 
 // Route::get('/template', function () {
