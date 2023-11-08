@@ -16,9 +16,9 @@ Route::get('/suratkeluar/{id}/{file}', [SuratKeluarController::class, 'downloadS
 Route::get('/formtemplate', [SuratKeluarController::class, 'template'])->name('template');
 
 
-// Route::get('/template', function () {
-//     return view('admin.suratkeluar.template');
-// });
+Route::get('/template', function () {
+    return view('admin.suratkeluar.template');
+});
 
 
 

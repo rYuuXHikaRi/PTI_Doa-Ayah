@@ -112,39 +112,29 @@ class SuratKeluarController extends Controller
         return redirect()->back();
     }
     public function Cetak(Request $request, $id){
-        $data = SuratKeluar::where('id', $id)->first();
-        // $filepdf = $suratkeluar ->$file;
-        // $pdf = SuratKeluar::loadView('cetak_surat',['file' => $SuratKeluar ->$file ]);
+        // $surat = SuratKeluar::where('id', $id)->first();
+        // // $filepdf = $suratkeluar ->$file;
+        // $pdf = SuratKeluar::loadView('template',['surat' => $surat]);
         // return $pdf->stream('cetak_surat.pdf');
     }
     public function downloadSurat(Request $request, $id, $file)
     {
-
         $suratkeluarr = SuratKeluar::find($id);
-
         if (!$suratkeluarr) {
             abort(404);
         }
         $file_path = storage_path('../public/assets/surat/') . $suratkeluarr->file;
-        // dd($file_path);
-
 
         // Tentukan nama file yang akan di-download
         $file = $suratkeluarr->file;
-        // dd($file_path);
         $extension = pathinfo($file_path, PATHINFO_EXTENSION);
 
-        // Map ekstensi ke tipe MIME (tambahkan ekstensi yang diperlukan)
         $mime_types = [
             'pdf' => 'application/pdf',
             'doc' => 'application/msword',
             'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
         ];
-
-        // Tentukan tipe MIME berdasarkan ekstensi file
         $mime_type = $mime_types[$extension] ?? 'application/octet-stream';
-
-        // Return response untuk download file
         return response()->download($file_path, $file, ['Content-Type' => $mime_type]);
     }
     public function template(){
