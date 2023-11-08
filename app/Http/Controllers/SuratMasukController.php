@@ -125,4 +125,36 @@ class SuratMasukController extends Controller
         $surat = SuratMasuk::findOrFail($id);
         $surat->delete();
     }
+
+    public function downloadsuratmasuk(Request $request, $id, $file)
+    {
+
+        $suratmasuk = SuratMasuk::find($id);
+
+        if (!$suratmasuk) {
+            abort(404);
+        }
+        $file_path = storage_path('../public/files/') . $suratmasuk->file;
+        // dd($file_path);
+
+
+        // Tentukan nama file yang akan di-download
+        $file = $suratmasuk->file;
+        // dd($file_path);
+        $extension = pathinfo($file_path, PATHINFO_EXTENSION);
+
+        // Map ekstensi ke tipe MIME (tambahkan ekstensi yang diperlukan)
+        $mime_types = [
+            'pdf' => 'application/pdf',
+            'doc' => 'application/msword',
+            'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        ];
+
+        // Tentukan tipe MIME berdasarkan ekstensi file
+        $mime_type = $mime_types[$extension] ?? 'application/octet-stream';
+
+        // Return response untuk download file
+        return response()->download($file_path, $file, ['Content-Type' => $mime_type]);
+    }
+
 }

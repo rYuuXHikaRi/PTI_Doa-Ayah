@@ -41,6 +41,7 @@ Route::get('/perubahansuratmasuk', function () {
 });
 
 Route::resource('suratmasuk',SuratMasukController::class);
+Route::get('/suratmasuk/{id}/{file}', [SuratMasukController::class, 'downloadsuratmasuk'])->name('suratmasukdownload');
 
 
 

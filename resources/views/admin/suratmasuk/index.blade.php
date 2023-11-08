@@ -81,6 +81,9 @@
                                     <i class="fas fa-trash"></i>
                                 </button>
                               </a>
+                              @if ($item->file)
+                              <a href="{{ route('suratmasukdownload', ['id' => $item->id, 'file' => $item->file]) }}" class="btn btn-success" target="_blank"><i class="fas fa-download"></i></a>
+                          @endif
                                     
                               <div class="modal fade bd-example-modal-sm{{$item->id}}" tabindex="-1" role="dialog" aria-hidden="true">
                                   <div class="modal-dialog">
