@@ -76,32 +76,32 @@
                               <a href="{{ route('suratmasuk.edit', $item->id) }}"><button
                                       class="btn btn-warning">
                                       <i class="fas fa-edit"></i></button></a>
-                                      <a role="button" class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm{{$item->id}}">
-                                        <button class="btn btn-danger">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </a>
+                              <a role="button" class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm{{$item->id}}">
+                                <button class="btn btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                              </a>
                                     
-                                    <div class="modal fade bd-example-modal-sm{{$item->id}}" tabindex="-1" role="dialog" aria-hidden="true">
-                                        <div class="modal-dialog">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title"><strong>Hapus Data</strong></h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                                </div>
-                                                <div class="modal-body">Apakah anda yakin ingin menghapus data?</div>
-                                                <div class="modal-footer" style="left:0px; height: 80px;">
-                                                    <form action="{{ route('suratmasuk.destroy', $item->id) }}" method="POST">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                        <div style="display: flex; justify-content: space-between;">
-                                                            <button type="button" class="btn submit-btn submit-btn-yes" data-bs-dismiss="modal" style="width: 49%;">Tidak</button>
-                                                            <input type="submit" class="btn submit-btn submit-btn-no" value="Hapus" style="width: 49%;">
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
+                              <div class="modal fade bd-example-modal-sm{{$item->id}}" tabindex="-1" role="dialog" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                      <div class="modal-content">
+                                          <div class="modal-header">
+                                              <h5 class="modal-title"><strong>Hapus Data</strong></h5>
+                                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                          </div>
+                                          <div class="modal-body">Apakah anda yakin ingin menghapus data?</div>
+                                          <div class="modal-footer" style="left:0px; height: 80px;">
+                                              <form action="{{ route('suratmasuk.destroy', $item->id) }}" method="POST">
+                                                  @method('DELETE')
+                                                  @csrf
+                                                  <div style="display: flex; justify-content: space-between;">
+                                                      <button type="button" class="btn submit-btn submit-btn-yes" data-bs-dismiss="modal" style="width: 49%;">Tidak</button>
+                                                      <input type="submit" class="btn submit-btn submit-btn-no" value="Hapus" style="width: 49%;">
+                                                  </div>
+                                              </form>
+                                          </div>
+                                      </div>
+                                  </div>
                                     </div>
                                     
                                   
