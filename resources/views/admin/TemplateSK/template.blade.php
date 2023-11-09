@@ -59,10 +59,10 @@
             </div>
         </section>
 
-        <form method="post" action="{{ route('templateSK.savePDF', ['id' => $templateSK->id]) }}">
+        {{-- <form method="post" action="{{ route('templateSK.savePDF', ['id' => $templateSK->id]) }}" target="_blank">
             @csrf
             <button type="submit">Print</button>
-        </form>
+        </form> --}}
 
 
         {{--
