@@ -52,20 +52,6 @@
                         <div>
                             <span class="font-weight-bold" style="font-size: 30px;">Kelola Surat</span>
                         </div>
-                        {{-- <div>
-                            <a href="{{ route('suratkeluar.create') }}"> <button class="btn btn-primary"
-                                    style="font-size: 15px;border-radius:20px;">Tambah Surat Baru</button></a>
-
-                        </div> --}}
-
-                        {{-- <div class="dropdown">
-                            <button class="dropdown-item">Pilih Opsi</button>
-                            <div class="dropdown-content">
-                                <a href="#" class="dropdown-item">Opsi 1</a>
-                                <a href="#" class="dropdown-item">Opsi 2</a>
-                                <a href="#" class="dropdown-item">Opsi 3</a>
-                            </div>
-                        </div> --}}
 
                         <div class="btn-group dropdown">
                             <button type="button" class="btn btn-primary"

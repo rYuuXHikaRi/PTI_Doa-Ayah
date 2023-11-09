@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\TemplateSK;
 use App\Http\Requests\StoreTemplateSKRequest;
 use App\Http\Requests\UpdateTemplateSKRequest;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
 
 class TemplateSKController extends Controller
 {
@@ -13,7 +15,6 @@ class TemplateSKController extends Controller
      */
     public function index()
     {
-        return view("admin.TemplateSK.create");
     }
 
     /**
@@ -21,15 +22,23 @@ class TemplateSKController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.TemplateSK.create");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoreTemplateSKRequest $request)
+    public function store(Request $request)
     {
-        //
+        $templateSK = TemplateSK::create([
+            'perihal' => $request->perihal,
+            'hari_tanggal' => $request->hari_tanggal,
+            'waktu' => $request->waktu,
+            'tempat' => $request->tempat,
+            'tanggal_surat' => $request->tanggal_surat,
+            'pembuat_surat' => $request->pembuat_surat,
+        ]);
+
+        // Redirect ke halaman templateSK.show dengan menambahkan ID baru
+        return redirect()->route('templateSK.show', ['id' => $templateSK->id])
+            ->with('success', 'Data berhasil disimpan!');
     }
 
     /**
