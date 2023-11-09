@@ -11,30 +11,18 @@ use PDF;
 
 class SuratKeluarController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $suratkeluar = SuratKeluar::all();
         return view("admin.SuratKeluar.index", compact("suratkeluar"));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         // $suratKeluar = SuratKeluar::all();
         return view("admin.SuratKeluar.create");
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        // dd($request->all());
         $validatedData = $request->validate([
             'file' => 'required|mimes:pdf,doc,docx|max:5120',
         ]);
@@ -58,32 +46,19 @@ class SuratKeluarController extends Controller
         Session::flash('success', 'Data surat Berhasil Ditambahkan');
         return redirect()->route('suratkeluar.index')->with('success', 'surat berhasil ditambahkan.');
     }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(SuratKeluar $suratKeluar)
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($id)
     {
         $suratkeluarr = SuratKeluar::where('id', $id)->first();
         return view('admin.SuratKeluar.edit', compact(['suratkeluarr']));
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id)
     {
 
         $suratkeluarr = SuratKeluar::where('id', $id)->first();
-        // dd($suratkeluarr);
         $suratkeluarr->nama_surat = $request->input('nama_surat');
         $suratkeluarr->kategori_surat = $request->input('kategori_surat');
         $suratkeluarr->tanggal_dibuat = $request->input('tanggal_dibuat');
@@ -96,26 +71,15 @@ class SuratKeluarController extends Controller
         $title = "Edit Surat";
         Session::flash('success', 'Data Surat Berhasil DiUbah');
         $suratkeluarr = SuratKeluar::all();
-        // return redirect()->route('surat.index')->with('success', 'User berhasil diupdate.');
         return redirect()->route('suratkeluar.index')->with('success', 'Data Surat berhasil diupdate.');
 
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
         $data = SuratKeluar::where('id', $id)->first();
         $data->delete();
         Session::flash('success', 'Surat Berhasil Dihapus');
         return redirect()->back();
-    }
-    public function Cetak(Request $request, $id){
-        // $surat = SuratKeluar::where('id', $id)->first();
-        // // $filepdf = $suratkeluar ->$file;
-        // $pdf = SuratKeluar::loadView('template',['surat' => $surat]);
-        // return $pdf->stream('cetak_surat.pdf');
     }
     public function downloadSurat(Request $request, $id, $file)
     {

@@ -4,75 +4,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Surat Perizinan Rumah Sakit</title>
-    <style>
-        /* Gaya CSS dapat disesuaikan sesuai kebutuhan */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        h2 {
-            text-align: center;
-            text-decoration: underline;
-        }
-        p {
-            line-height: 1.5;
-            text-align: justify;
-        }
-        /* Tambahkan gaya CSS tambahan sesuai kebutuhan */
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Surat Perizinan Rumah Sakit</h2>
 
-        <p>
-            Dengan hormat,
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+
+        <div class="text-center mb-4">
+          <h2>Undangan</h2>
+        </div>
+
+        <p class="font-weight-bold">Perihal: Undangan</p>
+
+        <p>Kepada Yth,<br>
+          Daftar Peserta Terlampir<br>
+          di<br>
+          Tempat
         </p>
 
-        <p>
-            Bersama surat ini, kami bermaksud untuk memohon perizinan kepada pihak terkait untuk kegiatan sebagai berikut:
-        </p>
+        <p>Assalamu’alaikum Wr. Wb.</p>
 
-        <h3>Detail Kegiatan:</h3>
+        <p>Melalui Surat ini Kami bermaksud mengundang Bapak/Ibu/Sdr untuk mengikuti Simulasi Pemadam Kebakaran pada :</p>
+
         <ul>
-            <li>Nama Kegiatan: [Nama Kegiatan]</li>
-            <li>Tanggal Pelaksanaan: [Tanggal Pelaksanaan]</li>
-            <li>Tempat Pelaksanaan: [Tempat Pelaksanaan]</li>
-            <!-- Tambahkan detail kegiatan sesuai kebutuhan -->
+          <li>Hari/Tanggal : Rabu, 11 Oktober 2023</li>
+          <li>Waktu : Pukul 09.00 WIB (Ontime) s/d selesai</li>
+          <li>Tempat : Lahan Belakang RSI</li>
         </ul>
 
-        <p>
-            Kegiatan ini dilakukan sesuai dengan aturan dan regulasi yang berlaku di bidang kesehatan. Kami akan memastikan bahwa kegiatan ini tidak menimbulkan dampak negatif dan mengikuti protokol kesehatan yang berlaku.
-        </p>
+        <p>Mengingat pentingnya acara tersebut, maka Kami mengharapkan Bapak/Ibu/Sdr. dapat meluangkan waktu untuk datang tepat pada waktunya.</p>
 
-        <p>
-            Sebagai bentuk tanggung jawab kami, kami siap menyediakan dokumen dan informasi tambahan yang diperlukan terkait kegiatan ini.
-        </p>
+        <p>Demikian Memo ini Kami sampaikan, atas kehadirannya Kami ucapkan terima kasih.</p>
 
-        <p>
-            Demikian surat permohonan ini kami buat dengan sebenar-benarnya dan kami harapkan untuk mendapatkan persetujuan dari pihak terkait.
-        </p>
+        <p>Wassalamu’alaikum Wr. Wb.</p>
 
-        <p>
-            Terima kasih atas perhatian dan kerjasamanya.
-        </p>
+        <p class="text-right">Bandar Jaya, 10 Oktober 2023<br>
+        Direktur RS. Islam Asy-Syifaa</p>
 
-        <p>
-            Hormat kami,
-            <br>
-            [Nama Rumah Sakit]
-        </p>
+      </div>
     </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
 
-</html>
 
 @endsection
