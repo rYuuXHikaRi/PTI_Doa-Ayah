@@ -21,15 +21,6 @@ Route::get('/tempplateSk/{id}', [TemplateSKController::class, 'show'])->name('te
 
 
 
-// Route::get('/formtemplate', [SuratKeluarController::class, 'template'])->name('template');
-
-
-// Route::get('/template', function () {
-//     return view('admin.suratkeluar.template');
-// });
-
-
-
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

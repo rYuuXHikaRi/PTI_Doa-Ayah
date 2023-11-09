@@ -7,21 +7,17 @@ use App\Http\Requests\StoreTemplateSKRequest;
 use App\Http\Requests\UpdateTemplateSKRequest;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
+
 
 
 class TemplateSKController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view("admin.TemplateSK.create");
@@ -43,16 +39,10 @@ class TemplateSKController extends Controller
             ->with('success', 'Data berhasil disimpan!');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show($id)
     {
         $templateSK = TemplateSK::find($id);
-
-        // Menampilkan data pada halaman templateSK.show
         return view('admin.TemplateSK.show', compact('templateSK'));
-
     }
     // public function SaveTemplate($id)
     // {
@@ -62,13 +52,17 @@ class TemplateSKController extends Controller
     //     return view('admin.TemplateSK.show', compact('templateSK'));
     // }
 
-    public function previewPdf($id)
+    public function previewPdf(Request $request, $id)
     {
-        // Buat PDF dengan menggunakan view dan data yang dibutuhkan
-        // $pdf = PDF::loadView('surat.preview', compact('data'));
+
+        $pdf = PDF::loadView('admin.TemplateSK.show', compact('templateSK'));
+
+        // Simpan PDF ke direktori public/assets/surat dengan nama file yang unik
+        $filePath = public_path('assets/surat/' . uniqid() . '_preview_surat.pdf');
+        $pdf->save($filePath);
 
         // Tampilkan pratinjau PDF
-        // return $pdf->stream('preview_surat.pdf');
+        return $pdf->stream('preview_surat.pdf');
     }
     public function edit(TemplateSK $templateSK)
     {

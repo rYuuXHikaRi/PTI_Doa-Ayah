@@ -8,9 +8,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
         <link rel="stylesheet" href="css/kelolasuratkeluar.css">
         <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-
-        <style>   <style>
-            /* Gaya Dropdown */
+        <style>
             .dropdown {
                 position: relative;
                 display: inline-block;
@@ -28,8 +26,6 @@
             .dropdown:hover .dropdown-content {
                 display: block;
             }
-
-            /* Gaya untuk Pilihan Dropdown */
             .dropdown-item {
                 padding: 12px 16px;
                 text-decoration: none;
@@ -98,7 +94,6 @@
                                     <div class="table-responsive">
                                         <table id="example" style="width: 100%"
                                             class="table table-striped table-bordered">
-
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
@@ -203,6 +198,7 @@
             <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
             <script src="{{ asset('js/kelolasuratkeluar.js') }}"></script>
 
