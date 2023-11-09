@@ -18,11 +18,13 @@ Route::get('/suratkeluar/{id}/{file}', [SuratKeluarController::class, 'downloadS
 route::resource('templateSK', TemplateSKController::class);
 Route::get('/templateSk/{id}', [TemplateSKController::class, 'show'])->name('templateSK.show');
 Route::post('/templateSk/{id}', [TemplateSKController::class, 'template'])->name('templateSK.template');
-Route::post('/templateSk/{id}', [TemplateSKController::class, 'SavePDF'])->name('templateSK.savePDF');
+// Route::post('/templateSk/{id}', [TemplateSKController::class, 'SavePDF'])->name('templateSK.savePDF');
+Route::post('/templateSk/{id}', [TemplateSKController::class, 'storeTemplate'])->name('templateSK.store');
 
 
-Route::get('/kelolaSK', function () {
-        return view('kelolasuratkeluar');
+
+Route::get('/template', function () {
+        return view('admin.TemplateSK.template');
     });
 
 Auth::routes();
