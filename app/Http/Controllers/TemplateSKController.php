@@ -44,9 +44,12 @@ class TemplateSKController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(TemplateSK $templateSK)
+    public function show($id)
     {
-        //
+        $templateSK = TemplateSK::find($id);
+
+        // Menampilkan data pada halaman templateSK.show
+        return view('templateSK.show', compact('templateSK'));
     }
 
     /**
