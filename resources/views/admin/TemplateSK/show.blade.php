@@ -59,8 +59,11 @@
             </div>
         </section>
 
+        <a href="{{route('templateSK.SavePDF', ['id' => $templateSK->id])}}"><button>print</button></a>
+        {{-- <a href=""><button>print</button></a> --}}
 
 
+        {{--
         <section class="sekstion form deskripsi">
             <div class="container py-5" style="background-color:; border-radius: 25px;">
                 <div class="card">
@@ -127,7 +130,7 @@
                                 </div>
                             </div>
                         </form>
-        </section>
+        </section> --}}
 
         </div>
         </div>

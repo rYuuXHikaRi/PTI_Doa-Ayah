@@ -52,9 +52,9 @@ class TemplateSKController extends Controller
     //     return view('admin.TemplateSK.show', compact('templateSK'));
     // }
 
-    public function previewPdf(Request $request, $id)
+    public function SavePDF(Request $request, $id)
     {
-
+        $templateSK = TemplateSK::find($id);
         $pdf = PDF::loadView('admin.TemplateSK.show', compact('templateSK'));
 
         // Simpan PDF ke direktori public/assets/surat dengan nama file yang unik
