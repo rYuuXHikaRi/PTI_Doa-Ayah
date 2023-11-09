@@ -20,6 +20,9 @@ Route::get('/tempplateSk/{id}', [TemplateSKController::class, 'show'])->name('te
 // Route::post('/suratkeluar/{id}/{file}', [TemplateSKController::class, ''])->name('');
 
 
+Route::get('/kelolaSK', function () {
+        return view('kelolasuratkeluar');
+    });
 
 Auth::routes();
 

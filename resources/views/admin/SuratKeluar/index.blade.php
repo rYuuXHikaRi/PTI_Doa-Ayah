@@ -39,7 +39,6 @@
         </style>
     </head>
 
-
     <body>
         <div class="container py-5" style="background-color: blue; border-radius: 25px;">
             <div class="container py-6">
@@ -57,8 +56,8 @@
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
                             <div class="dropdown-menu dropdown-content">
-                                <a class="dropdown-item" href="{{ route('suratkeluar.create') }}"">Upload Surat</a>
-                                <a class="dropdown-item" href="{{ route('templateSK.create') }}"">Gunakan Template Surat</a>
+                                <a class="dropdown-item" href="{{ route('suratkeluar.create') }}">Buat Surat Masuk</a>
+                                <a class="dropdown-item" href="">Buat Surat keluar</a>
                             </div>
                         </div>
 
