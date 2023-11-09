@@ -48,7 +48,7 @@ class TemplateSKController extends Controller
     public function show($id)
     {
         $templateSK = TemplateSK::find($id);
-        return view('admin.TemplateSK.create2', compact('templateSK'));
+        return view('admin.TemplateSK.show', compact('templateSK'));
     }
     public function storeTemplate(Request $request ,$id)
     {
