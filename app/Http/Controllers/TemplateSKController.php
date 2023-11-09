@@ -58,8 +58,8 @@ class TemplateSKController extends Controller
         $pdf = PDF::loadView('admin.TemplateSK.show', compact('templateSK'));
 
         // Simpan PDF ke direktori public/assets/surat dengan nama file yang unik
-        $filePath = public_path('assets/surat/' . uniqid() . '_preview_surat.pdf');
-        $pdf->save($filePath);
+        // $filePath = public_path('assets/surat/' . uniqid() . '_preview_surat.pdf');
+        // $pdf->save($filePath);
 
         // Tampilkan pratinjau PDF
         return $pdf->stream('preview_surat.pdf');
