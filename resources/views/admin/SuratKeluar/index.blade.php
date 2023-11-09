@@ -1,13 +1,49 @@
 @extends('layouts.app')
 
 @section('content')
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
-    <link rel="stylesheet" href="css/kelolasuratkeluar.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-</head>
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+        <link rel="stylesheet" href="css/kelolasuratkeluar.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+
+        <style>   <style>
+            /* Gaya Dropdown */
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            /* Gaya untuk Pilihan Dropdown */
+            .dropdown-item {
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                color: #333;
+            }
+
+            .dropdown-item:hover {
+                background-color: #ddd;
+            }
+        </style>
+    </head>
+
+
     <body>
         <div class="container py-5" style="background-color: blue; border-radius: 25px;">
             <div class="container py-6">
@@ -16,12 +52,36 @@
                         <div>
                             <span class="font-weight-bold" style="font-size: 30px;">Kelola Surat</span>
                         </div>
-                        <div>
+                        {{-- <div>
                             <a href="{{ route('suratkeluar.create') }}"> <button class="btn btn-primary"
                                     style="font-size: 15px;border-radius:20px;">Tambah Surat Baru</button></a>
 
+                        </div> --}}
+
+                        {{-- <div class="dropdown">
+                            <button class="dropdown-item">Pilih Opsi</button>
+                            <div class="dropdown-content">
+                                <a href="#" class="dropdown-item">Opsi 1</a>
+                                <a href="#" class="dropdown-item">Opsi 2</a>
+                                <a href="#" class="dropdown-item">Opsi 3</a>
+                            </div>
+                        </div> --}}
+
+                        <div class="btn-group dropdown">
+                            <button type="button" class="btn btn-primary"
+                                style="font-size: 15px; border-radius: 20px;">Tambah Surat Baru</button>
+                            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-content">
+                                <a class="dropdown-item" href="{{ route('suratkeluar.create') }}"">Upload Surat</a>
+                                <a class="dropdown-item" href="{{ route('templateSK.create') }}"">Gunakan Template Surat</a>
+                            </div>
                         </div>
+
                     </div>
+
                     <br>
                     <div class="row py-6">
                         <div class="col-lg-12 mx-auto">
@@ -154,11 +214,13 @@
                 </div>
             </div>
 
-            {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-            <!-- Sisipkan script untuk DataTables -->
-            <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script> --}}
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
             <script src="{{ asset('js/kelolasuratkeluar.js') }}"></script>
-            {{-- <script src="{{ asset('js/arsip.js') }}"></script> --}}
-        </body>
+
+    </body>
+
     </html>
-        @endsection
+@endsection
