@@ -7,6 +7,8 @@ use App\Http\Requests\StoreTemplateSKRequest;
 use App\Http\Requests\UpdateTemplateSKRequest;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use PDF;
+
 
 class TemplateSKController extends Controller
 {
@@ -33,7 +35,7 @@ class TemplateSKController extends Controller
             'waktu' => $request->waktu,
             'tempat' => $request->tempat,
             'tanggal_surat' => $request->tanggal_surat,
-            'pembuat_surat' => $request->pembuat_surat,
+            'pembuat_surat' => 1,
         ]);
 
         // Redirect ke halaman templateSK.show dengan menambahkan ID baru
@@ -49,12 +51,25 @@ class TemplateSKController extends Controller
         $templateSK = TemplateSK::find($id);
 
         // Menampilkan data pada halaman templateSK.show
-        return view('templateSK.show', compact('templateSK'));
-    }
+        return view('admin.TemplateSK.show', compact('templateSK'));
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    }
+    // public function SaveTemplate($id)
+    // {
+    //     $templateSK = TemplateSK::find($id);
+
+    //     // Menampilkan data pada halaman templateSK.show
+    //     return view('admin.TemplateSK.show', compact('templateSK'));
+    // }
+
+    public function previewPdf($id)
+    {
+        // Buat PDF dengan menggunakan view dan data yang dibutuhkan
+        // $pdf = PDF::loadView('surat.preview', compact('data'));
+
+        // Tampilkan pratinjau PDF
+        // return $pdf->stream('preview_surat.pdf');
+    }
     public function edit(TemplateSK $templateSK)
     {
         //

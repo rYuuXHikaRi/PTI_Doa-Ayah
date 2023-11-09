@@ -16,6 +16,9 @@ route::resource('suratkeluar', SuratKeluarController::class);
 Route::get('/suratkeluar/{id}/{file}', [SuratKeluarController::class, 'downloadSurat'])->name('Suratkeluar.download');
 
 route::resource('templateSK', TemplateSKController::class);
+Route::get('/tempplateSk/{id}', [TemplateSKController::class, 'show'])->name('templateSK.show');
+// Route::post('/suratkeluar/{id}/{file}', [TemplateSKController::class, ''])->name('');
+
 
 
 // Route::get('/formtemplate', [SuratKeluarController::class, 'template'])->name('template');

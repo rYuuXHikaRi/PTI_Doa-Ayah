@@ -20,36 +20,41 @@
           <h2>Form Surat Undangan</h2>
         </div>
 
-        <form method="post" action=""  enctype="multipart/form-data">
+        <form method="POST" action="{{ route('templateSK.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-            <label for="perihal">Perihal:</label>
-            <input type="text" class="form-control" id="perihal" placeholder="Masukkan perihal">
-          </div>
+                <label for="perihal">Perihal:</label>
+                <input type="text" class="form-control" id="perihal" name="perihal" placeholder="Masukkan perihal">
+            </div>
 
-          <div class="form-group">
-            <label for="hari_tanggal">Hari/Tanggal:</label>
-            <input type="text" class="form-control" id="hari_tanggal" placeholder="Masukkan hari/tanggal">
-          </div>
+            <div class="form-group">
+                <label for="hari_tanggal">Hari/Tanggal:</label>
+                <input type="text" class="form-control" id="hari_tanggal" name="hari_tanggal" placeholder="Masukkan hari/tanggal">
+            </div>
 
-          <div class="form-group">
-            <label for="waktu">Waktu:</label>
-            <input type="text" class="form-control" id="waktu" placeholder="Masukkan waktu">
-          </div>
+            <div class="form-group">
+                <label for="waktu">Waktu:</label>
+                <input type="text" class="form-control" id="waktu" name="waktu" placeholder="Masukkan waktu">
+            </div>
 
-          <div class="form-group">
-            <label for="tempat">Tempat:</label>
-            <input type="text" class="form-control" id="tempat" placeholder="Masukkan tempat">
-          </div>
+            <div class="form-group">
+                <label for="tempat">Tempat:</label>
+                <input type="text" class="form-control" id="tempat" name="tempat" placeholder="Masukkan tempat">
+            </div>
 
-          <div class="form-group">
-            <label for="tanggal_surat">Tanggal Surat:</label>
-            <input type="date" class="form-control" id="tanggal_surat">
-          </div>
+            <div class="form-group">
+                <label for="tanggal_surat">Tanggal Surat:</label>
+                <input type="date" class="form-control" id="tanggal_surat" name="tanggal_surat">
+            </div>
 
-          <button type="submit" class="btn btn-primary">Buat Surat</button>
+            <div class="form-group" hidden>
+                <label for="pembuat_surat">Pembuat Surat:</label>
+                <input type="text" class="form-control" id="pembuat_surat" name="pembuat_surat" placeholder="Masukkan pembuat surat">
+            </div>
 
+            <button type="submit" class="btn btn-primary">Buat Surat</button>
         </form>
+
 
       </div>
     </div>
