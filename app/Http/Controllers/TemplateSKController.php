@@ -13,7 +13,7 @@ class TemplateSKController extends Controller
      */
     public function index()
     {
-        return view("");
+        return view("admin.TemplateSK.create");
     }
 
     /**
