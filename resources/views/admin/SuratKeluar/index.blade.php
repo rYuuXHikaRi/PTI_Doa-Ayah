@@ -115,7 +115,6 @@
                                                 @foreach ($suratkeluar as $suratkeluarr)
                                                     <tr>
                                                         <td>{{ $no++ }}</td>
-                                                        <td hidden>{{ $suratkeluarr->id }}</td>
                                                         <td>{{ $suratkeluarr->nama_surat }}</td>
                                                         <td>{{ $suratkeluarr->kode_surat }}</td>
                                                         <td>{{ $suratkeluarr->tanggal_dibuat }}</td>

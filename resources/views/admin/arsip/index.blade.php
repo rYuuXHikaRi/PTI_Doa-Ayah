@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
@@ -11,7 +12,13 @@
     </div>
     @endif
 
-    <section>
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+            <link rel="stylesheet" href="css/arsip.css">
+            <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+        </head>
 
         <body>
             <div class="container py-5" style="background-color: blue; border-radius: 25px;">
@@ -49,6 +56,7 @@
                                                     <th>Tanggal Terbit</th>
                                                     <th>Tanggal Selesai</th>
                                                     <th>Lokasi Arsip</th>
+                                                    <th>File</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -66,7 +74,7 @@
                                                         <td>{{ $arsip->created_at->format('Y-m-d') }}</td>
                                                         <td>{{ $arsip->tanggal_selesai }}</td>
                                                         <td>{{ $arsip->lokasi_arsip }}</td>
-                                                        <td hidden>{{ $arsip->file }}</td>
+                                                        <td>{{ $arsip->file }}</td>
 
                                                         <td>
                                                             <a href="{{ route('arsip.edit', $arsip->id) }}"><button
@@ -116,5 +124,12 @@
                     </div>
                 </div>
             </div>
-    </section>
+        <!-- Sisipkan script untuk jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <!-- Sisipkan script untuk DataTables -->
+        <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+        <!-- Sisipkan script untuk file JavaScript Anda -->
+        <script src="js/arsip.js"></script>
+        </body>
+    </html>
 @endsection
