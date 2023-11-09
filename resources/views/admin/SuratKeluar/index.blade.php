@@ -28,8 +28,8 @@
                             <div class="card rounded shadow border-2">
                                 <div class="card-body p-5 bg-white rounded">
                                     <div class="button-container">
-                                        <div class="button" id="suratMasuk">Surat Masuk</div>
-                                        <div class="button" id="suratKeluar">Surat Keluar</div>
+                                        <a href="{{ route('suratmasuk.index') }}"><div class="button" id="suratMasuk">Surat Masuk</div></a> 
+                                        <a href="{{ route('suratkeluar.index') }}"><div class="button" id="suratMasuk">Surat Keluar</div></a>
                                     </div>
 
                                     <script>

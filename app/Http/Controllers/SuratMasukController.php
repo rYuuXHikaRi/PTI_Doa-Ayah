@@ -114,7 +114,7 @@ class SuratMasukController extends Controller
 
         $surat->save();
 
-        return redirect()->route('surat.index')->with('success', 'Surat berhasil diperbarui.');
+        return redirect()->route('suratmasuk.index')->with('success', 'Surat berhasil diperbarui.');
     }
 
     /**
@@ -124,6 +124,8 @@ class SuratMasukController extends Controller
     {
         $surat = SuratMasuk::findOrFail($id);
         $surat->delete();
+
+        return redirect()->route('suratmasuk.index')->with('success', 'Surat berhasil dihapus.');
     }
 
     public function downloadsuratmasuk(Request $request, $id, $file)
