@@ -7,5 +7,4 @@ $(document).ready(function () {
         "info": true, // Tampilkan informasi jumlah data
         "autoWidth": false // Nonaktifkan otomatis penyesuaian lebar kolom
     });
-    
   });
