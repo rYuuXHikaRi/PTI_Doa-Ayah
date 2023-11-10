@@ -28,7 +28,15 @@ Route::get('/template', function () {
 
 Route::get('/buatsurattemplate', function () {
     return view('buatsurattemplate');
-}); 
+});
+Route::get('/dashboardkabag', function () {
+    return view('dashboardkabag');
+});
+
+Route::get('/daftarpermohonansuratmasuk', function () {
+    return view('daftarpermohonansuratmasuk');
+});
+
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
