@@ -19,7 +19,7 @@
                         <span class="font-weight-bold" style="font-size: 30px;">Kelola Surat</span>
                     </div>
                     <div>
-                        <button class="btn btn-primary" style="font-size: 15px;border-radius:20px;">Tambah Surat Baru</button>
+                        <a href="{{ route('suratmasuk.create') }}"><button class="btn btn-primary" style="font-size: 15px;border-radius:20px;">Tambah Surat Baru</button></a>
                     </div>
                 </div>
                 <br>

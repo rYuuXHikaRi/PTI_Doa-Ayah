@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SuratMasuk;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests\StoreSuratMasukRequest;
 use App\Http\Requests\UpdateSuratMasukRequest;
 
@@ -54,6 +55,7 @@ class SuratMasukController extends Controller
             'asal_surat' => $request->asal_surat,
             'file' => $nama_file,
         ]);
+        Session::flash('success', 'Surat Masuk Berhasil Ditambahkan');
 
         return redirect()->route('suratmasuk.index')->with('success', 'Surat berhasil disimpan.');
     }
@@ -113,6 +115,7 @@ class SuratMasukController extends Controller
         }
 
         $surat->save();
+        Session::flash('success', 'Surat Masuk Berhasil Diubah');
 
         return redirect()->route('suratmasuk.index')->with('success', 'Surat berhasil diperbarui.');
     }
@@ -124,6 +127,8 @@ class SuratMasukController extends Controller
     {
         $surat = SuratMasuk::findOrFail($id);
         $surat->delete();
+
+        Session::flash('success', 'Surat Masuk Berhasil Dihapus');
 
         return redirect()->route('suratmasuk.index')->with('success', 'Surat berhasil dihapus.');
     }
