@@ -13,16 +13,12 @@
 </head>
 
 <body>
-    {{-- <form method="post" action="{{ route('templateSK.savePDF', ['id' => $templateSK->id]) }}" target="_blank">
-        @csrf
-        <button type="submit">Print</button>
-    </form> --}}
 
     <section class="sekstion form deskripsi">
         <div class="container py-5" style="background-color:; border-radius: 25px;">
             <div class="card">
                 <div class="card-body">
-                    <form method="post" action="{{ route('templateSK.store',['id' => $templateSK->id]) }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('templateSK.storeSK',['id' => $templateSK->id]) }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
                             <label for="namaSurat" class="col-md-4 col-form-label">Nama Surat</label>

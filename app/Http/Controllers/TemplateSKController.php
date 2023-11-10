@@ -56,12 +56,11 @@ class TemplateSKController extends Controller
         $pdf = PDF::loadView('admin.TemplateSK.template', compact('templateSK'));
 
         // Simpan PDF ke direktori public/assets/surat dengan nama file yang unik
-        // $filePath = public_path('assets/surat/' . uniqid() . '_preview_surat.pdf');
-        $file_path = storage_path('../public/assets/SuratTemplate/') .  uniqid() . '_preview_surat.pdf';
+        $file_path = storage_path('../public/assets/surat/') .  uniqid() . '_preview_surat.pdf';
         $pdf->save($file_path);
 
         // Tampilkan pratinjau PDF
-        $file1 = $pdf->download('preview_surat.pdf');
+        // $file1 = $pdf->download('preview_surat.pdf');
 
         $validatedData = $request->validate([
             'file' => 'required|mimes:pdf,doc,docx|max:5120',
@@ -79,7 +78,7 @@ class TemplateSKController extends Controller
             'kode_surat' => $request->kode_surat,
             'pembuat_surat' => 1,
             'jenis_surat' => $request->jenis_surat,
-            'file' => $filename1,
+            'file' => $pdf,
         ]);
 
         $file1->move(public_path($location1), $filename1);
@@ -92,8 +91,6 @@ class TemplateSKController extends Controller
         $templateSK = TemplateSK::find($id);
         $pdf = PDF::loadView('admin.TemplateSK.show', compact('templateSK'));
 
-        // Simpan PDF ke direktori public/assets/surat dengan nama file yang unik
-        // $filePath = public_path('assets/surat/' . uniqid() . '_preview_surat.pdf');
         $file_path = storage_path('../public/assets/SuratTemplate/') .  uniqid() . '_preview_surat.pdf';
         $pdf->save($file_path);
 
