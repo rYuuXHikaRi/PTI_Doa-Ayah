@@ -81,7 +81,7 @@ class TemplateSKController extends Controller
             'jenis_surat' => $request->jenis_surat,
             'file' => $filename1,
         ]);
-        dd($file1);
+
         $file1->move(public_path($location1), $filename1);
         Session::flash('success', 'Data surat Berhasil Ditambahkan');
         return redirect()->route('suratkeluar.index')->with('success', 'surat berhasil ditambahkan.');
