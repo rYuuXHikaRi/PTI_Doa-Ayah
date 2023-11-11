@@ -57,8 +57,8 @@
                                 <span class="sr-only">Toggle Dropdown</span>
                             </button>
                             <div class="dropdown-menu dropdown-content">
-                                <a class="dropdown-item" href="{{ route('suratkeluar.create') }}">Buat Surat Masuk</a>
-                                <a class="dropdown-item" href="">Buat Surat keluar</a>
+                                <a class="dropdown-item" href="{{route('suratmasuk.create')}}">Buat Surat Masuk</a>
+                                <a class="dropdown-item" href="{{ route('suratkeluar.create') }}">Buat Surat keluar</a>
                             </div>
                         </div>
 

@@ -16,18 +16,18 @@
                             <div class="card-header" style="background-color: blue; color: white; border-bottom: 2px solid white;">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div style="display: flex; align-items: center;">
-                                        <a href="#" style="text-decoration: none; margin-right: 10px;color:white">
+                                        <a href="{{route('suratkeluar.index')}}" style="text-decoration: none; margin-right: 10px;color:white">
                                             <i class="fa-sharp fa-solid fa-arrow-left" style="font-size: 30px;"></i>
                                         </a>
                                         <span class="font-weight-bold" style="font-size: 30px;">Buat Surat Masuk</span>
-                                    </div> 
+                                    </div>
                                 </div>
                             </div><br>
                                 <div class="card">
                                         <div class="card-body">
-                                            <form method="POST" action="{{ route('suratmasuk.store') }}" enctype="multipart/form-data"> 
+                                            <form method="POST" action="{{ route('suratmasuk.store') }}" enctype="multipart/form-data">
                                                 @csrf
-                                                @method('POST')  
+                                                @method('POST')
                                                 <div class="form-group row">
                                                     <label for="namaSurat" class="col-md-4 col-form-label">Nama Surat</label>
                                                     <div class="col-md-8">
@@ -71,14 +71,14 @@
                                                     </div>
                                                 </div>
                                             </form>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
-                            
-                
-            
-        
+
+
+
+
     </div>
 
 

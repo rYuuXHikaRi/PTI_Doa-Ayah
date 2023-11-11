@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('pembuat_surat');
             $table->string('jenis_surat');
             $table->string('file');
+            $table->string('status');
             $table->timestamps();
         });
     }
