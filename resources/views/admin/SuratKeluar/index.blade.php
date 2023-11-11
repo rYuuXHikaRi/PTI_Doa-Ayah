@@ -26,6 +26,7 @@
             .dropdown:hover .dropdown-content {
                 display: block;
             }
+
             .dropdown-item {
                 padding: 12px 16px;
                 text-decoration: none;
@@ -69,8 +70,12 @@
                             <div class="card rounded shadow border-2">
                                 <div class="card-body p-5 bg-white rounded">
                                     <div class="button-container">
-                                        <a href="{{ route('suratmasuk.index') }}"><div class="button" id="suratMasuk">Surat Masuk</div></a> 
-                                        <a href="{{ route('suratkeluar.index') }}"><div class="button" id="suratMasuk">Surat Keluar</div></a>
+                                        <a href="{{ route('suratmasuk.index') }}">
+                                            <div class="button" id="suratMasuk">Surat Masuk</div>
+                                        </a>
+                                        <a href="{{ route('suratkeluar.index') }}">
+                                            <div class="button" id="suratMasuk">Surat Keluar</div>
+                                        </a>
                                     </div>
 
                                     <script>
@@ -116,7 +121,6 @@
                                                         <td>{{ $suratkeluarr->tanggal_dibuat }}</td>
                                                         <td>{{ $suratkeluarr->jenis_surat }}</td>
                                                         <td>{{ $suratkeluarr->tujuan_surat }}</td>
-
                                                         <td>{{ $suratkeluarr->status }}</td>
                                                         <td>
 
@@ -178,22 +182,28 @@
                                                                 @method('PUT')
                                                                <button class="btn btn-danger">Tolak</button>
                                                             </form> --}}
-                                                            @if ($suratkeluarr->status == "menunggu disetujui")
-                                                                <a href="{{ route('suratkeluar.approved', $suratkeluarr->id) }}"><button
-                                                                    class="btn btn-success">
-                                                                    Setuju</button></a>
-                                                                <a href="{{ route('suratkeluar.rejected', $suratkeluarr->id) }}"><button
-                                                                    class="btn btn-danger">
-                                                                    Tolak</i></button></a>
+                                                            @if ($suratkeluarr->status == 'menunggu disetujui')
+                                                                <a
+                                                                    href="{{ route('suratkeluar.approved', $suratkeluarr->id) }}"><button
+                                                                        class="btn btn-success">
+                                                                        Setuju</button></a>
+                                                                <a
+                                                                    href="{{ route('suratkeluar.rejected', $suratkeluarr->id) }}"><button
+                                                                        class="btn btn-danger">
+                                                                        Tolak</i></button></a>
                                                             @endif
 
-                                                            
-                                                            
+
+
                                                         </td>
                                                         <td>
                                                             <a href="{{ route('suratkeluar.edit', $suratkeluarr->id) }}"><button
                                                                     class="btn btn-warning">
                                                                     <i class="fas fa-edit"></i></button></a>
+
+                                                            <a href="{{ route('suratkeluar.edit', $suratkeluarr->id) }}"><button
+                                                                    class="btn btn-warning" style="background:#1AACAC">
+                                                                    <i class="fa-solid fa-file-signature"></i></button></a>
 
                                                             @if ($suratkeluarr->file)
                                                                 <a href="{{ route('suratkeluar.download', ['id' => $suratkeluarr->id, 'file' => $suratkeluarr->file]) }}"
@@ -201,12 +211,15 @@
                                                                         class="fas fa-download"></i></a>
                                                             @endif
 
-                                                            <a href="{{ route('dispost.show',$suratkeluarr->id) }}"><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a>
+                                                            <a href="{{ route('dispost.show', $suratkeluarr->id) }}"><button
+                                                                    class="btn btn-primary"><i
+                                                                        class="fa-regular fa-note-sticky"></i></button></a>
 
-                                                            @if($suratkeluarr->status == 'ditolak')
-
-                                                            <a href="{{ route('suratkeluar.restored',$suratkeluarr->id) }}"><button class="btn btn-success"><i class="fa-solid fa-share-from-square"></i></button></a>
-
+                                                            @if ($suratkeluarr->status == 'ditolak')
+                                                                <a
+                                                                    href="{{ route('suratkeluar.restored', $suratkeluarr->id) }}"><button
+                                                                        class="btn btn-success"><i
+                                                                            class="fa-solid fa-share-from-square"></i></button></a>
                                                             @endif
 
 
@@ -216,6 +229,8 @@
                                                                     <i class="fas fa-trash"></i>
                                                                 </button>
                                                             </a>
+
+
 
                                                             <div class="modal fade modal2{{ $suratkeluarr->id }}"
                                                                 tabindex="-1" role="dialog" aria-hidden="true">
