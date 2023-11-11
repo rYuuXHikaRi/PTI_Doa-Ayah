@@ -3,11 +3,9 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\SuratKeluarController;
 use App\Http\Controllers\ArsipController;
 use App\Http\Controllers\TemplateSKController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\ArsipController;
 use App\Http\Controllers\DisposisiController;
 use App\Http\Controllers\SuratMasukController;
 use App\Http\Controllers\SuratKeluarController;
