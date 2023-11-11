@@ -7,10 +7,18 @@ use App\Http\Controllers\SuratKeluarController;
 use App\Http\Controllers\ArsipController;
 use App\Http\Controllers\TemplateSKController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ArsipController;
+use App\Http\Controllers\DisposisiController;
+use App\Http\Controllers\SuratMasukController;
+use App\Http\Controllers\SuratKeluarController;
 
 Route::resource('arsip', ArsipController::class);
 Route::resource('user', UserController::class);
+Route::resource('dispost', DisposisiController::class);
 Route::get('/arsip/{id}/{file}', [ArsipController::class, 'downloadarsip'])->name('arsipdownload');
+
+Route::resource('suratmasuk',SuratMasukController::class);
+Route::get('/suratmasuk/download/{id}/{file}', [SuratMasukController::class, 'downloadsuratmasuk'])->name('suratmasukdownload');
 
 route::resource('suratkeluar', SuratKeluarController::class);
 Route::get('/suratkeluar/{id}/{file}', [SuratKeluarController::class, 'downloadSurat'])->name('Suratkeluar.download');
@@ -53,5 +61,23 @@ Route::get('/daftarpermohonantukarjaga', function () {
     return view('daftarpermohonantukarjaga');
 });
 Auth::routes();
+Route::get('/suratkeluar/download/{id}/{file}', [SuratKeluarController::class, 'downloadSurat'])->name('suratkeluar.download');
+Route::get('/formtemplate', [SuratKeluarController::class, 'template'])->name('template');
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/suratkeluar/approved/{id}', [SuratKeluarController::class,'approve'])->name('suratkeluar.approved');
+Route::get('/suratkeluar/rejected/{id}', [SuratKeluarController::class,'reject'])->name('suratkeluar.rejected');
+Route::get('/suratkeluar/restored/{id}', [SuratKeluarController::class,'restore'])->name('suratkeluar.restored');
+
+Route::post('/disposisi/add/{id}/{status}', [DisposisiController::class,'store'])->name('disposisi.tambahdisposisi');
+// Route::put('/suratkeluar/rejected/{id}', [SuratKeluarController::class,'tolaksurat'])->name('suratkeluar.tolak');
+
+
+// Route::get('/template', function () {
+//     return view('admin.suratkeluar.template');
+// });
+
+
+
+// Auth::routes();
+
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

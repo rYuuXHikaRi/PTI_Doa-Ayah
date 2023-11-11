@@ -40,6 +40,7 @@ class SuratKeluarController extends Controller
             'pembuat_surat' => 1,
             'jenis_surat' => $request->jenis_surat,
             'file' => $filename1,
+            'status'=>"menunggu disetujui",
         ]);
 
         $file1->move(public_path($location1), $filename1);
@@ -103,5 +104,51 @@ class SuratKeluarController extends Controller
     }
     public function template(){
         return view("admin.SuratKeluar.formtemplate");
+    }
+
+    public function setujuisurat($id){
+   
+        $data = SuratKeluar::find($id);
+
+     
+        $data->status = "disetujui";
+        $data->save();
+
+        return redirect()->back();
+    }
+
+    public function tolaksurat($id){
+    
+        $data = SuratKeluar::find($id);
+
+    
+        $data->status = "ditolak";
+        $data->save();
+
+        return redirect()->back();
+    }
+
+    public function approve($id){
+    
+
+        $suratkeluarr = SuratKeluar::find($id);
+        return view("admin.SuratKeluar.approve", compact("suratkeluarr"));
+
+    }
+
+    public function reject($id){
+    
+
+        $suratkeluarr = SuratKeluar::find($id);
+        return view("admin.SuratKeluar.reject", compact("suratkeluarr"));
+
+    }
+
+    public function restore($id){
+    
+
+        $suratkeluarr = SuratKeluar::find($id);
+        return view("admin.SuratKeluar.restore", compact("suratkeluarr"));
+
     }
 }

@@ -69,8 +69,8 @@
                             <div class="card rounded shadow border-2">
                                 <div class="card-body p-5 bg-white rounded">
                                     <div class="button-container">
-                                        <div class="button" id="suratMasuk">Surat Masuk</div>
-                                        <div class="button" id="suratKeluar">Surat Keluar</div>
+                                        <a href="{{ route('suratmasuk.index') }}"><div class="button" id="suratMasuk">Surat Masuk</div></a> 
+                                        <a href="{{ route('suratkeluar.index') }}"><div class="button" id="suratMasuk">Surat Keluar</div></a>
                                     </div>
 
                                     <script>
@@ -97,14 +97,11 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Nama Surat</th>
-                                                    <th>Kode Surat</th>
                                                     <th>Tanggal dibuat</th>
-                                                    <th>Kategori</th>
                                                     <th>Jenis Surat</th>
-                                                    <th>Pembuat Surat</th>
                                                     <th>Tujuan</th>
-                                                    <th>Nama File</th>
                                                     <th>Status</th>
+                                                    <th>Persetujuan</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -116,34 +113,111 @@
                                                     <tr>
                                                         <td>{{ $no++ }}</td>
                                                         <td>{{ $suratkeluarr->nama_surat }}</td>
-                                                        <td>{{ $suratkeluarr->kode_surat }}</td>
                                                         <td>{{ $suratkeluarr->tanggal_dibuat }}</td>
-                                                        <td>{{ $suratkeluarr->kategori_surat }}</td>
                                                         <td>{{ $suratkeluarr->jenis_surat }}</td>
-                                                        <td>{{ $suratkeluarr->pembuat_surat }}</td>
                                                         <td>{{ $suratkeluarr->tujuan_surat }}</td>
-                                                        <td>{{ $suratkeluarr->file }}</td>
+
                                                         <td>{{ $suratkeluarr->status }}</td>
+                                                        <td>
+
+                                                            {{-- <a role="button" class="success-button" data-bs-toggle="modal"
+                                                            data-bs-target=".modal1{{ $suratkeluarr->id }}">
+                                                            <button class="btn btn-success">
+                                                                Setuju
+                                                            </button>
+                                                            </a> --}}
+
+                                                            {{-- <div class="modal fade modal1{{ $suratkeluarr->id }}"
+                                                                tabindex="-1" role="dialog" aria-hidden="true">
+                                                                <div class="modal-dialog">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title"><strong>Setujui Surat</strong></h5>
+                                                                            <button type="button" class="btn-close"
+                                                                                data-bs-dismiss="modal"></button>
+                                                                        </div>
+                                                                        <div class="modal-body">Apakah anda yakin ingin
+                                                                            Menyetujui Surat?
+                                                                            <span
+                                                                                class="badge bg-secondary">{{ $suratkeluarr->nama_surat }}</span>
+                                                                        </div>
+                                                                        <div class="modal-footer"
+                                                                            style="left:0px; height: 80px;">
+                                                                            <form
+                                                                                action="{{ route('suratkeluar.setujui', $suratkeluarr->id) }}"
+                                                                                method="POST">
+                                                                                @method('POST')
+                                                                                @csrf
+                                                                                <label for="namaSurat" class="col-md-4 col-form-label">Deskripsi</label>
+                                                                                <div class="col-md-8">
+                                                                                    <input type="textarea" class="form-control" id="deskripsi" style="background-color:#EBF1FA"
+                                                                                    name="deskripsi" placeholder="Deskripsi">
+                                                                                </div>
+                                                                                <div
+                                                                                    style="display: flex; justify-content: space-between;">
+                                                                                    <button type="button"
+                                                                                        class="btn submit-btn submit-btn-yes"
+                                                                                        data-bs-dismiss="modal"
+                                                                                        style="width: 49%;">Tidak</button>
+                                                                                    <input type="submit"
+                                                                                        class="btn submit-btn submit-btn-no"
+                                                                                        value="Hapus" style="width: 49%;">
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div> --}}
+                                                            {{-- <form action="{{ route('suratkeluar.setujui', ['id' => $suratkeluarr->id]) }}" method="POST" enctype="multipart/form-data">
+                                                                @csrf
+                                                                @method('PUT')
+                                                               <button class="btn btn-success">Setuju</button>
+                                                            </form>
+                                                            <form action="{{ route('suratkeluar.tolak', ['id' => $suratkeluarr->id]) }}" method="POST" enctype="multipart/form-data">
+                                                                @csrf
+                                                                @method('PUT')
+                                                               <button class="btn btn-danger">Tolak</button>
+                                                            </form> --}}
+                                                            @if ($suratkeluarr->status == "menunggu disetujui")
+                                                                <a href="{{ route('suratkeluar.approved', $suratkeluarr->id) }}"><button
+                                                                    class="btn btn-success">
+                                                                    Setuju</button></a>
+                                                                <a href="{{ route('suratkeluar.rejected', $suratkeluarr->id) }}"><button
+                                                                    class="btn btn-danger">
+                                                                    Tolak</i></button></a>
+                                                            @endif
+
+                                                            
+                                                            
+                                                        </td>
                                                         <td>
                                                             <a href="{{ route('suratkeluar.edit', $suratkeluarr->id) }}"><button
                                                                     class="btn btn-warning">
                                                                     <i class="fas fa-edit"></i></button></a>
 
                                                             @if ($suratkeluarr->file)
-                                                                <a href="{{ route('Suratkeluar.download', ['id' => $suratkeluarr->id, 'file' => $suratkeluarr->file]) }}"
+                                                                <a href="{{ route('suratkeluar.download', ['id' => $suratkeluarr->id, 'file' => $suratkeluarr->file]) }}"
                                                                     class="btn btn-success" target="_blank"><i
                                                                         class="fas fa-download"></i></a>
                                                             @endif
 
+                                                            <a href="{{ route('dispost.show',$suratkeluarr->id) }}"><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a>
+
+                                                            @if($suratkeluarr->status == 'ditolak')
+
+                                                            <a href="{{ route('suratkeluar.restored',$suratkeluarr->id) }}"><button class="btn btn-success"><i class="fa-solid fa-share-from-square"></i></button></a>
+
+                                                            @endif
+
 
                                                             <a role="button" class="delete-button" data-bs-toggle="modal"
-                                                                data-bs-target=".bd-example-modal-sm{{ $suratkeluarr->id }}">
+                                                                data-bs-target=".modal2{{ $suratkeluarr->id }}">
                                                                 <button class="btn btn-danger">
                                                                     <i class="fas fa-trash"></i>
                                                                 </button>
                                                             </a>
 
-                                                            <div class="modal fade bd-example-modal-sm{{ $suratkeluarr->id }}"
+                                                            <div class="modal fade modal2{{ $suratkeluarr->id }}"
                                                                 tabindex="-1" role="dialog" aria-hidden="true">
                                                                 <div class="modal-dialog">
                                                                     <div class="modal-content">
@@ -173,7 +247,7 @@
                                                                                         style="width: 49%;">Tidak</button>
                                                                                     <input type="submit"
                                                                                         class="btn submit-btn submit-btn-no"
-                                                                                        value="Hapus" style="width: 49%;">
+                                                                                        value="Setujui" style="width: 49%;">
                                                                                 </div>
                                                                             </form>
                                                                         </div>
