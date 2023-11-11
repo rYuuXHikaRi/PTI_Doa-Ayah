@@ -108,8 +108,11 @@
         color: #0253BA;
         font-size: 13px;
         font-style: normal;
-        font-weight: 400;
         line-height: normal;
         margin-top: 6px;
+    }
+    .navbar svg.active {
+        fill: red; /* Ganti dengan warna ikon active */
+        border-bottom: 3px solid red; /* Ganti dengan warna garis bawah ikon active */
     }
 }

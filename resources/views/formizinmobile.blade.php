@@ -2,36 +2,37 @@
 
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
-<link rel="stylesheet" href="css/isisuratmobile.css">
+<link rel="stylesheet" href="css/permohonancuti.css">
 
 <div class="container">
     <div class="card">
-        <h1><b>Ajukan Tukar Jaga</b></h1>
+        <h1><b>Ajukan Permohonan Izin</b></h1>
     </div>
     <div class="card-body">
         <div class="box">
-            <select class="form-control" id="kategoriSurat" name="kategoriSurat">
-                <option value="option1">Nama Petugas</option>
-                <option value="option2">Astra</option>
-                <option value="option3">Harbor</option>
-                <option value="option4">Brimstone</option>
-            </select>
+            <input class="input_waktu" type="date" id="Tanggal_Mulai"></input>
         </div>
         <div class="box">
-            <select class="form-control" id="kategoriSurat" name="kategoriSurat">
-                <option value="option1">Shift</option>
-                <option value="option2">Pagi</option>
-                <option value="option3">Siang</option>
-                <option value="option4">Malam</option>
-            </select>
+            <input class="input_waktu" type="date" id="Tanggal_Selesai"></input>
+        </div>
+        <div class="box">
+            <input class="input_waktu" type="text" id="Durasi_Izin" placeholder="Durasi Izin..."></input>
         </div>
         <div class="box_ket">
-            <form>
-                <input class="input_ket" type="text" id="keterangan" placeholder="Keterangan...">
-            </form>
+            <textarea class="input_ket" type="text" id="keterangan" placeholder="Keterangan..."></textarea>
         </div>
         <div class="text_lampiran">
             <h1>Lampiran Bukti (Optional)</h1>
+        </div>
+        <div class="pilih">
+            <input type="file" id="fileInput" style="display: none;">
+            <div class="isi" onclick="document.getElementById('fileInput').click()" id="pilih_file">
+                <h1>Pilih File</h1>
+            </div>
+            <h1>Tidak ada file yang dipilih</h1>
+        </div>
+        <div class="text_lampiran">
+            <h1>Pilih File</h1>
         </div>
         <div class="pilih">
             <input type="file" id="fileInput" style="display: none;">
@@ -76,7 +77,10 @@
             </div>
         </div>
     </div>
-    <script>
+</div>
+@endsection
+
+<script>
         // Fungsi untuk menampilkan pop-up
         function togglePopup() {
             var popup = document.getElementById("myPopup");
@@ -151,6 +155,4 @@
             // Anda juga dapat menyimpan gambar tersebut di server dan mengatur URL gambar profil.
         }
 });
-    </script>
-</div>
-@endsection
+</script>
