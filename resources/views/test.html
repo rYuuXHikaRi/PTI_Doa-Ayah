@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+    <link rel="stylesheet" href="css/homemobile.css">
+    <title>Your Page</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 330px;
+            height: 90%;
+            max-height: 667px;
+            padding: 20px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 24px;
+            background-color: #745b5b;
+        }
+
+        .card-body {
+            background: rgba(230, 239, 250, 0.65);
+            width: 100%; /* Sesuaikan lebar card-body menjadi 100% */
+            height: calc(100% - 40px); /* Sesuaikan tinggi card-body */
+            /* (100% - 2 * padding) */
+            overflow-y: auto; /* Aktifkan overflow jika kontennya lebih panjang */
+        }
+
+        .box {
+            background: #E2ECF9;
+            border-radius: 10px;
+            width: 100%; /* Sesuaikan lebar box menjadi 100% */
+            height: 24%;
+            margin-top: 10px; /* Sesuaikan margin-top */
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px; /* Sesuaikan padding */
+        }
+
+        .box h1 {
+            color: #0253BA;
+            font-size: 15px;
+            font-weight: 800;
+            line-height: normal;
+            margin: 0;
+        }
+
+        .icons {
+            width: 25px;
+            height: 25px;
+            margin-right: 10px; /* Sesuaikan margin-right */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="card-body">
+            <div class="box">
+                <h1>Tukar Jaga</h1>
+                <div class="icons">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" fill="none">
+                        <!-- SVG Path -->
+                    </svg>
+                </div>
+            </div>
+            <div class="box">
+                <h1>Permohonan Cuti</h1>
+                <div class="icons">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" fill="none">
+                        <!-- SVG Path -->
+                    </svg>
+                </div>
+            </div>
+            <div class="box">
+                <h1>Permohonan Izin</h1>
+                <div class="icons">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" fill="none">
+                        <!-- SVG Path -->
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
