@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('template_SK', function (Blueprint $table) {
             $table->id();
-            $table->string('perimal');
+            $table->string('perihal');
             $table->string('hari_tanggal');
             $table->date('waktu');
             $table->string('tempat');
