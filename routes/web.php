@@ -29,6 +29,7 @@ Route::get('/templateSk', [TemplateSKController::class, 'showDesk'])->name('temp
 Route::post('/templateSk', [TemplateSKController::class, 'storeSKnew'])->name('templateSK.storeSKnew');
 Route::post('/templateSk/{id}', [TemplateSKController::class, 'storeSKForm'])->name('templateSK.storeSKForm');
 Route::get('/template/priview/{id}', [TemplateSKController::class, 'priview'])->name('templateSK.priview');
+Route::put('/template/priview/{id}', [TemplateSKController::class, 'Sign'])->name('templateSK.Sign');
 // Route::get('/suratkeluar/{id}', [TemplateSKController::class, 'signature'])->name('templateSK.signature');
 
 

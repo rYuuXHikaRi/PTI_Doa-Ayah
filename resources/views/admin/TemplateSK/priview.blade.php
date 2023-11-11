@@ -59,8 +59,10 @@
                         <p class="text-right">Bandar Jaya, {{ $templateSK->tanggal_surat }}
 
                             <div class="kotak">
-                            <form  class="" action="">
-                                <input type="file">
+                            <form method="POST" action="{{route("templateSK.Sign",['id' => $templateSK->id])}}">
+                                @csrf
+                                @method('put')
+                                <button type="submit">Tanda Tangani</button>
                             </form>
 
                             <br><br><br>

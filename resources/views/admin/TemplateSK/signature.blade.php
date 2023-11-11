@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> --}}
 </head>
 
 <body>
@@ -46,8 +46,13 @@
 
                         <p>Wassalamu’alaikum Wr. Wb.</p>
 
-                        <p class="text-right">Bandar Jaya, {{ $templateSK->tanggal_surat }}<br><br><br><br><br>
-                            Direktur RS. Islam Asy-Syifaa</p>
+                        <p class="text-right">Bandar Jaya, {{ $templateSK->tanggal_surat }}</p>
+
+                            @if ($templateSK->tanda_tangan)
+                        <img src="{{public_path('ttd/'.$templateSK->tanda_tangan)}}" alt="" style="max-height: 150px;max-width:150px">
+                            @endif
+
+                            <p class="text-right">Direktur RS. Islam Asy-Syifaa</p>
 
                     </div>
                 </div>

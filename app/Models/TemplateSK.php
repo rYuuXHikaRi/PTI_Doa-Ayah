@@ -18,6 +18,7 @@ class TemplateSK extends Model
         'tempat',
         'tanggal_surat',
         'pembuat_surat',
-        'id_surat'
+        'id_surat',
+        'tanda_tangan'
     ];
 }

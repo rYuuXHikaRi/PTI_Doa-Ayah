@@ -9,6 +9,7 @@ use App\Http\Requests\UpdateTemplateSKRequest;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\File;
 
 
 
@@ -47,13 +48,13 @@ class TemplateSKController extends Controller
     // }
 
 
-    public function storeSKForm(Request $request,$id)
+    public function storeSKForm(Request $request, $id)
     {
 
         $surat = SuratKeluar::find($id);
 
         $templateSK = TemplateSK::create([
-            'id_surat' =>$surat->id,
+            'id_surat' => $surat->id,
             'perihal' => $request->perihal,
             'hari_tanggal' => $request->hari_tanggal,
             'waktu' => $request->waktu,
@@ -79,7 +80,7 @@ class TemplateSKController extends Controller
     }
     public function storeSKnew(Request $request)
     {
-        $SuratKeluar= SuratKeluar::create([
+        $SuratKeluar = SuratKeluar::create([
             'nama_surat' => $request->nama_surat,
             'kategori_surat' => $request->kategori_surat,
             'tanggal_dibuat' => $request->tanggal_dibuat,
@@ -91,7 +92,7 @@ class TemplateSKController extends Controller
             'status' => "menunggu disetujui",
         ]);
 
-        $id= $SuratKeluar->id;
+        $id = $SuratKeluar->id;
 
         return view('admin.TemplateSK.create', compact('id'));
     }
@@ -100,30 +101,30 @@ class TemplateSKController extends Controller
     //     $templateSK = TemplateSK::find($id);
     //     return view('admin.TemplateSK.show', compact('templateSK'));
     // }
-    public function storeTemplate(Request $request, $id)
-    {
-        $templateSK = TemplateSK::find($id);
-        $pdf = PDF::loadView('admin.TemplateSK.template', compact('templateSK'));
-        $file_name = $request->nama_surat . '_' . uniqid() . '.pdf';
-        $file_path = storage_path('../public/assets/surat/') . $file_name;
-        $pdf->save($file_path);
+    // public function storeTemplate(Request $request, $id)
+    // {
+    //     $templateSK = TemplateSK::find($id);
+    //     $pdf = PDF::loadView('admin.TemplateSK.template', compact('templateSK'));
+    //     $file_name = $request->nama_surat . '_' . uniqid() . '.pdf';
+    //     $file_path = storage_path('../public/assets/surat/') . $file_name;
+    //     $pdf->save($file_path);
 
-        SuratKeluar::create([
-            'nama_surat' => $request->nama_surat,
-            'kategori_surat' => $request->kategori_surat,
-            'tanggal_dibuat' => $request->tanggal_dibuat,
-            'tujuan_surat' => $request->tujuan_surat,
-            'kode_surat' => $request->kode_surat,
-            'pembuat_surat' => 1,
-            'jenis_surat' => $request->jenis_surat,
-            'file' => $file_name,
-            'status' => "menunggu disetujui",
-        ]);
+    //     SuratKeluar::create([
+    //         'nama_surat' => $request->nama_surat,
+    //         'kategori_surat' => $request->kategori_surat,
+    //         'tanggal_dibuat' => $request->tanggal_dibuat,
+    //         'tujuan_surat' => $request->tujuan_surat,
+    //         'kode_surat' => $request->kode_surat,
+    //         'pembuat_surat' => 1,
+    //         'jenis_surat' => $request->jenis_surat,
+    //         'file' => $file_name,
+    //         'status' => "menunggu disetujui",
+    //     ]);
 
-        // $file1->move(public_path($location1), $filename1);
-        Session::flash('success', 'Data surat Berhasil Ditambahkan');
-        return redirect()->route('suratkeluar.index')->with('success', 'surat berhasil ditambahkan.');
-    }
+    //     // $file1->move(public_path($location1), $filename1);
+    //     Session::flash('success', 'Data surat Berhasil Ditambahkan');
+    //     return redirect()->route('suratkeluar.index')->with('success', 'surat berhasil ditambahkan.');
+    // }
 
     public function priview(Request $request, $id)
     {
@@ -134,6 +135,35 @@ class TemplateSKController extends Controller
     public function edit(TemplateSK $templateSK)
     {
         //
+    }
+    public function Sign($id)
+    {
+        $templateSK = TemplateSK::where('id', $id)->first();
+        $templateSK->tanda_tangan = 'TTD.jpg';
+        $templateSK->save();
+
+
+        $surat = SuratKeluar::where('id', $templateSK->id_surat)->first();
+
+        $pdf = PDF::loadView('admin.TemplateSK.signature', compact('templateSK'));
+        $file_name = $surat -> file;
+        $file_path = storage_path('../public/assets/surat/') . $file_name;
+        // $pdf->save($file_path);
+
+        $FileToDelete = public_path('../public/assets/surat/') . $surat->file;
+
+        if (File::exists($FileToDelete)){
+            File::delete($FileToDelete);
+            $pdf->save($file_path);
+        }
+        else{
+            $pdf->save($file_path);
+            // return 'Filer not found';
+        }
+
+            // Redirect ke halaman templateSK.show dengan menambahkan ID baru
+            return redirect()->route('suratkeluar.index')
+                ->with('success', 'Data berhasil disimpan!');
     }
 
     /**
