@@ -18,7 +18,7 @@
         <div class="container py-5" style="background-color:; border-radius: 25px;">
             <div class="card">
                 <div class="card-body">
-                    <form method="post" action="{{ route('templateSK.storeSK',['id' => $templateSK->id]) }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ route('templateSK.storeSKnew') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group row">
                             <label for="namaSurat" class="col-md-4 col-form-label">Nama Surat</label>

@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,6 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undangan</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        .kotak{
+            margin-left:75%;
+        }
+    </style>
 </head>
 
 <body>
@@ -46,8 +56,16 @@
 
                         <p>Wassalamu’alaikum Wr. Wb.</p>
 
-                        <p class="text-right">Bandar Jaya, {{ $templateSK->tanggal_surat }}<br><br><br><br><br>
+                        <p class="text-right">Bandar Jaya, {{ $templateSK->tanggal_surat }}
+
+                            <div class="kotak">
+                            <form  class="" action="">
+                                <input type="file">
+                            </form>
+
+                            <br><br><br>
                             Direktur RS. Islam Asy-Syifaa</p>
+                        </div>
 
                     </div>
                 </div>
@@ -57,3 +75,4 @@
 </body>
 
 </html>
+@endsection

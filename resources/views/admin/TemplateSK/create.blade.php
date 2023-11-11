@@ -20,7 +20,7 @@
           <h2>Form Surat Undangan</h2>
         </div>
 
-        <form method="POST" action="{{ route('templateSK.store') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('templateSK.storeSKForm' ,['id' => $id]) }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="perihal">Perihal:</label>

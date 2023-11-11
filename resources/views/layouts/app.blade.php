@@ -50,7 +50,7 @@
                         <a href=""><i class="fas fa-envelope"></i> Surat <i class="fas fa-caret-down"></i></a>
                         <ul class="submenu">
                             <li><a href="{{ route('suratkeluar.index') }}">Kelola Surat</a></li>
-                            <li><a href="{{route('templateSK.create')}}">Template Surat</a></li>
+                            <li><a href="{{route('templateSK.showDesk')}}">Template Surat</a></li>
                         </ul>
                     </li>
                     <li><a href="{{ route('user.index') }}"><i class="fas fa-users"></i> Pengguna</a></li>

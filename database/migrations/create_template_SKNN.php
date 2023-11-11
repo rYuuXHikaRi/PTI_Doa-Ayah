@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('perihal');
             $table->string('hari_tanggal');
-            $table->date('waktu');
+            $table->string('waktu');
             $table->string('tempat');
             $table->string('tanggal_surat');
             $table->string('pembuat_surat');
