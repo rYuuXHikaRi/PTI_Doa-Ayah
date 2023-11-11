@@ -21,10 +21,15 @@ Route::get('/suratmasuk/download/{id}/{file}', [SuratMasukController::class, 'do
 route::resource('suratkeluar', SuratKeluarController::class);
 Route::get('/suratkeluar/{id}/{file}', [SuratKeluarController::class, 'downloadSurat'])->name('Suratkeluar.download');
 
+
 route::resource('templateSK', TemplateSKController::class);
 Route::get('/templateSk/{id}', [TemplateSKController::class, 'show'])->name('templateSK.show');
 Route::post('/templateSk/{id}', [TemplateSKController::class, 'template'])->name('templateSK.template');
 Route::post('/templateSk/{id}', [TemplateSKController::class, 'storeTemplate'])->name('templateSK.storeSK');
+Route::get('/template/priview/{id}', [TemplateSKController::class, 'priview'])->name('templateSK.priview');
+// Route::get('/suratkeluar/{id}', [TemplateSKController::class, 'signature'])->name('templateSK.signature');
+
+
 
 
 

@@ -201,7 +201,7 @@
                                                                     class="btn btn-warning">
                                                                     <i class="fas fa-edit"></i></button></a>
 
-                                                            <a href="{{ route('suratkeluar.edit', $suratkeluarr->id) }}"><button
+                                                            <a href="{{ route('templateSK.priview', $suratkeluarr->id) }}"><button
                                                                     class="btn btn-warning" style="background:#1AACAC">
                                                                     <i class="fa-solid fa-file-signature"></i></button></a>
 

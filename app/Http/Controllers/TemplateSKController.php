@@ -39,11 +39,11 @@ class TemplateSKController extends Controller
         return redirect()->route('templateSK.show', ['id' => $templateSK->id])
             ->with('success', 'Data berhasil disimpan!');
     }
-    public function template($id)
-    {
-        $templateSK = TemplateSK::find($id);
-        return view('admin.TemplateSK.template', compact('templateSK'));
-    }
+    // public function template($id)
+    // {
+    //     $templateSK = TemplateSK::find($id);
+    //     return view('admin.TemplateSK.template', compact('templateSK'));
+    // }
 
     public function show($id)
     {
@@ -67,6 +67,7 @@ class TemplateSKController extends Controller
             'pembuat_surat' => 1,
             'jenis_surat' => $request->jenis_surat,
             'file' => $file_name,
+            'status'=>"menunggu disetujui",
         ]);
 
         // $file1->move(public_path($location1), $filename1);
@@ -74,16 +75,12 @@ class TemplateSKController extends Controller
         return redirect()->route('suratkeluar.index')->with('success', 'surat berhasil ditambahkan.');
     }
 
-    public function SavePDF(Request $request, $id)
+    public function priview(Request $request, $id)
     {
         $templateSK = TemplateSK::find($id);
-        $pdf = PDF::loadView('admin.TemplateSK.show', compact('templateSK'));
+        // $pdf = PDF::loadView('admin.TemplateSK.signature', compact('templateSK'));
+        return view('admin.TemplateSK.priview', compact('templateSK'));
 
-        $file_path = storage_path('../public/assets/SuratTemplate/') .  uniqid() . '_preview_surat.pdf';
-        $pdf->save($file_path);
-
-        // Tampilkan pratinjau PDF
-        return $pdf->download('preview_surat.pdf');
     }
     public function edit(TemplateSK $templateSK)
     {
