@@ -38,3 +38,19 @@ Route::get('/mobile', function () {
 Route::get('/PermohonanIzin', function () {
     return view('formizinmobile');
 });
+
+Route::get('/lihat', function () {
+    return view('lihatstatusmobile');
+});
+
+Route::get('/statustukarjagamobile', function () {
+    return view('statustukarjagamobile');
+});
+
+Route::get('/statusizinmobile', function () {
+    return view('statusizinmobile');
+});
+
+Route::get('/statuscutimobile', function () {
+    return view('statuscutimobile');
+});
