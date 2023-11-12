@@ -38,7 +38,7 @@
         background: #E2ECF9;
         border-radius: 10px;
         width: 90%;
-        height: 23%;
+        height: 18%;
         margin-top: 5%;
         margin-left: 5%;
         overflow: hidden;
@@ -64,7 +64,7 @@
       border: none;
       outline: none;
       padding: 15px; /* Atur padding agar teks tidak terlalu dekat dengan tepi */
-  }
+    }
     .box h1 {
         color: rgba(0, 0, 0, 0.40);
         font-size: 10px;
@@ -79,6 +79,15 @@
         line-height: normal;
         margin-left: 5%;
         margin-top: 5%;
+    }
+    .mulaiselesai h1 {
+      color: #0253BA;
+      font-size: 13px;
+      font-style: normal;
+      line-height: normal;
+      margin-left: 5%;
+      margin-top: 3%;
+      margin-bottom: -12px;
     }
     .pilih {
         background: #E2ECF9;

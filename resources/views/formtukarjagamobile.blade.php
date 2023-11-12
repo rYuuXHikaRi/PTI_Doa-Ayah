@@ -9,8 +9,14 @@
         <h1><b>Ajukan Tukar Jaga</b></h1>
     </div>
     <div class="card-body">
+        <div class="mulaiselesai">
+            <h1>Tanggal Mulai</h1>
+        </div>
         <div class="box">
             <input class="input_waktu" type="date" id="Tanggal_Pengajuan" placeholder="Tanggal Pengajuan..."></input>
+        </div>
+        <div class="mulaiselesai">
+            <h1>Tanggal Selesai</h1>
         </div>
         <div class="box">
             <input class="input_waktu" type="date" id="Tanggal_Target" placeholder="Tanggal Target..."></input>

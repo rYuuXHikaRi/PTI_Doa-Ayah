@@ -2,15 +2,21 @@
 
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
-<link rel="stylesheet" href="css/permohonancuti.css">
+<link rel="stylesheet" href="css/cutimobile.css">
 
 <div class="container">
     <div class="card">
         <h1><b>Ajukan Permohonan Cuti</b></h1>
     </div>
     <div class="card-body">
+        <div class="mulaiselesai">
+            <h1>Tanggal Mulai</h1>
+        </div>
         <div class="box">
             <input class="input_waktu" type="date" id="Tanggal_Mulai"></input>
+        </div>
+        <div class="mulaiselesai">
+            <h1>Tanggal Selesai</h1>
         </div>
         <div class="box">
             <input class="input_waktu" type="date" id="Tanggal_Selesai"></input>
