@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SuratIzinController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,9 @@ Route::get('/', function () {
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/SuratIzin', SuratIzinController, 'index')->name('home');
+Route::resource('suratizin', SuratIzinController::class);
+
 
 Route::get('/TukarJaga', function () {
     return view('formtukarjagamobile');
