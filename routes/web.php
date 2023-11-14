@@ -59,8 +59,20 @@ Route::get('/profilemobile', function () {
     return view('profilemobile');
 });
 
-Route::get('/template', function () {
-    return view('template');
+Route::get('/templateundangan', function () {
+    return view('templateundangan');
+});
+
+Route::get('/templatetukarjaga', function () {
+    return view('templatetukarjaga');
+});
+
+Route::get('/templatecuti', function () {
+    return view('templatecuti');
+});
+
+Route::get('/templateizin', function () {
+    return view('templateizin');
 });
 
 Route::get('/tes', function () {

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Template Surat</title>
-  <link rel="stylesheet" href="css/template.css">
+  <link rel="stylesheet" href="css/templateizin.css">
 </head>
 <body>
   <div class="container">
@@ -31,11 +31,14 @@
     <p><b>Assalamu’alaikum Wr. Wb.</b></p>
     <p> Melalui Surat ini Kami bermaksud mengundang Bapak/Ibu/Sdr untuk mengikuti Simulasi <br>
         Pemadam Kebakaran pada :</p>
-    <div class="jadwal">
-        <pre> Hari/Tanggal: Rabu, 11 Oktober 2023</pre>
-        <pre> Waktu      : Pukul 09.00 WIB (Ontime) s/d selesai</pre>
-        <pre> Tempat    : Lahan Belakang RSI</pre>
-    </div>
+    <ul>
+        <li> Nama Pengaju <div class="awal">: Rabu, 11 Oktober 2023</div></li>
+        <li> Tanggal Mulai Izin <div class="kedua">: Pukul 09.00 WIB (Ontime) s/d selesai</div></li>
+        <li> Tanggal Selesai Izin <div class="ketiga">: Lahan Belakang RSI</div></li>
+        <li> Durasi Izin <div class="keempat">: Lahan Belakang RSI</div></li>
+        <li> Nama Bagian <div class="kelima">: Lahan Belakang RSI</div></li>
+        <li> Alasan/Perihal <div class="keenam">: Lahan Belakang RSI</div></li>
+    </ul>
     <p>Mengingat pentingnya acara tersebut, maka Kami mengharapkan Bapak/Ibu/Sdr.<br>
     Dapat meluangkan waktu untuk datang tepat pada waktunya.</p>
     <p>Demikian Memo ini Kami sampaikan, atas kehadirannya Kami ucapkan terima kasih.</p>

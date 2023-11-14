@@ -1,62 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Tanpa Simbol</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
+    ul {
+      list-style-type: none;
       padding: 0;
     }
-
-    nav {
-      background-color: #333;
-      overflow: hidden;
+    ul li {
+      margin-bottom: 5px;
+      display: flex;
+      justify-content: space-between;
     }
-
-    nav a {
-      float: left;
-      display: block;
-      color: white;
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
+    .awal {
+      margin-right: 700px;
     }
-
-    nav a:hover {
-      background-color: #ddd;
-      color: black;
+    .kedua {
+      margin-right: 718px;
     }
-
-    .active {
-      background-color: #4CAF50;
-      color: white;
-    }
-
-    .icon {
-      width: 24px;
-      height: 24px;
-      margin-right: 8px;
+    .ketiga {
+      margin-right: 713px;
     }
   </style>
 </head>
 <body>
 
-<nav>
-  <a href="#" class="active">
-    <img src="icon1.svg" alt="Icon 1" class="icon">
-    Home
-  </a>
-  <a href="#">
-    <img src="icon2.svg" alt="Icon 2" class="icon">
-    About
-  </a>
-  <a href="mobile">
-    <img src="icon3.svg" alt="Icon 3" class="icon">
-    Contact
-  </a>
-</nav>
+<h2>Contoh Daftar Tanpa Simbol:</h2>
+
+<ul>
+  <li>Item dsmfksdjoifj<div class="awal">: flmlsdasokfnoashfueham</div></li>
+  <li>Item kelfjapefjp[ioej]dua<div class="kedua">: cfopsjfisjefiojseoifjlakc</div></li>
+  <li>Item ketigf';lwekfpejsofja<div class="ketiga">: sakfjpofksjfijeoisfjoiwek</div></li>
+</ul>
 
 </body>
 </html>

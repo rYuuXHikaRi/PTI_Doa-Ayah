@@ -46,7 +46,26 @@ body {
     width: 100%;
     height: 2px;
   }
-  .jadwal pre {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+  .awal {
+    margin-left: 63px;
+  }
+  .kedua {
+    margin-left: 38px;
+  }
+  .ketiga {
+    margin-left: 24px;
+  }
+  .keempat {
+    margin-left: 91px;
+  }
+  .kelima {
+    margin-left: 74px;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  ul li {
+    margin-bottom: 5px;
+    display: flex;
   }
