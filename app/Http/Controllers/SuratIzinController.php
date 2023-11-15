@@ -41,7 +41,6 @@ class SuratIzinController extends Controller
             'kategori_surat' => $request->kategori_surat,
             'tanggal_mulai' => $request->tanggal_mulai, // Pastikan Anda memiliki atribut tanggal_mulai
             'tanggal_selesai' => $request->tanggal_selesai, // Pastikan Anda memiliki atribut tanggal_selesai
-            'durasi' => null, // Nilai ini akan diisi oleh metode hitungDurasi
             'kode_surat' => $request->kode_surat,
             'keterangan' => $request->keterangan,
             'bukti' => $filename2,
@@ -64,7 +63,7 @@ class SuratIzinController extends Controller
 
         $file1->move(public_path($location1), $filename1);
         Session::flash('success', 'Data surat Berhasil Ditambahkan');
-        return redirect()->route('suratkeluar.index')->with('success', 'surat berhasil ditambahkan.');
+        return redirect()->route('suratizin.index')->with('success', 'surat berhasil ditambahkan.');
     }
 
     public function storeSKForm(Request $request, $id)

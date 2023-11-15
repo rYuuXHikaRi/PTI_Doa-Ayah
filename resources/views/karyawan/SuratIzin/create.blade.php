@@ -9,7 +9,7 @@
             <h1><b>Ajukan Permohonan Izin</b></h1>
         </div>
         <div class="card-body">
-            <Form method="POST" accept="" enctype="multipart/form-data">
+            <Form method="POST" action="{{route('suratizin.store')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="mulaiselesai">
                     <h1>Tanggal Mulai</h1>
@@ -25,12 +25,12 @@
                     <input class="input_waktu" type="date" id="Tanggal_Selesai" name="tanggal_selesai">
                 </div>
 
-                <div class="mulaiselesai">
+                {{-- <div class="mulaiselesai">
                     <h1>Durasi Izin</h1>
                 </div>
                 <div class="box">
                     <input class="input_waktu" type="text" id="Durasi_Izin" placeholder="Durasi Izin..." name="durasi">
-                </div>
+                </div> --}}
 
                 <div class="mulaiselesai">
                     <h1>Keterangan</h1>
