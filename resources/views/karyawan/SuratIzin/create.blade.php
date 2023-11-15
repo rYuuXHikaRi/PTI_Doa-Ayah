@@ -16,26 +16,29 @@
                 </div>
                 <div class="box">
                     <input class="input_waktu" type="date" id="Tanggal_Mulai" name="tanggal_mulai">
-
                 </div>
+
                 <div class="mulaiselesai">
                     <h1>Tanggal Selesai</h1>
                 </div>
                 <div class="box">
                     <input class="input_waktu" type="date" id="Tanggal_Selesai" name="tanggal_selesai">
                 </div>
+
                 <div class="mulaiselesai">
                     <h1>Durasi Izin</h1>
                 </div>
                 <div class="box">
-                    <input class="input_waktu" type="text" id="Durasi_Izin" placeholder="Durasi Izin..." name="durasi>
+                    <input class="input_waktu" type="text" id="Durasi_Izin" placeholder="Durasi Izin..." name="durasi">
                 </div>
+
                 <div class="mulaiselesai">
                     <h1>Keterangan</h1>
                 </div>
                 <div class="box_ket">
                     <textarea class="input_ket" type="text" id="keterangan" placeholder="Keterangan..." name="keterangan"></textarea>
                 </div>
+
                 <div class="text_lampiran">
                     <h1>Lampiran Bukti (Optional)</h1>
                 </div>
@@ -46,6 +49,7 @@
                     </div>
                     <h1>Tidak ada file yang dipilih</h1> --}}
                 </div>
+
                 <div class="text_lampiran">
                     <h1>Pilih File</h1>
                 </div>
@@ -58,7 +62,7 @@
                 </div>
 
                 <!-- Button trigger modal -->
-                <button onclick="togglePopup()" class="btn btn-primary">
+                <button type="submit" onclick="togglePopup()" class="btn btn-primary">
                     Buat Pengajuan
                 </button>
             </Form>

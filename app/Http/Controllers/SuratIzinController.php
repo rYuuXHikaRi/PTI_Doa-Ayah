@@ -18,7 +18,11 @@ class SuratIzinController extends Controller
     }
     public function create()
     {
-        return view("karyawan.SuratIzin.index");
+        return view("karyawan.SuratIzin.create");
+    }
+    public function store(Request $request){
+
+        
     }
 
     public function storeSKForm(Request $request, $id)
