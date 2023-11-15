@@ -9,59 +9,61 @@
             <h1><b>Ajukan Permohonan Izin</b></h1>
         </div>
         <div class="card-body">
-            <Form>
-            <div class="mulaiselesai">
-                <h1>Tanggal Mulai</h1>
-            </div>
-            <div class="box">
-                <input class="input_waktu" type="date" id="Tanggal_Mulai"></input>
-            </div>
-            <div class="mulaiselesai">
-                <h1>Tanggal Selesai</h1>
-            </div>
-            <div class="box">
-                <input class="input_waktu" type="date" id="Tanggal_Selesai"></input>
-            </div>
-            <div class="mulaiselesai">
-                <h1>Durasi Izin</h1>
-            </div>
-            <div class="box">
-                <input class="input_waktu" type="text" id="Durasi_Izin" placeholder="Durasi Izin..."></input>
-            </div>
-            <div class="mulaiselesai">
-                <h1>Keterangan</h1>
-            </div>
-            <div class="box_ket">
-                <textarea class="input_ket" type="text" id="keterangan" placeholder="Keterangan..."></textarea>
-            </div>
-            <div class="text_lampiran">
-                <h1>Lampiran Bukti (Optional)</h1>
-            </div>
-            <div class="pilih">
-                <input type="file" id="fileInput" style="display: none;">
-                <div class="isi" onclick="document.getElementById('fileInput').click()" id="pilih_file">
+            <Form method="POST" accept="" enctype="multipart/form-data">
+                @csrf
+                <div class="mulaiselesai">
+                    <h1>Tanggal Mulai</h1>
+                </div>
+                <div class="box">
+                    <input class="input_waktu" type="date" id="Tanggal_Mulai" name="tanggal_mulai">
+
+                </div>
+                <div class="mulaiselesai">
+                    <h1>Tanggal Selesai</h1>
+                </div>
+                <div class="box">
+                    <input class="input_waktu" type="date" id="Tanggal_Selesai" name="tanggal_selesai">
+                </div>
+                <div class="mulaiselesai">
+                    <h1>Durasi Izin</h1>
+                </div>
+                <div class="box">
+                    <input class="input_waktu" type="text" id="Durasi_Izin" placeholder="Durasi Izin..." name="durasi>
+                </div>
+                <div class="mulaiselesai">
+                    <h1>Keterangan</h1>
+                </div>
+                <div class="box_ket">
+                    <textarea class="input_ket" type="text" id="keterangan" placeholder="Keterangan..." name="keterangan"></textarea>
+                </div>
+                <div class="text_lampiran">
+                    <h1>Lampiran Bukti (Optional)</h1>
+                </div>
+                <div class="pilih">
+                    <input type="file" id="fileInput" name="bukti">
+                    {{-- <div class="isi" onclick="document.getElementById('fileInput').click()" id="pilih_file">
+                        <h1>Pilih File</h1>
+                    </div>
+                    <h1>Tidak ada file yang dipilih</h1> --}}
+                </div>
+                <div class="text_lampiran">
                     <h1>Pilih File</h1>
                 </div>
-                <h1>Tidak ada file yang dipilih</h1>
-            </div>
-            <div class="text_lampiran">
-                <h1>Pilih File</h1>
-            </div>
-            <div class="pilih">
-                <input type="file" id="fileInput" style="display: none;">
-                <div class="isi" onclick="document.getElementById('fileInput').click()" id="pilih_file">
-                    <h1>Pilih File</h1>
+                <div class="pilih">
+                    <input type="file" id="fileInput" name="file">
+                    {{-- <div class="isi" onclick="document.getElementById('fileInput').click()" id="pilih_file">
+                        <h1>Pilih File</h1>
+                    </div>
+                    <h1>Tidak ada file yang dipilih</h1> --}}
                 </div>
-                <h1>Tidak ada file yang dipilih</h1>
-            </div>
 
-            <!-- Button trigger modal -->
-            <button onclick="togglePopup()" class="btn btn-primary">
-                Buat Pengajuan
-            </button>
-</Form>
+                <!-- Button trigger modal -->
+                <button onclick="togglePopup()" class="btn btn-primary">
+                    Buat Pengajuan
+                </button>
+            </Form>
 
-            <div id="overlay" class="overlay" style="display: none;"></div>
+            {{-- <div id="overlay" class="overlay" style="display: none;"></div>
             <div id="myPopup" class="popup" style="display: none;">
                 <div class="header_popup">
                     <h1>Pratinjau Permohonan</h1>
@@ -75,7 +77,8 @@
             </div>
             <button id="prosesButton" class="popup_submit" onclick="notifSukses()" style="display: none;">
                 Proses Pengajuan
-            </button>
+            </button> --}}
+
             <div id="overlay_berhasil" class="overlay_berhasil" style="display: none;"></div>
             <div class="notif_berhasil" style="display: none;">
                 <div class="info_pengajuan">
