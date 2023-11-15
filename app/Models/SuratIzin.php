@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class SuratIzin extends Model
 {
     use HasFactory;
+    protected $table = 'izin';
+
     protected $fillable = [
         'nama_pengaju','waktu',
         'durasi',
