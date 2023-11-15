@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Template Surat</title>
-  <link rel="stylesheet" href="css/templatecuti.css">
+  <link rel="stylesheet" href="{{ public_path('css/templatecuti.css') }}">
 </head>
 <body>
   <div class="container">
@@ -56,12 +56,17 @@
                 <p>Bagian</p>
                 <p>Jabatan</p>
                 <p>Alamat</p>
+                <p>Tanggal Mulai</p>
+                <p>Tanggal Selesai</p>
             </div>
             <div class="pengaju_isi">
-                <p>:</p>
-                <p>:</p>
-                <p>:</p>
-                <p>:</p>
+                <p>: {{$suratCuti->nama_pengaju}}</p>
+                <p>: {{$suratCuti->bagian}}</p>
+                <p>: {{$suratCuti->jabatan}}</p>
+                <p>: {{$suratCuti->alamat}}</p>
+                <p>: {{$suratCuti->tanggal_mulai}}</p>
+                <p>: {{$suratCuti->tanggal_selesai}}</p>
+
             </div>
         </div>
 
@@ -82,6 +87,13 @@
                 <p>Bandar Jaya,<br>
                 Saya Yang Memohon</p>
                 <br><br>
+                <p>
+                    @if ($suratCuti->tanda_tangan)
+                        <img style="height: 120px ; width:120px;"
+                            src="{{ public_path('img/' . $suratCuti->tanda_tangan) }}" alt="Tanda Tangan">
+                    @endif
+                </p>
+                <p>{{$suratCuti->nama_pengaju}}</p>
                 <div class="line_ttd"></div>
             </div>
         </div>

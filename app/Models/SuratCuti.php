@@ -15,16 +15,10 @@ class SuratCuti extends Model
         'user_id',
         'tanggal_mulai',
         'tanggal_selesai',
-        'bagian',
         'alamat',
         'jabatan',
         'keterangan',
         'status',
-        'file',
-        'file', 'tanggal_mulai' , 'tanggal_selesai' ,'bagian', 'tanggal_izin'
-    ];
-    protected $casts = [
-        'tanggal_mulai' => 'date',
-        'tanggal_selesai' => 'date',
+        'file', 'bagian', 'nama_pengaju', 'tanda_tangan'
     ];
 }

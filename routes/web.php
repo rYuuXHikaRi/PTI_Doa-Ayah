@@ -30,56 +30,56 @@ Route::resource('suratcuti', SuratCutiController::class);
 
 
 
-Route::get('/TukarJaga', function () {
-    return view('formtukarjagamobile');
-});
+// Route::get('/TukarJaga', function () {
+//     return view('formtukarjagamobile');
+// });
 
-Route::get('/PermohonanCuti', function () {
-    return view('formcutimobile');
-});
+// Route::get('/PermohonanCuti', function () {
+//     return view('formcutimobile');
+// });
 
-Route::get('/mobile', function () {
-    return view('homemobile');
-});
+// Route::get('/mobile', function () {
+//     return view('homemobile');
+// });
 
-Route::get('/PermohonanIzin', function () {
-    return view('formizinmobile');
-});
+// Route::get('/PermohonanIzin', function () {
+//     return view('formizinmobile');
+// });
 
-Route::get('/lihat', function () {
-    return view('lihatstatusmobile');
-});
+// Route::get('/lihat', function () {
+//     return view('lihatstatusmobile');
+// });
 
-Route::get('/statustukarjagamobile', function () {
-    return view('statustukarjagamobile');
-});
+// Route::get('/statustukarjagamobile', function () {
+//     return view('statustukarjagamobile');
+// });
 
-Route::get('/statusizinmobile', function () {
-    return view('statusizinmobile');
-});
+// Route::get('/statusizinmobile', function () {
+//     return view('statusizinmobile');
+// });
 
-Route::get('/statuscutimobile', function () {
-    return view('statuscutimobile');
-});
+// Route::get('/statuscutimobile', function () {
+//     return view('statuscutimobile');
+// });
 
-Route::get('/templateizinn', function () {
-    return view('templateizin');
-});
-Route::get('/templateizin', function () {
-    return view('karyawan.SuratIzin.templateizin');
-});
-Route::get('/templatecuti', function () {
-    return view('karyawan.SuratCuti.templatecuti');
-});
+// Route::get('/templateizinn', function () {
+//     return view('templateizin');
+// });
+// Route::get('/templateizin', function () {
+//     return view('karyawan.SuratIzin.templateizin');
+// });
+// Route::get('/templatecuti', function () {
+//     return view('karyawan.SuratCuti.templatecuti');
+// });
 
-Route::get('/templatecutii', function () {
-    return view('templatecuti');
-});
+// Route::get('/templatecutii', function () {
+//     return view('templatecuti');
+// });
 
-Route::get('/templatetukarjaga', function () {
-    return view('templatetukarjaga');
-});
+// Route::get('/templatetukarjaga', function () {
+//     return view('templatetukarjaga');
+// });
 
-Route::get('/tes', function () {
-    return view('tes');
-});
+// Route::get('/tes', function () {
+//     return view('tes');
+// });

@@ -9,7 +9,7 @@
             <h1><b>Ajukan Permohonan Cuti</b></h1>
         </div>
         <div class="card-body">
-            <Form method="POST" action="{{route('suratizin.store')}}" enctype="multipart/form-data">
+            <Form method="POST" action="{{route('suratcuti.store')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="mulaiselesai">
                     <h1>Tanggal Mulai</h1>
@@ -40,10 +40,10 @@
                 </div>
 
                 <div class="mulaiselesai">
-                    <h1>Bagian</h1>
+                    <h1>jabatan</h1>
                 </div>
                 <div class="box">
-                    <input class="input_ket" type="text" id="keterangan" placeholder="jabatan" name="bagian">
+                    <input class="input_ket" type="text" id="keterangan" placeholder="jabatan" name="jabatan">
                 </div>
 
                 <div class="mulaiselesai">
