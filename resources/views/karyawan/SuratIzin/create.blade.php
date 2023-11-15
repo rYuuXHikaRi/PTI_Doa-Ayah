@@ -25,13 +25,6 @@
                     <input class="input_waktu" type="date" id="Tanggal_Selesai" name="tanggal_selesai">
                 </div>
 
-                {{-- <div class="mulaiselesai">
-                    <h1>Durasi Izin</h1>
-                </div>
-                <div class="box">
-                    <input class="input_waktu" type="text" id="Durasi_Izin" placeholder="Durasi Izin..." name="durasi">
-                </div> --}}
-
                 <div class="mulaiselesai">
                     <h1>Keterangan</h1>
                 </div>
@@ -44,10 +37,6 @@
                 </div>
                 <div class="pilih">
                     <input type="file" id="fileInput" name="bukti">
-                    {{-- <div class="isi" onclick="document.getElementById('fileInput').click()" id="pilih_file">
-                        <h1>Pilih File</h1>
-                    </div>
-                    <h1>Tidak ada file yang dipilih</h1> --}}
                 </div>
 
                 <div class="text_lampiran">
@@ -55,14 +44,10 @@
                 </div>
                 <div class="pilih">
                     <input type="file" id="fileInput" name="file">
-                    {{-- <div class="isi" onclick="document.getElementById('fileInput').click()" id="pilih_file">
-                        <h1>Pilih File</h1>
-                    </div>
-                    <h1>Tidak ada file yang dipilih</h1> --}}
                 </div>
 
                 <!-- Button trigger modal -->
-                <button type="submit" onclick="togglePopup()" class="btn btn-primary">
+                <button type="submit" onclick="notifSukses()" class="btn btn-primary">
                     Buat Pengajuan
                 </button>
             </Form>
