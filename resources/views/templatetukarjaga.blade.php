@@ -7,50 +7,102 @@
   <link rel="stylesheet" href="css/templatetukarjaga.css">
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-        <div class="header_icon">
-            <img src="img/logo.png" alt="logo" style="width:100%; height:100%;"/>
+    <div class="container">
+        <div class="blangko">
+            <p>BLANGKO TUKAR DINAS/TUKAR JAGA BAGIAN/RUANG ...............</p>
+            <div class="blan_tgl">
+                <p>Tgl. PENYERAHAN BLANKO</p>
+            </div>
         </div>
-        <div class="teks_header">
-            <h3>Rumah Sakit</h3>
-            <h2><b>Islam Asy-Syifaa</b></h2>
-            <p>Jalan Negara No.65, Yukum Jaya, Kec. Terbanggi Besar, Kabupaten Lampung Tengah, Lampung 34163<br>
-                Telp. 072525264, Email. rsiasyifaa@yahoo.co.id</p>
+        <div class="isi">
+            <table>
+                <tr>
+                    <th>Nama Karyawan</th>
+                    <th>Tgl</th>
+                    <th>Jadwal Asli</th>
+                    <th>Tgl</th>
+                    <th>Jadwal yang dirubah/diganti</th>
+                </tr>
+                <tr>
+                    <td rowspan="3">A. Astra</td>
+                    <td>......</td>
+                    <td>P / S / M / PS / SM / PM / L</td>
+                    <td>......</td>
+                    <td>P / S / M / PS / SM / PM / L</td>
+                </tr>
+                <tr>
+                    <td>......</td>
+                    <td>P / S / M / PS / SM / PM / L</td>
+                    <td>......</td>
+                    <td>P / S / M / PS / SM / PM / L</td>
+                </tr>
+                <tr>
+                    <td>......</td>
+                    <td>P / S / M / PS / SM / PM / L</td>
+                    <td>......</td>
+                    <td>P / S / M / PS / SM / PM / L</td>
+                </tr>
+
+                <tr>
+                    <th>Nama Karyawan</th>
+                    <th>Tgl</th>
+                    <th>Jadwal Asli</th>
+                    <th>Tgl</th>
+                    <th>Jadwal yang dirubah/diganti</th>
+                </tr>
+                <tr>
+                    <td rowspan="3">B. Brimstone</td>
+                    <td>......</td>
+                    <td>P / S / M / PS / SM / PM / L</td>
+                    <td>......</td>
+                    <td>P / S / M / PS / SM / PM / L</td>
+                </tr>
+                <tr>
+                    <td>......</td>
+                    <td>P / S / M / PS / SM / PM / L</td>
+                    <td>......</td>
+                    <td>P / S / M / PS / SM / PM / L</td>
+                </tr>
+                <tr>
+                    <td>......</td>
+                    <td>P / S / M / PS / SM / PM / L</td>
+                    <td>......</td>
+                    <td>P / S / M / PS / SM / PM / L</td>
+                </tr>
+            </table>
+            <div class="box_kanan">
+                <div class="tgl_blangko">
+                    <p>tanggal</p>
+                </div>
+                <div class="tanda_tangan">
+                    <div class="ttd_A">
+                        <p>Yang Memohon, (A)</p>
+                        <br><br>
+                        <div class="line"></div>
+                    </div>
+                    <div class="ttd_B">
+                        <p>Termohon, (B)</p>
+                        <br><br>
+                        <div class="line"></div>
+                    </div>
+                </div>
+                <div class="tanda_tangan2">
+                    <div class="ttd_A">
+                        <p>Ka. Ruangan</p>
+                        <br><br>
+                        <div class="line"></div>
+                    </div>
+                    <div class="ttd_B">
+                        <p>Ka. Bagian</p>
+                        <br><br>
+                        <div class="line"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="logo">
+                <img src="img/logo.png" alt="logo" style="width:100%; height:100%;">
+            </div>
         </div>
     </div>
-    <div class="line"></div>
-    <p><b>Perihal: </b></p>
-    <div class="kepada">
-        <p> Kepada Yth,<br>
-            Daftar Peserta Terlampir<br>
-            di<br>
-            Tempat
-        </p>
-    </div>
-    <p><b>Assalamu’alaikum Wr. Wb.</b></p>
-    <p> Melalui Surat ini Kami bermaksud mengundang Bapak/Ibu/Sdr untuk mengikuti Simulasi <br>
-        Pemadam Kebakaran pada :</p>
-    <ul>
-        <li> Hari/Tanggal Diajukan <div class="awal">: Rabu, 11 Oktober 2023</div></li>
-        <li> Shift Diajukan <div class="kedua">: Pukul 09.00 WIB (Ontime) s/d selesai</div></li>
-        <li> Nama Pengaju <div class="ketiga">: Lahan Belakang RSI</div></li>
-        <li> Hari / Tanggal Target <div class="keempat">: Lahan Belakang RSI</div></li>
-        <li> Shift Target <div class="kelima">: Lahan Belakang RSI</div></li>
-        <li> Nama Target <div class="keenam">: Lahan Belakang RSI</div></li>
-        <li> Alasan <div class="ketujuh">: Lahan Belakang RSI</div></li>
-    </ul>
-    <p>Mengingat pentingnya acara tersebut, maka Kami mengharapkan Bapak/Ibu/Sdr.<br>
-    Dapat meluangkan waktu untuk datang tepat pada waktunya.</p>
-    <p>Demikian Memo ini Kami sampaikan, atas kehadirannya Kami ucapkan terima kasih.</p>
-    <p><b>Wassalamu’alaikum Wr. Wb.</b></p>
-    <div class="tanda_tangan">
-        <p> Bandar Jaya, 10 Oktober 2023<br>
-            Direktur RS. Islam Asy-Syifaa
-            <br><br><br><br>
-            <b><u>dr. Imilia Sapitri, M.Kes</u></b>
-        </p>
-    </div>
-  </div>
 </body>
 </html>

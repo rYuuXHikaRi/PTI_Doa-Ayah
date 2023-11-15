@@ -59,24 +59,16 @@ Route::get('/statuscutimobile', function () {
     return view('statuscutimobile');
 });
 
-Route::get('/profilemobile', function () {
-    return view('profilemobile');
-});
-
-Route::get('/templateundangan', function () {
-    return view('templateundangan');
-});
-
-Route::get('/templatetukarjaga', function () {
-    return view('templatetukarjaga');
+Route::get('/templateizin', function () {
+    return view('templateizin');
 });
 
 Route::get('/templatecuti', function () {
     return view('templatecuti');
 });
 
-Route::get('/templateizin', function () {
-    return view('templateizin');
+Route::get('/templatetukarjaga', function () {
+    return view('templatetukarjaga');
 });
 
 Route::get('/tes', function () {

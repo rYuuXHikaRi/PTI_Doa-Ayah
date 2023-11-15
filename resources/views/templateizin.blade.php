@@ -7,49 +7,47 @@
   <link rel="stylesheet" href="css/templateizin.css">
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-        <div class="header_icon">
-            <img src="img/logo.png" alt="logo" style="width:100%; height:100%;"/>
+    <div class="container">
+        <div class="header">
+            <p>Karang Endah, 10 Mei 2023</p>
         </div>
-        <div class="teks_header">
-            <h3>Rumah Sakit</h3>
-            <h2><b>Islam Asy-Syifaa</b></h2>
-            <p>Jalan Negara No.65, Yukum Jaya, Kec. Terbanggi Besar, Kabupaten Lampung Tengah, Lampung 34163<br>
-                Telp. 072525264, Email. rsiasyifaa@yahoo.co.id</p>
+        <div class="line"></div>
+        <div class="kepada">
+            <p> Kepada Yth,<br>
+                Ibu Direktur RS. Islam Asy-Syifaa<br>
+                Di<br>
+                Tempat
+            </p>
+        </div>
+        <p><b>Assalamu’alaikum Wr. Wb.</b></p>
+        <p> Saya yang bertandatangan di bawah ini:</p>
+        <ul>
+            <li> Nama Pengaju <div class="awal">: Lilik Subowo, SKM</div></li>
+            <li> Bagian <div class="kedua">: Umum, Personalia, Diklat & K3</div></li>
+        </ul>
+        <div class="keterangan">
+            <p>Bersama Surat ini Saya sampaikan bahwa pada tanggal <b>12 Mei 2023</b> Saya tidak dapat bekerja seperti biasa,
+            dikarenakan ada keperluan keluarga ke Menggala. Mohon kiranya Ibu Direktur dapat memberikan izin kepada Saya.
+            </p>
+        </div>
+        <p>Demikian Surat ini Saya sampaikan, atas Izin yang diberikan saya ucapkan terima kasih.</p>
+        <p><b>Wassalamu’alaikum Wr. Wb.</b></p>
+        <div class="tanda_tangan">
+            <div class="ttd_aju">
+                <p> Mengetahui,<br>
+                    Manager Keuangan Umum & Personalia
+                    <br><br><br><br>
+                    <b>Nurul Hakim, SE</b>
+                </p>
+            </div>
+            <div class="ttd_nama">
+                <p> <br>
+                    Hormat Saya,
+                    <br><br><br><br>
+                    <b>Lilik Subowo, SKM</b>
+                </p>
+            </div>
         </div>
     </div>
-    <div class="line"></div>
-    <p><b>Perihal: </b></p>
-    <div class="kepada">
-        <p> Kepada Yth,<br>
-            Daftar Peserta Terlampir<br>
-            di<br>
-            Tempat
-        </p>
-    </div>
-    <p><b>Assalamu’alaikum Wr. Wb.</b></p>
-    <p> Melalui Surat ini Kami bermaksud mengundang Bapak/Ibu/Sdr untuk mengikuti Simulasi <br>
-        Pemadam Kebakaran pada :</p>
-    <ul>
-        <li> Nama Pengaju <div class="awal">: Rabu, 11 Oktober 2023</div></li>
-        <li> Tanggal Mulai Izin <div class="kedua">: Pukul 09.00 WIB (Ontime) s/d selesai</div></li>
-        <li> Tanggal Selesai Izin <div class="ketiga">: Lahan Belakang RSI</div></li>
-        <li> Durasi Izin <div class="keempat">: Lahan Belakang RSI</div></li>
-        <li> Nama Bagian <div class="kelima">: Lahan Belakang RSI</div></li>
-        <li> Alasan/Perihal <div class="keenam">: Lahan Belakang RSI</div></li>
-    </ul>
-    <p>Mengingat pentingnya acara tersebut, maka Kami mengharapkan Bapak/Ibu/Sdr.<br>
-    Dapat meluangkan waktu untuk datang tepat pada waktunya.</p>
-    <p>Demikian Memo ini Kami sampaikan, atas kehadirannya Kami ucapkan terima kasih.</p>
-    <p><b>Wassalamu’alaikum Wr. Wb.</b></p>
-    <div class="tanda_tangan">
-        <p> Bandar Jaya, 10 Oktober 2023<br>
-            Direktur RS. Islam Asy-Syifaa
-            <br><br><br><br>
-            <b><u>dr. Imilia Sapitri, M.Kes</u></b>
-        </p>
-    </div>
-  </div>
 </body>
 </html>

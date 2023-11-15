@@ -10,68 +10,67 @@ body {
     min-height: 100vh;
   }
   .container {
-    max-width: 900px;
+    max-width: 1300px;
     margin: 20px;
     background-color: #fff;
+    color: #02BA62;
+    font-weight: bold;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  .header {
+  .blangko {
     display: flex;
-    flex-direction: row;
-    width: 627px;
+    height: fit-content;
   }
-  .header_icon {
-    width: 95px;
-    height: 80%;
+  .blan_tgl {
     margin-top: 17px;
-    margin-left: 12px;
+    margin-left: 224px;
+    height: fit-content;
   }
-  .teks_header {
-    color: #02BA62;
-    width: 83%;
-    text-align: center;
-  }
-  .teks_header h3 {
+  .blan_tgl p {
     margin: 0;
+    padding: 0;
   }
-  .teks_header h2 {
-    margin: -12px;
+  .isi {
+    display: flex;
+    margin-top: -17px;
   }
-  .teks_header p {
-    margin: 11px;
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    border: 3px solid #02BA62;
+    text-align: left;
+    padding: 8px;
+  }
+  .tgl_blangko {
+    border: 3px solid #02BA62;
+    width: 225px;
+    height: 60px;
+    margin-left: 21px;
+    text-align: center;
   }
   .line {
     background: black;
-    width: 100%;
+    width: 126px;
     height: 2px;
   }
-  .awal {
-    margin-left: 11px;
-  }
-  .kedua {
-    margin-left: 68px;
-  }
-  .ketiga {
-    margin-left: 60px;
-  }
-  .keempat {
-    margin-left: 19px;
-  }
-  .kelima {
-    margin-left: 86px;
-  }
-  .keenam {
-    margin-left: 75px;
-  }
-  .ketujuh {
-    margin-left: 117px;
-  }
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  ul li {
-    margin-bottom: 5px;
+  .tanda_tangan {
     display: flex;
+    justify-content: space-between;
+    width: 342px;
+    margin-left: 21px;
+  }
+  .tanda_tangan2 {
+    display: flex;
+    justify-content: space-between;
+    width: 342px;
+    margin-top: 67px;
+    margin-left: 21px;
+  }
+  .logo {
+    width: 95px;
+    height: 80%;
+    margin-left: -64px;
   }

@@ -9,46 +9,160 @@
 <body>
   <div class="container">
     <div class="header">
+        <div class="form_RSAS">
+            <p>FORM.UM.RSAS.72</p>
+        </div>
         <div class="header_icon">
             <img src="img/logo.png" alt="logo" style="width:100%; height:100%;"/>
         </div>
         <div class="teks_header">
-            <h3>Rumah Sakit</h3>
-            <h2><b>Islam Asy-Syifaa</b></h2>
-            <p>Jalan Negara No.65, Yukum Jaya, Kec. Terbanggi Besar, Kabupaten Lampung Tengah, Lampung 34163<br>
-                Telp. 072525264, Email. rsiasyifaa@yahoo.co.id</p>
+            <h1>RUMAH SAKIT ISLAM ASY-SYIFAA</h1>
+            <h2>(RSAS)</h2>
+            <p>Jl. Lintas Sumatera KM 65 Yukumjaya - Lampung Tengah<br>
+            Telp. (0725) 25264 Fax. (0725) 527476</p>
+        </div>
+        <div class="code">
+            <p>No. Kode RS : 180 50 24</p>
+        </div>
+        <div class="menkes">
+            <p>Izin Menkes RI No. YM. 02.04.3.5.3858</p>
         </div>
     </div>
     <div class="line"></div>
-    <p><b>Perihal: </b></p>
-    <div class="kepada">
-        <p> Kepada Yth,<br>
-            Daftar Peserta Terlampir<br>
-            di<br>
-            Tempat
-        </p>
+    <div class="line"></div>
+    <div class="isi">
+        <div class="perihal_surat">
+            <div class="jenis">
+                <p>Nomor</p>
+                <p>Lampiran</p>
+                <p>Perihal</p>
+            </div>
+            <div class="jenis_isi">
+                <p>: ini nomor</p>
+                <p>: ini lampiran</p>
+                <p>: <u><b>Permohonan Cuti</b></u></p>
+            </div>
+        </div>
+        <div class="kepada">
+            <p> Kepada Yth,<br>
+                Direktur Rumah Sakit Islam Asy-Syifaa<br>
+                Di<br>
+                <div class="tempat">Bandar Jaya</div>
+            </p>
+        </div>
+        <div class="salam">
+            <p><b>Assalamu’alaikum Wr. Wb.</b></p>
+            <p>Saya yang bertandatangan di bawah ini:</p>
+        </div>
+        <div class="box_pengaju">
+            <div class="pengaju">
+                <p>Nama</p>
+                <p>Bagian</p>
+                <p>Jabatan</p>
+                <p>Alamat</p>
+            </div>
+            <div class="pengaju_isi">
+                <p>:</p>
+                <p>:</p>
+                <p>:</p>
+                <p>:</p>
+            </div>
+        </div>
+        <div class="aju">
+            <p>Degan ini mengajukan permohonan izin cuti sbb:</p>
+        </div>
+        <div class="box_alasan">
+            <div class="alasan">
+                <p>Jenis Cuti</p>
+                <p>Tanggal Cuti</p>
+                <p>Keperluan Cuti</p>
+                <p>Cuti Dilakasanakan di</p>
+                <p>No. HP</p>
+                <p>Jabatan atau Tugas Diserahkan ke</p>
+            </div>
+            <div class="alasan_isi">
+                <p>:</p>
+                <p>:</p>
+                <p>:</p>
+                <p>:</p>
+                <p>:</p>
+                <p>:</p>
+            </div>
+        </div>
+        <div class="demikian">
+            <p>Demikianlah surat permohonan ini saya buat dengan sesungguhnya, dikabulkannya permohonan ini saya
+                ucapkan terimakasih.
+            </p>
+            <p><b>Wassalamu’alaikum Wr. Wb.</b></p>
+        </div>
+        <div class="tanda_tangan">
+            <div class="ttd_koor">
+                <p>Mengetahui<br>
+                Ka./Koor.Bagian:</p>
+                <br><br>
+                <div class="line_ttd"></div>
+            </div>
+            <div class="ttd_pemohon">
+                <p>Bandar Jaya,<br>
+                Saya Yang Memohon</p>
+                <br><br>
+                <div class="line_ttd"></div>
+            </div>
+        </div>
+        <div class="catatan">
+            <p>Catatan Bagian Personalia/HRD</p>
+        </div>
+        <div class="a_dan_b">
+            <div class="ab">
+                <p>a. Maksimal hari jenis cuti dalam setahun</p>
+                <p>b. Cuti melahirkan</p>
+                <p>c. Potongan</p>
+            </div>
+            <div class="ab_isi">
+                <p>:</p>
+                <p>:</p>
+            </div>
+        </div>
+        <div class="bagian_c">
+            <div class="c">
+                <p>-Cuti telah diambil</p>
+                <p>-Izin</p>
+                <p>-Alfa</p>
+                <p>Jumlah potongan hari</p>
+                <p>Jumlah hari cuti yang bisa diambil</p>
+                <p>Jumlah hari cuti yang akan diambil</p>
+                <p>Sisa hari cuti berikutnya</p>
+            </div>
+            <div class="c_isi">
+                <p>:</p>
+                <p>:</p>
+                <p>:</p>
+                <p>:</p>
+                <p>:</p>
+                <p>:</p>
+                <p>:</p>
+            </div>
+        </div>
+        <div class="tanda_tangan2">
+            <div class="ttd_hrd">
+                <p>Personalia / HRD</p>
+                <br><br>
+                <div class="line_ttd"></div>
+            </div>
+            <div class="ttd_manager">
+                <p>Manager Umum & Personalia</p>
+                <br><br>
+                <div class="line_ttd"></div>
+            </div>
+        </div>
+        <div class="box_direktur">
+            <div class="ttd_direktur">
+                <p>Mengetahui<br>
+                Direktur RSI Asy-Syifaa</p>
+                <br><br>
+                <div class="line_ttd"></div>
+            </div>
+        </div>
     </div>
-    <p><b>Assalamu’alaikum Wr. Wb.</b></p>
-    <p> Melalui Surat ini Kami bermaksud mengundang Bapak/Ibu/Sdr untuk mengikuti Simulasi <br>
-        Pemadam Kebakaran pada :</p>
-    <ul>
-        <li> Nama Pengaju <div class="awal">: Rabu, 11 Oktober 2023</div></li>
-        <li> Tanggal Mulai Cuti <div class="kedua">: Pukul 09.00 WIB (Ontime) s/d selesai</div></li>
-        <li> Tanggal Selesai Cuti <div class="ketiga">: Lahan Belakang RSI</div></li>
-        <li> Durasi Cuti <div class="keempat">: Lahan Belakang RSI</div></li>
-        <li> Nama Bagian <div class="kelima">: Lahan Belakang RSI</div></li>
-    </ul>
-    <p>Mengingat pentingnya acara tersebut, maka Kami mengharapkan Bapak/Ibu/Sdr.<br>
-    Dapat meluangkan waktu untuk datang tepat pada waktunya.</p>
-    <p>Demikian Memo ini Kami sampaikan, atas kehadirannya Kami ucapkan terima kasih.</p>
-    <p><b>Wassalamu’alaikum Wr. Wb.</b></p>
-    <div class="tanda_tangan">
-        <p> Bandar Jaya, 10 Oktober 2023<br>
-            Direktur RS. Islam Asy-Syifaa
-            <br><br><br><br>
-            <b><u>dr. Imilia Sapitri, M.Kes</u></b>
-        </p>
-    </div>
-  </div>
 </body>
 </html>

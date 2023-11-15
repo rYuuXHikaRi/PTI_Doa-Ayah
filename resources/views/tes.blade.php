@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Daftar Tanpa Simbol</title>
+  <title>Contoh Tabel HTML dengan rowspan</title>
   <style>
-    ul {
-      list-style-type: none;
-      padding: 0;
+    table {
+      border-collapse: collapse;
+      width: 100%;
     }
-    ul li {
-      margin-bottom: 5px;
-      display: flex;
-      justify-content: space-between;
+    th, td {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
     }
-    .awal {
-      margin-right: 700px;
-    }
-    .kedua {
-      margin-right: 718px;
-    }
-    .ketiga {
-      margin-right: 713px;
+    th {
+      background-color: #f2f2f2;
     }
   </style>
 </head>
 <body>
 
-<h2>Contoh Daftar Tanpa Simbol:</h2>
+<h2>Contoh Tabel HTML dengan rowspan</h2>
 
-<ul>
-  <li>Item dsmfksdjoifj<div class="awal">: flmlsdasokfnoashfueham</div></li>
-  <li>Item kelfjapefjp[ioej]dua<div class="kedua">: cfopsjfisjefiojseoifjlakc</div></li>
-  <li>Item ketigf';lwekfpejsofja<div class="ketiga">: sakfjpofksjfijeoisfjoiwek</div></li>
-</ul>
+<table>
+  <tr>
+    <th>Nama</th>
+    <th>Usia</th>
+    <th>Alamat</th>
+  </tr>
+  <tr>
+    <td rowspan="3">John</td>
+    <td>25</td>
+    <td>Jakarta</td>
+  </tr>
+  <tr>
+    <td>30</td>
+    <td>Surabaya</td>
+  </tr>
+  <tr>
+    <td>28</td>
+    <td>Bandung</td>
+  </tr>
+</table>
 
 </body>
 </html>
