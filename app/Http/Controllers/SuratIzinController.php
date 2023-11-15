@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\SuratIzin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Carbon\Carbon;
 use App\Models\TemplateSK;
 use App\Models\SuratKeluar;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -21,8 +22,8 @@ class SuratIzinController extends Controller
     {
         return view("karyawan.SuratIzin.create");
     }
-    public function store(Request $request){
-
+    public function store(Request $request)
+    {
         $validatedData = $request->validate([
             'file' => 'required|mimes:pdf,doc,docx|max:5120',
             'bukti' => 'required|mimes:pdf,doc,docx|max:5120',
@@ -35,17 +36,31 @@ class SuratIzinController extends Controller
         $location1 = 'assets/surat/';
         $location1 = 'assets/bukti/';
 
-        SuratIzin::create([
+        $suratIzin = SuratIzin::create([
             'nama_pengaju' => 1,
             'kategori_surat' => $request->kategori_surat,
-            'tanggal_dibuat' => $request->tanggal_dibuat,
-            'durasi' => $request->durasi,
+            'tanggal_mulai' => $request->tanggal_mulai, // Pastikan Anda memiliki atribut tanggal_mulai
+            'tanggal_selesai' => $request->tanggal_selesai, // Pastikan Anda memiliki atribut tanggal_selesai
+            'durasi' => null, // Nilai ini akan diisi oleh metode hitungDurasi
             'kode_surat' => $request->kode_surat,
             'keterangan' => $request->keterangan,
             'bukti' => $filename2,
-            'status'=>"menunggu disetujui",
+            'status' => "menunggu disetujui",
             'file' => $filename1,
         ]);
+
+        if ($request->tanggal_mulai && $request->tanggal_selesai) {
+            // Konversi tanggal_mulai dan tanggal_selesai ke objek Carbon
+            $tanggalMulai = Carbon::parse($request->tanggal_mulai);
+            $tanggalSelesai = Carbon::parse($request->tanggal_selesai);
+
+            // Hitung durasi antara dua tanggal
+            $durasi = $tanggalMulai->diffInDays($tanggalSelesai);
+
+            // Atur nilai durasi dan simpan objek SuratIzin
+            $suratIzin->durasi = $durasi;
+            $suratIzin->save();
+        }
 
         $file1->move(public_path($location1), $filename1);
         Session::flash('success', 'Data surat Berhasil Ditambahkan');
@@ -107,33 +122,33 @@ class SuratIzinController extends Controller
     }
     public function Sign($id)
     {
-    //     $templateSK = TemplateSK::where('id', $id)->first();
-    //     $templateSK->tanda_tangan = 'TTD.jpg';
-    //     $templateSK->save();
+        //     $templateSK = TemplateSK::where('id', $id)->first();
+        //     $templateSK->tanda_tangan = 'TTD.jpg';
+        //     $templateSK->save();
 
 
-    //     $surat = SuratKeluar::where('id', $templateSK->id_surat)->first();
+        //     $surat = SuratKeluar::where('id', $templateSK->id_surat)->first();
 
-    //     $pdf = PDF::loadView('admin.TemplateSK.signature', compact('templateSK'));
-    //     $file_name = $surat -> file;
-    //     $file_path = storage_path('../public/assets/surat/') . $file_name;
-    //     // $pdf->save($file_path);
+        //     $pdf = PDF::loadView('admin.TemplateSK.signature', compact('templateSK'));
+        //     $file_name = $surat -> file;
+        //     $file_path = storage_path('../public/assets/surat/') . $file_name;
+        //     // $pdf->save($file_path);
 
-    //     $FileToDelete = public_path('../public/assets/surat/') . $surat->file;
+        //     $FileToDelete = public_path('../public/assets/surat/') . $surat->file;
 
-    //     if (File::exists($FileToDelete)){
-    //         File::delete($FileToDelete);
-    //         $pdf->save($file_path);
-    //     }
-    //     else{
-    //         $pdf->save($file_path);
-    //         // return 'Filer not found';
-    //     }
+        //     if (File::exists($FileToDelete)){
+        //         File::delete($FileToDelete);
+        //         $pdf->save($file_path);
+        //     }
+        //     else{
+        //         $pdf->save($file_path);
+        //         // return 'Filer not found';
+        //     }
 
-    //         // Redirect ke halaman templateSK.show dengan menambahkan ID baru
-    //         return redirect()->route('suratkeluar.index')
-    //             ->with('success', 'Data berhasil disimpan!');
-    // }
+        //         // Redirect ke halaman templateSK.show dengan menambahkan ID baru
+        //         return redirect()->route('suratkeluar.index')
+        //             ->with('success', 'Data berhasil disimpan!');
+        // }
 
     }
 }
