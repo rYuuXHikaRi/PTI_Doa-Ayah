@@ -8,8 +8,7 @@
     <div class="card">
         <h1><b>Ajukan Permohonan Izin</b></h1>
     </div>
-    <form action="">
-    <div class="card-body">
+    <form class="card-body">
         <div class="mulaiselesai">
             <h1>Tanggal Mulai</h1>
         </div>
@@ -53,7 +52,6 @@
         <button onclick="togglePopup()" class="btn btn-primary">
             Buat Pengajuan
         </button>
-    </form>
         <div id="overlay" class="overlay" style="display: none;"></div>
         <div id="myPopup" class="popup" style="display: none;">
             <div class="header_popup">
@@ -84,7 +82,7 @@
             </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 @endsection
 
