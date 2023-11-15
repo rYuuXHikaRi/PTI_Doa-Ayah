@@ -25,11 +25,14 @@ class SuratIzinController extends Controller
     }
     public function store(Request $request)
     {
+
         $validatedData = $request->validate([
-            'file' => 'required|mimes:pdf,doc,docx|max:5120',
-            'bukti' => 'required|mimes:pdf,doc,docx|max:5120',
+            'file' => 'mimes:pdf,doc,docx|max:5120',
+            'bukti' => 'mimes:pdf,doc,docx|max:5120',
         ]);
 
+
+        // dd(SuratIzin::all());
         $file1 = $validatedData['file'];
         $file2 = $validatedData['bukti'];
         $filename1 = $file1->getClientOriginalName();
@@ -37,7 +40,7 @@ class SuratIzinController extends Controller
         $location1 = 'assets/surat/';
         $location1 = 'assets/bukti/';
 
-        $suratIzin = SuratIzin::create([
+        $SuratIzin = SuratIzin::create([
             'nama_pengaju' => 1,
             'tanggal_izin' => $request->tanggal_izin,
             'bagian' => $request->bagian,
@@ -45,7 +48,7 @@ class SuratIzinController extends Controller
             'bukti' => $filename2,
             'status' => "menunggu disetujui",
             'tanda_tangan' => 'ttd.jpg',
-            // 'file' => $filename1,
+            'file' => $filename1,
         ]);
 
         // if ($request->tanggal_mulai && $request->tanggal_selesai) {
@@ -61,12 +64,12 @@ class SuratIzinController extends Controller
         //     $suratIzin->save();
         // }
 
-        // $pdf = PDF::loadView('admin.karyawan.templateizin', compact('suratIzin'));
-        // $file_name = $suratIzin->nama_pengaju .'_' . time()  . '.pdf';
-        // $file_path = storage_path('../public/assets/surat/') . $file_name;
-        // $pdf->save($file_path);
-            dd($suratIzin);
-        $file1->move(public_path($location1), $filename1);
+        $pdf = PDF::loadView('admin.karyawan.templateizin', compact('suratIzin'));
+        $file_name = $request->tanggal_izin .'_' . time()  . '.pdf';
+        $file_path = storage_path('../public/assets/surat/') . $file_name;
+        $pdf->save($file_path);
+
+        // $file1->move(public_path($location1), $filename1);
         Session::flash('success', 'Data surat Berhasil Ditambahkan');
         return redirect()->route('suratizin.create')->with('success', 'surat berhasil ditambahkan.');
     }
