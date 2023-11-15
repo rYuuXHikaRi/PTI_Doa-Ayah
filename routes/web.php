@@ -59,8 +59,11 @@ Route::get('/statuscutimobile', function () {
     return view('statuscutimobile');
 });
 
-Route::get('/templateizin', function () {
+Route::get('/templateizinn', function () {
     return view('templateizin');
+});
+Route::get('/templateizin', function () {
+    return view('karyawan.SuratIzin.templateizin');
 });
 
 Route::get('/templatecuti', function () {

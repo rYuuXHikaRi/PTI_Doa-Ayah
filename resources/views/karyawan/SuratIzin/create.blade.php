@@ -11,18 +11,25 @@
         <div class="card-body">
             <Form method="POST" action="{{route('suratizin.store')}}" enctype="multipart/form-data">
                 @csrf
-                <div class="mulaiselesai">
+                {{-- <div class="mulaiselesai">
                     <h1>Tanggal Mulai</h1>
                 </div>
                 <div class="box">
                     <input class="input_waktu" type="date" id="Tanggal_Mulai" name="tanggal_mulai">
+                </div> --}}
+
+                <div class="mulaiselesai">
+                    <h1>Tanggal Izin</h1>
+                </div>
+                <div class="box">
+                    <input class="input_waktu" type="date" id="Tanggal_izin" name="tanggal_izin">
                 </div>
 
                 <div class="mulaiselesai">
-                    <h1>Tanggal Selesai</h1>
+                    <h1>Bagian</h1>
                 </div>
                 <div class="box">
-                    <input class="input_waktu" type="date" id="Tanggal_Selesai" name="tanggal_selesai">
+                    <input class="input_ket" type="text" id="keterangan" placeholder="Bagian" name="bagian">
                 </div>
 
                 <div class="mulaiselesai">
@@ -39,12 +46,12 @@
                     <input type="file" id="fileInput" name="bukti">
                 </div>
 
-                <div class="text_lampiran">
+                {{-- <div class="text_lampiran">
                     <h1>Pilih File</h1>
                 </div>
                 <div class="pilih">
                     <input type="file" id="fileInput" name="file">
-                </div>
+                </div> --}}
 
                 <!-- Button trigger modal -->
                 <button type="submit" onclick="notifSukses()" class="btn btn-primary">
