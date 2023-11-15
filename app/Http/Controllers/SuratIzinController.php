@@ -57,7 +57,7 @@ class SuratIzinController extends Controller
         $file_name = $request->tanggal_izin .'_' . time()  . '.pdf';
         $file_path = storage_path('../public/assets/surat/') . $file_name;
         $pdf->save($file_path);
-        $suratIzin->tanda_tangan = 'TTD.jpeg';
+        $suratIzin->file = $file_name;
         $suratIzin->save();
 
 
