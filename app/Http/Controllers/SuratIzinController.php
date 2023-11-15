@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SuratIzin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Models\TemplateSK;
 use App\Models\SuratKeluar;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -22,7 +23,33 @@ class SuratIzinController extends Controller
     }
     public function store(Request $request){
 
-        
+        $validatedData = $request->validate([
+            'file' => 'required|mimes:pdf,doc,docx|max:5120',
+            'bukti' => 'required|mimes:pdf,doc,docx|max:5120',
+        ]);
+
+        $file1 = $validatedData['file'];
+        $file2 = $validatedData['bukti'];
+        $filename1 = $file1->getClientOriginalName();
+        $filename2 = $file2->getClientOriginalName();
+        $location1 = 'assets/surat/';
+        $location1 = 'assets/bukti/';
+
+        SuratIzin::create([
+            'nama_pengaju' => 1,
+            'kategori_surat' => $request->kategori_surat,
+            'tanggal_dibuat' => $request->tanggal_dibuat,
+            'durasi' => $request->durasi,
+            'kode_surat' => $request->kode_surat,
+            'keterangan' => $request->keterangan,
+            'bukti' => $filename2,
+            'status'=>"menunggu disetujui",
+            'file' => $filename1,
+        ]);
+
+        $file1->move(public_path($location1), $filename1);
+        Session::flash('success', 'Data surat Berhasil Ditambahkan');
+        return redirect()->route('suratkeluar.index')->with('success', 'surat berhasil ditambahkan.');
     }
 
     public function storeSKForm(Request $request, $id)
