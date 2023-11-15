@@ -54,3 +54,19 @@ Route::get('/statusizinmobile', function () {
 Route::get('/statuscutimobile', function () {
     return view('statuscutimobile');
 });
+
+Route::get('/templateizin', function () {
+    return view('templateizin');
+});
+
+Route::get('/templatecuti', function () {
+    return view('templatecuti');
+});
+
+Route::get('/templatetukarjaga', function () {
+    return view('templatetukarjaga');
+});
+
+Route::get('/tes', function () {
+    return view('tes');
+});

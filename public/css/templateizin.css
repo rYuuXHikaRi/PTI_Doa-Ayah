@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.container {
+    max-width: 900px;
+    margin: 20px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    width: 627px;
+    justify-content: flex-end;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+ul li {
+    margin-bottom: 5px;
+    display: flex;
+}
+.awal {
+    margin-left: 26px;
+}
+.kedua {
+    margin-left: 82px;
+}
+.keterangan {
+    display: flex;
+    text-align: justify;
+    width: 619px;
+    margin-top: -7px;
+}
+.tanda_tangan {
+    display: flex;
+    justify-content: space-between;
+}
