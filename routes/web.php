@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SuratCutiController;
 use App\Http\Controllers\SuratIzinController;
 
 /*
@@ -25,6 +26,8 @@ Route::get('/', function () {
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route::get('/SuratIzin', SuratIzinController, 'index')->name('home');
 Route::resource('suratizin', SuratIzinController::class);
+Route::resource('suratcuti', SuratCutiController::class);
+
 
 
 Route::get('/TukarJaga', function () {
@@ -65,8 +68,11 @@ Route::get('/templateizinn', function () {
 Route::get('/templateizin', function () {
     return view('karyawan.SuratIzin.templateizin');
 });
-
 Route::get('/templatecuti', function () {
+    return view('karyawan.SuratCuti.templatecuti');
+});
+
+Route::get('/templatecutii', function () {
     return view('templatecuti');
 });
 

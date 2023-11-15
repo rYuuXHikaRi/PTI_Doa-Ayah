@@ -32,7 +32,7 @@ class SuratIzinController extends Controller
             'bukti' => 'mimes:pdf,doc,docx|max:5120',
         ]);
 
-        // dd(SuratIzin::all());
+        // dd(SuratIzin::all());]
         // $file1 = $validatedData['file'];
         $file2 = $validatedData['bukti'];
         // $filename1 = $file1->getClientOriginalName();

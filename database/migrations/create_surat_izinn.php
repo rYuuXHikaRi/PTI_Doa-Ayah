@@ -14,11 +14,10 @@ return new class extends Migration
         Schema::create('izin', function (Blueprint $table) {
             $table->id();
             $table->string('nama_pengaju');
-            $table->timestamp('waktu');
-            $table->integer('durasi');
+            $table->string('tanggal_izin');
             $table->text('keterangan');
             $table->string('bukti');
-            $table->integer('status');
+            $table->string('status');
             $table->string('tanda_tangan')->nullable();
             $table->string('file')->nullable();
             $table->timestamps();
