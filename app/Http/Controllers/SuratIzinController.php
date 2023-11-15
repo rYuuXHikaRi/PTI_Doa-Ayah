@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Validation\Rules\Unique;
 
 
+
 class SuratIzinController extends Controller
 {
     public function index()
@@ -31,43 +32,34 @@ class SuratIzinController extends Controller
             'bukti' => 'mimes:pdf,doc,docx|max:5120',
         ]);
 
-
         // dd(SuratIzin::all());
-        $file1 = $validatedData['file'];
+        // $file1 = $validatedData['file'];
         $file2 = $validatedData['bukti'];
-        $filename1 = $file1->getClientOriginalName();
+        // $filename1 = $file1->getClientOriginalName();
         $filename2 = $file2->getClientOriginalName();
         $location1 = 'assets/surat/';
         $location1 = 'assets/bukti/';
 
-        $SuratIzin = SuratIzin::create([
-            'nama_pengaju' => 1,
+        $suratIzin = SuratIzin::create([
+            'nama_pengaju' => 'Muhammad ibnu',
             'tanggal_izin' => $request->tanggal_izin,
             'bagian' => $request->bagian,
             'keterangan' => $request->keterangan,
             'bukti' => $filename2,
             'status' => "menunggu disetujui",
-            'tanda_tangan' => 'ttd.jpg',
-            'file' => $filename1,
+            // 'tanda_tangan' => 'ttd.jpg',
+            // 'file' => $filename1,
         ]);
 
-        // if ($request->tanggal_mulai && $request->tanggal_selesai) {
-        //     // Konversi tanggal_mulai dan tanggal_selesai ke objek Carbon
-        //     $tanggalMulai = Carbon::parse($request->tanggal_mulai);
-        //     $tanggalSelesai = Carbon::parse($request->tanggal_selesai);
-
-        //     // Hitung durasi antara dua tanggal
-        //     $durasi = $tanggalMulai->diffInDays($tanggalSelesai);
-
-        //     // Atur nilai durasi dan simpan objek SuratIzin
-        //     $suratIzin->durasi = $durasi;
-        //     $suratIzin->save();
-        // }
-
-        $pdf = PDF::loadView('admin.karyawan.templateizin', compact('suratIzin'));
+        $suratIzin->tanda_tangan = 'TTD.jpeg';
+        $suratIzin->save();
+        $pdf = PDF::loadView('karyawan.SuratIzin.templateizin', compact('suratIzin'));
         $file_name = $request->tanggal_izin .'_' . time()  . '.pdf';
         $file_path = storage_path('../public/assets/surat/') . $file_name;
         $pdf->save($file_path);
+        $suratIzin->tanda_tangan = 'TTD.jpeg';
+        $suratIzin->save();
+
 
         // $file1->move(public_path($location1), $filename1);
         Session::flash('success', 'Data surat Berhasil Ditambahkan');
@@ -96,6 +88,21 @@ class SuratIzinController extends Controller
         // // Redirect ke halaman templateSK.show dengan menambahkan ID baru
         // return redirect()->route('suratkeluar.index')
         //     ->with('success', 'Data berhasil disimpan!');
+
+
+              // if ($request->tanggal_mulai && $request->tanggal_selesai) {
+        //     // Konversi tanggal_mulai dan tanggal_selesai ke objek Carbon
+        //     $tanggalMulai = Carbon::parse($request->tanggal_mulai);
+        //     $tanggalSelesai = Carbon::parse($request->tanggal_selesai);
+
+        //     // Hitung durasi antara dua tanggal
+        //     $durasi = $tanggalMulai->diffInDays($tanggalSelesai);
+
+        //     // Atur nilai durasi dan simpan objek SuratIzin
+        //     $suratIzin->durasi = $durasi;
+        //     $suratIzin->save();
+        // }
+
     }
 
     public function showDesk()
