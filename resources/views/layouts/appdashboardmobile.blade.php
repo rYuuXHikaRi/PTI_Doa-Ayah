@@ -15,10 +15,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="css/dashboardmobile.css">
+    <link rel="stylesheet" href="../css/dashboardmobile.css">
+    <link rel="stylesheet" href="../css/izinmobile.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    
+
     <!-- Scripts -->
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 
@@ -30,13 +31,13 @@
     <div id="app">
         <div class="upbar">
             <div class="logo_aplikasi">
-                <img src="img/logo.png" alt="logo" style="width:100%; height:100%;"/>
+                <img src="../img/logo.png" alt="logo" style="width:100%; height:100%;"/>
             </div>
             <div class="atur_jarak">
                 <p>Perizinan</p>
             </div>
             <div class="elips">
-                <img src="img/chibi.png" alt="logo_user">
+                <img src="../img/chibi.png" alt="logo_user">
             </div>
             <div class="dropdown">
                 <div class="menu">

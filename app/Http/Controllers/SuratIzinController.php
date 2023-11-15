@@ -12,12 +12,14 @@ use Illuminate\Support\Facades\File;
 
 class SuratIzinController extends Controller
 {
+    public function index()
+    {
+        return view("karyawan.SuratIzin.index");
+    }
     public function create()
     {
         return view("karyawan.SuratIzin.index");
     }
-
-
 
     public function storeSKForm(Request $request, $id)
     {
