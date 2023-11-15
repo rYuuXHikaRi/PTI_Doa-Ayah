@@ -8,6 +8,7 @@
     <div class="card">
         <h1><b>Ajukan Permohonan Izin</b></h1>
     </div>
+    <form action="">
     <div class="card-body">
         <div class="mulaiselesai">
             <h1>Tanggal Mulai</h1>
@@ -52,6 +53,7 @@
         <button onclick="togglePopup()" class="btn btn-primary">
             Buat Pengajuan
         </button>
+    </form>
         <div id="overlay" class="overlay" style="display: none;"></div>
         <div id="myPopup" class="popup" style="display: none;">
             <div class="header_popup">
@@ -60,7 +62,7 @@
                     <i class="fa-solid fa-xmark"></i>
                 </div>
             </div>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi possimus error totam velit ex, maxime a, debitis adipisci fugiat fuga culpa neque natus. 
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi possimus error totam velit ex, maxime a, debitis adipisci fugiat fuga culpa neque natus.
                 Ipsum quia consectetur sunt, placeat provident laboriosam.</p>
         </div>
         <button id="prosesButton" class="popup_submit" onclick="notifSukses()" style="display: none;">
@@ -129,7 +131,7 @@
                 }, 1000);
             } else {
                 notifBerhasil.style.display = "none";
-                overlay_berhasil.style.display = "none"; 
+                overlay_berhasil.style.display = "none";
             }
         }
 
@@ -147,7 +149,7 @@
 
         document.getElementById('fileInput').addEventListener('change', function() {
         var selectedFile = this.files[0];
-        
+
         if (selectedFile) {
             // Di sini Anda dapat mengirimkan gambar yang dipilih ke server atau melakukan tindakan lain sesuai kebutuhan Anda.
             // Misalnya, Anda dapat menggunakan FormData untuk mengirim gambar tersebut ke server.
