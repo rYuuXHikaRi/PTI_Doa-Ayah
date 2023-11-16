@@ -76,9 +76,9 @@ Route::get('/PermohonanCuti', function () {
 //     return view('templatecuti');
 // });
 
-// Route::get('/templatetukarjaga', function () {
-//     return view('templatetukarjaga');
-// });
+Route::get('/templatetukarjaga', function () {
+    return view('karyawan.SuratTukarJaga.templatetukarjaga');
+});
 
 // Route::get('/tes', function () {
 //     return view('tes');
