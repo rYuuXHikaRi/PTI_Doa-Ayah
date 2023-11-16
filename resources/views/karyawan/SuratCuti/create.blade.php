@@ -2,10 +2,10 @@
 
 @section('content')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
-    <link rel="stylesheet" href="css/izinmobile.css">
+    <link rel="stylesheet" href="css/cutimobile.css">
 
     <div class="container">
-        <div class="card">
+        <div class="card_header">
             <h1><b>Ajukan Permohonan Cuti</b></h1>
         </div>
         <div class="card-body">
@@ -33,14 +33,14 @@
                 </div>
 
                 <div class="mulaiselesai">
-                    <h1>alamat</h1>
+                    <h1>Alamat</h1>
                 </div>
                 <div class="box">
                     <input class="input_ket" type="text" id="keterangan" placeholder="alamat" name="alamat">
                 </div>
 
                 <div class="mulaiselesai">
-                    <h1>jabatan</h1>
+                    <h1>Jabatan</h1>
                 </div>
                 <div class="box">
                     <input class="input_ket" type="text" id="keterangan" placeholder="jabatan" name="jabatan">

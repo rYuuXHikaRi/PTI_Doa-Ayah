@@ -13,16 +13,16 @@
             <h1>Tanggal Mulai</h1>
         </div>
         <div class="box">
-            <input class="input_waktu" type="date" id="Tanggal_Mulai"></input>
+            <input class="input_waktu" type="date" id="Tanggal_Mulai">
         </div>
         <div class="mulaiselesai">
             <h1>Tanggal Selesai</h1>
         </div>
         <div class="box">
-            <input class="input_waktu" type="date" id="Tanggal_Selesai"></input>
+            <input class="input_waktu" type="date" id="Tanggal_Selesai">
         </div>
         <div class="box">
-            <input class="input_waktu" type="text" id="Durasi_Izin" placeholder="Durasi Izin..."></input>
+            <input class="input_waktu" type="text" id="Durasi_Izin" placeholder="Durasi Izin...">
         </div>
         <div class="box_ket">
             <textarea class="input_ket" type="text" id="keterangan" placeholder="Keterangan..."></textarea>

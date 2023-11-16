@@ -19,6 +19,7 @@
         background: rgba(230, 239, 250, 0.65);
         width: 90%;
         height: 587px;
+        margin-left: 0;
     }
     .box {
         background: #E2ECF9;
@@ -79,6 +80,7 @@
         line-height: normal;
         margin-left: 5%;
         margin-top: 5%;
+        margin-block-end: -1.13em;
     }
     .mulaiselesai h1 {
       color: #0253BA;
@@ -88,6 +90,15 @@
       margin-left: 5%;
       margin-top: 3%;
       margin-bottom: -12px;
+    }
+    .ttd_pilih h1 {
+      color: #0253BA;
+      font-size: 13px;
+      font-style: normal;
+      line-height: normal;
+      margin-top: 3%;
+      margin-left: 5%;
+      margin-block-end: -0.01em;
     }
     .pilih {
         background: #E2ECF9;
@@ -111,56 +122,14 @@
         margin-top: -11px;
         margin-right: 13px;
     }
-    .isi {
-        background: #0253BA;
-        border-radius: 5px;
-        width: 30%;
-        height: 70%;
-        margin: 2%;
-    }
-    .isi h1 {
-        color: #E2ECF9;
-        text-align: center;
-        font-size: 13px;
-        font-style: normal;
-        line-height: normal;
-    }
     .btn.btn-primary {
         background: #0253BA;
         color: white;
         width: 90%;
         height: 10%;
         border-radius: 5px;
-        margin-top: 11%;
+        margin-top: 8%;
         margin-left: 5%;
-    }
-    .popup {
-        background: #D3E2F4;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        display: none;
-        position: fixed;
-        z-index: 50;
-        border-radius: 10px;
-        width: 342px;
-        height: 635px;
-        margin-left: -4%;
-        margin-top: -140%;
-    }
-    .header_popup {
-      background: rgba(230, 239, 250, 0.80);
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      width: 339px;
-      height: 58px;
-      border-radius: 10px 10px 0px 0px;
-    }
-    .header_popup h1 {
-      color: #0253BA;
-      font-size: 16px;
-      font-style: normal;
-      line-height: normal;
     }
     .close-button {
       color: red;
@@ -186,15 +155,6 @@
       margin-top: 53px;
       margin-left: -20px;
       z-index: 50;
-    }
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan */
-      z-index: 5; /* Atur z-index untuk menutupi elemen-elemen latar belakang */
     }
     .notif_berhasil {
       background: #E6EFFA;

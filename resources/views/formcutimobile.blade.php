@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="css/cutimobile.css">
 
 <div class="container">
-    <div class="card">
+    <div class="card_header">
         <h1><b>Ajukan Permohonan Cuti</b></h1>
     </div>
     <div class="card-body">

@@ -30,13 +30,13 @@ Route::resource('suratcuti', SuratCutiController::class);
 
 
 
-// Route::get('/TukarJaga', function () {
-//     return view('formtukarjagamobile');
-// });
+Route::get('/TukarJaga', function () {
+    return view('formtukarjagamobile');
+});
 
-// Route::get('/PermohonanCuti', function () {
-//     return view('formcutimobile');
-// });
+Route::get('/PermohonanCuti', function () {
+    return view('formcutimobile');
+});
 
 // Route::get('/mobile', function () {
 //     return view('homemobile');

@@ -5,19 +5,12 @@
     <link rel="stylesheet" href="css/izinmobile.css">
 
     <div class="container">
-        <div class="card">
+        <div class="card_header">
             <h1><b>Ajukan Permohonan Izin</b></h1>
         </div>
         <div class="card-body">
             <Form method="POST" action="{{route('suratizin.store')}}" enctype="multipart/form-data">
                 @csrf
-                {{-- <div class="mulaiselesai">
-                    <h1>Tanggal Mulai</h1>
-                </div>
-                <div class="box">
-                    <input class="input_waktu" type="date" id="Tanggal_Mulai" name="tanggal_mulai">
-                </div> --}}
-
                 <div class="mulaiselesai">
                     <h1>Tanggal Izin</h1>
                 </div>
@@ -33,25 +26,18 @@
                 </div>
 
                 <div class="mulaiselesai">
-                    <h1>Keterangan</h1>
+                    <h1>Alasan</h1>
                 </div>
                 <div class="box_ket">
-                    <textarea class="input_ket" type="text" id="keterangan" placeholder="Keterangan..." name="keterangan"></textarea>
+                    <textarea class="input_ket" type="text" id="keterangan" placeholder="Alasan..." name="keterangan"></textarea>
                 </div>
 
                 <div class="text_lampiran">
-                    <h1>Lampiran Bukti (Optional)</h1>
+                    <h1>Lampiran Bukti (optional)</h1>
                 </div>
                 <div class="pilih">
                     <input type="file" id="fileInput" name="bukti">
                 </div>
-
-                {{-- <div class="text_lampiran">
-                    <h1>Pilih File</h1>
-                </div>
-                <div class="pilih">
-                    <input type="file" id="fileInput" name="file">
-                </div> --}}
 
                 <!-- Button trigger modal -->
                 <button type="submit" onclick="notifSukses()" class="btn btn-primary">

@@ -10,16 +10,19 @@
     </div>
     <div class="card-body">
         <div class="mulaiselesai">
-            <h1>Tanggal Mulai</h1>
+            <h1>Jadwal Asli</h1>
         </div>
         <div class="box">
-            <input class="input_waktu" type="date" id="Tanggal_Pengajuan" placeholder="Tanggal Pengajuan..."></input>
+            <input class="input_waktu" type="date" id="Tanggal_Pengajuan" placeholder="Tanggal Pengajuan...">
         </div>
         <div class="mulaiselesai">
-            <h1>Tanggal Selesai</h1>
+            <h1>Jadwal Yang Ingin Diubah</h1>
         </div>
         <div class="box">
-            <input class="input_waktu" type="date" id="Tanggal_Target" placeholder="Tanggal Target..."></input>
+            <input class="input_waktu" type="date" id="Tanggal_Target" placeholder="Tanggal Target...">
+        </div>
+        <div class="text_lampiran">
+            <h1>Nama Target</h1>
         </div>
         <div class="box">
             <select class="form-control" id="namaTarget" name="namaTarget">
@@ -29,47 +32,28 @@
                 <option value="option4">Brimstone</option>
             </select>
         </div>
+        <div class="text_lampiran">
+            <h1>Keterangan</h1>
+        </div>
         <div class="box_ket">
             <textarea class="input_ket" type="text" id="keterangan" placeholder="Keterangan..."></textarea>
         </div>
-        <div class="text_lampiran">
-            <h1>Lampiran Bukti (Optional)</h1>
+        <div class="ttd_pilih">
+            <h1>Tanda Tangan Pemohon</h1>
         </div>
         <div class="pilih">
-            <input type="file" id="fileInput" style="display: none;">
-            <div class="isi" onclick="document.getElementById('fileInput').click()" id="pilih_file">
-                <h1>Pilih File</h1>
-            </div>
-            <h1>Tidak ada file yang dipilih</h1>
+            <input type="file" id="fileInput">
         </div>
-        <div class="text_lampiran">
-            <h1>Pilih File</h1>
+        <div class="ttd_pilih">
+            <h1>Tanda Tangan Nama Target</h1>
         </div>
         <div class="pilih">
-            <input type="file" id="fileInput" style="display: none;">
-            <div class="isi" onclick="document.getElementById('fileInput').click()" id="pilih_file">
-                <h1>Pilih File</h1>
-            </div>
-            <h1>Tidak ada file yang dipilih</h1>
+            <input type="file" id="fileInput">
         </div>
 
         <!-- Button trigger modal -->
         <button onclick="togglePopup()" class="btn btn-primary">
             Buat Pengajuan
-        </button>
-        <div id="overlay" class="overlay" style="display: none;"></div>
-        <div id="myPopup" class="popup" style="display: none;">
-            <div class="header_popup">
-                <h1>Pratinjau Permohonan</h1>
-                <div onclick="closePopup()" class="close-button">
-                    <i class="fa-solid fa-xmark"></i>
-                </div>
-            </div>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi possimus error totam velit ex, maxime a, debitis adipisci fugiat fuga culpa neque natus. 
-                Ipsum quia consectetur sunt, placeat provident laboriosam.</p>
-        </div>
-        <button id="prosesButton" class="popup_submit" onclick="notifSukses()" style="display: none;">
-            Proses Pengajuan
         </button>
         <div id="overlay_berhasil" class="overlay_berhasil" style="display: none;"></div>
         <div class="notif_berhasil" style="display: none;">
@@ -94,60 +78,20 @@
 <script>
         // Fungsi untuk menampilkan pop-up
         function togglePopup() {
-            var popup = document.getElementById("myPopup");
-            var overlay = document.getElementById("overlay");
-            var prosesButton = document.getElementById("prosesButton");
             var notifBerhasil = document.querySelector('.notif_berhasil');
             var overlay_berhasil = document.getElementById("overlay_berhasil");
 
-            if (popup.style.display === "none" || overlay.style.display === "none") {
-                popup.style.display = "block";
-                overlay.style.display = "block";
-                prosesButton.style.display = "block";
-                notifBerhasil.style.display = "none";
-                overlay_berhasil.style.display = "none";
-            } else {
-                popup.style.display = "none";
-                overlay.style.display = "none";
-                prosesButton.style.display = "none";
-            }
-        }
-
-        function notifSukses() {
-            var notifBerhasil = document.querySelector('.notif_berhasil');
-            var overlay_berhasil = document.getElementById("overlay_berhasil");
-            var popup = document.getElementById("myPopup");
-            var overlay = document.getElementById("overlay");
-            var prosesButton = document.getElementById("prosesButton");
-
-            if (notifBerhasil.style.display === "none") {
+            if (overlay_berhasil.style.display === "none" || notifBerhasil.style.display === "none") {
                 notifBerhasil.style.display = "block";
                 overlay_berhasil.style.display = "block";
-                popup.style.display = "none";
-                overlay.style.display = "none";
-                prosesButton.style.display = "none";
-
-                // Sembunyikan notifikasi setelah 5 detik (5000 milidetik)
-                setTimeout(function () {
+            } else {
+                notifBerhasil.style.display = "block";
+                overlay_berhasil.style.display = "block";
+            }
+            setTimeout(function () {
                     notifBerhasil.style.display = "none";
                     overlay_berhasil.style.display = "none";
                 }, 1000);
-            } else {
-                notifBerhasil.style.display = "none";
-                overlay_berhasil.style.display = "none"; 
-            }
-        }
-
-        // Fungsi untuk menutup pop-up
-        function closePopup() {
-            var popup = document.getElementById("myPopup");
-            var overlay = document.getElementById("overlay");
-            popup.style.display = "none";
-
-            // Menghilangkan tombol "Proses Pengajuan"
-            var prosesButton = document.getElementById("prosesButton");
-            prosesButton.style.display = "none";
-            overlay.style.display = "none";
         }
 
         document.getElementById('fileInput').addEventListener('change', function() {
