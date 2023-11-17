@@ -5,12 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\SuratIzin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-use Carbon\Carbon;
-use App\Models\TemplateSK;
-use App\Models\SuratKeluar;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Support\Facades\File;
-use Illuminate\Validation\Rules\Unique;
+
 
 
 
