@@ -15,7 +15,7 @@
                 </div>
                 <div class="box">
                     <input class="input_waktu" type="date" id="Tanggal_Pengajuan" placeholder="Tanggal Pengajuan..."
-                        name="tanggal_asli">
+                        name="jadwal_asli">
                 </div>
                 <div class="mulaiselesai">
                     <h1>Jadwal Yang Ingin Diubah</h1>

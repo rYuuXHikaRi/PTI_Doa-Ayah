@@ -38,27 +38,27 @@ class SuratTukarJagaController extends Controller
 
         // $location1 = 'assets/suratTukarJaga/';
 
-        $SuratTukarJaga = SuratTukarJaga::create([
+        $suratTukarJaga = SuratTukarJaga::create([
             'nama_pengaju' => 'Muhammad ibnu',
             'nama_target' => $request->nama_target,
-            'tanggal_asli' => $request->tanggal_asli,
-            'tanggal_dirubah' => $request->tanggal_dirubah,
+            'jadwal_asli' => $request->jadwal_asli,
+            'jadwal_dirubah' => $request->jadwal_dirubah,
             'target_tukar_jaga' => $request->target_tukar_jaga,
             'keterangan' => $request->keterangan,
             'status' => "menunggu disetujui",
         ]);
 
-        $SuratTukarJaga->tanda_tangan = 'TTD.jpeg';
-        $SuratTukarJaga->save();
-        $Convertpdf = PDF::loadView('karyawan.SuratTukarJaga.templatetukarjaga', compact('suratCuti'));
+        $suratTukarJaga->tanda_tangan = 'TTD.jpeg';
+        $suratTukarJaga->save();
+        $Convertpdf = PDF::loadView('karyawan.SuratTukarJaga.templatetukarjaga', compact('suratTukarJaga'));
         $file_name = $request->alamat . '_' . time()  . '.pdf';
         $file_path = storage_path('../public/assets/suratTukarJaga/') . $file_name;
         $Convertpdf->save($file_path);
-        $SuratTukarJaga->file = $file_name;
-        $SuratTukarJaga->save();
+        $suratTukarJaga->file = $file_name;
+        $suratTukarJaga->save();
 
         Session::flash('success', 'Data surat Berhasil Ditambahkan');
-        return redirect()->route('suratcuti.create')->with('success', 'surat berhasil ditambahkan.');
+        return redirect()->route('surattukarjaga.create')->with('success', 'surat berhasil ditambahkan.');
     }
 
     /**

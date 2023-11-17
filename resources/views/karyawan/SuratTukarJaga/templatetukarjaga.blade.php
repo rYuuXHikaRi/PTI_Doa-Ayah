@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Template Surat</title>
-  <link rel="stylesheet" href="{{ public_path('css/templatetukarjaga.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Surat</title>
+    <link rel="stylesheet" href="{{ public_path('css/templatetukarjaga.css') }}">
 </head>
+
 <body>
     <div class="container">
         <div class="blangko">
@@ -18,13 +20,20 @@
             <table>
                 <tr>
                     <th>Nama Karyawan</th>
-                    <th>Tgl</th>
+                    {{-- <th>Tgl</th> --}}
                     <th>Jadwal Asli</th>
-                    <th>Tgl</th>
+                    {{-- <th>Tgl</th> --}}
                     <th>Jadwal yang dirubah/diganti</th>
                 </tr>
                 <tr>
-                    <td rowspan="3">A. Astra</td>
+                    <td>{{ $suratTukarJaga->nama_pengaju }}</td>
+                    {{-- <td>......</td> --}}
+                    {{-- <td>......</td> --}}
+                    <td>{{ $suratTukarJaga->jadwal_asli }}</td>
+                    <td>{{ $suratTukarJaga->jadwal_dirubah }}</td>
+
+                </tr>
+                {{-- <tr>
                     <td>......</td>
                     <td>P / S / M / PS / SM / PM / L</td>
                     <td>......</td>
@@ -35,39 +44,22 @@
                     <td>P / S / M / PS / SM / PM / L</td>
                     <td>......</td>
                     <td>P / S / M / PS / SM / PM / L</td>
-                </tr>
-                <tr>
-                    <td>......</td>
-                    <td>P / S / M / PS / SM / PM / L</td>
-                    <td>......</td>
-                    <td>P / S / M / PS / SM / PM / L</td>
-                </tr>
+                </tr> --}}
 
                 <tr>
                     <th>Nama Karyawan</th>
-                    <th>Tgl</th>
+                    {{-- <th>Tgl</th> --}}
                     <th>Jadwal Asli</th>
-                    <th>Tgl</th>
+                    {{-- <th>Tgl</th> --}}
                     <th>Jadwal yang dirubah/diganti</th>
                 </tr>
                 <tr>
-                    <td rowspan="3">B. Brimstone</td>
-                    <td>......</td>
-                    <td>P / S / M / PS / SM / PM / L</td>
-                    <td>......</td>
-                    <td>P / S / M / PS / SM / PM / L</td>
-                </tr>
-                <tr>
-                    <td>......</td>
-                    <td>P / S / M / PS / SM / PM / L</td>
-                    <td>......</td>
-                    <td>P / S / M / PS / SM / PM / L</td>
-                </tr>
-                <tr>
-                    <td>......</td>
-                    <td>P / S / M / PS / SM / PM / L</td>
-                    <td>......</td>
-                    <td>P / S / M / PS / SM / PM / L</td>
+                    <td>{{ $suratTukarJaga->target_tukar_jaga}}</td>
+                    {{-- <td>......</td> --}}
+                    <td>{{ $suratTukarJaga->jadwal_dirubah }}</td>
+                    {{-- <td>......</td> --}}
+                    <td>{{ $suratTukarJaga->jadwal_asli }}</td>
+
                 </tr>
             </table>
             <div class="box_kanan">
@@ -76,8 +68,18 @@
                 </div>
                 <div class="tanda_tangan">
                     <div class="ttd_A">
-                        <p>Yang Memohon, (A)</p>
+                        <p>Yang Memohon,{{ $suratTukarJaga->nama_pengaju }}
+                        </p>
                         <br><br>
+
+                        <p>
+                            @if ($suratTukarJaga->tanda_tangan)
+                                <img style="height: 120px ; width:120px;"
+                                    src="{{ public_path('img/' . $suratTukarJaga->tanda_tangan) }}" alt="Tanda Tangan">
+                            @endif
+                        </p>
+                        <b>{{ $suratTukarJaga->nama_pengaju }}</b>
+
                         <div class="line"></div>
                     </div>
                     <div class="ttd_B">
@@ -86,6 +88,7 @@
                         <div class="line"></div>
                     </div>
                 </div>
+
                 <div class="tanda_tangan2">
                     <div class="ttd_A">
                         <p>Ka. Ruangan</p>
@@ -105,4 +108,5 @@
         </div>
     </div>
 </body>
+
 </html>
