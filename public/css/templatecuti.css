@@ -1,64 +1,23 @@
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  .container {
-    max-width: 790px;
-    margin: 20px;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  .header {
-    position: relative;
-    color: #02BA62;
-    display: flex;
-    flex-direction: row;
-    width: 760px;
-    font-weight: bold;
-  }
-  .form_RSAS {
-    position: absolute;
-    height: fit-content;
-    font-size: 11px;
-    margin-left: 86%;
-  }
-  .form_RSAS p {
-    margin: 0;
-    padding: 0;
-  }
-  .header_icon {
-    width: 95px;
-    height: 80%;
-    margin-top: 26px;
-    margin-left: 12px;
-  }
   .teks_header {
-    width: 83%;
     text-align: center;
+    margin-left: 20px;
   }
-  .teks_header h2 {
+  .teks_header h1 {
     display: block;
+    color: #02BA62;
     font-size: 2em;
-    margin-block-start: -1.19em;
-    margin-block-end: -0.6em;
     font-weight: bold;
   }
   .teks_header p {
+    color: #02BA62;
     margin-bottom: 28px;
   }
   .code {
+    color: #02BA62;
     position: absolute;
     height: fit-content;
     font-size: 11px;
-    margin-top: 170px;
+    margin-top: -11px;
     margin-left: 2px;
   }
   .code p {
@@ -66,10 +25,11 @@ body {
     padding: 0;
   }
   .menkes {
+    color: #02BA62;
     position: absolute;
     height: fit-content;
     font-size: 11px;
-    margin-top: 170px;
+    margin-top: -11px;
     margin-left: 74%;
   }
   .menkes p {
@@ -84,20 +44,8 @@ body {
   }
   .isi {
     color: #02BA62;
-    margin-top: -9px;
+    margin-top: 3px;
     margin-left: 45px;
-  }
-  .perihal_surat {
-    display: flex;
-  }
-  .jenis p{
-    margin-block-start: 1em;
-    margin-block-end: -1.2em;
-  }
-  .jenis_isi p {
-    margin-block-start: 1em;
-    margin-block-end: -1.2em;
-    margin-left: 47px;
   }
   .kepada {
     margin-top: 45px;
@@ -114,87 +62,14 @@ body {
     display: flex;
     margin-top: 20px;
   }
-  .pengaju p {
-    margin-block-start: 1em;
+  .box_pengaju p {
     margin-block-end: -1.2em;
-  }
-  .pengaju_isi p {
-    margin-block-start: 1em;
-    margin-block-end: -1.2em;
-    margin-left: 67px;
-  }
-  .aju {
-    margin-top: 45px;
-  }
-  .box_alasan {
-    display: flex;
-    margin-top: -27px;
-  }
-  .alasan p{
-    margin-block-start: 1em;
-    margin-block-end: -1.2em;
-  }
-  .alasan_isi p {
-    margin-block-start: 1em;
-    margin-block-end: -1.2em;
-    margin-left: 41px;
   }
   .demikian {
-    margin-top: 57px;
+    margin-top: 20px;
   }
-  .demikian p {
-    margin-block-start: 1em;
-    margin-block-end: -1.2em;
-  }
-  .tanda_tangan {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 25px;
-  }
-  .line_ttd {
-    background: black;
-    width: 100%;
-    height: 2px;
-  }
-  .catatan {
-    margin-top: 36px;
-  }
-  .a_dan_b {
-    display: flex;
-    margin-top: -35px;
-  }
-  .ab p {
-    margin-block-start: 1em;
-    margin-block-end: -1.2em;
-  }
-  .ab_isi p {
-    margin-block-start: 1em;
-    margin-block-end: -1.2em;
-    margin-left: 47px;
-  }
-  .bagian_c {
-    display: flex;
-    margin-left: 17px;
-  }
-  .c p {
-    margin-block-start: 1em;
-    margin-block-end: -1.2em;
-  }
-  .c_isi p {
-    margin-block-start: 1em;
-    margin-block-end: -1.2em;
-    margin-left: 43px;
-  }
-  .tanda_tangan2 {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 41px;
-  }
-  .box_direktur {
-    display: flex;
-    justify-content: center;
-    margin-top: 26px;
-  }
-  .ttd_direktur {
-    text-align: center;
+  .ttd_pemohon {
+    position: absolute;
+    margin-top: -110px;
+    margin-left: 370px;
   }

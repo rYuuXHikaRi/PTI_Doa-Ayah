@@ -68,17 +68,17 @@ Route::get('/PermohonanCuti', function () {
 // Route::get('/templateizin', function () {
 //     return view('karyawan.SuratIzin.templateizin');
 // });
-// Route::get('/templatecuti', function () {
-//     return view('karyawan.SuratCuti.templatecuti');
-// });
+Route::get('/templatecuti', function () {
+    return view('karyawan.SuratCuti.templatecuti');
+});
 
 // Route::get('/templatecutii', function () {
 //     return view('templatecuti');
 // });
 
-Route::get('/templatetukarjaga', function () {
-    return view('karyawan.SuratTukarJaga.templatetukarjaga');
-});
+// Route::get('/templatetukarjaga', function () {
+//     return view('karyawan.SuratTukarJaga.templatetukarjaga');
+// });
 
 // Route::get('/tes', function () {
 //     return view('tes');
