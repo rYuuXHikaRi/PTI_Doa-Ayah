@@ -15,7 +15,7 @@
                 </div>
                 <div class="box">
                     <input class="input_waktu" type="date" id="Tanggal_Pengajuan" placeholder="Tanggal Pengajuan..."
-                        name="nama_pengaju">
+                        name="tanggal_asli">
                 </div>
                 <div class="mulaiselesai">
                     <h1>Jadwal Yang Ingin Diubah</h1>
@@ -29,9 +29,9 @@
                 <div class="box">
                     <select class="form-control" id="namaTarget" name="target_tukar_jaga">
                         <option value="option1">Nama Target Tukar Jaga</option>
-                        <option value="option2">Astra</option>
-                        <option value="option3">Harbor</option>
-                        <option value="option4">Brimstone</option>
+                        <option value="Astra">Astra</option>
+                        <option value="Harbor">Harbor</option>
+                        <option value="Brimstone">Brimstone</option>
                     </select>
                 </div>
                 <div class="text_lampiran">
