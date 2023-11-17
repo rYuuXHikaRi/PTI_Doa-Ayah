@@ -9,63 +9,49 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="header">
-            <p>Karang Endah, {{ $suratIzin->updated_at }}</p>
-        </div>
-        <div class="line"></div>
-        <div class="kepada">
-            <p> Kepada Yth,<br>
-                Ibu Direktur RS. Islam Asy-Syifaa<br>
-                Di<br>
-                Tempat
+    <p style="margin-left:70%">Karang Endah, {{ $suratIzin->updated_at }}</p>
+    <div class="kepada">
+        <p> Kepada Yth,<br>
+            Ibu Direktur RS. Islam Asy-Syifaa<br>
+            Di<br>
+            Tempat
+        </p>
+    </div>
+    <p><b>Assalamu’alaikum Wr. Wb.</b></p>
+    <p> Saya yang bertandatangan di bawah ini:</p>
+    <p>Nama Pengaju : {{ $suratIzin->nama_pengaju }} <br>
+        Bagian      : {{ $suratIzin->bagian }}
+    </p>
+    <div class="keterangan">
+        <p>Bersama Surat ini Saya sampaikan bahwa pada tanggal <b>{{ $suratIzin->tanggal_izin }}</b> Saya tidak
+            dapat bekerja seperti biasa,
+            dikarenakan ada <b>{{ $suratIzin->keterangan }}</b>. Mohon kiranya Ibu Direktur dapat memberikan izin kepada
+            Saya.
+        </p>
+    </div>
+    <p>Demikian Surat ini Saya sampaikan, atas Izin yang diberikan saya ucapkan terima kasih.</p>
+    <p><b>Wassalamu’alaikum Wr. Wb.</b></p>
+    <div class="tanda_tangan">
+        <div class="ttd_aju">
+            <p> Mengetahui,<br>
+                Manager Keuangan Umum & Personalia
+                <br><br><br><br>
+                <b>Nurul Hakim, SE</b>
             </p>
         </div>
-        <p><b>Assalamu’alaikum Wr. Wb.</b></p>
-        <p> Saya yang bertandatangan di bawah ini:</p>
-        <ul>
-            <li> Nama Pengaju <div class="awal">: {{ $suratIzin->nama_pengaju }}</div>
-            </li>
-            <li> Bagian <div class="kedua">: {{ $suratIzin->bagian }}</div>
-            </li>
-        </ul>
-        <div class="keterangan">
-            <p>Bersama Surat ini Saya sampaikan bahwa pada tanggal <b>{{ $suratIzin->tanggal_mulai }}</b> Saya tidak
-                dapat bekerja seperti biasa,
-                dikarenakan ada {{ $suratIzin->keterangan }}. Mohon kiranya Ibu Direktur dapat memberikan izin kepada
-                Saya.
+        <div class="ttd_nama">
+            <p> <br>
+                Hormat Saya,
+                <br>
             </p>
-        </div>
-        <p>Demikian Surat ini Saya sampaikan, atas Izin yang diberikan saya ucapkan terima kasih.</p>
-        <p><b>Wassalamu’alaikum Wr. Wb.</b></p>
-        <div class="tanda_tangan">
-            <div class="ttd_aju">
-                <p> Mengetahui,<br>
-                    Manager Keuangan Umum & Personalia
-                    <br><br><br><br>
-                    <b>Nurul Hakim, SE</b>
-                </p>
-            </div>
-            <div class="ttd_nama">
-                <p> <br>
-                    Hormat Saya,
-                    <br>
-                    {{-- @php
-                        if ($suratIzin ->tanda_tangan ) {
-                            public_path('img/' . $suratIzin ->tanda_tangan )
-                        }
-                    @endphp --}}
-
-                </p>
-                <p>
-                    @if ($suratIzin->tanda_tangan)
-                        <img style="height: 120px ; width:120px;"
-                            src="{{ public_path('img/' . $suratIzin->tanda_tangan) }}" alt="Tanda Tangan">
-                    @endif
-                </p>
-                <b>{{ $suratIzin->nama_pengaju }}</b>
-                <p></p>
-            </div>
+            <p>
+                @if ($suratIzin->tanda_tangan)
+                    <img style="height: 120px ; width:120px;"
+                        src="{{ public_path('img/' . $suratIzin->tanda_tangan) }}" alt="Tanda Tangan">
+                @endif
+            </p>
+            <b>{{ $suratIzin->nama_pengaju }}</b>
+            <p></p>
         </div>
     </div>
 </body>
