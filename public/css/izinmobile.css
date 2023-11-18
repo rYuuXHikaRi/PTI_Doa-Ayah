@@ -1,14 +1,13 @@
 @media screen and (max-width:  575.98px) {
     .container {
-        position: relative;
-        margin: 23%;
+        margin: 5%;
+        margin-top: 166px;
     }
     .card_header {
         background: rgba(230, 239, 250, 0.80);
         border-radius: 10px 10px 0px 0px;
         width: 90%;
         height: 50px;
-        margin-left: 5%;
     }
     .card_header h1 {
         color: #0253BA;
@@ -21,7 +20,6 @@
         background: rgba(230, 239, 250, 0.65);
         width: 90%;
         height: 456px;
-        margin-left: 5%;
     }
     .box {
         background: #E2ECF9;

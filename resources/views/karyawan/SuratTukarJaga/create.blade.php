@@ -2,11 +2,12 @@
 
 @section('content')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+    <link rel="stylesheet" href="../css/tukarjagamobile.css">
 
     <div class="container">
         <form method="post" action="{{route('surattukarjaga.store')}}" enctype="multipart/form-data">
             @csrf
-            <div class="card">
+            <div class="card_header">
                 <h1><b>Ajukan Tukar Jaga</b></h1>
             </div>
             <div class="card-body">
@@ -27,7 +28,7 @@
                     <h1>Nama Target</h1>
                 </div>
                 <div class="box">
-                    <select class="form-control" id="namaTarget" name="target_tukar_jaga">
+                    <select class="form-controll" id="namaTarget" name="target_tukar_jaga">
                         <option value="option1">Nama Target Tukar Jaga</option>
                         <option value="Astra">Astra</option>
                         <option value="Harbor">Harbor</option>

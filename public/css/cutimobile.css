@@ -1,7 +1,6 @@
 @media screen and (max-width:  575.98px) {
     .container {
-        position: relative;
-        margin: 3%;
+        margin-top: 26px;
     }
     .card_header {
         background: rgba(230, 239, 250, 0.80);

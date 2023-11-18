@@ -17,10 +17,6 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="../css/dashboardmobile.css">
-    <link rel="stylesheet" href="../css/izinmobile.css">
-    <link rel="stylesheet" href="../css/cutimobile.css">
-    <link rel="stylesheet" href="../css/statustukarjagamobile.css">
-    <link rel="stylesheet" href="../css/tukarjagamobile.css">
     {{-- <link rel="stylesheet" href="css/cutimobile.css"> --}}
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
