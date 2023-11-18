@@ -46,7 +46,7 @@ class User extends Authenticatable
 
     public function hasAnyRole(...$role)
     {
-        return in_array($this->Role, $role);
+        return in_array($this->role, $role);
     }
 
     /**

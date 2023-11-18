@@ -26,10 +26,10 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::user()->role == 1) {
-        return view('dashboardadmin');
+        return view('admin.index');
         }
         else if (Auth::user()->role == 2) {
-        return view('dashboardkabag');
+        return view('kepalabagian.index');
         }
 }
 }

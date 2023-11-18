@@ -29,7 +29,7 @@
             <div class="menu-box">
                 <ul class="menu">
                     <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                    <li><a href="#"><i class="fas fa-archive"></i> Daftar Permohonan</a></li>
+                    <li><a href="{{ route('rekap.index') }}"><i class="fas fa-archive"></i> Daftar Permohonan</a></li>
                 </ul>
                 <br><br><br><br>
                 <div class="footer">

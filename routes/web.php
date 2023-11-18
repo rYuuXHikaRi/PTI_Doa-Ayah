@@ -8,6 +8,7 @@ use App\Http\Controllers\ArsipController;
 use App\Http\Controllers\DisposisiController;
 use App\Http\Controllers\SuratMasukController;
 use App\Http\Controllers\SuratKeluarController;
+use App\Http\Controllers\KepalaBagian\KBSuratKeluarController;
 
 Route::middleware(['auth','role:1'])->group(function () {
     Route::resource('arsip', ArsipController::class);
@@ -21,7 +22,7 @@ Route::middleware(['auth','role:1'])->group(function () {
     Route::resource('dispost', DisposisiController::class);
     Route::post('/disposisi/add/{id}/{status}', [DisposisiController::class,'store'])->name('disposisi.tambahdisposisi');
 
-    
+
     Route::resource('suratkeluar', SuratKeluarController::class);
     Route::get('/suratkeluar/download/{id}/{file}', [SuratKeluarController::class, 'downloadSurat'])->name('suratkeluar.download');
     Route::get('/formtemplate', [SuratKeluarController::class, 'template'])->name('template');
@@ -31,8 +32,10 @@ Route::middleware(['auth','role:1'])->group(function () {
 });
 
 Route::middleware(['auth','role:2'])->group(function () {
-    Route::resource('arsip', ArsipController::class);
-    Route::resource('user', UserController::class);
+    Route::get('/welcome', function () {
+        return view('welcome');
+    });
+    Route::resource('rekap', KBSuratKeluarController::class);
 });
 
 

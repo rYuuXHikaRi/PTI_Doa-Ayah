@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\KepalaBagian;
 
+use PDF;
 use App\Models\SuratKeluar;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests\StoreSuratKeluarRequest;
 use App\Http\Requests\UpdateSuratKeluarRequest;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Http\Request;
-use PDF;
 
-class SuratKeluarController extends Controller
+class KBSuratKeluarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +18,7 @@ class SuratKeluarController extends Controller
     public function index()
     {
         $suratkeluar = SuratKeluar::all();
-        return view("admin.SuratKeluar.index", compact("suratkeluar"));
+        return view("kepalabagian.suratkeluar.index", compact("suratkeluar"));
     }
 
     /**
@@ -32,33 +33,7 @@ class SuratKeluarController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        // dd($request->all());
-        $validatedData = $request->validate([
-            'file' => 'required|mimes:pdf,doc,docx|max:5120',
-        ]);
-
-        $file1 = $validatedData['file'];
-        $filename1 = $file1->getClientOriginalName();
-        $location1 = 'assets/surat/';
-
-        SuratKeluar::create([
-            'nama_surat' => $request->nama_surat,
-            'kategori_surat' => $request->kategori_surat,
-            'tanggal_dibuat' => $request->tanggal_dibuat,
-            'tujuan_surat' => $request->tujuan_surat,
-            'kode_surat' => $request->kode_surat,
-            'pembuat_surat' => auth()->user()->nama_karyawan,
-            'jenis_surat' => $request->jenis_surat,
-            'file' => $filename1,
-            'status'=>"menunggu disetujui",
-        ]);
-
-        $file1->move(public_path($location1), $filename1);
-        Session::flash('success', 'Data surat Berhasil Ditambahkan');
-        return redirect()->route('suratkeluar.index')->with('success', 'surat berhasil ditambahkan.');
-    }
+    
 
     /**
      * Display the specified resource.

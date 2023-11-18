@@ -30,7 +30,7 @@ class UserController extends Controller
     public function store(Request $request)
     {  
         $request->validate([
-            'id_roles' => 'required',
+            'role' => 'required',
             'nama_karyawan' => 'required',
             'jabatan' => 'required',
             'nik' => 'required|unique:users,nik',
@@ -59,7 +59,7 @@ class UserController extends Controller
 
         // Buat user baru dengan menggunakan model User
         $user = User::create([
-            'id_roles' => $request->input('id_roles'),
+            'role' => $request->input('id_roles'),
             'nama_karyawan' => $request->input('nama_karyawan'),
             'jabatan' => $request->input('jabatan'),
             'nik' => $request->input('nik'),
@@ -105,7 +105,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'id_roles' => 'required',
+            'role' => 'required',
             'nama_karyawan' => 'required',
             'jabatan' => 'required',
             'nik' => 'required|unique:users,nik,'.$id,
