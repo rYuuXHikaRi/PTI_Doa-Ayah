@@ -26,23 +26,14 @@
     <!-- Bootstrap CSS (Choose one version, don't include both) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- OR -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
     <!-- Laravel Default Styles (You may want to use a mix version to handle versioning) -->
     <link rel="stylesheet" href="../../css/app.css">
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
 
-    <!-- Bootstrap JavaScript, jQuery, and Popper.js (Choose one version, don't include both) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-    <!-- OR -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Bootstrap JavaScript, jQuery, and Popper.js -->
 
-    <!-- DataTables JavaScript -->
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
     <!-- Your Custom JavaScript -->
 </head>
@@ -112,10 +103,10 @@
                     <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                     <li><a href="{{ route('arsip.index') }}"><i class="fas fa-archive"></i> Arsip</a></li>
                     <li class="dropdown">
-                        <a href="#"><i class="fas fa-envelope"></i> Surat <i class="fas fa-caret-down"></i></a>
+                        <a href=""><i class="fas fa-envelope"></i> Surat <i class="fas fa-caret-down"></i></a>
                         <ul class="submenu">
-                            <li><a href="#">Template Surat</a></li>
-                            <li><a href="{{ route('suratmasuk.index') }}">Kelola Surat</a></li>
+                            <li><a href="{{ route('suratkeluar.index') }}">Kelola Surat</a></li>
+                            <li><a href="{{route('templateSK.showDesk')}}">Template Surat</a></li>
                         </ul>
                     </li>
                     <li><a href="{{ route('user.index') }}"><i class="fas fa-users"></i> Pengguna</a></li>
@@ -201,13 +192,18 @@
                     </div>
                 </div>
             </nav>
-
-
-
             <main class="py-4">
                 @yield('content')
             </main>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- DataTables JavaScript -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 </body>
 </html>

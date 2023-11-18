@@ -1,13 +1,45 @@
 @extends('layouts.app')
 
 @section('content')
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
-    <link rel="stylesheet" href="css/kelolasuratkeluar.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-</head>
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+        <link rel="stylesheet" href="css/kelolasuratkeluar.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+        <style>
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            .dropdown-item {
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                color: #333;
+            }
+
+            .dropdown-item:hover {
+                background-color: #ddd;
+            }
+        </style>
+    </head>
+
     <body>
         <div class="container py-5" style="background-color: blue; border-radius: 25px;">
             <div class="container py-6">
@@ -16,20 +48,34 @@
                         <div>
                             <span class="font-weight-bold" style="font-size: 30px;">Kelola Surat</span>
                         </div>
-                        <div>
-                            <a href="{{ route('suratkeluar.create') }}"> <button class="btn btn-primary"
-                                    style="font-size: 15px;border-radius:20px;">Tambah Surat Baru</button></a>
 
+                        <div class="btn-group dropdown">
+                            <button type="button" class="btn btn-primary"
+                                style="font-size: 15px; border-radius: 20px;">Tambah Surat Baru</button>
+                            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-content">
+                                <a class="dropdown-item" href="{{route('suratmasuk.create')}}">Buat Surat Masuk</a>
+                                <a class="dropdown-item" href="{{ route('suratkeluar.create') }}">Buat Surat keluar</a>
+                            </div>
                         </div>
+
                     </div>
+
                     <br>
                     <div class="row py-6">
                         <div class="col-lg-12 mx-auto">
                             <div class="card rounded shadow border-2">
                                 <div class="card-body p-5 bg-white rounded">
                                     <div class="button-container">
-                                        <a href="{{ route('suratmasuk.index') }}"><div class="button" id="suratMasuk">Surat Masuk</div></a> 
-                                        <a href="{{ route('suratkeluar.index') }}"><div class="button" id="suratMasuk">Surat Keluar</div></a>
+                                        <a href="{{ route('suratmasuk.index') }}">
+                                            <div class="button" id="suratMasuk">Surat Masuk</div>
+                                        </a>
+                                        <a href="{{ route('suratkeluar.index') }}">
+                                            <div class="button" id="suratMasuk">Surat Keluar</div>
+                                        </a>
                                     </div>
 
                                     <script>
@@ -52,7 +98,6 @@
                                     <div class="table-responsive">
                                         <table id="example" style="width: 100%"
                                             class="table table-striped table-bordered">
-
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
@@ -72,12 +117,10 @@
                                                 @foreach ($suratkeluar as $suratkeluarr)
                                                     <tr>
                                                         <td>{{ $no++ }}</td>
-                                                        <td hidden>{{ $suratkeluarr->id }}</td>
                                                         <td>{{ $suratkeluarr->nama_surat }}</td>
                                                         <td>{{ $suratkeluarr->tanggal_dibuat }}</td>
                                                         <td>{{ $suratkeluarr->jenis_surat }}</td>
                                                         <td>{{ $suratkeluarr->tujuan_surat }}</td>
-
                                                         <td>{{ $suratkeluarr->status }}</td>
                                                         <td>
 
@@ -139,22 +182,28 @@
                                                                 @method('PUT')
                                                                <button class="btn btn-danger">Tolak</button>
                                                             </form> --}}
-                                                            @if ($suratkeluarr->status == "menunggu disetujui")
-                                                                <a href="{{ route('suratkeluar.approved', $suratkeluarr->id) }}"><button
-                                                                    class="btn btn-success">
-                                                                    Setuju</button></a>
-                                                                <a href="{{ route('suratkeluar.rejected', $suratkeluarr->id) }}"><button
-                                                                    class="btn btn-danger">
-                                                                    Tolak</i></button></a>
+                                                            @if ($suratkeluarr->status == 'menunggu disetujui')
+                                                                <a
+                                                                    href="{{ route('suratkeluar.approved', $suratkeluarr->id) }}"><button
+                                                                        class="btn btn-success">
+                                                                        Setuju</button></a>
+                                                                <a
+                                                                    href="{{ route('suratkeluar.rejected', $suratkeluarr->id) }}"><button
+                                                                        class="btn btn-danger">
+                                                                        Tolak</i></button></a>
                                                             @endif
 
-                                                            
-                                                            
+
+
                                                         </td>
                                                         <td>
                                                             <a href="{{ route('suratkeluar.edit', $suratkeluarr->id) }}"><button
                                                                     class="btn btn-warning">
                                                                     <i class="fas fa-edit"></i></button></a>
+
+                                                            <a href="{{ route('templateSK.priview', $suratkeluarr->id) }}"><button
+                                                                    class="btn btn-warning" style="background:#1AACAC">
+                                                                    <i class="fa-solid fa-file-signature"></i></button></a>
 
                                                             @if ($suratkeluarr->file)
                                                                 <a href="{{ route('suratkeluar.download', ['id' => $suratkeluarr->id, 'file' => $suratkeluarr->file]) }}"
@@ -162,12 +211,15 @@
                                                                         class="fas fa-download"></i></a>
                                                             @endif
 
-                                                            <a href="{{ route('dispost.show',$suratkeluarr->id) }}"><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a>
+                                                            <a href="{{ route('dispost.show', $suratkeluarr->id) }}"><button
+                                                                    class="btn btn-primary"><i
+                                                                        class="fa-regular fa-note-sticky"></i></button></a>
 
-                                                            @if($suratkeluarr->status == 'ditolak')
-
-                                                            <a href="{{ route('suratkeluar.restored',$suratkeluarr->id) }}"><button class="btn btn-success"><i class="fa-solid fa-share-from-square"></i></button></a>
-
+                                                            @if ($suratkeluarr->status == 'ditolak')
+                                                                <a
+                                                                    href="{{ route('suratkeluar.restored', $suratkeluarr->id) }}"><button
+                                                                        class="btn btn-success"><i
+                                                                            class="fa-solid fa-share-from-square"></i></button></a>
                                                             @endif
 
 
@@ -177,6 +229,8 @@
                                                                     <i class="fas fa-trash"></i>
                                                                 </button>
                                                             </a>
+
+
 
                                                             <div class="modal fade modal2{{ $suratkeluarr->id }}"
                                                                 tabindex="-1" role="dialog" aria-hidden="true">
@@ -228,11 +282,14 @@
                 </div>
             </div>
 
-            {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-            <!-- Sisipkan script untuk DataTables -->
-            <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script> --}}
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
             <script src="{{ asset('js/kelolasuratkeluar.js') }}"></script>
-            {{-- <script src="{{ asset('js/arsip.js') }}"></script> --}}
-        </body>
+
+    </body>
+
     </html>
-        @endsection
+@endsection

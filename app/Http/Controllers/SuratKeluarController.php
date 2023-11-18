@@ -11,30 +11,18 @@ use PDF;
 
 class SuratKeluarController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $suratkeluar = SuratKeluar::all();
         return view("admin.SuratKeluar.index", compact("suratkeluar"));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         // $suratKeluar = SuratKeluar::all();
         return view("admin.SuratKeluar.create");
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        // dd($request->all());
         $validatedData = $request->validate([
             'file' => 'required|mimes:pdf,doc,docx|max:5120',
         ]);
@@ -59,32 +47,19 @@ class SuratKeluarController extends Controller
         Session::flash('success', 'Data surat Berhasil Ditambahkan');
         return redirect()->route('suratkeluar.index')->with('success', 'surat berhasil ditambahkan.');
     }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(SuratKeluar $suratKeluar)
     {
         //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($id)
     {
         $suratkeluarr = SuratKeluar::where('id', $id)->first();
         return view('admin.SuratKeluar.edit', compact(['suratkeluarr']));
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id)
     {
 
         $suratkeluarr = SuratKeluar::where('id', $id)->first();
-        // dd($suratkeluarr);
         $suratkeluarr->nama_surat = $request->input('nama_surat');
         $suratkeluarr->kategori_surat = $request->input('kategori_surat');
         $suratkeluarr->tanggal_dibuat = $request->input('tanggal_dibuat');
@@ -97,14 +72,9 @@ class SuratKeluarController extends Controller
         $title = "Edit Surat";
         Session::flash('success', 'Data Surat Berhasil DiUbah');
         $suratkeluarr = SuratKeluar::all();
-        // return redirect()->route('surat.index')->with('success', 'User berhasil diupdate.');
         return redirect()->route('suratkeluar.index')->with('success', 'Data Surat berhasil diupdate.');
 
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
         $data = SuratKeluar::where('id', $id)->first();
@@ -112,40 +82,24 @@ class SuratKeluarController extends Controller
         Session::flash('success', 'Surat Berhasil Dihapus');
         return redirect()->back();
     }
-    public function Cetak(Request $request, $id){
-        $data = SuratKeluar::where('id', $id)->first();
-        // $filepdf = $suratkeluar ->$file;
-        // $pdf = SuratKeluar::loadView('cetak_surat',['file' => $SuratKeluar ->$file ]);
-        // return $pdf->stream('cetak_surat.pdf');
-    }
     public function downloadSurat(Request $request, $id, $file)
     {
-
         $suratkeluarr = SuratKeluar::find($id);
-
         if (!$suratkeluarr) {
             abort(404);
         }
         $file_path = storage_path('../public/assets/surat/') . $suratkeluarr->file;
-        // dd($file_path);
-
 
         // Tentukan nama file yang akan di-download
         $file = $suratkeluarr->file;
-        // dd($file_path);
         $extension = pathinfo($file_path, PATHINFO_EXTENSION);
 
-        // Map ekstensi ke tipe MIME (tambahkan ekstensi yang diperlukan)
         $mime_types = [
             'pdf' => 'application/pdf',
             'doc' => 'application/msword',
             'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
         ];
-
-        // Tentukan tipe MIME berdasarkan ekstensi file
         $mime_type = $mime_types[$extension] ?? 'application/octet-stream';
-
-        // Return response untuk download file
         return response()->download($file_path, $file, ['Content-Type' => $mime_type]);
     }
     public function template(){

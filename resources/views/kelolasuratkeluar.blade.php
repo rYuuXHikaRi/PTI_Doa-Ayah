@@ -65,7 +65,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                            @foreach ($suratkeluar as $suratkeluarr)
+                            {{-- @foreach ($suratkeluar as $suratkeluarr) --}}
                             <tr>
                                 <td>Tiger Nixon</td>
                                 <td>System Architect</td>
@@ -78,7 +78,7 @@
                                     <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
                                     <button class="btn btn-success"><i class="fas fa-download"></i></button></td>
                               </tr>
-                            @endforeach
+                            {{-- @endforeach --}}
                         </tbody>
                       </table>
                     </div>
