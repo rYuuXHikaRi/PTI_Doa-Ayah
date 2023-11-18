@@ -3,42 +3,39 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ArsipController;
+use App\Http\Controllers\DisposisiController;
+use App\Http\Controllers\SuratMasukController;
+use App\Http\Controllers\SuratKeluarController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::resource('arsip', ArsipController::class);
+Route::resource('user', UserController::class);
+Route::resource('dispost', DisposisiController::class);
+Route::get('/arsip/{id}/{file}', [ArsipController::class, 'downloadarsip'])->name('arsipdownload');
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+Route::resource('suratmasuk',SuratMasukController::class);
+Route::get('/suratmasuk/download/{id}/{file}', [SuratMasukController::class, 'downloadsuratmasuk'])->name('suratmasukdownload');
 
-Route::get('/arsip', function () {
-    return view('arsip');
-});
+route::resource('suratkeluar', SuratKeluarController::class);
+Route::get('/suratkeluar/download/{id}/{file}', [SuratKeluarController::class, 'downloadSurat'])->name('suratkeluar.download');
+Route::get('/formtemplate', [SuratKeluarController::class, 'template'])->name('template');
 
-Route::get('/dashboardkabag', function () {
-    return view('dashboardkabag');
-});
+Route::get('/suratkeluar/approved/{id}', [SuratKeluarController::class,'approve'])->name('suratkeluar.approved');
+Route::get('/suratkeluar/rejected/{id}', [SuratKeluarController::class,'reject'])->name('suratkeluar.rejected');
+Route::get('/suratkeluar/restored/{id}', [SuratKeluarController::class,'restore'])->name('suratkeluar.restored');
 
-Route::get('/daftarpermohonan', function () {
-    return view('daftarpermohonankabag');
-});
+Route::post('/disposisi/add/{id}/{status}', [DisposisiController::class,'store'])->name('disposisi.tambahdisposisi');
+// Route::put('/suratkeluar/rejected/{id}', [SuratKeluarController::class,'tolaksurat'])->name('suratkeluar.tolak');
 
-Route::get('/templatesurat', function () {
-    return view('templatesurat');
-});
 
-Route::get('/kelolasurat', function () {
-    return view('kelolasurat');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/template', function () {
+//     return view('admin.suratkeluar.template');
+// });
+
+
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
