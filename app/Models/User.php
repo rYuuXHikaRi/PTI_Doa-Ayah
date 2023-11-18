@@ -24,6 +24,7 @@ class User extends Authenticatable
     protected $fillable = [
      
         'password',
+        'email',
         'id',
         'id_roles',
         'nama_karyawan',
@@ -41,6 +42,11 @@ class User extends Authenticatable
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = Hash::make($value);
+    }
+
+    public function hasAnyRole(...$role)
+    {
+        return in_array($this->Role, $role);
     }
 
     /**

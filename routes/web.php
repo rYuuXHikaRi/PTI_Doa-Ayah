@@ -9,23 +9,42 @@ use App\Http\Controllers\DisposisiController;
 use App\Http\Controllers\SuratMasukController;
 use App\Http\Controllers\SuratKeluarController;
 
-Route::resource('arsip', ArsipController::class);
-Route::resource('user', UserController::class);
-Route::resource('dispost', DisposisiController::class);
-Route::get('/arsip/{id}/{file}', [ArsipController::class, 'downloadarsip'])->name('arsipdownload');
+Route::middleware(['auth','role:1'])->group(function () {
+    Route::resource('arsip', ArsipController::class);
+    Route::get('/arsip/{id}/{file}', [ArsipController::class, 'downloadarsip'])->name('arsipdownload');
 
-Route::resource('suratmasuk',SuratMasukController::class);
-Route::get('/suratmasuk/download/{id}/{file}', [SuratMasukController::class, 'downloadsuratmasuk'])->name('suratmasukdownload');
+    Route::resource('suratmasuk',SuratMasukController::class);
+    Route::get('/suratmasuk/download/{id}/{file}', [SuratMasukController::class, 'downloadsuratmasuk'])->name('suratmasukdownload');
 
-route::resource('suratkeluar', SuratKeluarController::class);
-Route::get('/suratkeluar/download/{id}/{file}', [SuratKeluarController::class, 'downloadSurat'])->name('suratkeluar.download');
-Route::get('/formtemplate', [SuratKeluarController::class, 'template'])->name('template');
+    
+    Route::resource('user', UserController::class);
+    Route::resource('dispost', DisposisiController::class);
+    Route::post('/disposisi/add/{id}/{status}', [DisposisiController::class,'store'])->name('disposisi.tambahdisposisi');
 
-Route::get('/suratkeluar/approved/{id}', [SuratKeluarController::class,'approve'])->name('suratkeluar.approved');
-Route::get('/suratkeluar/rejected/{id}', [SuratKeluarController::class,'reject'])->name('suratkeluar.rejected');
-Route::get('/suratkeluar/restored/{id}', [SuratKeluarController::class,'restore'])->name('suratkeluar.restored');
+    
+    Route::resource('suratkeluar', SuratKeluarController::class);
+    Route::get('/suratkeluar/download/{id}/{file}', [SuratKeluarController::class, 'downloadSurat'])->name('suratkeluar.download');
+    Route::get('/formtemplate', [SuratKeluarController::class, 'template'])->name('template');
+    Route::get('/suratkeluar/approved/{id}', [SuratKeluarController::class,'approve'])->name('suratkeluar.approved');
+    Route::get('/suratkeluar/rejected/{id}', [SuratKeluarController::class,'reject'])->name('suratkeluar.rejected');
+    Route::get('/suratkeluar/restored/{id}', [SuratKeluarController::class,'restore'])->name('suratkeluar.restored');
+});
 
-Route::post('/disposisi/add/{id}/{status}', [DisposisiController::class,'store'])->name('disposisi.tambahdisposisi');
+Route::middleware(['auth','role:2'])->group(function () {
+    Route::resource('arsip', ArsipController::class);
+    Route::resource('user', UserController::class);
+});
+
+
+
+
+
+
+
+
+
+
+
 // Route::put('/suratkeluar/rejected/{id}', [SuratKeluarController::class,'tolaksurat'])->name('suratkeluar.tolak');
 
 
