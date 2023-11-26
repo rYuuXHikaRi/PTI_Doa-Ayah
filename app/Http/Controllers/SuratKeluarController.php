@@ -40,7 +40,7 @@ class SuratKeluarController extends Controller
             'pembuat_surat' => auth()->user()->nama_karyawan,
             'jenis_surat' => $request->jenis_surat,
             'file' => $filename1,
-            'status'=>"menunggu disetujui",
+            'status'=>"kepala bagian",
         ]);
 
         $file1->move(public_path($location1), $filename1);
