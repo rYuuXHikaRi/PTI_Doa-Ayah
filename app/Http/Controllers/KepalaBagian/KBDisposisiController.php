@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\KepalaBagian;
 
 use App\Models\Disposisi;
 use App\Models\SuratKeluar;
@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDisposisiRequest;
 use App\Http\Requests\UpdateDisposisiRequest;
 
-class DisposisiController extends Controller
+class KBDisposisiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,8 +24,8 @@ class DisposisiController extends Controller
      */
     public function tambah($id)
     {
-        $surat= SuratKeluar::where('id',$id)->first();
-        return view('admin.disposisi.create',compact('surat'));
+        $surat = SuratKeluar::where('id', $id)->first();
+        return view('kepalabagian.disposisi.create',compact('surat'));
     }
 
     /**
@@ -51,7 +51,7 @@ class DisposisiController extends Controller
         ]);
 
         // Redirect dengan pesan sukses
-        return redirect()->route('suratkeluar.index')->with('success', 'Data berhasil disimpan!');
+        return redirect()->route('kbsuratkeluar.index')->with('success', 'Data berhasil disimpan!');
     }
 
     /**

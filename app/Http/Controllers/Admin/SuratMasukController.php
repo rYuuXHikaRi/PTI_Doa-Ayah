@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Models\Disposisi;
 use App\Models\SuratMasuk;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -54,6 +55,15 @@ class SuratMasukController extends Controller
             'tanggal_dibuat' => $request->tanggal_dibuat,
             'asal_surat' => $request->asal_surat,
             'file' => $nama_file,
+            'status' => 'Kepala Bagian'
+        ]);
+
+        Disposisi::create([
+            'id_surat'=> $surat->id,
+            'nama_surat' => $surat->nama_surat,
+            'status' => $surat->status,
+            'deskripsi' => "Surat Telah diajukan oleh HRD",
+            // Tambahkan kolom-kolom lainnya sesuai kebutuhan
         ]);
         Session::flash('success', 'Surat Masuk Berhasil Ditambahkan');
 

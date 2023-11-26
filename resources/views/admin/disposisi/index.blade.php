@@ -52,7 +52,7 @@
                                                         <td>{{ $no++ }}</td>
                                                         <td>{{ $suratkeluar->nama_surat }}</td>
                                                         <td>{{ $suratkeluar->deskripsi }}</td>
-                                                        <td>{{ $suratkeluar->status }}</td>
+                                                        <td>tersampaikan kepada {{ $suratkeluar->status }}</td>
                                                         <td>{{ $suratkeluar->created_at }}</td>
                                                     </tr>
                                                 @endforeach

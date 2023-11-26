@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use PDF;
+use App\Models\Disposisi;
 use App\Models\SuratKeluar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,12 +16,12 @@ class SuratKeluarController extends Controller
     public function index()
     {
         $suratkeluar = SuratKeluar::all();
-        return view("admin.SuratKeluar.index", compact("suratkeluar"));
+        return view("admin.suratkeluar.index", compact("suratkeluar"));
     }
     public function create()
     {
         // $suratKeluar = SuratKeluar::all();
-        return view("admin.SuratKeluar.create");
+        return view("admin.suratkeluar.create");
     }
     public function store(Request $request)
     {
@@ -30,9 +31,9 @@ class SuratKeluarController extends Controller
 
         $file1 = $validatedData['file'];
         $filename1 = $file1->getClientOriginalName();
-        $location1 = 'assets/surat/';
+        $location1 = 'assets/suratkeluar/';
 
-        SuratKeluar::create([
+        $surat=SuratKeluar::create([
             'nama_surat' => $request->nama_surat,
             'kategori_surat' => $request->kategori_surat,
             'tanggal_dibuat' => $request->tanggal_dibuat,
@@ -41,7 +42,15 @@ class SuratKeluarController extends Controller
             'pembuat_surat' => auth()->user()->nama_karyawan,
             'jenis_surat' => $request->jenis_surat,
             'file' => $filename1,
-            'status'=>"kepala bagian",
+            'status'=>"Kepala Bagian",
+        ]);
+
+        Disposisi::create([
+            'id_surat'=> $surat->id,
+            'nama_surat' => $surat->nama_surat,
+            'status' => $surat->status,
+            'deskripsi' => "Surat Telah diajukan oleh HRD",
+            // Tambahkan kolom-kolom lainnya sesuai kebutuhan
         ]);
 
         $file1->move(public_path($location1), $filename1);
@@ -55,7 +64,7 @@ class SuratKeluarController extends Controller
     public function edit($id)
     {
         $suratkeluarr = SuratKeluar::where('id', $id)->first();
-        return view('admin.SuratKeluar.edit', compact(['suratkeluarr']));
+        return view('admin.suratkeluar.edit', compact(['suratkeluarr']));
     }
     public function update(Request $request, $id)
     {
@@ -89,7 +98,7 @@ class SuratKeluarController extends Controller
         if (!$suratkeluarr) {
             abort(404);
         }
-        $file_path = storage_path('../public/assets/surat/') . $suratkeluarr->file;
+        $file_path = storage_path('../public/assets/suratkeluar/') . $suratkeluarr->file;
 
         // Tentukan nama file yang akan di-download
         $file = $suratkeluarr->file;
@@ -104,7 +113,7 @@ class SuratKeluarController extends Controller
         return response()->download($file_path, $file, ['Content-Type' => $mime_type]);
     }
     public function template(){
-        return view("admin.SuratKeluar.formtemplate");
+        return view("admin.suratkeluar.formtemplate");
     }
 
 

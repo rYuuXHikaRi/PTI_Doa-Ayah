@@ -84,6 +84,18 @@
                               @if ($item->file)
                               <a href="{{ route('suratmasukdownload', ['id' => $item->id, 'file' => $item->file]) }}" class="btn btn-success" target="_blank"><i class="fas fa-download"></i></a>
                           @endif
+
+                              <a href="{{ route('disposisi.show', $item->id) }}"><button
+                                class="btn btn-primary"><i
+                                    class="fa-regular fa-note-sticky"></i></button></a>
+
+                              @if ($item->status == auth()->user()->jabatan)
+                                  <a
+                                      href="{{ route('disposisi.tambah', $item->id) }}"><button
+                                          class="btn btn-success"><i
+                                              class="fa-solid fa-share-from-square"></i></button></a>
+                              @endif
+                          
                                     
                               <div class="modal fade bd-example-modal-sm{{$item->id}}" tabindex="-1" role="dialog" aria-hidden="true">
                                   <div class="modal-dialog">

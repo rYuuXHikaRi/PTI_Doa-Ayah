@@ -1,14 +1,15 @@
 <?php
 
+use App\Http\Controllers\KepalaBagian\KBDisposisiController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ArsipController;
 use App\Http\Controllers\TemplateSKController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\DisposisiController;
-use App\Http\Controllers\SuratMasukController;
-use App\Http\Controllers\SuratKeluarController;
+use App\Http\Controllers\Admin\DisposisiController;
+use App\Http\Controllers\Admin\SuratMasukController;
+use App\Http\Controllers\Admin\SuratKeluarController;
 use App\Http\Controllers\KepalaBagian\KBSuratKeluarController;
 
 
@@ -24,16 +25,15 @@ Route::middleware(['auth','role:1'])->group(function () {
 
     
     Route::resource('user', UserController::class);
-    Route::resource('dispost', DisposisiController::class);
-    Route::post('/disposisi/add/{id}/{status}', [DisposisiController::class,'store'])->name('disposisi.tambahdisposisi');
-
+    Route::resource('disposisi', DisposisiController::class);
+    Route::get('/disposisi/add/{id}', [DisposisiController::class,'tambah'])->name('disposisi.tambah');
+    Route::post('/disposisi/store/{id}', [DisposisiController::class,'store'])->name('disposisi.tambahdisposisi');
+   
 
     Route::resource('suratkeluar', SuratKeluarController::class);
     Route::get('/suratkeluar/download/{id}/{file}', [SuratKeluarController::class, 'downloadSurat'])->name('suratkeluar.download');
     Route::get('/formtemplate', [SuratKeluarController::class, 'template'])->name('template');
-    Route::get('/suratkeluar/forward/{id}', [SuratKeluarController::class,'forward'])->name('suratkeluar.approved');
-    Route::get('/suratkeluar/rejected/{id}', [SuratKeluarController::class,'reject'])->name('suratkeluar.rejected');
-    Route::get('/suratkeluar/restored/{id}', [SuratKeluarController::class,'restore'])->name('suratkeluar.restored');
+    
 
     route::resource('templateSK', TemplateSKController::class);
     Route::get('/templateSk', [TemplateSKController::class, 'showDesk'])->name('templateSK.showDesk');
@@ -50,7 +50,13 @@ Route::middleware(['auth','role:2'])->group(function () {
     Route::get('/welcome', function () {
         return view('welcome');
     });
-    Route::resource('rekap', KBSuratKeluarController::class);
+    Route::resource('kbsuratkeluar', KBSuratKeluarController::class);
+    Route::resource('kbdisposisi',KBDisposisiController::class);
+    Route::get('/kbdisposisi/add/{id}', [KBDisposisiController::class,'tambah'])->name('kbdisposisi.tambah');
+    Route::post('/kbdisposisi/store/{id}', [KBDisposisiController::class,'store'])->name('kbdisposisi.tambahdisposisi');
+    
+    Route::get('/kbsuratkeluar/download/{id}/{file}', [KBSuratKeluarController::class, 'downloadSurat'])->name('kbsuratkeluar.download');
+
 });
 
 // route::resource('suratkeluar', SuratKeluarController::class);

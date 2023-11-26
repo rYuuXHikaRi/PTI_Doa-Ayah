@@ -101,7 +101,7 @@ class KBSuratKeluarController extends Controller
         if (!$suratkeluarr) {
             abort(404);
         }
-        $file_path = storage_path('../public/assets/surat/') . $suratkeluarr->file;
+        $file_path = storage_path('../public/assets/suratkeluar/') . $suratkeluarr->file;
         // dd($file_path);
 
 

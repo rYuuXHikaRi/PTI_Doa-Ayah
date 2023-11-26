@@ -53,7 +53,6 @@
                                                     <th>Tanggal dibuat</th>
                                                     <th>Tujuan</th>
                                                     <th>Status</th>
-                                                    <th>Persetujuan</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -69,7 +68,7 @@
                                                         <td>{{ $suratkeluarr->tanggal_dibuat }}</td>
                                                         <td>{{ $suratkeluarr->tujuan_surat }}</td>
                                                         <td>{{ $suratkeluarr->status }}</td>
-                                                        <td>
+                                                        {{-- <td> --}}
 
                                                             {{-- <a role="button" class="success-button" data-bs-toggle="modal"
                                                             data-bs-target=".modal1{{ $suratkeluarr->id }}">
@@ -130,40 +129,38 @@
                                                                <button class="btn btn-danger">Tolak</button>
                                                             </form> --}}
                                                        
-                                                                <a href="#"><button
+                                                                {{-- <a href="#"><button
                                                                     class="btn btn-success">
                                                                     Setuju</button></a>
                                                                 <a href="#"><button
                                                                     class="btn btn-danger">
                                                                     Tolak</i></button></a>
                                                    
-                                                        </td>
+                                                        </td> --}}
                                                         <td>
-                                                            <a href="#"><button
-                                                                    class="btn btn-warning">
-                                                                    <i class="fas fa-edit"></i></button></a>
-
-                                                         
-                                                                <a href=""
-                                                                    class="btn btn-success" target="_blank"><i
-                                                                        class="fas fa-download"></i></a>
-                                                        
-
-                                                            <a href=""><button class="btn btn-primary"><i class="fas fa-eye"></i></button></a>
-
                                                       
 
-                                                            <a href=""><button class="btn btn-success"><i class="fa-solid fa-share-from-square"></i></button></a>
+                                                         
+                                                        @if ($suratkeluarr->file)
+                                                        <a href="{{ route('kbsuratkeluar.download', ['id' => $suratkeluarr->id, 'file' => $suratkeluarr->file]) }}"
+                                                            class="btn btn-warning" target="_blank"><i
+                                                                class="fas fa-download"></i></a>
+                                                        @endif
+                                                        <a href="{{ route('kbdisposisi.show', $suratkeluarr->id) }}"><button
+                                                                class="btn btn-primary"><i
+                                                                    class="fa-regular fa-note-sticky"></i></button></a>
+
+                                                        @if ($suratkeluarr->status == auth()->user()->jabatan)
+                                                        <a
+                                                            href="{{ route('kbdisposisi.tambah', $suratkeluarr->id) }}"><button
+                                                                class="btn btn-success"><i
+                                                                    class="fa-solid fa-share-from-square"></i></button></a>
+                                                        @endif
 
                                                            
 
 
-                                                            <a role="button" class="delete-button" data-bs-toggle="modal"
-                                                                data-bs-target=".modal2{{ $suratkeluarr->id }}">
-                                                                <button class="btn btn-danger">
-                                                                    <i class="fas fa-trash"></i>
-                                                                </button>
-                                                            </a>
+                       
 
                                                             <div class="modal fade modal2{{ $suratkeluarr->id }}"
                                                                 tabindex="-1" role="dialog" aria-hidden="true">

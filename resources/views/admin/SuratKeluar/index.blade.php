@@ -209,13 +209,13 @@
                                                                     class="btn btn-success" target="_blank"><i
                                                                         class="fas fa-download"></i></a>
                                                             @endif
-                                                            <a href="{{ route('dispost.show', $suratkeluarr->id) }}"><button
+                                                            <a href="{{ route('disposisi.show', $suratkeluarr->id) }}"><button
                                                                     class="btn btn-primary"><i
                                                                         class="fa-regular fa-note-sticky"></i></button></a>
 
-                                                            @if ($suratkeluarr->status == auth()->user->jabatan)
+                                                            @if ($suratkeluarr->status == auth()->user()->jabatan)
                                                                 <a
-                                                                    href="{{ route('suratkeluar.restored', $suratkeluarr->id) }}"><button
+                                                                    href="{{ route('disposisi.tambah', $suratkeluarr->id) }}"><button
                                                                         class="btn btn-success"><i
                                                                             class="fa-solid fa-share-from-square"></i></button></a>
                                                             @endif

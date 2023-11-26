@@ -19,26 +19,34 @@
                                         <a href="{{route('suratkeluar.index')}}" style="text-decoration: none; margin-right: 10px;color:white">
                                             <i class="fa-sharp fa-solid fa-arrow-left" style="font-size: 30px;"></i>
                                         </a>
-                                        <span class="font-weight-bold" style="font-size: 30px;">Persetujuan Surat</span>
+                                        <span class="font-weight-bold" style="font-size: 30px;">Teruskan Surat</span>
                                     </div>
                                 </div>
                             </div><br>
                                 <div class="card">
                                         <div class="card-body">
                                             <div class="modal-body">Apakah anda yakin ingin
-                                                Menyetujui Surat?
+                                                Meneruskan Surat?
                                                 <span
-                                                    class="badge bg-secondary">{{ $suratkeluarr->nama_surat }}</span>
+                                                    class="badge bg-secondary">{{ $surat->nama_surat }}</span>
                                             </div>
                                              
                                                
-                                      
-                                     
+                                    
                 
 
-                                            <form method="POST" action="{{route('disposisi.tambahdisposisi' , ['id'=>$suratkeluarr->id,'status'=>"disetujui"])}}" enctype="multipart/form-data">
+                                            <form method="POST" action="{{route('disposisi.tambahdisposisi', ['id'=>$surat->id])}}" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('POST')
+                                                    <label for="status">Teruskan Ke</label>
+                                                    <div class="col-md-8">
+                                                        <select class="form-control" id="lokasiArsip" name="status" style="background-color: #E0E0E0;">
+                                                            <option value="Kepala Bagian">Kepala Bagian</option>
+                                                            <option value="Manajer">Manajer</option>
+                                                            <option value="Direktur RS">Direktur RS</option>
+                                                            <option value="Direktur PT">Direktur PT</option>
+                                                        </select>
+                                                    </div>
 
                                                     <label for="deskripsi" class="col-md-4 col-form-label">Tambahkan Deskripsi / Alasan</label>
                                     
