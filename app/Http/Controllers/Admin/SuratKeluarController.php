@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use PDF;
 use App\Models\SuratKeluar;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests\StoreSuratKeluarRequest;
 use App\Http\Requests\UpdateSuratKeluarRequest;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Http\Request;
-use PDF;
 
 class SuratKeluarController extends Controller
 {
@@ -106,49 +107,5 @@ class SuratKeluarController extends Controller
         return view("admin.SuratKeluar.formtemplate");
     }
 
-    public function setujuisurat($id){
-   
-        $data = SuratKeluar::find($id);
 
-     
-        $data->status = "disetujui";
-        $data->save();
-
-        return redirect()->back();
-    }
-
-    public function tolaksurat($id){
-    
-        $data = SuratKeluar::find($id);
-
-    
-        $data->status = "ditolak";
-        $data->save();
-
-        return redirect()->back();
-    }
-
-    public function approve($id){
-    
-
-        $suratkeluarr = SuratKeluar::find($id);
-        return view("admin.SuratKeluar.approve", compact("suratkeluarr"));
-
-    }
-
-    public function reject($id){
-    
-
-        $suratkeluarr = SuratKeluar::find($id);
-        return view("admin.SuratKeluar.reject", compact("suratkeluarr"));
-
-    }
-
-    public function restore($id){
-    
-
-        $suratkeluarr = SuratKeluar::find($id);
-        return view("admin.SuratKeluar.restore", compact("suratkeluarr"));
-
-    }
 }

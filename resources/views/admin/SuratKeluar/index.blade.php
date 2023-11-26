@@ -106,7 +106,6 @@
                                                     <th>Jenis Surat</th>
                                                     <th>Tujuan</th>
                                                     <th>Status</th>
-                                                    <th>Persetujuan</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -122,7 +121,7 @@
                                                         <td>{{ $suratkeluarr->jenis_surat }}</td>
                                                         <td>{{ $suratkeluarr->tujuan_surat }}</td>
                                                         <td>{{ $suratkeluarr->status }}</td>
-                                                        <td>
+                                                    
 
                                                             {{-- <a role="button" class="success-button" data-bs-toggle="modal"
                                                             data-bs-target=".modal1{{ $suratkeluarr->id }}">
@@ -182,7 +181,7 @@
                                                                 @method('PUT')
                                                                <button class="btn btn-danger">Tolak</button>
                                                             </form> --}}
-                                                            @if ($suratkeluarr->status == 'menunggu disetujui')
+                                                            {{-- @if ($suratkeluarr->status == 'menunggu disetujui')
                                                                 <a
                                                                     href="{{ route('suratkeluar.approved', $suratkeluarr->id) }}"><button
                                                                         class="btn btn-success">
@@ -195,7 +194,7 @@
 
 
 
-                                                        </td>
+                                                        </td> --}}
                                                         <td>
                                                             <a href="{{ route('suratkeluar.edit', $suratkeluarr->id) }}"><button
                                                                     class="btn btn-warning">
@@ -210,19 +209,16 @@
                                                                     class="btn btn-success" target="_blank"><i
                                                                         class="fas fa-download"></i></a>
                                                             @endif
-
                                                             <a href="{{ route('dispost.show', $suratkeluarr->id) }}"><button
                                                                     class="btn btn-primary"><i
                                                                         class="fa-regular fa-note-sticky"></i></button></a>
 
-                                                            @if ($suratkeluarr->status == 'ditolak')
+                                                            @if ($suratkeluarr->status == auth()->user->jabatan)
                                                                 <a
                                                                     href="{{ route('suratkeluar.restored', $suratkeluarr->id) }}"><button
                                                                         class="btn btn-success"><i
                                                                             class="fa-solid fa-share-from-square"></i></button></a>
                                                             @endif
-
-
                                                             <a role="button" class="delete-button" data-bs-toggle="modal"
                                                                 data-bs-target=".modal2{{ $suratkeluarr->id }}">
                                                                 <button class="btn btn-danger">

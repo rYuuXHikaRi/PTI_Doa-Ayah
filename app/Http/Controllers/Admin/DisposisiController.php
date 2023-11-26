@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Disposisi;
 use App\Models\SuratKeluar;
@@ -22,9 +22,10 @@ class DisposisiController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $surat= SuratKeluar::where('id',$id);
+        return view('admin.disposisi.create',compact($id));
     }
 
     /**
@@ -32,6 +33,7 @@ class DisposisiController extends Controller
      */
     public function store(Request $request,$id,$status)
     {
+        
         $surat=SuratKeluar::find($id);
         $request->validate([
             'deskripsi' => 'required|string',

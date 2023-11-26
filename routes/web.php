@@ -31,7 +31,7 @@ Route::middleware(['auth','role:1'])->group(function () {
     Route::resource('suratkeluar', SuratKeluarController::class);
     Route::get('/suratkeluar/download/{id}/{file}', [SuratKeluarController::class, 'downloadSurat'])->name('suratkeluar.download');
     Route::get('/formtemplate', [SuratKeluarController::class, 'template'])->name('template');
-    Route::get('/suratkeluar/approved/{id}', [SuratKeluarController::class,'approve'])->name('suratkeluar.approved');
+    Route::get('/suratkeluar/forward/{id}', [SuratKeluarController::class,'forward'])->name('suratkeluar.approved');
     Route::get('/suratkeluar/rejected/{id}', [SuratKeluarController::class,'reject'])->name('suratkeluar.rejected');
     Route::get('/suratkeluar/restored/{id}', [SuratKeluarController::class,'restore'])->name('suratkeluar.restored');
 
