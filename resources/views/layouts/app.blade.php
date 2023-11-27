@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- OR -->
     <!-- Laravel Default Styles (You may want to use a mix version to handle versioning) -->
-    <link rel="stylesheet" href="../../css/app.css">
+    <link rel="stylesheet" href="css/app.css">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
@@ -41,7 +41,7 @@
 <body>
     <div id="app">
         <div class="sidebar">
-            <img src="../../img/logo.png" alt="logo" style="width:40%;margin-left:50px;">
+            <img src="img/logo.png" alt="logo" style="width:40%;margin-left:50px;">
             <div class="menu-box">
                 <ul class="menu">
                     <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
