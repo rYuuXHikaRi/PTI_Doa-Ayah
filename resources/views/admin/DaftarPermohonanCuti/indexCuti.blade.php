@@ -27,9 +27,9 @@
                                 <div class="card-body p-5 bg-white rounded">
                                     <div class="button-container">
                                         <select id="menuDropdown" style="background-color: #EBF1FA">
-                                            <option value="izin"><a href="{{route('DaftarPermohonan.index')}}">Izin</a></option>
-                                            <option value="cuti"><a href="{{route('DaftarPermohonan.indexCuti')}}">Cuti</a></option>
-                                            <option value="tukarJaga"><a href="{{route('DaftarPermohonan.indexTukarJaga')}}">Tukar Jaga</a></option>
+                                            <option value="izin"><a href="">Izin</a></option>
+                                            <option value="cuti"><a href="">Cuti</a></option>
+                                            <option value="tukarJaga"><a href="">Tukar Jaga</a></option>
                                         </select>
                                     </div>
                                     <br><br>
@@ -63,9 +63,7 @@
                                                         <td>{{ $Izin->status }}</td>
 
                                                         <td>
-                                                            <a href="{{ route('arsip.edit', $Izin->id) }}"><button
-                                                                    class="btn btn-warning">
-                                                                    <i class="fas fa-edit"></i></button></a>
+                                                          
                                                             <a role="button" class="delete-button" data-bs-toggle="modal"
                                                                 data-bs-target=".bd-example-modal-sm{{ $Izin->id }}"><button
                                                                     class="btn btn-danger" data-toggle="modal"
