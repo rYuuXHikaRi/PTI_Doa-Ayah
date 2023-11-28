@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\ListRequestLetter;
 use App\Http\Requests\StoreListRequestLetterRequest;
 use App\Http\Requests\UpdateListRequestLetterRequest;
+use App\Models\SuratCuti;
 use App\Models\SuratIzin;
+use App\Models\SuratTukarJaga;
 
 class ListRequestLetterController extends Controller
 {
@@ -16,6 +18,16 @@ class ListRequestLetterController extends Controller
     {
         $Izins = SuratIzin::all();
         return view("Admin.DaftarPermohonan.index" , compact('Izins'));
+    }
+    public function indexCuti()
+    {
+        $Cutis = SuratCuti::all();
+        return view("Admin.DaftarPermohonan.indexCuti" , compact('Cutis'));
+    }
+    public function indexTukarJaga()
+    {
+        $TukarJagas = SuratTukarJaga::all();
+        return view("Admin.DaftarPermohonan.indexTukarJaga" , compact('TukarJagas'));
     }
 
     /**

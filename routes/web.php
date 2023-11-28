@@ -57,6 +57,8 @@ Route::resource('suratizin', SuratIzinController::class);
 Route::resource('suratcuti', SuratCutiController::class);
 Route::resource('surattukarjaga', SuratTukarJagaController::class);
 Route::resource('DaftarPermohonan', ListRequestLetterController::class);
+Route::get('/DaftarPermohonan', [TemplateSKController::class, 'indexCuti'])->name('DaftarPermohonan.indexCuti');
+
 
 
 
