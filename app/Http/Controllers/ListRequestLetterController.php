@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ListRequestLetter;
 use App\Http\Requests\StoreListRequestLetterRequest;
 use App\Http\Requests\UpdateListRequestLetterRequest;
+use App\Models\SuratIzin;
 
 class ListRequestLetterController extends Controller
 {
@@ -13,7 +14,8 @@ class ListRequestLetterController extends Controller
      */
     public function index()
     {
-        return view("Admin.DaftarPermohonan.index");
+        $Izins = SuratIzin::all();
+        return view("Admin.DaftarPermohonan.index" , compact('Izins'));
     }
 
     /**
