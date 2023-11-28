@@ -63,7 +63,7 @@
                                                         <td>{{ $Izin->status }}</td>
 
                                                         <td>
-                                                            <a href="{{ route('PermohonanIzin.Sign', $Izin->id) }}"><button
+                                                            <a href="{{ route('PermohonanIzin.priview', $Izin->id) }}"><button
                                                                 class="btn btn-warning" style="background:#1AACAC">
                                                                 <i class="fa-solid fa-file-signature"></i></button></a>
 

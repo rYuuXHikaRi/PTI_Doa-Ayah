@@ -38,7 +38,13 @@
         <div class="ttd_aju">
             <p> Mengetahui,<br>
                 Manager Keuangan Umum & Personalia
-                <br><br><br><br>
+                {{-- <br><br><br><br> --}}
+                <div class="kotak">
+                    <form method="POST" action="{{route("PermohonanIzin.Sign",['id' => $suratIzin->id])}}">
+                        @csrf
+                        @method('put')
+                        <button type="submit">Tanda Tangani</button>
+                    </form>
                 <b>Nurul Hakim, SE</b>
             </p>
         </div>
@@ -48,10 +54,11 @@
                 <br>
             </p>
             <p>
-                @if ($suratIzin->tanda_tangan)
                     <img style="height: 120px ; width:120px;"
-                        src="{{ public_path('img/' . $suratIzin->tanda_tangan) }}" alt="Tanda Tangan">
-                @endif
+                    src="{{ asset('img/' . $suratIzin->tanda_tangan) }}"
+                    alt="Tanda Tangan">
+
+
             </p>
             <b>{{ $suratIzin->nama_pengaju }}</b>
             <p></p>
@@ -59,4 +66,5 @@
     </div>
 </body>
 </html>
+
 @endsection

@@ -1,7 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,6 +35,9 @@
             <p> Mengetahui,<br>
                 Manager Keuangan Umum & Personalia
                 <br><br><br><br>
+                @if ($$suratIzin->manajer)
+                        <img src="{{public_path('ttd/'.$suratIzin->manajer)}}" alt="" style="max-height: 150px;max-width:150px">
+                            @endif
                 <b>Nurul Hakim, SE</b>
             </p>
         </div>
@@ -59,4 +58,4 @@
     </div>
 </body>
 </html>
-@endsection
+

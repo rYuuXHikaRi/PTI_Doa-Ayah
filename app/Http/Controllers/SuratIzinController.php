@@ -66,7 +66,7 @@ class SuratIzinController extends Controller
     {
         $surat = SuratIzin::find($id);
 
-        // $templateSK = TemplateSK::create([
+        // $suratIzin = TemplateSK::create([
         //     'id_surat' => $surat->id,
         //     'perihal' => $request->perihal,
         //     'hari_tanggal' => $request->hari_tanggal,
@@ -128,37 +128,38 @@ class SuratIzinController extends Controller
     {
         $suratIzin = SuratIzin::where('id', $id)->first();
         // $pdf = PDF::loadView('admin.TemplateSK.signature', compact('templateSK'));
-        return view('admin.DaftarPermohonanIzin.signature', compact('suratIzin'));
+        return view('admin.DaftarPermohonanIzin.priview', compact('suratIzin'));
     }
     public function Sign($id)
     {
-        //     $templateSK = TemplateSK::where('id', $id)->first();
-        //     $templateSK->tanda_tangan = 'TTD.jpg';
-        //     $templateSK->save();
+            $suratIzin = suratIzin::where('id', $id)->first();
+            $suratIzin->manajer= 'TTD.jpg';
+            $suratIzin->save();
 
 
-        //     $surat = SuratKeluar::where('id', $templateSK->id_surat)->first();
+            // $surat = SuratKeluar::where('id', $suratIzin->id_surat)->first();
 
-        //     $pdf = PDF::loadView('admin.TemplateSK.signature', compact('templateSK'));
-        //     $file_name = $surat -> file;
-        //     $file_path = storage_path('../public/assets/surat/') . $file_name;
-        //     // $pdf->save($file_path);
+            $pdf = PDF::loadView('admin.DaftarPermohonanIzin.signature', compact('suratIzin'));
+            $file_name = $surat -> file;
+            $file_path = storage_path('../public/assets/surat/') . $file_name;
+            // $pdf->save($file_path);
 
-        //     $FileToDelete = public_path('../public/assets/surat/') . $surat->file;
+            $FileToDelete = public_path('../public/assets/surat/') . $surat->file;
 
-        //     if (File::exists($FileToDelete)){
-        //         File::delete($FileToDelete);
-        //         $pdf->save($file_path);
-        //     }
-        //     else{
-        //         $pdf->save($file_path);
-        //         // return 'Filer not found';
-        //     }
+            if (File::exists($FileToDelete)){
+                File::delete($FileToDelete);
+                $pdf->save($file_path);
+            }
+            else{
+                $pdf->save($file_path);
+                // return 'Filer not found';
+            }
 
-        //         // Redirect ke halaman templateSK.show dengan menambahkan ID baru
-        //         return redirect()->route('suratkeluar.index')
-        //             ->with('success', 'Data berhasil disimpan!');
-        // }
+                // Redirect ke halaman suratIzin.show dengan menambahkan ID baru
+                return redirect()->route('suratkeluar.index')
+                    ->with('success', 'Data berhasil disimpan!');
+        }
 
     }
+    
 }
