@@ -1,4 +1,4 @@
-@extends('layouts.appdashboardkabag')
+@extends('layouts.appdashboardmobile')
 
 @section('content')
 <!DOCTYPE html>
@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 </head>
 <body>
-    
+
     <div class="container py-5" style="background-color: blue; border-radius: 25px;">
-        
+
         <div class="container py-6">
             <div class="card-header" style="background-color: blue; color: white; border-bottom: 2px solid white;">
                 <div class="d-flex justify-content-between align-items-center">
@@ -20,8 +20,8 @@
                     </div>
                 </div><br>
             <div class="row py-6">
-                <div class="col-lg-12 mx-auto"> 
-                    <div class="card rounded shadow border-2"> 
+                <div class="col-lg-12 mx-auto">
+                    <div class="card rounded shadow border-2">
                         <div class="card-body p-5 bg-white rounded">
                           <div class="button-container">
                             <select id="menuDropdown" style="background-color: #EBF1FA">
