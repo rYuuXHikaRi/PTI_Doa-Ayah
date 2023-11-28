@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Disposisi;
+use App\Models\SuratMasuk;
 use App\Models\SuratKeluar;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -22,19 +23,30 @@ class DisposisiController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function tambah($id)
+    public function tambah($id,$jenis)
     {
-        $surat= SuratKeluar::where('id',$id)->first();
-        return view('admin.disposisi.create',compact('surat'));
+        if($jenis == "surat keluar"){
+            $surat = SuratKeluar::where('id', $id)->first();
+        }
+        else if($jenis == "surat masuk"){
+            $surat = SuratMasuk::where('id', $id)->first();
+        }
+    
+        return view('admin.disposisi.create',compact('surat','jenis'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request,$id)
+    public function store(Request $request,$id,$jenis)
     {
         
-        $surat=SuratKeluar::find($id);
+        if($jenis == "surat keluar"){
+            $surat=SuratKeluar::find($id);
+        }
+        else if($jenis == "surat masuk"){
+            $surat=SuratMasuk::find($id);
+        }
         $request->validate([
             'deskripsi' => 'required|string',
         ]);
@@ -57,11 +69,11 @@ class DisposisiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function showsurat($id,$nama)
     {
-        $suratkeluars = Disposisi::where('id_surat', $id)->get();
+        $surats = Disposisi::where('id_surat', $id)->where('nama_surat',$nama)->get();
     
-        return view('admin.disposisi.index',compact('suratkeluars'));
+        return view('admin.disposisi.index',compact('surats'));
     }
 
     /**

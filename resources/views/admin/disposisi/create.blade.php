@@ -35,7 +35,7 @@
                                     
                 
 
-                                            <form method="POST" action="{{route('disposisi.tambahdisposisi', ['id'=>$surat->id])}}" enctype="multipart/form-data">
+                                            <form method="POST" action="{{route('disposisi.tambahdisposisi', ['id'=>$surat->id,'jenis'=>$jenis])}}" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('POST')
                                                     <label for="status">Teruskan Ke</label>

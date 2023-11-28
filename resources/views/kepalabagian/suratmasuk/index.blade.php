@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appdashboardkabag')
 
 @section('content')
 <!DOCTYPE html>
@@ -19,7 +19,7 @@
                         <span class="font-weight-bold" style="font-size: 30px;">Kelola Surat</span>
                     </div>
                     <div>
-                        <a href="{{ route('suratmasuk.create') }}"><button class="btn btn-primary" style="font-size: 15px;border-radius:20px;">Tambah Surat Baru</button></a>
+                        <a href="{{ route('kbsuratmasuk.create') }}"><button class="btn btn-primary" style="font-size: 15px;border-radius:20px;">Tambah Surat Baru</button></a>
                     </div>
                 </div>
                 <br>
@@ -28,8 +28,8 @@
                     <div class="card rounded shadow border-2"> 
                         <div class="card-body p-5 bg-white rounded">
                           <div class="button-container">
-                            <a href="{{ route('suratmasuk.index') }}"><div class="button" id="suratMasuk">Surat Masuk</div></a> 
-                            <a href="{{ route('suratkeluar.index') }}"><div class="button" id="suratMasuk">Surat Keluar</div></a>
+                            <a href="{{ route('kbsuratmasuk.index') }}"><div class="button" id="suratMasuk">Surat Masuk</div></a> 
+                            <a href="{{ route('kbsuratkeluar.index') }}"><div class="button" id="suratMasuk">Surat Keluar</div></a>
                         </div>
                             
                               <script>
@@ -73,51 +73,25 @@
                             <td>
                               {{-- <button class="btn btn-primary"><i
                                       class="fas fa-eye"></i></button> --}}
-                              <a href="{{ route('suratmasuk.edit', $item->id) }}"><button
-                                      class="btn btn-warning">
-                                      <i class="fas fa-edit"></i></button></a>
-                              <a role="button" class="delete-button" data-bs-toggle="modal" data-bs-target=".bd-example-modal-sm{{$item->id}}">
-                                <button class="btn btn-danger">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                              </a>
+                              
+                 
                               @if ($item->file)
-                              <a href="{{ route('suratmasukdownload', ['id' => $item->id, 'file' => $item->file]) }}" class="btn btn-success" target="_blank"><i class="fas fa-download"></i></a>
+                              <a href="{{ route('kbsuratmasukdownload', ['id' => $item->id, 'file' => $item->file]) }}" class="btn btn-success" target="_blank"><i class="fas fa-download"></i></a>
                           @endif
 
-                              <a href="{{ route('disposisi.showsurat', ['id' => $item->id, 'nama' => $item->nama_surat]) }}"><button
+                              <a href="{{ route('kbdisposisi.showsurat', ['id' => $item->id, 'nama' => $item->nama_surat]) }}"><button
                                 class="btn btn-primary"><i
                                     class="fa-regular fa-note-sticky"></i></button></a>
 
                               @if ($item->status == auth()->user()->jabatan)
                                   <a
-                                      href="{{ route('disposisi.tambah', ['id' => $item->id, 'jenis' => "surat masuk"]) }}"><button
+                                      href="{{ route('kbdisposisi.tambah', ['id' => $item->id, 'jenis' => "surat masuk"]) }}"><button
                                           class="btn btn-success"><i
                                               class="fa-solid fa-share-from-square"></i></button></a>
                               @endif
                           
                                     
-                              <div class="modal fade bd-example-modal-sm{{$item->id}}" tabindex="-1" role="dialog" aria-hidden="true">
-                                  <div class="modal-dialog">
-                                      <div class="modal-content">
-                                          <div class="modal-header">
-                                              <h5 class="modal-title"><strong>Hapus Data</strong></h5>
-                                              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                          </div>
-                                          <div class="modal-body">Apakah anda yakin ingin menghapus data?</div>
-                                          <div class="modal-footer" style="left:0px; height: 80px;">
-                                              <form action="{{ route('suratmasuk.destroy', $item->id) }}" method="POST">
-                                                  @method('DELETE')
-                                                  @csrf
-                                                  <div style="display: flex; justify-content: space-between;">
-                                                      <button type="button" class="btn submit-btn submit-btn-yes" data-bs-dismiss="modal" style="width: 49%;">Tidak</button>
-                                                      <input type="submit" class="btn submit-btn submit-btn-no" value="Hapus" style="width: 49%;">
-                                                  </div>
-                                              </form>
-                                          </div>
-                                      </div>
-                                  </div>
-                                    </div>
+                   
                                     
                                   
                                     

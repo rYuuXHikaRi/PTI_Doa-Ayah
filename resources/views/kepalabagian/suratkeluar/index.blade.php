@@ -146,13 +146,13 @@
                                                             class="btn btn-warning" target="_blank"><i
                                                                 class="fas fa-download"></i></a>
                                                         @endif
-                                                        <a href="{{ route('kbdisposisi.show', $suratkeluarr->id) }}"><button
+                                                        <a href="{{ route('kbdisposisi.showsurat', ['id' => $suratkeluarr->id, 'nama' => $suratkeluarr->nama_surat]) }}"><button
                                                                 class="btn btn-primary"><i
                                                                     class="fa-regular fa-note-sticky"></i></button></a>
 
                                                         @if ($suratkeluarr->status == auth()->user()->jabatan)
                                                         <a
-                                                            href="{{ route('kbdisposisi.tambah', $suratkeluarr->id) }}"><button
+                                                            href="{{ route('kbdisposisi.tambah', ['id' => $suratkeluarr->id, 'jenis' => "surat keluar"]) }}"><button
                                                                 class="btn btn-success"><i
                                                                     class="fa-solid fa-share-from-square"></i></button></a>
                                                         @endif

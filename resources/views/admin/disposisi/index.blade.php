@@ -47,13 +47,13 @@
                                                 @php
                                                     $no = 1;
                                                 @endphp
-                                                @foreach ($suratkeluars as $suratkeluar)
+                                                @foreach ($surats as $surat)
                                                     <tr>
                                                         <td>{{ $no++ }}</td>
-                                                        <td>{{ $suratkeluar->nama_surat }}</td>
-                                                        <td>{{ $suratkeluar->deskripsi }}</td>
-                                                        <td>tersampaikan kepada {{ $suratkeluar->status }}</td>
-                                                        <td>{{ $suratkeluar->created_at }}</td>
+                                                        <td>{{ $surat->nama_surat }}</td>
+                                                        <td>{{ $surat->deskripsi }}</td>
+                                                        <td>tersampaikan kepada {{ $surat->status }}</td>
+                                                        <td>{{ $surat->created_at }}</td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
