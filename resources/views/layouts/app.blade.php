@@ -41,7 +41,7 @@
 <body>
     <div id="app">
         <div class="sidebar">
-            <img src="img/logo.png" alt="logo" style="width:40%;margin-left:50px;">
+            <img src="img/logo.pngj" alt="logo" style="width:40%;margin-left:50px;">
             <div class="menu-box">
                 <ul class="menu">
                     <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
@@ -53,6 +53,7 @@
                             <li><a href="{{route('templateSK.showDesk')}}">Template Surat</a></li>
                         </ul>
                     </li>
+                    <li><a href="{{ route('DaftarPermohonan.index') }}"><i class="fas fa-users"></i> Daftar Permohonan</a></li>
                     <li><a href="{{ route('user.index') }}"><i class="fas fa-users"></i> Pengguna</a></li>
                 </ul>
                 <br><br><br><br>

@@ -5,7 +5,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
-    <link rel="stylesheet" href="css/daftarpermohonanizin.css">
+    <link rel="stylesheet" href="css/daftarpermohonancuti.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 </head>
 <body>
@@ -25,8 +25,6 @@
                         <div class="card-body p-5 bg-white rounded">
                           <div class="button-container">
                             <select id="menuDropdown" style="background-color: #EBF1FA">
-                                <option value="suratMasuk">Surat Masuk</option>
-                                <option value="suratKeluar">Surat Keluar</option>
                                 <option value="izin">Izin</option>
                                 <option value="cuti">Cuti</option>
                                 <option value="tukarJaga">Tukar Jaga</option>
@@ -183,7 +181,7 @@
 <!-- Sisipkan script untuk DataTables -->
 <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 <!-- Sisipkan script untuk file JavaScript Anda -->
-<script src="js/daftarpermohonanizin.js"></script>
+<script src="js/daftarpermohonancuti.js"></script>
 </body>
 </html>
 

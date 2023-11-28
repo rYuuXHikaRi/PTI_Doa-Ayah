@@ -24,7 +24,7 @@ class SuratTukarJagaController extends Controller
      */
     public function create()
     {
-        return view("karyawan.SuratTukarJaga.create");
+        return view("Admin.ListPermohonanSurat.create");
     }
 
     /**

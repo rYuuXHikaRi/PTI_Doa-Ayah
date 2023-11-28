@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListRequestLetterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -12,6 +13,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DisposisiController;
 use App\Http\Controllers\SuratMasukController;
 use App\Http\Controllers\SuratKeluarController;
+use App\Models\ListRequestLetter;
 
 Route::resource('arsip', ArsipController::class);
 Route::resource('user', UserController::class);
@@ -54,6 +56,7 @@ Route::get('/buatsurattemplate', function () {
 Route::resource('suratizin', SuratIzinController::class);
 Route::resource('suratcuti', SuratCutiController::class);
 Route::resource('surattukarjaga', SuratTukarJagaController::class);
+Route::resource('DaftarPermohonan', ListRequestLetterController::class);
 
 
 
