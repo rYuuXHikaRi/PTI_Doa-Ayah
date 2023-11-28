@@ -53,7 +53,14 @@
                             <li><a href="{{route('templateSK.showDesk')}}">Template Surat</a></li>
                         </ul>
                     </li>
-                    <li><a href="{{ route('DaftarPermohonan.index') }}"><i class="fas fa-users"></i> Daftar Permohonan</a></li>
+                    <li class="dropdown">
+                        <a href=""><i class="fas fa-envelope"></i> Daftar Permohonan <i class="fas fa-caret-down"></i></a>
+                        <ul class="submenu">
+                            <li><a href="{{ route('DaftarPermohonan.index') }}">Daftar Permohonan Izin</a></li>
+                            <li><a href="{{route('DaftarPermohonan.indexCuti')}}">Daftar Permohonan Cuti</a></li>
+                            <li><a href="{{route('DaftarPermohonan.indexTukarJaga')}}">Daftar Permohonan Cuti</a></li>
+                        </ul>
+                    </li>
                     <li><a href="{{ route('user.index') }}"><i class="fas fa-users"></i> Pengguna</a></li>
                 </ul>
                 <br><br><br><br>
