@@ -126,9 +126,9 @@ class SuratIzinController extends Controller
     }
     public function priview(Request $request, $id)
     {
-        // $templateSK = TemplateSK::where('id_surat', $id)->first();
-        // // $pdf = PDF::loadView('admin.TemplateSK.signature', compact('templateSK'));
-        // return view('admin.TemplateSK.priview', compact('templateSK'));
+        $suratIzin = SuratIzin::where('id', $id)->first();
+        // $pdf = PDF::loadView('admin.TemplateSK.signature', compact('templateSK'));
+        return view('admin.DaftarPermohonanIzin.signature', compact('suratIzin'));
     }
     public function Sign($id)
     {

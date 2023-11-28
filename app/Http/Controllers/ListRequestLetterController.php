@@ -17,17 +17,17 @@ class ListRequestLetterController extends Controller
     public function index()
     {
         $Izins = SuratIzin::all();
-        return view("Admin.DaftarPermohonan.index" , compact('Izins'));
+        return view("Admin.DaftarPermohonanIzin.index" , compact('Izins'));
     }
     public function indexCuti()
     {
         $Cutis = SuratCuti::all();
-        return view("Admin.DaftarPermohonan.indexCuti" , compact('Cutis'));
+        return view("Admin.DaftarPermohonanCuti.indexCuti" , compact('Cutis'));
     }
     public function indexTukarJaga()
     {
         $TukarJagas = SuratTukarJaga::all();
-        return view("Admin.DaftarPermohonan.indexTukarJaga" , compact('TukarJagas'));
+        return view("Admin.DaftarPermohonanTukarJaga.indexTukarJaga" , compact('TukarJagas'));
     }
 
     /**

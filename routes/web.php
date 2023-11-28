@@ -54,6 +54,11 @@ Route::get('/buatsurattemplate', function () {
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route::get('/SuratIzin', SuratIzinController, 'index')->name('home');
 Route::resource('suratizin', SuratIzinController::class);
+Route::get('/suratizin/priview/{id}', [SuratIzinController::class, 'priview'])->name('PermohonanIzin.priview');
+Route::put('/suratizin/priview/{id}', [SuratIzinController::class, 'Sign'])->name('PermohonanIzin.Sign');
+
+
+
 Route::resource('suratcuti', SuratCutiController::class);
 Route::resource('surattukarjaga', SuratTukarJagaController::class);
 Route::resource('DaftarPermohonan', ListRequestLetterController::class);
