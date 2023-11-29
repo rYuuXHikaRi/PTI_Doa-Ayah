@@ -64,7 +64,7 @@
                         <ul class="submenu">
                             <li><a href="{{ route('DaftarPermohonan.index') }}">Daftar Permohonan Izin</a></li>
                             <li><a href="{{route('DaftarPermohonan.indexCuti')}}">Daftar Permohonan Cuti</a></li>
-                            <li><a href="{{route('DaftarPermohonan.indexTukarJaga')}}">Daftar Permohonan Cuti</a></li>
+                            <li><a href="{{route('DaftarPermohonan.indexTukarJaga')}}">Daftar Permohonan Tukar Jaga</a></li>
                         </ul>
                     </li>
                     <li><a href="{{ route('user.index') }}"><i class="fas fa-users"></i> Pengguna</a></li>
