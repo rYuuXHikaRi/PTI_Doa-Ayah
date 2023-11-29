@@ -6,6 +6,8 @@ use App\Models\SuratIzin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\File;
+
 
 
 
@@ -140,11 +142,11 @@ class SuratIzinController extends Controller
             // $surat = SuratKeluar::where('id', $suratIzin->id_surat)->first();
 
             $pdf = PDF::loadView('admin.DaftarPermohonanIzin.signature', compact('suratIzin'));
-            $file_name = $surat -> file;
+            $file_name = $suratIzin -> file;
             $file_path = storage_path('../public/assets/surat/') . $file_name;
             // $pdf->save($file_path);
 
-            $FileToDelete = public_path('../public/assets/surat/') . $surat->file;
+            $FileToDelete = public_path('../public/assets/surat/') . $suratIzin->file;
 
             if (File::exists($FileToDelete)){
                 File::delete($FileToDelete);
@@ -156,10 +158,9 @@ class SuratIzinController extends Controller
             }
 
                 // Redirect ke halaman suratIzin.show dengan menambahkan ID baru
-                return redirect()->route('suratkeluar.index')
+                return redirect()->route('DaftarPermohonan.index')
                     ->with('success', 'Data berhasil disimpan!');
-        }
-
     }
-    
+
 }
+
