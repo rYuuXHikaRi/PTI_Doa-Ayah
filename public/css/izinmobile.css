@@ -123,17 +123,35 @@
     }
 }
 
-@media (max-width: 496px) {
+@media (max-width: 376px) {
     .container {
         margin: 6%;
         margin-left: 12%;
     }
+    .card-header {
+        width: 92%;
+    }
+    .card-body {
+        width: 92%;
+    }
+    .content-box {
+        width: 81%;
+    }
+    .content-ket {
+        width: 81%;
+    }
+    .pilih {
+        width: 81%;
+    }
     .notif_berhasil {
-        margin-left: 5px;
+        margin-left: -30px;
+    }
+    button {
+        margin: 1rem 3.4rem;
     }
 }
 
-@media (max-width: 352px) {
+@media (max-width: 431px) {
     .card-header h1 {
         margin-left: .2rem;
         padding: .8rem;     
@@ -150,21 +168,10 @@
     .pilih {
         margin: -1rem 1rem 1rem;
     }
-    button {
-        margin: 1rem 2rem;
-    }
     .notif_berhasil {
-        width: 245px;
-        height: 178px;
-        margin-left: 2px;
+        margin-left: -12px;
     }
-    .info_pengajuan {
-        margin-left: 24px;
-    }
-    .info_pengajuan h1 {
-        font-size: 13px;
-    }
-    .icon_sukses {
-        margin-left: 66px;
+    button {
+        margin: 1rem 3.6rem;
     }
 }

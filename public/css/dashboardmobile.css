@@ -138,21 +138,50 @@
     }
 }
 
-@media screen and (max-width: 460px) {
-    .navbar a {
-        font-size: 1.6rem;
-        width: 2rem;
-        height: 2rem;
+@media screen and (max-width: 376px) {
+    .logo_aplikasi {
+        width: 12%;
+        height: 2.7rem;
     }
 }
 
-@media screen and (max-width: 352px) {
+@media screen and (max-width: 415px) {
+    .navbar-content {
+        margin-left: 40px;
+    }
+    .navbar {
+        width: 81%;
+        height: 3rem;
+    }
     .navbar a {
-        font-size: 1.6rem;
-        width: 2rem;
-        height: 2rem;
+        width: 2.1rem;
+        height: 2.1rem;
+        margin: 0.5rem 1rem 0;
+    }
+    .navbar a i {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (max-width: 431px) {
+    .logo_aplikasi {
+        width: 12%;
+    }
+}
+
+@media screen and (max-width: 361px) {
+    .logo_aplikasi {
+        height: 2.7rem;
     }
     .navbar-content {
-        margin-left: 38px;
+        margin: 1rem -2rem 0 2rem;
+    }
+    .navbar {
+        height: 2.9rem;
+    }
+    .navbar a {
+        width: 2.3rem;
+        height: 2.3rem;
+        margin: 0.3rem 1rem 0;
     }
 }

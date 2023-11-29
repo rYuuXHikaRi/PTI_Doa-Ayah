@@ -38,15 +38,15 @@ Route::get('/TukarJaga', function () {
 });
 
 Route::get('/PermohonanCuti', function () {
-    return view('formcutimobile');
+    return view('formizinmobile');
 });
 
-// Route::get('/mobile', function () {
-//     return view('homemobile');
-// });
+Route::get('/mobile', function () {
+    return view('homemobile');
+});
 
 Route::get('/PermohonanIzin', function () {
-    return view('formtukarjagamobile');
+    return view('formcutimobile');
 });
 
 // Route::get('/lihat', function () {

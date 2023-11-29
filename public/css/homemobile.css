@@ -54,9 +54,21 @@
     }
 }
 
-@media (max-width: 496px) {
+@media (max-width: 431px) {
     .container {
         margin: 6%;
         margin-left: 12%;
+    }
+    .card-header {
+        width: 92%;
+    }
+    .card-header h1 {
+        margin-left: 0.5rem;
+    }
+    .card-body {
+        width: 92%;
+    }
+    .card-content {
+        margin: 2rem 1rem 1rem;
     }
 }
