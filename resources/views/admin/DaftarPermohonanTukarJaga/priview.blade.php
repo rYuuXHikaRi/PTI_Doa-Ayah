@@ -56,8 +56,9 @@
             </p>
             <p>
                 @if ($suratTukarJaga->tanda_tangan)
-                    <img style="height: 120px ; width:120px;"
-                        src="{{ public_path('img/' . $suratTukarJaga->tanda_tangan) }}" alt="Tanda Tangan">
+                <img style="height: 120px ; width:120px;"
+                src="{{ asset('img/' . $suratTukarJaga->tanda_tangan) }}"
+                alt="Tanda Tangan">
                 @endif
             </p>
             <b>{{ $suratTukarJaga->nama_pengaju }}</b>
@@ -67,17 +68,32 @@
         <div class="ttd_B">
             <p>Termohon, <b>{{ $suratTukarJaga->target_tukar_jaga}}<b></p>
             <br><br>
+            <form method="POST" action="{{route("PermohonanTukarJaga.Sign",['id' => $suratTukarJaga->id])}}">
+                @csrf
+                @method('put')
+                <button type="submit">Tanda Tangani</button>
+            </form>
             <div class="line"></div>
         </div>
 
         <div class="ttd_kar">
             <p>Ka. Ruangan</p>
+            <form method="POST" action="{{route("PermohonanTukarJaga.Sign",['id' => $suratTukarJaga->id])}}">
+                @csrf
+                @method('put')
+                <button type="submit">Tanda Tangani</button>
+            </form>
             <br><br>
             <div class="line"></div>
         </div>
         <div class="ttd_kab">
             <p>Ka. Bagian</p>
             <br><br>
+            <form method="POST" action="{{route("PermohonanTukarJaga.Sign",['id' => $suratTukarJaga->id])}}">
+                @csrf
+                @method('put')
+                <button type="submit">Tanda Tangani</button>
+            </form>
             <div class="line"></div>
         </div>
         </div>
