@@ -68,9 +68,12 @@ class SuratCutiController extends Controller
         return redirect()->route('suratcuti.create')->with('success', 'surat berhasil ditambahkan.');
     }
 
-    /**
-     * Display the specified resource.
-     */
+    public function priview(Request $request, $id)
+    {
+        $suratCuti = SuratCuti::where('id', $id)->first();
+        // $pdf = PDF::loadView('admin.TemplateSK.signature', compact('templateSK'));
+        return view('admin.DaftarPermohonanCuti.priview', compact('suratCuti'));
+    }
     public function show(SuratCuti $suratCuti)
     {
         //

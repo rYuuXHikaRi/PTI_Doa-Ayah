@@ -18,7 +18,7 @@
                 <div class="card-header" style="background-color: blue; color: white; border-bottom: 2px solid white;">
                     <div class="d-flex justify-content-between align-items-center">
                         <div>
-                            <span class="font-weight-bold" style="font-size: 30px;">Daftar Permohonan Izin</span>
+                            <span class="font-weight-bold" style="font-size: 30px;">Daftar Permohonan Cuti</span>
                         </div>
                     </div><br>
                     <div class="row py-6">
@@ -27,9 +27,9 @@
                                 <div class="card-body p-5 bg-white rounded">
                                     <div class="button-container">
                                         <select id="menuDropdown" style="background-color: #EBF1FA">
-                                            <option value="izin"><a href="">Izin</a></option>
-                                            <option value="cuti"><a href="">Cuti</a></option>
-                                            <option value="tukarJaga"><a href="">Tukar Jaga</a></option>
+                                            <option value="izin"><a href="{{route('DaftarPermohonan.index')}}">Izin</a></option>
+                                            <option value="cuti"><a href="{{route('DaftarPermohonan.indexCuti')}}">Cuti</a></option>
+                                            <option value="tukarJaga"><a href="{{route('DaftarPermohonan.indexTukarJaga')}}">Tukar Jaga</a></option>
                                         </select>
                                     </div>
                                     <br><br>
@@ -40,7 +40,8 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Nama Pengaju</th>
-                                                    <th>Tanggal Izin</th>
+                                                    <th>Tanggal Mulai</th>
+                                                    <th>Tanggal Selesai</th>
                                                     <th>bagian</th>
                                                     <th>Keterangan</th>
                                                     <th>Tanggal Dibuat</th>
@@ -52,68 +53,30 @@
                                                 @php
                                                     $no = 1;
                                                 @endphp
-                                                @foreach ($Izins as $Izin)
+                                                @foreach ($Cutis as $Cuti)
                                                     <tr>
                                                         <td>{{ $no++ }}</td>
-                                                        <td>{{ $Izin->nama_pengaju }}</td>
-                                                        <td>{{ $Izin->tanggal_izin }}</td>
-                                                        <td>{{ $Izin->bagian }}</td>
-                                                        <td>{{ $Izin->keterangan }}</td>
-                                                        <td>{{ $Izin->created_at->format('Y-m-d') }}</td>
-                                                        <td>{{ $Izin->status }}</td>
+                                                        <td>{{ $Cuti->nama_pengaju }}</td>
+                                                        <td>{{ $Cuti->tanggal_mulai }}</td>
+                                                        <td>{{ $Cuti->tanggal_selesai }}</td>
+                                                        <td>{{ $Cuti->bagian }}</td>
+                                                        <td>{{ $Cuti->keterangan }}</td>
+                                                        <td>{{ $Cuti->created_at->format('Y-m-d') }}</td>
+                                                        <td>{{ $Cuti->status }}</td>
 
                                                         <td>
-                                                          
-                                                            <a role="button" class="delete-button" data-bs-toggle="modal"
-                                                                data-bs-target=".bd-example-modal-sm{{ $Izin->id }}"><button
-                                                                    class="btn btn-danger" data-toggle="modal"
-                                                                    data-target="#hapusModal">
-                                                                    <i class="fas fa-trash"></i></button></a>
-                                                            @if ($Izin->file)
-                                                                <a href="{{ route('arsipdownload', ['id' => $Izin->id, 'file' => $Izin->file]) }}"
+                                                            <a href="{{ route('PermohonanCuti.priview', $Izin->id) }}"><button
+                                                                class="btn btn-warning" style="background:#1AACAC">
+                                                                <i class="fa-solid fa-file-signature"></i></button></a>
+
+                                                            @if ($Cuti->file)
+                                                                <a href="{{ route('arsipdownload', ['id' => $Cuti->id, 'file' => $Cuti->file]) }}"
                                                                     class="btn btn-success" target="_blank"><i
                                                                         class="fas fa-download"></i></a>
                                                             @endif
 
 
 
-                                                            <div class="modal fade bd-example-modal-sm{{ $Izin->id }}"
-                                                                tabindex="-1" role="dialog" aria-hidden="true">
-                                                                <div class="modal-dialog">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title"><strong>Hapus
-                                                                                    Data</strong></h5>
-                                                                            <button type="button" class="btn-close"
-                                                                                data-bs-dismiss="modal">
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="modal-body">Apakah anda yakin ingin
-                                                                            menghapus data?</div>
-                                                                        <div class="modal-footer"
-                                                                            style="left:0px; height: 80px;">
-                                                                            <form
-                                                                                action="{{ route('arsip.destroy', $Izin->id) }}"
-                                                                                method="POST">
-                                                                                @method('DELETE')
-                                                                                @csrf
-                                                                                <div
-                                                                                    style="display: flex; justify-content: space-between;">
-                                                                                    <button type="button"
-                                                                                        class="btn submit-btn submit-btn-yes"
-                                                                                        data-bs-dismiss="modal"
-                                                                                        style="width: 49%;">Tidak</button>
-                                                                                    <input type="submit"
-                                                                                        class="btn submit-btn submit-btn-no"
-                                                                                        name="" id=""
-                                                                                        value="Hapus" style="width: 49%;">
-                                                                                </div>
-
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                         </td>
                                                     </tr>
                                                 @endforeach
