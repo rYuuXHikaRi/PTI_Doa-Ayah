@@ -1,12 +1,25 @@
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 617px) {
     body {
         display: none;
     }
 }
 
-@media screen and (max-width: 575.98px) {
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Linefont:wght@100&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    font-family: 'Abhaya+Libre', 'sans-serif';
+}
+
+@media (max-width: 617px) {
     body {
-        height: 100%;
+        height: 100vh;
     }
     .upbar {
         background: #0253BA;
@@ -14,86 +27,132 @@
         height: 70px;
         position: relative;
         display: flex;
-        flex-direction: row;
+        align-items: center;
+        text-align: center;
     }
     .logo_aplikasi {
-        width:12%;
+        width:8%;
         height:70%;
-        margin-top:12px;
-        margin-left:20px;
+        margin-left: 22px;
     }
     .upbar p {
         color: white;
         font-size: 18px;
-        margin-left: 10px;
-        margin-top: 15px;
     }
     .atur_jarak {
         display: flex;
         flex-direction: row;
         align-items: center;
-        width: 65%;
+        width: 75%;
         height: 100%;
+        margin-left: 10px;
     }
     .elips {
-        width: 12%;
+        width: 6%;
         height: 60%;
         overflow: hidden;
         border-radius: 50%;
-        margin-top: 3.7%;
     }
     .elips img {
         width: 100%;
         height: 100%;
         object-fit: cover; 
     }
+    .menu {
+        color: white;
+        width: 20px;
+        height: 14px;
+    }
+    .menu i {
+        font-size: 13px;
+        margin-right: 9px;
+    }
     .dropdown-content {
         background: #DFEAF7;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
         border-radius: 10px;
         width: 198px;
-        height: 110px;
-        margin-top: 17px;
+        height: 94px;
+        margin-top: 19px;
         margin-left: -180px;
         display: none;
         position: absolute;
         z-index: 1;
     }
-    .menu {
-        color: white;
-        width: 25px;
-        height: 25px;
-        margin-left: -7px;
-        margin-top: 23px;
-    }
-    .icon {
-        color: white;
-        margin-top: 6.4%;
-    }
-    .navbar {
-        background: #0253BA;
-        width: 80%;
-        height: 60px;
-        border-radius: 25px;
-        flex-direction: row;
-        position: relative;
-        margin-left: 10%;
-    }
     .notif_text {
         padding: 5%;
+        text-align: left;
     }
     .notif_text h1 {
         color: #0253BA;
         font-size: 12px;
-        font-style: normal;
-        line-height: normal;
+    }
+    .line {
+        height: 1px;
+        width: 100%;
+        background: black;
+    }
+    .icon {
+        display: flex;
+    }
+    .icon i {
+        color: #0253BA;
+        margin-top: 6.4%;
+        margin-left: 12px;
+    }
+    .icon h1 {
+        color: #0253BA;
+        font-size: 14px;
+        margin-top: 6.4%;
+        margin-left: 7px;
+    }
+    .navbar-content {
+        margin-left: 70px;
+    }
+    .navbar {
+        background: #0253BA;
+        margin-top: 12px;
+        padding: 0rem 6%;
+        width: 80%;
+        border-radius: 25px;
+        display: flex;
+        justify-content: space-between;
     }
     .navbar a {
-        float: left;
-        display: block;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.5rem;
+        height: 2.5rem;
+        background: transparent;
+        border: .2rem solid skyblue;
+        font-size: 2rem;
         color: white;
+        margin: 0.8rem 0 0.8rem 0rem;
+        transition: .5s ease;
     }
-    .navbar a:hover {
-    background-color: #ddd;
+    .navbar:hover a {
+        background: white;
+        color: #0253BA;
+        box-shadow: 0 0 1rem skyblue;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .navbar a {
+        font-size: 1.6rem;
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+@media screen and (max-width: 352px) {
+    .navbar a {
+        font-size: 1.6rem;
+        width: 2rem;
+        height: 2rem;
+    }
+    .navbar-content {
+        margin-left: 38px;
     }
 }

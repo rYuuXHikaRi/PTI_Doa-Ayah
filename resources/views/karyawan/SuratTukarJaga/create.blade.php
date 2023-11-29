@@ -15,14 +15,13 @@
                     <h1>Jadwal Asli</h1>
                 </div>
                 <div class="box">
-                    <input class="input_waktu" type="date" id="Tanggal_Pengajuan" placeholder="Tanggal Pengajuan..."
-                        name="jadwal_asli">
+                    <input class="input_waktu" type="date" id="Tanggal_Pengajuan" name="jadwal_asli">
                 </div>
                 <div class="mulaiselesai">
                     <h1>Jadwal Yang Ingin Diubah</h1>
                 </div>
                 <div class="box">
-                    <input class="input_waktu" type="date" id="Tanggal_Target" placeholder="Tanggal Target..." name="jadwal_dirubah">
+                    <input class="input_waktu" type="date" id="Tanggal_Target" name="jadwal_dirubah">
                 </div>
                 <div class="text_lampiran">
                     <h1>Nama Target</h1>

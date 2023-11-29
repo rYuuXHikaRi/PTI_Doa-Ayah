@@ -44,23 +44,6 @@
                     Buat Pengajuan
                 </button>
             </Form>
-
-            {{-- <div id="overlay" class="overlay" style="display: none;"></div>
-            <div id="myPopup" class="popup" style="display: none;">
-                <div class="header_popup">
-                    <h1>Pratinjau Permohonan</h1>
-                    <div onclick="closePopup()" class="close-button">
-                        <i class="fa-solid fa-xmark"></i>
-                    </div>
-                </div>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi possimus error totam velit ex, maxime a,
-                    debitis adipisci fugiat fuga culpa neque natus.
-                    Ipsum quia consectetur sunt, placeat provident laboriosam.</p>
-            </div>
-            <button id="prosesButton" class="popup_submit" onclick="notifSukses()" style="display: none;">
-                Proses Pengajuan
-            </button> --}}
-
             <div id="overlay_berhasil" class="overlay_berhasil" style="display: none;"></div>
             <div class="notif_berhasil" style="display: none;">
                 <div class="info_pengajuan">
@@ -76,7 +59,7 @@
                             fill="none">
                             <path
                                 d="M28.4408 50.124L11.3807 33.0638C8.7772 30.4603 4.55611 30.4603 1.95262 33.0638C-0.650872 35.6673 -0.650872 39.8884 1.95262 42.4919L24.1748 64.7141C26.9468 67.4861 31.5006 67.2795 34.0103 64.2679L78.4546 10.9347C80.8117 8.1062 80.4296 3.90244 77.6011 1.54536C74.7726 -0.811733 70.5688 -0.429574 68.2117 2.39893L28.4408 50.124Z"
-                                fill="#E6EFFA" />
+                                fill="#E6EFFA"/>
                         </svg>
                     </div>
                 </div>

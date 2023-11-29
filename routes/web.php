@@ -45,9 +45,9 @@ Route::get('/PermohonanCuti', function () {
 //     return view('homemobile');
 // });
 
-// Route::get('/PermohonanIzin', function () {
-//     return view('formizinmobile');
-// });
+Route::get('/PermohonanIzin', function () {
+    return view('formtukarjagamobile');
+});
 
 // Route::get('/lihat', function () {
 //     return view('lihatstatusmobile');
@@ -86,3 +86,7 @@ Route::get('/templatetuk', function () {
 // Route::get('/tes', function () {
 //     return view('tes');
 // });
+
+Route::get('/dashboard', function () {
+    return view('layouts/appdashboardmobile');
+});
