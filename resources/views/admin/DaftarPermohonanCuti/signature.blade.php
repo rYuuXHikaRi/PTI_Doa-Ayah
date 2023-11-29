@@ -62,7 +62,8 @@
                 <p>Mengetahui<br>
                     Ka./Koor.Bagian:</p>
                     @if ($suratCuti->kepala_bagian)
-                    <img src="{{public_path('ttd/'.$suratCuti->kepala_bagian)}}" alt="" style="max-height: 120px; max-width:120px">
+                    <img style="height: 120px ; width:120px;" src="{{ asset('img/' . $suratCuti->tanda_tangan) }}"
+                            alt="Tanda Tangan">
                         @endif
                 <br><br>
             </div>

@@ -134,29 +134,29 @@ Route::get('/templatetuk', function () {
 // Route::get('/tes', function () {
 //     return view('tes');
 // });
-Route::get('/dashboardkabag', function () {
-    return view('dashboardkabag');
-});
+// Route::get('/dashboardkabag', function () {
+//     return view('dashboardkabag');
+// });
 
-Route::get('/daftarpermohonansuratmasuk', function () {
-    return view('daftarpermohonansuratmasuk');
-});
+// Route::get('/daftarpermohonansuratmasuk', function () {
+//     return view('daftarpermohonansuratmasuk');
+// });
 
-Route::get('/daftarpermohonansuratkeluar', function () {
-    return view('daftarpermohonansuratkeluar');
-});
+// Route::get('/daftarpermohonansuratkeluar', function () {
+//     return view('daftarpermohonansuratkeluar');
+// });
 
-Route::get('/daftarpermohonanizin', function () {
-    return view('daftarpermohonanizin');
-});
+// Route::get('/daftarpermohonanizin', function () {
+//     return view('daftarpermohonanizin');
+// });
 
-Route::get('/daftarpermohonancuti', function () {
-    return view('daftarpermohonancuti');
-});
+// Route::get('/daftarpermohonancuti', function () {
+//     return view('daftarpermohonancuti');
+// });
 
-Route::get('/daftarpermohonantukarjaga', function () {
-    return view('daftarpermohonantukarjaga');
-});
+// Route::get('/daftarpermohonantukarjaga', function () {
+//     return view('daftarpermohonantukarjaga');
+// });
 Auth::routes();
 Route::get('/suratkeluar/download/{id}/{file}', [SuratKeluarController::class, 'downloadSurat'])->name('suratkeluar.download');
 Route::get('/formtemplate', [SuratKeluarController::class, 'template'])->name('template');
