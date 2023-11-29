@@ -65,7 +65,7 @@
                                                         <td>{{ $Cuti->status }}</td>
 
                                                         <td>
-                                                            <a href="{{ route('PermohonanCuti.priview', $Izin->id) }}"><button
+                                                            <a href="{{ route('PermohonanCuti.priview', $Cuti->id) }}"><button
                                                                 class="btn btn-warning" style="background:#1AACAC">
                                                                 <i class="fa-solid fa-file-signature"></i></button></a>
 

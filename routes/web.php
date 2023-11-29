@@ -59,9 +59,11 @@ Route::put('/suratizin/priview/{id}', [SuratIzinController::class, 'Sign'])->nam
 Route::get('/suratizin/{id}/{file}', [SuratIzinController::class, 'downloadSuratIzin'])->name('PermohonanIzin.download');
 
 
-
-
 Route::resource('suratcuti', SuratCutiController::class);
+Route::get('/suratcuti/priview/{id}', [SuratCutiController::class, 'priview'])->name('PermohonanCuti.priview');
+Route::put('/suratizin/priview/{id}', [SuratCutiController::class, 'Sign'])->name('PermohonanCuti.Sign');
+
+
 Route::resource('surattukarjaga', SuratTukarJagaController::class);
 Route::resource('DaftarPermohonan', ListRequestLetterController::class);
 Route::get('/DaftarPermohonanCuti', [ListRequestLetterController::class, 'indexCuti'])->name('DaftarPermohonan.indexCuti');

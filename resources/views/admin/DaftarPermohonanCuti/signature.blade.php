@@ -1,6 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
     <!DOCTYPE html>
     <html lang="en">
 
@@ -64,11 +61,9 @@
             <div class="ttd_koor">
                 <p>Mengetahui<br>
                     Ka./Koor.Bagian:</p>
-                <form method="POST" action="{{ route('PermohonanCuti.Sign', ['id' => $suratCuti->id]) }}">
-                    @csrf
-                    @method('put')
-                    <button type="submit">Tanda Tangani</button>
-                </form>
+                    @if ($suratCuti->kepala_bagian)
+                    <img src="{{public_path('ttd/'.$suratCuti->kepala_bagian)}}" alt="" style="max-height: 120px; max-width:120px">
+                        @endif
                 <br><br>
             </div>
             <div class="ttd_pemohon">
@@ -84,6 +79,5 @@
             </div>
         </div>
     </body>
-
     </html>
-@endsection
+

@@ -22,6 +22,12 @@
 
     <!-- Your Custom Styles -->
     <link rel="stylesheet" href="{{ asset('css/arsip.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/templatecuti.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('css/templateizin.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/templateundangan.css') }}"> --}}
+
+
+
 
     <!-- Bootstrap CSS (Choose one version, don't include both) -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">

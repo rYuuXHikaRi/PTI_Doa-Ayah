@@ -11,6 +11,8 @@ use Carbon\Carbon;
 use App\Models\TemplateSK;
 use App\Models\SuratKeluar;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\File;
+
 
 
 
@@ -72,7 +74,30 @@ class SuratCutiController extends Controller
     {
         $suratCuti = SuratCuti::where('id', $id)->first();
         // $pdf = PDF::loadView('admin.TemplateSK.signature', compact('templateSK'));
-        return view('admin.DaftarPermohonanCuti.priview', compact('suratCuti'));
+        return view('admin.DaftarPermohonanCuti.priviewCuti', compact('suratCuti'));
+    }
+    public function Sign($id)
+    {
+        $suratCuti = SuratCuti::where('id', $id)->first();
+        $suratCuti->kepala_bagian = 'TTD.jpg';
+        $suratCuti->save();
+
+        $pdf = PDF::loadView('admin.DaftarPermohonanCuti.signature', compact('suratCuti'));
+        $file_name = $suratCuti->file;
+        $file_path = storage_path('../public/assets/surat/') . $file_name;
+
+        $FileToDelete = public_path('../public/assets/surat/') . $suratCuti->file;
+
+        if (File::exists($FileToDelete)) {
+            File::delete($FileToDelete);
+            $pdf->save($file_path);
+        } else {
+            $pdf->save($file_path);
+            // return 'Filer not found';
+        }
+        // Redirect ke halaman SuratCuti.show dengan menambahkan ID baru
+        return redirect()->route('DaftarPermohonan.indexCuti')
+            ->with('success', 'Data berhasil disimpan!');
     }
     public function show(SuratCuti $suratCuti)
     {
