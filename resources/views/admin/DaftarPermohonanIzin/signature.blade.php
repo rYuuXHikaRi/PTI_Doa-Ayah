@@ -36,7 +36,7 @@
                 Manager Keuangan Umum & Personalia
                 <br><br><br><br>
                 @if ($suratIzin->manajer)
-                        <img src="{{public_path('ttd/'.$suratIzin->manajer)}}" alt="" style="max-height: 150px;max-width:150px">
+                        <img src="{{public_path('ttd/'.$suratIzin->manajer)}}" alt="" style="max-height: 120px; max-width:120px">
                             @endif
                 <b>Nurul Hakim, SE</b>
             </p>

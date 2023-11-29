@@ -57,8 +57,6 @@
                     <img style="height: 120px ; width:120px;"
                     src="{{ asset('img/' . $suratIzin->tanda_tangan) }}"
                     alt="Tanda Tangan">
-
-
             </p>
             <b>{{ $suratIzin->nama_pengaju }}</b>
             <p></p>

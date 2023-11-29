@@ -56,6 +56,8 @@ Route::get('/buatsurattemplate', function () {
 Route::resource('suratizin', SuratIzinController::class);
 Route::get('/suratizin/priview/{id}', [SuratIzinController::class, 'priview'])->name('PermohonanIzin.priview');
 Route::put('/suratizin/priview/{id}', [SuratIzinController::class, 'Sign'])->name('PermohonanIzin.Sign');
+Route::get('/suratizin/{id}/{file}', [SuratIzinController::class, 'downloadSuratIzin'])->name('PermohonanIzin.download');
+
 
 
 
