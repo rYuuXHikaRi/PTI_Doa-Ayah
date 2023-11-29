@@ -66,15 +66,16 @@ class SuratTukarJagaController extends Controller
     public function priview(Request $request, $id)
     {
         $suratTukarJaga = SuratTukarJaga::where('id', $id)->first();
-        // $pdf = PDF::loadView('admin.TemplateSK.signature', compact('templateSK'));
         return view('admin.DaftarPermohonanTukarJaga.priview', compact('suratTukarJaga'));
     }
     public function Sign($id)
     {
         $suratTukarJaga = SuratTukarJaga::where('id', $id)->first();
         $suratTukarJaga->kepala_bagian = 'TTD.jpg';
+        $suratTukarJaga->kepala_ruangan = 'TTD.jpg';
+        $suratTukarJaga->target_tukar_jaga = 'TTD.jpg';
         $suratTukarJaga->save();
-        $pdf = PDF::loadView('admin.DaftarPermohonanCuti.signature', compact('suratTukarJaga'));
+        $pdf = PDF::loadView('admin.DaftarPermohonanTukarJaga.signature', compact('suratTukarJaga'));
         $file_name = $suratTukarJaga->file;
         $file_path = storage_path('../public/assets/surat/') . $file_name;
 
@@ -88,8 +89,28 @@ class SuratTukarJagaController extends Controller
             // return 'Filer not found';
         }
         // Redirect ke halaman SuratCuti.show dengan menambahkan ID baru
-        return redirect()->route('DaftarPermohonan.indexCuti')
+        return redirect()->route('DaftarPermohonan.indexTukarJaga')
             ->with('success', 'Data berhasil disimpan!');
+    }
+    public function downloadSuratTukarJaga(Request $request, $id, $file)
+    {
+        $suratTukarJaga = SuratTukarJaga::find($id);
+        if (!$suratTukarJaga) {
+            abort(404);
+        }
+        $file_path = storage_path('../public/assets/surat/') . $suratTukarJaga->file;
+
+        // Tentukan nama file yang akan di-download
+        $file = $suratTukarJaga->file;
+        $extension = pathinfo($file_path, PATHINFO_EXTENSION);
+
+        $mime_types = [
+            'pdf' => 'application/pdf',
+            'doc' => 'application/msword',
+            'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        ];
+        $mime_type = $mime_types[$extension] ?? 'application/octet-stream';
+        return response()->download($file_path, $file, ['Content-Type' => $mime_type]);
     }
     public function show(SuratTukarJaga $suratTukarJaga)
     {

@@ -88,6 +88,26 @@ class SuratCutiController extends Controller
         return redirect()->route('DaftarPermohonan.indexCuti')
             ->with('success', 'Data berhasil disimpan!');
     }
+    public function downloadSuratCuti(Request $request, $id, $file)
+    {
+        $suratCuti = SuratCuti::find($id);
+        if (!$suratCuti) {
+            abort(404);
+        }
+        $file_path = storage_path('../public/assets/surat/') . $suratCuti->file;
+
+        // Tentukan nama file yang akan di-download
+        $file = $suratCuti->file;
+        $extension = pathinfo($file_path, PATHINFO_EXTENSION);
+
+        $mime_types = [
+            'pdf' => 'application/pdf',
+            'doc' => 'application/msword',
+            'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        ];
+        $mime_type = $mime_types[$extension] ?? 'application/octet-stream';
+        return response()->download($file_path, $file, ['Content-Type' => $mime_type]);
+    }
     public function show(SuratCuti $suratCuti)
     {
         //
