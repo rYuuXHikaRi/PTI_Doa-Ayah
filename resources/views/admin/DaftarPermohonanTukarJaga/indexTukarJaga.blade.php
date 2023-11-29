@@ -40,10 +40,10 @@
                                                 <tr>
                                                     <th>No</th>
                                                     <th>Nama Pengaju</th>
-                                                    <th>Tanggal Izin</th>
-                                                    <th>bagian</th>
+                                                    <th>Target Tukar Jaga</th>
                                                     <th>Keterangan</th>
-                                                    <th>Tanggal Dibuat</th>
+                                                    <th>jadwal asli</th>
+                                                    <th>jadwal dirubah</th>
                                                     <th>Status</th>
                                                     <th>Aksi</th>
                                                 </tr>
@@ -52,34 +52,34 @@
                                                 @php
                                                     $no = 1;
                                                 @endphp
-                                                @foreach ($Izins as $Izin)
+                                                @foreach ($TukarJagas as $TukarJaga)
                                                     <tr>
                                                         <td>{{ $no++ }}</td>
-                                                        <td>{{ $Izin->nama_pengaju }}</td>
-                                                        <td>{{ $Izin->tanggal_izin }}</td>
-                                                        <td>{{ $Izin->bagian }}</td>
-                                                        <td>{{ $Izin->keterangan }}</td>
-                                                        <td>{{ $Izin->created_at->format('Y-m-d') }}</td>
-                                                        <td>{{ $Izin->status }}</td>
+                                                        <td>{{ $TukarJaga->nama_pengaju }}</td>
+                                                        <td>{{ $TukarJaga->target_tukar_jaga }}</td>
+                                                        <td>{{ $TukarJaga->keterangan }}</td>
+                                                        <td>{{ $TukarJaga->jadwal_asli }}</td>
+                                                        <td>{{ $TukarJaga->jadwal_dirubah }}</td>
+                                                        <td>{{ $TukarJaga->status }}</td>
 
                                                         <td>
-                                                            <a href="{{ route('arsip.edit', $Izin->id) }}"><button
+                                                            <a href="{{ route('arsip.edit', $TukarJaga->id) }}"><button
                                                                     class="btn btn-warning">
                                                                     <i class="fas fa-edit"></i></button></a>
                                                             <a role="button" class="delete-button" data-bs-toggle="modal"
-                                                                data-bs-target=".bd-example-modal-sm{{ $Izin->id }}"><button
+                                                                data-bs-target=".bd-example-modal-sm{{ $TukarJaga->id }}"><button
                                                                     class="btn btn-danger" data-toggle="modal"
                                                                     data-target="#hapusModal">
                                                                     <i class="fas fa-trash"></i></button></a>
-                                                            @if ($Izin->file)
-                                                                <a href="{{ route('arsipdownload', ['id' => $Izin->id, 'file' => $Izin->file]) }}"
+                                                            @if ($TukarJaga->file)
+                                                                <a href="{{ route('arsipdownload', ['id' => $TukarJaga->id, 'file' => $TukarJaga->file]) }}"
                                                                     class="btn btn-success" target="_blank"><i
                                                                         class="fas fa-download"></i></a>
                                                             @endif
 
 
 
-                                                            <div class="modal fade bd-example-modal-sm{{ $Izin->id }}"
+                                                            <div class="modal fade bd-example-modal-sm{{ $TukarJaga->id }}"
                                                                 tabindex="-1" role="dialog" aria-hidden="true">
                                                                 <div class="modal-dialog">
                                                                     <div class="modal-content">
@@ -95,7 +95,7 @@
                                                                         <div class="modal-footer"
                                                                             style="left:0px; height: 80px;">
                                                                             <form
-                                                                                action="{{ route('arsip.destroy', $Izin->id) }}"
+                                                                                action="{{ route('arsip.destroy', $TukarJaga->id) }}"
                                                                                 method="POST">
                                                                                 @method('DELETE')
                                                                                 @csrf
