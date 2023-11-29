@@ -8,6 +8,8 @@ use App\Http\Requests\UpdateSuratTukarJagaRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\File;
+
 
 class SuratTukarJagaController extends Controller
 {
@@ -61,9 +63,34 @@ class SuratTukarJagaController extends Controller
         return redirect()->route('surattukarjaga.create')->with('success', 'surat berhasil ditambahkan.');
     }
 
-    /**
-     * Display the specified resource.
-     */
+    public function priview(Request $request, $id)
+    {
+        $suratTukarJaga = SuratTukarJaga::where('id', $id)->first();
+        // $pdf = PDF::loadView('admin.TemplateSK.signature', compact('templateSK'));
+        return view('admin.DaftarPermohonanTukarJaga.priview', compact('suratTukarJaga'));
+    }
+    public function Sign($id)
+    {
+        $suratTukarJaga = SuratTukarJaga::where('id', $id)->first();
+        $suratTukarJaga->kepala_bagian = 'TTD.jpg';
+        $suratTukarJaga->save();
+        $pdf = PDF::loadView('admin.DaftarPermohonanCuti.signature', compact('suratTukarJaga'));
+        $file_name = $suratTukarJaga->file;
+        $file_path = storage_path('../public/assets/surat/') . $file_name;
+
+        $FileToDelete = public_path('../public/assets/surat/') . $suratTukarJaga->file;
+
+        if (File::exists($FileToDelete)) {
+            File::delete($FileToDelete);
+            $pdf->save($file_path);
+        } else {
+            $pdf->save($file_path);
+            // return 'Filer not found';
+        }
+        // Redirect ke halaman SuratCuti.show dengan menambahkan ID baru
+        return redirect()->route('DaftarPermohonan.indexCuti')
+            ->with('success', 'Data berhasil disimpan!');
+    }
     public function show(SuratTukarJaga $suratTukarJaga)
     {
         //
