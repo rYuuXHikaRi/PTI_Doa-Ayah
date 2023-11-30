@@ -14,10 +14,10 @@
     <body>
         <p
             style="position: absolute;
-    height: fit-content;
-    font-size: 11px;
-    color: #02BA62;
-    margin-left: 74%;">
+            height: fit-content;
+            font-size: 11px;
+            color: #02BA62;
+            margin-left: 74%;">
             FORM.UM.RSAS.72</p>
 
         <img src="img/logo.png" alt="logo" style="position:absolute; width:80pxpx; height:80px; margin-top:45px" />

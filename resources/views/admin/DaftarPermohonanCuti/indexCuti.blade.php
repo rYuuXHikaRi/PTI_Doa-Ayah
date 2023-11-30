@@ -70,7 +70,7 @@
                                                                 <i class="fa-solid fa-file-signature"></i></button></a>
 
                                                             @if ($Cuti->file)
-                                                                <a href="{{ route('arsipdownload', ['id' => $Cuti->id, 'file' => $Cuti->file]) }}"
+                                                                <a href="{{ route('PermohonanCuti.download', ['id' => $Cuti->id, 'file' => $Cuti->file]) }}"
                                                                     class="btn btn-success" target="_blank"><i
                                                                         class="fas fa-download"></i></a>
                                                             @endif
