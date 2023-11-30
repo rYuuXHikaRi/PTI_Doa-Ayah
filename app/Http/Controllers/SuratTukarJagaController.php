@@ -73,7 +73,6 @@ class SuratTukarJagaController extends Controller
         $suratTukarJaga = SuratTukarJaga::where('id', $id)->first();
         $suratTukarJaga->kepala_bagian = 'TTD.jpeg';
         $suratTukarJaga->kepala_ruangan = 'TTD.jpeg';
-        $suratTukarJaga->target_tukar_jaga = 'TTD.jpeg';
         $suratTukarJaga->save();
         $pdf = PDF::loadView('admin.DaftarPermohonanTukarJaga.signature', compact('suratTukarJaga'));
         $file_name = $suratTukarJaga->file;
