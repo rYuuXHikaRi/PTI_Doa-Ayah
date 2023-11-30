@@ -64,15 +64,6 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
-                                                    <label for="nomorSurat" class="col-md-4 col-form-label">Jenis Surat</label>
-                                                    <div class="col-md-8">
-                                                        <select class="form-control" id="lokasiArsip" name="jenis_surat" style="background-color: #E0E0E0;">
-                                                            <option value="Karyawan">Karyawan</option>
-                                                            <option value="LuarInstansi">Luar Instansi</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group row">
                                                     <label for="uploadSurat" class="col-md-4 col-form-label">Upload Surat</label>
                                                     <div class="col-md-8">
                                                         <input type="file" class="form-control" id="uploadSurat" name="file" style="background-color:#EBF1FA">

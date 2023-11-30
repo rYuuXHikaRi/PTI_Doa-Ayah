@@ -40,7 +40,7 @@ class SuratKeluarController extends Controller
             'tujuan_surat' => $request->tujuan_surat,
             'kode_surat' => $request->kode_surat,
             'pembuat_surat' => auth()->user()->nama_karyawan,
-            'jenis_surat' => $request->jenis_surat,
+            'jenis_surat' => 'Upload',
             'file' => $filename1,
             'status'=>"Kepala Bagian",
         ]);
@@ -57,6 +57,7 @@ class SuratKeluarController extends Controller
         Session::flash('success', 'Data surat Berhasil Ditambahkan');
         return redirect()->route('suratkeluar.index')->with('success', 'surat berhasil ditambahkan.');
     }
+    
     public function show(SuratKeluar $suratKeluar)
     {
         //

@@ -14,6 +14,22 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
+            'role' => '1',
+            'nama_karyawan' => 'Muhammad Ibnu',
+            'email' => 'hrd@email.com',
+            'jabatan' => 'HRD',
+            'nik' => '1234567892',
+            'password' => bcrypt('11111111'),
+            'foto' => 'hrd.jpg',
+            'alamat' => 'Alamat Manajer',
+            'nomor_hp' => '08123456789',
+            'tanda_tangan' => 'manajer.jpg',
+            'nama_bagian' => 'Bagian HRD',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('users')->insert([
             'role' => '2',
             'nama_karyawan' => 'Nama Manajer',
             'email' => 'manajer@email.com',
@@ -25,6 +41,22 @@ class UserSeeder extends Seeder
             'nomor_hp' => '08123456789',
             'tanda_tangan' => 'manajer.jpg',
             'nama_bagian' => 'Bagian Manajemen',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        DB::table('users')->insert([
+            'role' => '2',
+            'nama_karyawan' => 'Nama Kabag',
+            'email' => 'kabag@email.com',
+            'jabatan' => 'Kepala Bagian',
+            'nik' => '123456781',
+            'password' => bcrypt('22222222'),
+            'foto' => 'manajer.jpg',
+            'alamat' => 'Alamat Manajer',
+            'nomor_hp' => '08123456789',
+            'tanda_tangan' => 'kabag.jpg',
+            'nama_bagian' => 'Bagian Kabag',
             'created_at' => now(),
             'updated_at' => now(),
         ]);

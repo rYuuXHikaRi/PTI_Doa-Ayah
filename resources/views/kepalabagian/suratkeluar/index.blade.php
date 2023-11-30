@@ -140,7 +140,11 @@
                                                         <td>
                                                       
 
-                                                         
+                                                        @if (auth()->user()->jabatan == "Direktur RS" && $suratkeluarr->jenis_surat=="Template" && $suratkeluarr->status != 'disetujui'    )
+                                                        <a href="{{ route('templateSK.priview', $suratkeluarr->id) }}"><button
+                                                            class="btn btn-warning" style="background:#1AACAC">
+                                                            <i class="fa-solid fa-file-signature"></i></button></a>
+                                                        @endif
                                                         @if ($suratkeluarr->file)
                                                         <a href="{{ route('kbsuratkeluar.download', ['id' => $suratkeluarr->id, 'file' => $suratkeluarr->file]) }}"
                                                             class="btn btn-warning" target="_blank"><i

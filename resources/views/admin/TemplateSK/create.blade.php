@@ -20,8 +20,40 @@
           <h2>Form Surat Undangan</h2>
         </div>
 
-        <form method="POST" action="{{ route('templateSK.storeSKForm' ,['id' => $id]) }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('templateSK.storeSKForm') }}" enctype="multipart/form-data">
             @csrf
+            <fieldset>
+            <div class="form-group row">
+              <label for="namaSurat" class="col-md-4 col-form-label">Nama Surat</label>
+              <div class="col-md-8">
+                  <input type="text" class="form-control" id="namaSurat" style="background-color:#EBF1FA"
+                  name="nama_surat" placeholder="Nama surat">
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="tanggal" class="col-md-4 col-form-label">Tanggal</label>
+              <div class="col-md-8">
+                  <input type="date" class="form-control" id="tanggal"  name="tanggal_dibuat" style="background-color: #E0E0E0;"
+                   style="background-color: #E0E0E0;"
+                  >
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="tujuanSurat" class="col-md-4 col-form-label">Tujuan Surat</label>
+              <div class="col-md-8">
+                  <input type="text" class="form-control" id="tujuanSurat" placeholder="Tujuan Surat" style="background-color:#EBF1FA"
+                  name="tujuan_surat">
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="kodeSurat" class="col-md-4 col-form-label">Kode Surat</label>
+              <div class="col-md-8">
+                  <input type="text" class="form-control" id="kodeSurat" placeholder="Kode Surat" style="background-color:#EBF1FA"
+                  name="kode_surat">
+              </div>
+          </div>
+            </fieldset>
+            <fieldset>
             <div class="form-group">
                 <label for="perihal">Perihal:</label>
                 <input type="text" class="form-control" id="perihal" name="perihal" placeholder="Masukkan perihal">
@@ -42,17 +74,16 @@
                 <input type="text" class="form-control" id="tempat" name="tempat" placeholder="Masukkan tempat">
             </div>
 
-            <div class="form-group">
-                <label for="tanggal_surat">Tanggal Surat:</label>
-                <input type="date" class="form-control" id="tanggal_surat" name="tanggal_surat">
-            </div>
+   
 
             <div class="form-group" hidden>
                 <label for="pembuat_surat">Pembuat Surat:</label>
                 <input type="text" class="form-control" id="pembuat_surat" name="pembuat_surat" placeholder="Masukkan pembuat surat">
             </div>
+          
 
             <button type="submit" class="btn btn-primary">Buat Surat</button>
+          </fieldset>
         </form>
 
 

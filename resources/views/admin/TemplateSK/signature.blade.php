@@ -49,7 +49,7 @@
                         <p class="text-right">Bandar Jaya, {{ $templateSK->tanggal_surat }}</p>
 
                             @if ($templateSK->tanda_tangan)
-                        <img src="{{public_path('ttd/'.$templateSK->tanda_tangan)}}" alt="" style="max-height: 150px;max-width:150px">
+                        <img src="{{public_path('assets/ttd/'.$templateSK->tanda_tangan)}}" alt="" style="max-height: 150px;max-width:150px">
                             @endif
 
                             <p class="text-right">Direktur RS. Islam Asy-Syifaa</p>

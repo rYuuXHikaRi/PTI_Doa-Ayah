@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\TemplateSK;
 use App\Models\SuratKeluar;
+use App\Models\Disposisi;
 use App\Http\Requests\StoreTemplateSKRequest;
 use App\Http\Requests\UpdateTemplateSKRequest;
 use Illuminate\Support\Facades\Session;
@@ -48,10 +49,20 @@ class TemplateSKController extends Controller
     // }
 
 
-    public function storeSKForm(Request $request, $id)
+    public function storeSKForm(Request $request)
     {
-
-        $surat = SuratKeluar::find($id);
+        
+        $surat = SuratKeluar::create([
+            'nama_surat' => $request->nama_surat,
+            'kategori_surat' => 'Surat Undangan',
+            'tanggal_dibuat' => $request->tanggal_dibuat,
+            'tujuan_surat' => $request->tujuan_surat,
+            'kode_surat' => $request->kode_surat,
+            'pembuat_surat' => auth()->user()->nama_karyawan,
+            'jenis_surat' => 'Template',
+            'file' => $request->nama_surat . '.pdf',
+            'status' => "Kepala Bagian",
+        ]);
 
         $templateSK = TemplateSK::create([
             'id_surat' => $surat->id,
@@ -59,14 +70,23 @@ class TemplateSKController extends Controller
             'hari_tanggal' => $request->hari_tanggal,
             'waktu' => $request->waktu,
             'tempat' => $request->tempat,
-            'tanggal_surat' => $request->tanggal_surat,
-            'pembuat_surat' => 1,
+            'tanggal_surat' => $surat->tanggal_dibuat,
+            'pembuat_surat' => $surat->pembuat_surat,
         ]);
+
+        Disposisi::create([
+            'id_surat'=> $surat->id,
+            'nama_surat' => $surat->nama_surat,
+            'status' => $surat->status,
+            'deskripsi' => "Surat Telah diajukan oleh HRD",
+            // Tambahkan kolom-kolom lainnya sesuai kebutuhan
+        ]);
+
 
         // $templateSK = TemplateSK::find($id);
         $pdf = PDF::loadView('admin.TemplateSK.template', compact('templateSK'));
         $file_name = $surat->nama_surat . '.pdf';
-        $file_path = storage_path('../public/assets/surat/') . $file_name;
+        $file_path = public_path('assets/suratkeluar/') . $file_name;
         $pdf->save($file_path);
         // Redirect ke halaman templateSK.show dengan menambahkan ID baru
         return redirect()->route('suratkeluar.index')
@@ -139,23 +159,27 @@ class TemplateSKController extends Controller
     public function Sign($id)
     {
         $templateSK = TemplateSK::where('id', $id)->first();
-        $templateSK->tanda_tangan = 'TTD.jpg';
+        $templateSK->tanda_tangan=auth()->user()->tanda_tangan;
         $templateSK->save();
-
+     
 
         $surat = SuratKeluar::where('id', $templateSK->id_surat)->first();
+        $surat->status="disetujui";
+        $surat->save();
 
         $pdf = PDF::loadView('admin.TemplateSK.signature', compact('templateSK'));
+       
         $file_name = $surat -> file;
-        $file_path = storage_path('../public/assets/surat/') . $file_name;
-        // $pdf->save($file_path);
-
-        $FileToDelete = public_path('../public/assets/surat/') . $surat->file;
+        $file_path = public_path('assets/suratkeluar/').$file_name;
+        
+    
+        $FileToDelete = public_path('../public/assets/suratkeluar/') .$surat->file;
 
         if (File::exists($FileToDelete)){
             File::delete($FileToDelete);
             $pdf->save($file_path);
         }
+
         else{
             $pdf->save($file_path);
             // return 'Filer not found';

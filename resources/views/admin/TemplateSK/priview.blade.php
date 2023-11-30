@@ -58,16 +58,23 @@
 
                         <p class="text-right">Bandar Jaya, {{ $templateSK->tanggal_surat }}
 
+
+
                             <div class="kotak">
+                            @if (!$templateSK->tanda_tangan)
                             <form method="POST" action="{{route("templateSK.Sign",['id' => $templateSK->id])}}">
                                 @csrf
                                 @method('put')
                                 <button type="submit">Tanda Tangani</button>
                             </form>
+                    
+                            @elseif($templateSK->tanda_tangan)
+                                <img src="{{ asset('assets/ttd/'.$templateSK->tanda_tangan) }}" alt="" style="height: 150px; width: 150px">
+                            @endif
 
                             <br><br><br>
                             Direktur RS. Islam Asy-Syifaa</p>
-                        </div>
+                            </div>
 
                     </div>
                 </div>
