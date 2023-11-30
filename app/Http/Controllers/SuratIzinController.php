@@ -53,7 +53,7 @@ class SuratIzinController extends Controller
         $suratIzin->save();
         $pdf = PDF::loadView('karyawan.SuratIzin.templateizin', compact('suratIzin'));
         $file_name = $request->tanggal_izin . '_' . time()  . '.pdf';
-        $file_path = storage_path('../public/assets/surat/') . $file_name;
+        $file_path = storage_path('../public/assets/suratIzin/') . $file_name;
         $pdf->save($file_path);
         $suratIzin->file = $file_name;
         $suratIzin->save();
@@ -143,10 +143,10 @@ class SuratIzinController extends Controller
 
         $pdf = PDF::loadView('admin.DaftarPermohonanIzin.signature', compact('suratIzin'));
         $file_name = $suratIzin->file;
-        $file_path = storage_path('../public/assets/surat/') . $file_name;
+        $file_path = public_path('../public/assets/suratIzin/') . $file_name;
         // $pdf->save($file_path);
 
-        $FileToDelete = public_path('../public/assets/surat/') . $suratIzin->file;
+        $FileToDelete = public_path('../public/assets/suratIzin/') . $suratIzin->file;
 
         if (File::exists($FileToDelete)) {
             File::delete($FileToDelete);

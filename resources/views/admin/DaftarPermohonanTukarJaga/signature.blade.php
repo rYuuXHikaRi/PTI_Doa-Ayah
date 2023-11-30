@@ -65,7 +65,7 @@
             <p>Termohon, <b>{{ $suratTukarJaga->target_tukar_jaga}}<b></p>
             <br><br>
             @if ($suratTukarJaga->target_tukar_jaga)
-            <img src="{{public_path('ttd/'.$suratTukarJaga->target_tukar_jaga)}}" alt="" style="max-height: 120px; max-width:120px">
+            <img src="{{public_path('ttd/'.$suratTukarJaga->tanda_tangan)}}" alt="" style="max-height: 120px; max-width:120px">
                 @endif
             <div class="line"></div>
         </div>
@@ -74,7 +74,7 @@
             <p>Ka. Ruangan</p>
             <br><br>
             @if ($suratTukarJaga->kepala_ruangan)
-            <img src="{{public_path('ttd/'.$suratTukarJaga->kepala_ruangan)}}" alt="" style="max-height: 120px; max-width:120px">
+            <img src="{{public_path('ttd/'.$suratTukarJaga->tanda_tangan)}}" alt="" style="max-height: 120px; max-width:120px">
                 @endif
             <div class="line"></div>
         </div>
@@ -82,7 +82,7 @@
             <p>Ka. Bagian</p>
             <br><br>
             @if ($suratTukarJaga->kepala_bagian)
-            <img src="{{public_path('ttd/'.$suratTukarJaga->kepala_bagian)}}" alt="" style="max-height: 120px; max-width:120px">
+            <img src="{{public_path('ttd/'.$suratTukarJaga->tanda_tangan)}}" alt="" style="max-height: 120px; max-width:120px">
                 @endif
             <div class="line"></div>
         </div>
