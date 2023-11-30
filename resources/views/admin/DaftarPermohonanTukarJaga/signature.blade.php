@@ -64,26 +64,29 @@
         <div class="ttd_B">
             <p>Termohon, <b>{{ $suratTukarJaga->target_tukar_jaga}}<b></p>
             <br><br>
-            @if ($suratTukarJaga->target_tukar_jaga)
-            <img src="{{public_path('ttd/'.$suratTukarJaga->tanda_tangan)}}" alt="" style="max-height: 120px; max-width:120px">
-                @endif
+            @if ($suratTukarJaga->tanda_tangan)
+            <img style="height: 120px ; width:120px;"
+                src="{{ public_path('img/' . $suratTukarJaga->tanda_tangan) }}" alt="Tanda Tangan">
+        @endif
             <div class="line"></div>
         </div>
 
         <div class="ttd_kar">
             <p>Ka. Ruangan</p>
             <br><br>
-            @if ($suratTukarJaga->kepala_ruangan)
-            <img src="{{public_path('ttd/'.$suratTukarJaga->tanda_tangan)}}" alt="" style="max-height: 120px; max-width:120px">
-                @endif
+            @if ($suratTukarJaga->tanda_tangan)
+            <img style="height: 120px ; width:120px;"
+                src="{{ public_path('img/' . $suratTukarJaga->tanda_tangan) }}" alt="Tanda Tangan">
+        @endif
             <div class="line"></div>
         </div>
         <div class="ttd_kab">
             <p>Ka. Bagian</p>
             <br><br>
-            @if ($suratTukarJaga->kepala_bagian)
-            <img src="{{public_path('ttd/'.$suratTukarJaga->tanda_tangan)}}" alt="" style="max-height: 120px; max-width:120px">
-                @endif
+            @if ($suratTukarJaga->tanda_tangan)
+            <img style="height: 120px ; width:120px;"
+                src="{{ public_path('img/' . $suratTukarJaga->tanda_tangan) }}" alt="Tanda Tangan">
+        @endif
             <div class="line"></div>
         </div>
         </div>

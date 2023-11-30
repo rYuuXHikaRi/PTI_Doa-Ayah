@@ -69,11 +69,10 @@ class SuratCutiController extends Controller
     {
         $suratCuti = SuratCuti::where('id', $id)->first();
         $suratCuti->kepala_bagian = 'TTD.jpeg';
-        $suratCuti->save();
 
         $pdf = PDF::loadView('admin.DaftarPermohonanCuti.signature', compact('suratCuti'));
-        $file_name = $suratCuti->file;
-        $file_path = storage_path('../public/assets/suratCuti/') . $file_name;
+        $file_name = 'ACC_' . $suratCuti->file; // Assuming you want to prepend 'ACC_' to the existing file name
+        $file_path = public_path('../public/assets/suratCuti/') . $file_name;
 
         $FileToDelete = public_path('../public/assets/suratCuti/') . $suratCuti->file;
 
@@ -82,9 +81,13 @@ class SuratCutiController extends Controller
             $pdf->save($file_path);
         } else {
             $pdf->save($file_path);
-            // return 'Filer not found';
         }
-        // Redirect ke halaman SuratCuti.show dengan menambahkan ID baru
+
+        // Update the file attribute in the database
+        $suratCuti->file = $file_name;
+        $suratCuti->save();
+
+        // Redirect ke halaman suratIzin.show dengan menambahkan ID baru
         return redirect()->route('DaftarPermohonan.indexCuti')
             ->with('success', 'Data berhasil disimpan!');
     }

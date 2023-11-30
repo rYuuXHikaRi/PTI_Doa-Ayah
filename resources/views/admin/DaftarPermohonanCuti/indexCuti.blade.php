@@ -11,9 +11,7 @@
     </head>
 
     <body>
-
         <div class="container py-5" style="background-color: blue; border-radius: 25px;">
-
             <div class="container py-6">
                 <div class="card-header" style="background-color: blue; color: white; border-bottom: 2px solid white;">
                     <div class="d-flex justify-content-between align-items-center">

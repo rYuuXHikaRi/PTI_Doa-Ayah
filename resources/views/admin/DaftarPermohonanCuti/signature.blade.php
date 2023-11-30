@@ -61,10 +61,10 @@
             <div class="ttd_koor">
                 <p>Mengetahui<br>
                     Ka./Koor.Bagian:</p>
-                    @if ($suratCuti->kepala_bagian)
-                    <img style="height: 120px ; width:120px;" src="{{ asset('img/' . $suratCuti->tanda_tangan) }}"
-                            alt="Tanda Tangan">
-                        @endif
+                    @if ($suratCuti->tanda_tangan)
+                <img style="height: 120px ; width:120px;"
+                    src="{{ public_path('img/' . $suratCuti->tanda_tangan) }}" alt="Tanda Tangan">
+            @endif
                 <br><br>
             </div>
             <div class="ttd_pemohon">
@@ -72,9 +72,9 @@
                     Saya Yang Memohon</p>
                 <p>
                     @if ($suratCuti->tanda_tangan)
-                        <img style="height: 120px ; width:120px;" src="{{ asset('img/' . $suratCuti->tanda_tangan) }}"
-                            alt="Tanda Tangan">
-                    @endif
+                <img style="height: 120px ; width:120px;"
+                    src="{{ public_path('img/' . $suratCuti->tanda_tangan) }}" alt="Tanda Tangan">
+            @endif
                 </p>
                 <p>{{ $suratCuti->nama_pengaju }}</p>
             </div>

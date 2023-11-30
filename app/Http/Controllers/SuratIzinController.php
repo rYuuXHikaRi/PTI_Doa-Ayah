@@ -134,28 +134,7 @@ class SuratIzinController extends Controller
     }
     public function Sign($id)
     {
-        // $suratIzin = suratIzin::where('id', $id)->first();
-        // $suratIzin->manajer = 'TTD.jpeg';
-        // $suratIzin->save();
 
-        // $pdf = PDF::loadView('admin.DaftarPermohonanIzin.signature', compact('suratIzin'));
-        // $file_name = $suratIzin->file;
-        // $file_path = public_path('../public/assets/suratIzin/') . 'ACC_'. $file_name ;
-        // // $pdf->save($file_path);
-
-        // $FileToDelete = public_path('../public/assets/suratIzin/') . $suratIzin->file;
-
-        // if (File::exists($FileToDelete)) {
-        //     File::delete($FileToDelete);
-        //     $pdf->save($file_path);
-        // } else {
-        //     $pdf->save($file_path);
-        //     // return 'Filer not found';
-        // }
-
-        // // Redirect ke halaman suratIzin.show dengan menambahkan ID baru
-        // return redirect()->route('DaftarPermohonan.index')
-        //     ->with('success', 'Data berhasil disimpan!');
         $suratIzin = suratIzin::where('id', $id)->first();
         $suratIzin->manajer = 'TTD.jpeg';
 
