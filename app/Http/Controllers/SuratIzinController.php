@@ -135,7 +135,7 @@ class SuratIzinController extends Controller
     public function Sign($id)
     {
         $suratIzin = suratIzin::where('id', $id)->first();
-        $suratIzin->manajer = 'TTD.jpg';
+        $suratIzin->manajer = 'TTD.jpeg';
         $suratIzin->save();
 
 
@@ -166,7 +166,7 @@ class SuratIzinController extends Controller
         if (!$suratIzin) {
             abort(404);
         }
-        $file_path = storage_path('../public/assets/surat/') . $suratIzin->file;
+        $file_path = storage_path('../public/assets/suratIzin/') . $suratIzin->file;
 
         // Tentukan nama file yang akan di-download
         $file = $suratIzin->file;

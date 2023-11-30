@@ -54,7 +54,7 @@ class SuratTukarJagaController extends Controller
         $suratTukarJaga->save();
         $Convertpdf = PDF::loadView('karyawan.SuratTukarJaga.templatetukarjaga', compact('suratTukarJaga'));
         $file_name = $request->alamat . '_' . time()  . '.pdf';
-        $file_path = storage_path('../public/assets/suratTukarJaga/') . $file_name;
+        $file_path = storage_path('../public/assets/SuratTukarJaga/') . $file_name;
         $Convertpdf->save($file_path);
         $suratTukarJaga->file = $file_name;
         $suratTukarJaga->save();
@@ -71,15 +71,15 @@ class SuratTukarJagaController extends Controller
     public function Sign($id)
     {
         $suratTukarJaga = SuratTukarJaga::where('id', $id)->first();
-        $suratTukarJaga->kepala_bagian = 'TTD.jpg';
-        $suratTukarJaga->kepala_ruangan = 'TTD.jpg';
-        $suratTukarJaga->target_tukar_jaga = 'TTD.jpg';
+        $suratTukarJaga->kepala_bagian = 'TTD.jpeg';
+        $suratTukarJaga->kepala_ruangan = 'TTD.jpeg';
+        $suratTukarJaga->target_tukar_jaga = 'TTD.jpeg';
         $suratTukarJaga->save();
         $pdf = PDF::loadView('admin.DaftarPermohonanTukarJaga.signature', compact('suratTukarJaga'));
         $file_name = $suratTukarJaga->file;
-        $file_path = storage_path('../public/assets/surat/') . $file_name;
+        $file_path = storage_path('../public/assets/SuratTukarJaga/') . $file_name;
 
-        $FileToDelete = public_path('../public/assets/surat/') . $suratTukarJaga->file;
+        $FileToDelete = public_path('../public/assets/SuratTukarJaga/') . $suratTukarJaga->file;
 
         if (File::exists($FileToDelete)) {
             File::delete($FileToDelete);
@@ -98,7 +98,7 @@ class SuratTukarJagaController extends Controller
         if (!$suratTukarJaga) {
             abort(404);
         }
-        $file_path = storage_path('../public/assets/surat/') . $suratTukarJaga->file;
+        $file_path = storage_path('../public/assets/SuratTukarJaga/') . $suratTukarJaga->file;
 
         // Tentukan nama file yang akan di-download
         $file = $suratTukarJaga->file;

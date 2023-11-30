@@ -68,7 +68,7 @@
                                                                 <i class="fa-solid fa-file-signature"></i></button></a>
 
                                                             @if ($TukarJaga->file)
-                                                                <a href="{{ route('arsipdownload', ['id' => $TukarJaga->id, 'file' => $TukarJaga->file]) }}"
+                                                                <a href="{{ route('PermohonanTukarJaga.download', ['id' => $TukarJaga->id, 'file' => $TukarJaga->file]) }}"
                                                                     class="btn btn-success" target="_blank"><i
                                                                         class="fas fa-download"></i></a>
                                                             @endif

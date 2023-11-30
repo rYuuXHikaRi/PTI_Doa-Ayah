@@ -68,14 +68,14 @@ class SuratCutiController extends Controller
     public function Sign($id)
     {
         $suratCuti = SuratCuti::where('id', $id)->first();
-        $suratCuti->kepala_bagian = 'TTD.jpg';
+        $suratCuti->kepala_bagian = 'TTD.jpeg';
         $suratCuti->save();
 
         $pdf = PDF::loadView('admin.DaftarPermohonanCuti.signature', compact('suratCuti'));
         $file_name = $suratCuti->file;
-        $file_path = storage_path('../public/assets/surat/') . $file_name;
+        $file_path = storage_path('../public/assets/suratCuti/') . $file_name;
 
-        $FileToDelete = public_path('../public/assets/surat/') . $suratCuti->file;
+        $FileToDelete = public_path('../public/assets/suratCuti/') . $suratCuti->file;
 
         if (File::exists($FileToDelete)) {
             File::delete($FileToDelete);
@@ -94,7 +94,7 @@ class SuratCutiController extends Controller
         if (!$suratCuti) {
             abort(404);
         }
-        $file_path = storage_path('../public/assets/surat/') . $suratCuti->file;
+        $file_path = storage_path('../public/assets/suratCuti/') . $suratCuti->file;
 
         // Tentukan nama file yang akan di-download
         $file = $suratCuti->file;
