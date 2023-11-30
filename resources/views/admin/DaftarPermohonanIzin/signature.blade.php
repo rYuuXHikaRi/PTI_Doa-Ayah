@@ -35,9 +35,10 @@
             <p> Mengetahui,<br>
                 Manager Keuangan Umum & Personalia
                 <br><br><br><br>
-                @if ($suratIzin->manajer)
-                        <img src="{{public_path('ttd/'.$suratIzin->manajer)}}" alt="" style="max-height: 120px; max-width:120px">
-                            @endif
+                @if ($suratIzin->tanda_tangan)
+                <img style="height: 120px ; width:120px;"
+                    src="{{ public_path('img/' . $suratIzin->tanda_tangan) }}" alt="Tanda Tangan">
+            @endif
                 <b>Nurul Hakim, SE</b>
             </p>
         </div>

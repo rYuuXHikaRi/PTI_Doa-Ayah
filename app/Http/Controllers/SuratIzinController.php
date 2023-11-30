@@ -134,17 +134,34 @@ class SuratIzinController extends Controller
     }
     public function Sign($id)
     {
+        // $suratIzin = suratIzin::where('id', $id)->first();
+        // $suratIzin->manajer = 'TTD.jpeg';
+        // $suratIzin->save();
+
+        // $pdf = PDF::loadView('admin.DaftarPermohonanIzin.signature', compact('suratIzin'));
+        // $file_name = $suratIzin->file;
+        // $file_path = public_path('../public/assets/suratIzin/') . 'ACC_'. $file_name ;
+        // // $pdf->save($file_path);
+
+        // $FileToDelete = public_path('../public/assets/suratIzin/') . $suratIzin->file;
+
+        // if (File::exists($FileToDelete)) {
+        //     File::delete($FileToDelete);
+        //     $pdf->save($file_path);
+        // } else {
+        //     $pdf->save($file_path);
+        //     // return 'Filer not found';
+        // }
+
+        // // Redirect ke halaman suratIzin.show dengan menambahkan ID baru
+        // return redirect()->route('DaftarPermohonan.index')
+        //     ->with('success', 'Data berhasil disimpan!');
         $suratIzin = suratIzin::where('id', $id)->first();
         $suratIzin->manajer = 'TTD.jpeg';
-        $suratIzin->save();
-
-
-        // $surat = SuratKeluar::where('id', $suratIzin->id_surat)->first();
 
         $pdf = PDF::loadView('admin.DaftarPermohonanIzin.signature', compact('suratIzin'));
-        $file_name = $suratIzin->file;
+        $file_name = 'ACC_' . $suratIzin->file; // Assuming you want to prepend 'ACC_' to the existing file name
         $file_path = public_path('../public/assets/suratIzin/') . $file_name;
-        // $pdf->save($file_path);
 
         $FileToDelete = public_path('../public/assets/suratIzin/') . $suratIzin->file;
 
@@ -153,8 +170,11 @@ class SuratIzinController extends Controller
             $pdf->save($file_path);
         } else {
             $pdf->save($file_path);
-            // return 'Filer not found';
         }
+
+        // Update the file attribute in the database
+        $suratIzin->file = $file_name;
+        $suratIzin->save();
 
         // Redirect ke halaman suratIzin.show dengan menambahkan ID baru
         return redirect()->route('DaftarPermohonan.index')
