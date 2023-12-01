@@ -131,9 +131,10 @@ Route::get('/templatetuk', function () {
 //     return view('karyawan.SuratTukarJaga.templatetukarjaga');
 // });
 
-// Route::get('/tes', function () {
-//     return view('tes');
-// });
+Route::get('/tes', function () {
+    return view('tes');
+});
+
 // Route::get('/dashboardkabag', function () {
 //     return view('dashboardkabag');
 // });
@@ -172,7 +173,6 @@ Route::post('/disposisi/add/{id}/{status}', [DisposisiController::class,'store']
 // Route::get('/template', function () {
 //     return view('admin.suratkeluar.template');
 // });
-
 
 
 // Auth::routes();
