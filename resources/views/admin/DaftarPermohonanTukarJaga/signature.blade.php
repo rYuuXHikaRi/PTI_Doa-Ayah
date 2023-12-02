@@ -45,9 +45,7 @@
             </tr>
         </table>
         <p>Tgl. PENYERAHAN BLANKO</p>
-        <div class="tgl_blangko">
-            <p>ini tanggal penyerahan</p>
-        </div>
+        <div class="tgl_blangko"></div>
         <div class="ttd_A">
             <p>Yang Memohon, <b>{{ $suratTukarJaga->nama_pengaju }}</b>
             </p>
@@ -57,37 +55,32 @@
                         src="{{ public_path('img/' . $suratTukarJaga->tanda_tangan) }}" alt="Tanda Tangan">
                 @endif
             </p>
-            <b>{{ $suratTukarJaga->nama_pengaju }}</b>
-
-            <div class="line"></div>
+            <p><b>{{ $suratTukarJaga->nama_pengaju }}</b></p>
         </div>
         <div class="ttd_B">
             <p>Termohon, <b>{{ $suratTukarJaga->target_tukar_jaga}}<b></p>
-            <br><br>
             @if ($suratTukarJaga->tanda_tangan)
             <img style="height: 120px ; width:120px;"
                 src="{{ public_path('img/' . $suratTukarJaga->tanda_tangan) }}" alt="Tanda Tangan">
         @endif
-            <div class="line"></div>
+        <p><b>{{ $suratTukarJaga->target_tukar_jaga}}<b></p>
         </div>
 
         <div class="ttd_kar">
             <p>Ka. Ruangan</p>
-            <br><br>
             @if ($suratTukarJaga->tanda_tangan)
             <img style="height: 120px ; width:120px;"
                 src="{{ public_path('img/' . $suratTukarJaga->tanda_tangan) }}" alt="Tanda Tangan">
         @endif
-            <div class="line"></div>
+        <p><b>{{ $suratTukarJaga->nama_pengaju }}</b></p>
         </div>
         <div class="ttd_kab">
             <p>Ka. Bagian</p>
-            <br><br>
             @if ($suratTukarJaga->tanda_tangan)
             <img style="height: 120px ; width:120px;"
                 src="{{ public_path('img/' . $suratTukarJaga->tanda_tangan) }}" alt="Tanda Tangan">
         @endif
-            <div class="line"></div>
+        <p><b>{{ $suratTukarJaga->nama_pengaju }}</b></p>
         </div>
         </div>
 </body>
