@@ -59,13 +59,14 @@
                 </p>
             </div>
             <div class="ttd_koor">
-                <p>Mengetahui <br>
+                <p>Mengetahui,<br>
+                    Ka./Koor.Bagian
                     @if ($suratCuti->tanda_tangan)</p>
-                <p>Ka./Koor.Bagian:</p>
                 <img style="height: 120px ; width:120px;"
                     src="{{ public_path('img/' . $suratCuti->tanda_tangan) }}" alt="Tanda Tangan">
             @endif
-                <br><br>
+            <p>{{ $suratCuti->nama_pengaju }}</p>
+
             </div>
             <div class="ttd_pemohon">
                 <p>Bandar Jaya,<br>

@@ -34,13 +34,12 @@
         <div class="ttd_aju">
             <p> Mengetahui,<br>
                 Manager Keuangan Umum & Personalia
-                <br><br><br><br>
-                @if ($suratIzin->tanda_tangan)
+            </p>
+            @if ($suratIzin->tanda_tangan)
                 <img style="height: 120px ; width:120px;"
                     src="{{ public_path('img/' . $suratIzin->tanda_tangan) }}" alt="Tanda Tangan">
             @endif
-                <b>Nurul Hakim, SE</b>
-            </p>
+            <p><b>Nurul Hakim, SE</b></p>
         </div>
         <div class="ttd_nama">
             <p> <br>

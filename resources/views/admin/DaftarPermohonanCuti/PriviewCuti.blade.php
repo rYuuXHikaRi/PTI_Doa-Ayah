@@ -21,7 +21,7 @@
                 margin-top: -0.6rem;">
                 FORM.UM.RSAS.72</p>
 
-            <img src="../img/logo.png" alt="logo" style="position:absolute; width:80px; height:80px; margin-top:45px" />
+            <img src="{{ asset('img/logo.png') }}" alt="logo" style="position:absolute; width:80px; height:80px; margin-top:45px" />
 
             <div class="teks_header">
                 <h1>RUMAH SAKIT ISLAM ASY-SYIFAA <br>(RSAS)</h1>
