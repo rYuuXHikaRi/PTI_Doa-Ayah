@@ -1,3 +1,7 @@
+* {
+    font-family:sans-serif;
+}
+
 :root {
   --heading-color: #E6EFFACC;
   --text-color: #0253BA;
@@ -6,6 +10,7 @@
 @media (max-width: 616px) {
   .container {
       margin: 5%;
+      margin-top: 33%;
       margin-left: 12%;
   }
   .card-header {
@@ -29,10 +34,6 @@
   }
   .content-tanggal {
       color: var(--text-color);
-  }
-  .content-text-tgl h3 {
-      font-size: 14px;
-      margin: 1rem 3rem 1rem;
   }
   .content-input {
       display: flex;
@@ -162,51 +163,30 @@
   }
 }
 
-@media (max-width: 376px) {
-  .container {
-      margin: 6%;
-      margin-left: 12%;
-  }
-  .card-header {
-    width: 92%;
-  }
+@media (max-width: 541px) {
   .card-header h1 {
-    margin-left: .3rem;
-  }
-  .card-body {
-    width: 92%;
-  }
-  .content-text-tgl h3 {
-    margin: 1rem 1rem 1rem;
-  }
-  .content-box {
-    margin: -1rem 1rem 1rem;
+    margin-left: 0.5rem;
   }
   .content-text h3 {
-    margin: 0.7rem 1rem 1rem;
+    margin: 0.7rem 1.4rem 1rem;
+  }
+  .content-box {
+    width: 85%;
+    margin: -1rem 1.4rem 1rem;
   }
   .select {
-    margin: -1rem 1rem 1rem;
-  }
-  .content-ket {
-    margin: -1rem 1rem 1rem;
-  }
-  .notif_berhasil {
-    margin-left: -27px;
+    width: 85%;
+    margin: -1rem 1.4rem 1rem;
+  }.content-ket {
+    width: 85%;
+    margin: -1rem 1.4rem 1rem;
   }
   button {
-    margin: 2rem 3.8rem 0;
+    margin: 3rem 4.7rem;
   }
 }
 
 @media (max-width: 431px) {
-  .content-text-tgl h3 {
-      margin: 1rem 1rem 1rem;
-  }
-  .content-box-tgl {
-      margin-left: 1rem;
-      width: 38%;
-  }
   .card-header h1 {
       margin-left: .2rem;
       padding: .8rem;     

@@ -10,20 +10,18 @@
     </div>
     <div class="card-body">
         <form>
-            <div class="content-tanggal">
-                <div class="content-text-tgl">
-                    <h3>Jadwal asli</h3>
-                </div>
-                <div class="content-box">
-                    <input class="input_waktu" type="date" id="Tanggal_Mulai" name="tanggal_mulai">
-                </div>
+            <div class="content-text">
+                <h3>Jadwal asli</h3>
+            </div>
+            <div class="content-box">
+                <input class="input_waktu" type="date" id="Tanggal_Mulai" name="tanggal_mulai">
+            </div>
 
-                <div class="content-text-tgl">
-                    <h3>Jadwal yang ingin diubah</h3>
-                </div>
-                <div class="content-box">
-                    <input class="input_waktu" type="date" id="Tanggal_izin" name="tanggal_selesai">
-                </div>
+            <div class="content-text">
+                <h3>Jadwal yang ingin diubah</h3>
+            </div>
+            <div class="content-box">
+                <input class="input_waktu" type="date" id="Tanggal_izin" name="tanggal_selesai">
             </div>
 
             <div class="content-text">

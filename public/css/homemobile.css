@@ -1,3 +1,7 @@
+* {
+    font-family:sans-serif;
+}
+
 :root {
     --heading-color: #E6EFFACC;
     --text-color: #0253BA;
@@ -6,6 +10,7 @@
 @media (max-width: 616px) {
     .container {
         margin: 5%;
+        margin-top: 36%;
         margin-left: 12%;
     }
     .card-header {
@@ -54,21 +59,27 @@
     }
 }
 
-@media (max-width: 431px) {
+@media (max-width: 497px) {
     .container {
-        margin: 6%;
-        margin-left: 12%;
+        margin-top: 44%;
+    }
+}
+
+@media (max-width: 341px) {
+    .container {
+        margin-top: 66%;
     }
     .card-header {
-        width: 92%;
-    }
-    .card-header h1 {
-        margin-left: 0.5rem;
+        width: 91%;
     }
     .card-body {
-        width: 92%;
+        width: 91%;
+    }
+    .card-header h1 {
+        margin-left: 1rem;
     }
     .card-content {
-        margin: 2rem 1rem 1rem;
+        width: 73%;
+        margin: 1rem 1.7rem 0;
     }
 }

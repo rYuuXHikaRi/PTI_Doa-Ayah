@@ -1,3 +1,7 @@
+* {
+    font-family:sans-serif;
+}
+
 :root {
     --heading-color: #E6EFFACC;
     --text-color: #0253BA;
@@ -5,13 +9,16 @@
 
 @media (max-width: 616px) {
     .container {
+        height: 35rem;
         margin: 5%;
+        margin-top: 6%;
         margin-left: 12%;
     }
     .card-header {
         background: var(--heading-color);
         width: 84%;
         height: 3rem;
+        margin-top: 9rem;
         border-radius: 10px 10px 0px 0px;
     }
     .card-header h1 {
@@ -123,55 +130,26 @@
     }
 }
 
-@media (max-width: 376px) {
-    .container {
-        margin: 6%;
-        margin-left: 12%;
-    }
-    .card-header {
-        width: 92%;
-    }
-    .card-body {
-        width: 92%;
-    }
-    .content-box {
-        width: 81%;
-    }
-    .content-ket {
-        width: 81%;
-    }
-    .pilih {
-        width: 81%;
-    }
-    .notif_berhasil {
-        margin-left: -30px;
-    }
-    button {
-        margin: 1rem 3.4rem;
-    }
-}
-
-@media (max-width: 431px) {
+@media (max-width: 444px) {
     .card-header h1 {
-        margin-left: .2rem;
-        padding: .8rem;     
+        margin-left: 0.3rem;
     }
-    .content-text h3 {
-        margin: 0.7rem 1rem 1rem;  
+    .card-body h3 {
+        margin: 0.7rem 1rem 1rem;
     }
     .content-box {
+        width: 85%;
         margin: -1rem 1rem 1rem;
     }
     .content-ket {
+        width: 85%;
         margin: -1rem 1rem 1rem;
     }
     .pilih {
+        width: 85%;
         margin: -1rem 1rem 1rem;
     }
-    .notif_berhasil {
-        margin-left: -12px;
-    }
     button {
-        margin: 1rem 3.6rem;
+        margin: 2rem 3.5rem;
     }
 }

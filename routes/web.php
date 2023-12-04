@@ -33,37 +33,37 @@ Route::resource('surattukarjaga', SuratTukarJagaController::class);
 
 
 
-Route::get('/TukarJaga', function () {
-    return view('formtukarjagamobile');
-});
-
-Route::get('/PermohonanCuti', function () {
-    return view('formizinmobile');
-});
-
-Route::get('/mobile', function () {
-    return view('homemobile');
-});
-
-Route::get('/PermohonanIzin', function () {
-    return view('formcutimobile');
-});
-
-// Route::get('/lihat', function () {
-//     return view('lihatstatusmobile');
+// Route::get('/TukarJaga', function () {
+//     return view('formtukarjagamobile');
 // });
 
-// Route::get('/statustukarjagamobile', function () {
-//     return view('statustukarjagamobile');
+// Route::get('/PermohonanIzin', function () {
+//     return view('formizinmobile');
 // });
 
-// Route::get('/statusizinmobile', function () {
-//     return view('statusizinmobile');
+// Route::get('/mobile', function () {
+//     return view('homemobile');
 // });
 
-// Route::get('/statuscutimobile', function () {
-//     return view('statuscutimobile');
+// Route::get('/PermohonanCuti', function () {
+//     return view('formcutimobile');
 // });
+
+Route::get('/lihat', function () {
+    return view('lihatstatusmobile');
+});
+
+Route::get('/statustukarjagamobile', function () {
+    return view('statustukarjagamobile');
+});
+
+Route::get('/statusizinmobile', function () {
+    return view('statusizinmobile');
+});
+
+Route::get('/statuscutimobile', function () {
+    return view('statuscutimobile');
+});
 
 // Route::get('/templateizinn', function () {
 //     return view('templateizin');
