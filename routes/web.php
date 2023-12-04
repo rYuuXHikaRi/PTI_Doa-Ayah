@@ -134,11 +134,20 @@ Route::middleware(['auth','role:2'])->group(function () {
     Route::get('/kbdisposisi/add/{id}/{jenis}', [KBDisposisiController::class,'tambah'])->name('kbdisposisi.tambah');
     Route::get('/kbdisposisi/showsurat/{id}/{nama}', [KBDisposisiController::class,'showsurat'])->name('kbdisposisi.showsurat');
     Route::post('/kbdisposisi/store/{id}/{jenis}', [KBDisposisiController::class,'store'])->name('kbdisposisi.tambahdisposisi');
-    
     Route::get('/kbsuratkeluar/download/{id}/{file}', [KBSuratKeluarController::class, 'downloadSurat'])->name('kbsuratkeluar.download');
 
     Route::resource('kbsuratmasuk',KBSuratMasukController::class);
     Route::get('/kbsuratmasuk/download/{id}/{file}', [KBSuratMasukController::class, 'downloadsuratmasuk'])->name('kbsuratmasukdownload');
+
+
+    route::resource('templateSK', TemplateSKController::class);
+    Route::get('/templateSk/show', [TemplateSKController::class, 'showDesk'])->name('templateSK.showDesk');
+    // Route::post('/templateSk/{id}', [TemplateSKController::class, 'template'])->name('templateSK.template');
+    // Route::post('/templateSk/{id}', [TemplateSKController::class, 'storeTemplate'])->name('templateSK.storeSK');
+    Route::post('/templateSk/storenew', [TemplateSKController::class, 'storeSKnew'])->name('templateSK.storeSKnew');
+    Route::post('/templateSk', [TemplateSKController::class, 'storeSKForm'])->name('templateSK.storeSKForm');
+    Route::get('/template/priview/{id}', [TemplateSKController::class, 'priview'])->name('templateSK.priview');
+    Route::put('/template/priview/{id}', [TemplateSKController::class, 'Sign'])->name('templateSK.Sign');
 
 });
 
