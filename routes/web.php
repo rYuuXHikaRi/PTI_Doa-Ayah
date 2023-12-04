@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListRequestLetterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -12,6 +13,78 @@ use App\Http\Controllers\Admin\SuratKeluarController;
 use App\Http\Controllers\KepalaBagian\KBDisposisiController;
 use App\Http\Controllers\KepalaBagian\KBSuratMasukController;
 use App\Http\Controllers\KepalaBagian\KBSuratKeluarController;
+
+
+use App\Http\Controllers\SuratCutiController;
+use App\Http\Controllers\SuratIzinController;
+use App\Http\Controllers\SuratTukarJagaController;
+use App\Models\ListRequestLetter;
+
+
+
+
+
+Route::get('/template', function () {
+        return view('admin.TemplateSK.template');
+    });
+
+Route::get('/buatsurattemplate', function () {
+    return view('buatsurattemplate');
+});
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/SuratIzin', SuratIzinController, 'index')->name('home');
+Route::resource('suratizin', SuratIzinController::class);
+Route::get('/suratizin/priview/{id}', [SuratIzinController::class, 'priview'])->name('PermohonanIzin.priview');
+Route::put('/suratizin/priview/{id}', [SuratIzinController::class, 'Sign'])->name('PermohonanIzin.Sign');
+Route::get('/suratizin/{id}/{file}', [SuratIzinController::class, 'downloadSuratIzin'])->name('PermohonanIzin.download');
+
+
+Route::resource('suratcuti', SuratCutiController::class);
+Route::get('/suratcuti/priview/{id}', [SuratCutiController::class, 'priview'])->name('PermohonanCuti.priview');
+Route::put('/suratcuti/priview/{id}', [SuratCutiController::class, 'Sign'])->name('PermohonanCuti.Sign');
+Route::get('/suratcuti/{id}/{file}', [SuratCutiController::class, 'downloadSuratCuti'])->name('PermohonanCuti.download');
+
+
+
+Route::resource('surattukarjaga', SuratTukarJagaController::class);
+Route::get('/surattukarjaga/priview/{id}', [SuratTukarJagaController::class, 'priview'])->name('PermohonanTukarJaga.priview');
+Route::put('/surattukarjaga/priview/{id}', [SuratTukarJagaController::class, 'Sign'])->name('PermohonanTukarJaga.Sign');
+Route::get('/surattukarjaga/{id}/{file}', [SuratTukarJagaController::class, 'downloadSuratTukarJaga'])->name('PermohonanTukarJaga.download');
+
+
+Route::resource('DaftarPermohonan', ListRequestLetterController::class);
+Route::get('/DaftarPermohonanCuti', [ListRequestLetterController::class, 'indexCuti'])->name('DaftarPermohonan.indexCuti');
+Route::get('/DaftarPermohonanTukarJaga', [ListRequestLetterController::class, 'indexTukarJaga'])->name('DaftarPermohonan.indexTukarJaga');
+
+
+
+
+
+
+Route::get('/TukarJaga', function () {
+    return view('formtukarjagamobile');
+});
+
+Route::get('/PermohonanCuti', function () {
+    return view('formcutimobile');
+});
+
+
+
+Route::get('/templatetuk', function () {
+    return view('templatetukarjaga');
+});
+
+// Route::get('/templatetukarjaga', function () {
+//     return view('karyawan.SuratTukarJaga.templatetukarjaga');
+// });
+
+Route::get('/tes', function () {
+    return view('tes');
+});
 
 
 Auth::routes();
@@ -82,7 +155,6 @@ Route::middleware(['auth','role:2'])->group(function () {
 // Route::get('/template/priview/{id}', [TemplateSKController::class, 'priview'])->name('templateSK.priview');
 // Route::put('/template/priview/{id}', [TemplateSKController::class, 'Sign'])->name('templateSK.Sign');
 // // Route::get('/suratkeluar/{id}', [TemplateSKController::class, 'signature'])->name('templateSK.signature');
-
 
 
 
