@@ -141,7 +141,7 @@
                                                       
 
                                                         @if (auth()->user()->jabatan == "Direktur RS" && $suratkeluarr->jenis_surat=="Template" && $suratkeluarr->status != 'disetujui'    )
-                                                        <a href="{{ route('templateSK.priview', $suratkeluarr->id) }}"><button
+                                                        <a href="{{ route('kbtemplateSK.priview', $suratkeluarr->id) }}"><button
                                                             class="btn btn-warning" style="background:#1AACAC">
                                                             <i class="fa-solid fa-file-signature"></i></button></a>
                                                         @endif

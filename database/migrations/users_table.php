@@ -9,24 +9,22 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->id(); // Kolom id Utama
             $table->string('role', 11);
-            $table->string('nama_karyawan', 255);
-            $table->string('email', 255)->unique();
-            $table->string('jabatan', 255);
-            $table->string('nik', 255)->unique();
-            $table->string('password', 255);
-            $table->string('foto')->nullable();
-            $table->string('alamat', 255);
-            $table->string('nomor_hp', 255);
-            $table->string('tanda_tangan', 255);
-            $table->string('nama_bagian', 255);
-            $table->integer('jumlah_izin')->nullable();
-            $table->integer('jumlah_cuti')->nullable();
-            $table->integer('jumlah_tukar_jaga')->nullable();
+            $table->string('nama_karyawan');
+            $table->string('email')->index();
+            $table->string('jabatan');
+            $table->string('nik')->index();
+            $table->string('password');
+            $table->string('foto')->nullable(); // Kolom foto dapat NULL
+            $table->string('alamat');
+            $table->string('nomor_hp');
+            $table->string('tanda_tangan');
+            $table->string('nama_bagian');
+            $table->integer('jumlah_izin')->nullable(); // Kolom jumlah_izin dapat NULL
+            $table->integer('jumlah_cuti')->nullable(); // Kolom jumlah_cuti dapat NULL
+            $table->integer('jumlah_tukar_jaga')->nullable(); // Kolom jumlah_tukar_jaga dapat NULL
             $table->timestamps();
-            $table->date('updated_at')->nullable();
-            $table->date('created_at')->nullable();
         });
     }
 

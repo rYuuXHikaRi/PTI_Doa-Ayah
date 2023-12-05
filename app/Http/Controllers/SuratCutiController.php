@@ -4,12 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\SuratCuti;
+use App\Models\Disposisi;
 use App\Http\Requests\StoreSuratCutiRequest;
 use App\Http\Requests\UpdateSuratCutiRequest;
 use Illuminate\Support\Facades\Session;
-use Carbon\Carbon;
-use App\Models\TemplateSK;
-use App\Models\SuratKeluar;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\File;
 
@@ -36,24 +34,36 @@ class SuratCutiController extends Controller
         $location1 = 'assets/suratCuti/';
 
         $suratCuti = SuratCuti::create([
-            'nama_pengaju' => 'Muhammad ibnu',
+            'nama_pengaju' => auth()->user()->nama_karyawan,
             'bagian' => $request->bagian,
             'tanggal_mulai' => $request->tanggal_mulai,
             'tanggal_selesai' => $request->tanggal_selesai,
             'alamat' => $request->alamat,
             'jabatan' => $request->jabatan,
             'keterangan' => $request->keterangan,
-            'status' => "menunggu disetujui",
+            'tanda_tangan'=>auth()->user()->tanda_tangan,
+            'status' => "Kepala Bagian",
         ]);
 
-        $suratCuti->tanda_tangan = 'TTD.jpeg';
+        $suratCuti->nama_surat ="Surat Cuti ".auth()->user()->nama_karyawan.$suratCuti->id;
+
         $suratCuti->save();
-        $Convertpdf = PDF::loadView('karyawan.SuratCuti.templatecuti', compact('suratCuti'));
-        $file_name = $request->alamat . '_' . time()  . '.pdf';
+
+
+        $pdf = PDF::loadView('karyawan.SuratCuti.templatecuti', compact('suratCuti'));
+        $file_name = $suratCuti->nama_surat . '.pdf';
         $file_path = storage_path('../public/assets/suratCuti/') . $file_name;
-        $Convertpdf->save($file_path);
+        $pdf->save($file_path);
         $suratCuti->file = $file_name;
         $suratCuti->save();
+
+        Disposisi::create([
+            'id_surat'=> $suratCuti->id,
+            'nama_surat' => $suratCuti->nama_surat,
+            'status' => $suratCuti->status,
+            'deskripsi' => "Surat Telah diajukan oleh ".$suratCuti->nama_pengaju,
+            // Tambahkan kolom-kolom lainnya sesuai kebutuhan
+        ]);
 
         Session::flash('success', 'Data surat Berhasil Ditambahkan');
         return redirect()->route('suratcuti.create')->with('success', 'surat berhasil ditambahkan.');
@@ -68,7 +78,8 @@ class SuratCutiController extends Controller
     public function Sign($id)
     {
         $suratCuti = SuratCuti::where('id', $id)->first();
-        $suratCuti->kepala_bagian = 'TTD.jpeg';
+        $suratCuti->kepala_bagian = auth()->user()->tanda_tangan;
+        $suratCuti->save();
 
         $pdf = PDF::loadView('admin.DaftarPermohonanCuti.signature', compact('suratCuti'));
         $file_name = 'ACC_' . $suratCuti->file; // Assuming you want to prepend 'ACC_' to the existing file name
@@ -86,6 +97,14 @@ class SuratCutiController extends Controller
         // Update the file attribute in the database
         $suratCuti->file = $file_name;
         $suratCuti->save();
+
+        Disposisi::create([
+            'id_surat'=> $suratCuti->id,
+            'nama_surat' => $suratCuti->nama_surat,
+            'status' => 'disetujui',
+            'deskripsi' => "Surat Telah disetujui ",
+            // Tambahkan kolom-kolom lainnya sesuai kebutuhan
+        ]);
 
         // Redirect ke halaman suratIzin.show dengan menambahkan ID baru
         return redirect()->route('DaftarPermohonan.indexCuti')

@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('disposisis', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('disposisi', function (Blueprint $table) {
+            $table->id(); // Kolom id Utama
+            $table->integer('id_surat');
+            $table->string('nama_surat');
+            $table->string('status');
+            $table->string('deskripsi');
+            $table->timestamps(); // 
         });
     }
 
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('disposisis');
+        Schema::dropIfExists('disposisi');
     }
 };

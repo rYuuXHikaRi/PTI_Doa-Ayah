@@ -50,35 +50,35 @@
             <p>Yang Memohon, <b>{{ $suratTukarJaga->nama_pengaju }}</b>
             </p>
             <p>
-                @if ($suratTukarJaga->tanda_tangan)
+          
                     <img style="height: 120px ; width:120px;"
-                        src="{{ public_path('img/' . $suratTukarJaga->tanda_tangan) }}" alt="Tanda Tangan">
-                @endif
+                        src="{{ public_path('assets/ttd/' . $suratTukarJaga->tanda_tangan) }}" alt="Tanda Tangan">
+          
             </p>
             <p><b>{{ $suratTukarJaga->nama_pengaju }}</b></p>
         </div>
         <div class="ttd_B">
             <p>Termohon, <b>{{ $suratTukarJaga->target_tukar_jaga}}<b></p>
-            @if ($suratTukarJaga->tanda_tangan)
+            @if ($suratTukarJaga->termohon)
             <img style="height: 120px ; width:120px;"
-                src="{{ public_path('img/' . $suratTukarJaga->tanda_tangan) }}" alt="Tanda Tangan">
+                src="{{ public_path('assets/ttd/' . $suratTukarJaga->termohon) }}" alt="Tanda Tangan">
         @endif
         <p><b>{{ $suratTukarJaga->target_tukar_jaga}}<b></p>
         </div>
 
         <div class="ttd_kar">
             <p>Ka. Ruangan</p>
-            @if ($suratTukarJaga->tanda_tangan)
+            @if ($suratTukarJaga->kepala_ruangan)
             <img style="height: 120px ; width:120px;"
-                src="{{ public_path('img/' . $suratTukarJaga->tanda_tangan) }}" alt="Tanda Tangan">
+                src="{{ public_path('assets/ttd/' . $suratTukarJaga->kepala_ruangan) }}" alt="Tanda Tangan">
         @endif
         <p><b>{{ $suratTukarJaga->nama_pengaju }}</b></p>
         </div>
         <div class="ttd_kab">
             <p>Ka. Bagian</p>
-            @if ($suratTukarJaga->tanda_tangan)
+            @if ($suratTukarJaga->kepala_bagian)
             <img style="height: 120px ; width:120px;"
-                src="{{ public_path('img/' . $suratTukarJaga->tanda_tangan) }}" alt="Tanda Tangan">
+                src="{{ public_path('assets/ttd/' . $suratTukarJaga->kepala_bagian) }}" alt="Tanda Tangan">
         @endif
         <p><b>{{ $suratTukarJaga->nama_pengaju }}</b></p>
         </div>

@@ -61,15 +61,29 @@
                                                         <td>{{ $Cuti->status }}</td>
 
                                                         <td>
+                                                            @if ($Cuti->status == auth()->user()->jabatan)
                                                             <a href="{{ route('PermohonanCuti.priview', $Cuti->id) }}"><button
                                                                 class="btn btn-warning" style="background:#1AACAC">
                                                                 <i class="fa-solid fa-file-signature"></i></button></a>
+                                                                
+                                                            @endif
 
                                                             @if ($Cuti->file)
                                                                 <a href="{{ route('PermohonanCuti.download', ['id' => $Cuti->id, 'file' => $Cuti->file]) }}"
                                                                     class="btn btn-success" target="_blank"><i
                                                                         class="fas fa-download"></i></a>
                                                             @endif
+                                                            
+                                                            <a href="{{ route('kbdisposisi.showsurat', ['id' => $Cuti->id, 'nama' => $Cuti->nama_surat]) }}"><button
+                                                                class="btn btn-primary"><i
+                                                                    class="fa-regular fa-note-sticky"></i></button></a>
+
+                                                            {{-- @if ($Cuti->status == auth()->user()->jabatan)
+                                                            <a
+                                                                href="{{ route('kbdisposisi.tambah', ['id' => $Cuti->id, 'jenis' => "surat keluar"]) }}"><button
+                                                                    class="btn btn-success"><i
+                                                                        class="fa-solid fa-share-from-square"></i></button></a>
+                                                            @endif --}}
 
 
 

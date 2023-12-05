@@ -9,28 +9,26 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('arsips', function (Blueprint $table) {
+        Schema::create('surat_masuk', function (Blueprint $table) {
             $table->bigIncrements('id'); // Kolom id Utama
-            $table->string('nama_arsip');
-            $table->string('kode_arsip');
-            $table->string('perihal');
+            $table->string('nama_surat');
             $table->string('kategori');
-            $table->date('tanggal_selesai');
-            $table->string('lokasi_arsip');
+            $table->string('perihal');
+            $table->date('tanggal_dibuat');
+            $table->string('asal_surat');
+            $table->string('status')->nullable(); // Kolom status dapat NULL
             $table->string('file');
-            $table->timestamps(); // Tambahkan kolom created_at dan updated_at
-
+            $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('arips');
+        Schema::dropIfExists('surat_masuk');
     }
 };

@@ -13,6 +13,7 @@ class SuratCuti extends Model
 
     protected $fillable = [
         'user_id',
+        'nama_surat',
         'tanggal_mulai',
         'tanggal_selesai',
         'alamat',

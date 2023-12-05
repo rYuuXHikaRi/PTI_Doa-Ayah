@@ -96,5 +96,39 @@ class UserSeeder extends Seeder
             'updated_at' => now(),
           
         ]);
+
+        DB::table('users')->insert([
+            'role' => '2',
+            'nama_karyawan' => 'Kepala Ruangan',
+            'email' => 'karu@email.com',
+            'jabatan' => 'Kepala Ruangan',
+            'nik' => '543211243',
+            'password' => bcrypt('password111'),
+            'foto' => 'direktur_pt.jpg',
+            'alamat' => 'Alamat Direktur PT',
+            'nomor_hp' => '08123456711',
+            'tanda_tangan' => 'signature.jpg',
+            'nama_bagian' => 'Bagian PT',
+            'created_at' => now(),
+            'updated_at' => now(),
+          
+        ]);
+
+        DB::table('users')->insert([
+            'role' => '3',
+            'nama_karyawan' => 'Karyawan 1',
+            'email' => 'karyawan@email.com',
+            'jabatan' => 'staff',
+            'nik' => '212331',
+            'password' => bcrypt('password123'),
+            'foto' => 'karyawan.jpg',
+            'alamat' => 'Alamat Direktur PT',
+            'nomor_hp' => '08123456711',
+            'tanda_tangan' => 'signature.jpg',
+            'nama_bagian' => 'HRD',
+            'created_at' => now(),
+            'updated_at' => now(),
+          
+        ]);
     }
 }

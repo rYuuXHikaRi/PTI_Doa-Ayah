@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\KepalaBagian;
 
 use App\Models\TemplateSK;
 use App\Models\SuratKeluar;
 use App\Models\Disposisi;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTemplateSKRequest;
 use App\Http\Requests\UpdateTemplateSKRequest;
 use Illuminate\Support\Facades\Session;
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\File;
 
 
 
-class TemplateSKController extends Controller
+class KBTemplateSKController extends Controller
 {
     public function index()
     {

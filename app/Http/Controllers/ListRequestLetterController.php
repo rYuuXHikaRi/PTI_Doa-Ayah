@@ -14,7 +14,7 @@ class ListRequestLetterController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function indexIzin()
     {
         $Izins = SuratIzin::all();
         return view("Admin.DaftarPermohonanIzin.index" , compact('Izins'));

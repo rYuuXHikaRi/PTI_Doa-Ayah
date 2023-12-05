@@ -66,11 +66,18 @@
                     <div class="ttd_koor">
                         <p>Mengetahui<br>
                             Ka./Koor.Bagian:</p>
-                        <form method="POST" action="{{ route('PermohonanCuti.Sign', ['id' => $suratCuti->id]) }}">
-                            @csrf
-                            @method('put')
-                            <button type="submit">Tanda Tangani</button>
-                        </form>
+                            @if ($suratCuti->manajer)
+                            <img style="height: 120px ; width:120px;"
+                            src="{{ asset('assets/ttd/'.$suratCuti->kepala_bagian) }}"
+                            alt="Tanda Tangan">
+                            @else
+                            <form method="POST" action="{{ route('PermohonanCuti.Sign', ['id' => $suratCuti->id]) }}">
+                                @csrf
+                                @method('put')
+                                <button type="submit">Tanda Tangani</button>
+                            </form>
+                            @endif
+
                         <br><br>
                     </div>
                     <div class="ttd_pemohon">
@@ -78,7 +85,7 @@
                             Saya Yang Memohon</p>
                         <p>
                             @if ($suratCuti->tanda_tangan)
-                                <img style="height: 120px ; width:120px;" src="{{ asset('img/' . $suratCuti->tanda_tangan) }}"
+                                <img style="height: 120px ; width:120px;" src="{{ asset('assets/ttd/'. $suratCuti->tanda_tangan) }}"
                                     alt="Tanda Tangan">
                             @endif
                         </p>

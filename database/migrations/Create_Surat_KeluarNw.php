@@ -12,16 +12,16 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('surat_keluar', function (Blueprint $table) {
-            $table->id();
+            $table->id(); // Kolom id Utama
             $table->string('nama_surat');
             $table->string('kategori_surat');
-            $table->date('tanggal_dibuat');
-            $table->string('tujuan_surat');
             $table->string('kode_surat');
-            $table->string('pembuat_surat');
+            $table->date('tanggal_dibuat');
             $table->string('jenis_surat');
+            $table->string('pembuat_surat');
+            $table->string('tujuan_surat');
             $table->string('file');
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
