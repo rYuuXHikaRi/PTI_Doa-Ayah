@@ -6,6 +6,9 @@ use App\Models\SuratIzin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\File;
+use App\Models\Disposisi;
+
 
 
 
@@ -34,27 +37,36 @@ class SuratIzinController extends Controller
         // $filename1 = $file1->getClientOriginalName();
         $filename2 = $file2->getClientOriginalName();
         $location1 = 'assets/surat/';
-        $location1 = 'assets/bukti/';
+        $location2 = 'assets/bukti/';
 
         $suratIzin = SuratIzin::create([
-            'nama_pengaju' => 'Muhammad ibnu',
+            'nama_pengaju' => auth()->user()->nama_karyawan,
             'tanggal_izin' => $request->tanggal_izin,
             'bagian' => $request->bagian,
             'keterangan' => $request->keterangan,
             'bukti' => $filename2,
-            'status' => "menunggu disetujui",
+            'status' => "Manajer",
+            'tanda_tangan'=>auth()->user()->tanda_tangan
             // 'tanda_tangan' => 'ttd.jpg',
             // 'file' => $filename1,
         ]);
 
-        $suratIzin->tanda_tangan = 'TTD.jpeg';
+        $suratIzin->nama_surat ="Surat Izin ".auth()->user()->nama_karyawan.$suratIzin->id;
         $suratIzin->save();
         $pdf = PDF::loadView('karyawan.SuratIzin.templateizin', compact('suratIzin'));
-        $file_name = $request->tanggal_izin .'_' . time()  . '.pdf';
-        $file_path = storage_path('../public/assets/surat/') . $file_name;
+        $file_name = $suratIzin->nama_surat  . '.pdf';
+        $file_path = storage_path('../public/assets/suratIzin/') . $file_name;
         $pdf->save($file_path);
         $suratIzin->file = $file_name;
         $suratIzin->save();
+
+        Disposisi::create([
+            'id_surat'=> $suratIzin->id,
+            'nama_surat' => $suratIzin->nama_surat,
+            'status' => $suratIzin->status,
+            'deskripsi' => "Surat Telah diajukan oleh ".$suratIzin->nama_pengaju,
+            // Tambahkan kolom-kolom lainnya sesuai kebutuhan
+        ]);
 
 
         // $file1->move(public_path($location1), $filename1);
@@ -66,7 +78,7 @@ class SuratIzinController extends Controller
     {
         $surat = SuratIzin::find($id);
 
-        // $templateSK = TemplateSK::create([
+        // $suratIzin = TemplateSK::create([
         //     'id_surat' => $surat->id,
         //     'perihal' => $request->perihal,
         //     'hari_tanggal' => $request->hari_tanggal,
@@ -86,7 +98,7 @@ class SuratIzinController extends Controller
         //     ->with('success', 'Data berhasil disimpan!');
 
 
-              // if ($request->tanggal_mulai && $request->tanggal_selesai) {
+        // if ($request->tanggal_mulai && $request->tanggal_selesai) {
         //     // Konversi tanggal_mulai dan tanggal_selesai ke objek Carbon
         //     $tanggalMulai = Carbon::parse($request->tanggal_mulai);
         //     $tanggalSelesai = Carbon::parse($request->tanggal_selesai);
@@ -126,39 +138,64 @@ class SuratIzinController extends Controller
     }
     public function priview(Request $request, $id)
     {
-        // $templateSK = TemplateSK::where('id_surat', $id)->first();
-        // // $pdf = PDF::loadView('admin.TemplateSK.signature', compact('templateSK'));
-        // return view('admin.TemplateSK.priview', compact('templateSK'));
+        $suratIzin = SuratIzin::where('id', $id)->first();
+        // $pdf = PDF::loadView('admin.TemplateSK.signature', compact('templateSK'));
+        return view('admin.DaftarPermohonanIzin.priview', compact('suratIzin'));
     }
     public function Sign($id)
     {
-        //     $templateSK = TemplateSK::where('id', $id)->first();
-        //     $templateSK->tanda_tangan = 'TTD.jpg';
-        //     $templateSK->save();
 
+        $suratIzin = suratIzin::where('id', $id)->first();
+        $suratIzin->manajer = auth()->user()->tanda_tangan;
+        $suratIzin->save();
 
-        //     $surat = SuratKeluar::where('id', $templateSK->id_surat)->first();
+        $pdf = PDF::loadView('admin.DaftarPermohonanIzin.signature', compact('suratIzin'));
+        $file_name = 'ACC_' . $suratIzin->file; // Assuming you want to prepend 'ACC_' to the existing file name
+        $file_path = public_path('../public/assets/suratIzin/') . $file_name;
 
-        //     $pdf = PDF::loadView('admin.TemplateSK.signature', compact('templateSK'));
-        //     $file_name = $surat -> file;
-        //     $file_path = storage_path('../public/assets/surat/') . $file_name;
-        //     // $pdf->save($file_path);
+        $FileToDelete = public_path('../public/assets/suratIzin/') . $suratIzin->file;
 
-        //     $FileToDelete = public_path('../public/assets/surat/') . $surat->file;
+        if (File::exists($FileToDelete)) {
+            File::delete($FileToDelete);
+            $pdf->save($file_path);
+        } else {
+            $pdf->save($file_path);
+        }
 
-        //     if (File::exists($FileToDelete)){
-        //         File::delete($FileToDelete);
-        //         $pdf->save($file_path);
-        //     }
-        //     else{
-        //         $pdf->save($file_path);
-        //         // return 'Filer not found';
-        //     }
+        // Update the file attribute in the database
+        $suratIzin->file = $file_name;
+        $suratIzin->save();
 
-        //         // Redirect ke halaman templateSK.show dengan menambahkan ID baru
-        //         return redirect()->route('suratkeluar.index')
-        //             ->with('success', 'Data berhasil disimpan!');
-        // }
+        Disposisi::create([
+            'id_surat'=> $suratIzin->id,
+            'nama_surat' => $suratIzin->nama_surat,
+            'status' => 'disetujui',
+            'deskripsi' => "Surat Telah disetujui ",
+            // Tambahkan kolom-kolom lainnya sesuai kebutuhan
+        ]);
 
+        // Redirect ke halaman suratIzin.show dengan menambahkan ID baru
+        return redirect()->route('DaftarPermohonan.indexIzin')
+            ->with('success', 'Data berhasil disimpan!');
+    }
+    public function downloadSuratIzin(Request $request, $id, $file)
+    {
+        $suratIzin = SuratIzin::find($id);
+        if (!$suratIzin) {
+            abort(404);
+        }
+        $file_path = storage_path('../public/assets/suratIzin/') . $suratIzin->file;
+
+        // Tentukan nama file yang akan di-download
+        $file = $suratIzin->file;
+        $extension = pathinfo($file_path, PATHINFO_EXTENSION);
+
+        $mime_types = [
+            'pdf' => 'application/pdf',
+            'doc' => 'application/msword',
+            'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        ];
+        $mime_type = $mime_types[$extension] ?? 'application/octet-stream';
+        return response()->download($file_path, $file, ['Content-Type' => $mime_type]);
     }
 }

@@ -21,5 +21,12 @@ class SuratTukarJaga extends Model
         'file',
         'jadwal_asli',
         'jadwal_dirubah',
+        'termohon',
+        'kepala_bagian',
+        'kepala_ruangan',
+        'termohon',
+        'created_at',
+        'updated_at',
+        'nama_surat'
     ];
 }

@@ -17,7 +17,8 @@ class SuratIzin extends Model
         'keterangan','bukti',
         'status',
         'tanda_tangan',
-        'file', 'tanggal_mulai' , 'tanggal_selesai' ,'bagian', 'tanggal_izin'
+        'nama_surat',
+        'file', 'tanggal_mulai' , 'tanggal_selesai' ,'bagian', 'tanggal_izin','manajer'
     ];
 
 }

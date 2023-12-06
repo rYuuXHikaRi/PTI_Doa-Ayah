@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&display=swap');
+
 body {
     background-color: #CFE1F8;
     margin: 0;
@@ -31,6 +33,7 @@ body {
 }
 
 .halo {
+    font-family: 'Abhaya Libre', serif;
     font-size: 1.7rem;
 }
 

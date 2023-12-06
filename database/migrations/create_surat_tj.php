@@ -12,15 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tukar_jaga', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id'); // Kolom id Utama
             $table->string('nama_pengaju');
             $table->string('target_tukar_jaga');
-            $table->string('file');
-            $table->string('tanda_tangan');
-            $table->string('keterangan',50);
+            $table->string('file')->nullable(); // Kolom file dapat NULL
+            $table->string('tanda_tangan')->nullable(); // Kolom tanda_tangan dapat NULL
+            $table->string('keterangan');
             $table->date('jadwal_asli');
             $table->string('status');
-            $table->date('jadwal_dirubah')->nullable();
+            $table->date('jadwal_dirubah')->nullable(); // Kolom jadwal_dirubah dapat NULL
+            $table->string('nama_surat')->nullable(); // Kolom nama_surat dapat NULL
+            $table->string('kepala_bagian')->nullable(); // Kolom kepala_bagian dapat NULL
+            $table->string('kepala_ruangan')->nullable(); // Kolom kepala_ruangan dapat NULL
+            $table->string('termohon')->nullable(); // Kolom termohon dapat NULL
             $table->timestamps();
         });
     }
