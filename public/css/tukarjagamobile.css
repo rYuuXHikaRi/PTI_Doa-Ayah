@@ -166,6 +166,7 @@
   }
   .icon {
     position: absolute;
+    align-items: center;
     margin: -1.2rem;
     margin-left: 15.4rem;
   }

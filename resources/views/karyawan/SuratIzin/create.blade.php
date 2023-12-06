@@ -5,40 +5,40 @@
     <link rel="stylesheet" href="../css/izinmobile.css">
 
     <div class="container">
-        <div class="card_header">
+        <div class="card-header">
             <h1><b>Ajukan Permohonan Izin</b></h1>
         </div>
         <div class="card-body">
             <Form method="POST" action="{{route('suratizin.store')}}" enctype="multipart/form-data">
                 @csrf
-                <div class="mulaiselesai">
-                    <h1>Tanggal Izin</h1>
+                <div class="content-text">
+                    <h3>Tanggal Izin</h3>
                 </div>
-                <div class="box">
-                    <input class="input_waktu" type="date" id="Tanggal_izin" name="tanggal_izin" onchange="checkDate()">
+                <div class="content-box">
+                    <input class="input_waktu" type="date" id="Tanggal_izin" name="tanggal_izin">
                 </div>
-
-                <div class="mulaiselesai">
-                    <h1>Bagian</h1>
+    
+                <div class="content-text">
+                    <h3>Bagian</h3>
                 </div>
-                <div class="box">
-                    <input class="input_ket" type="text" id="keterangan" placeholder="Bagian" name="bagian">
+                <div class="content-box">
+                    <input class="input_waktu" type="text" id="keterangan" placeholder="Bagian" name="bagian">
                 </div>
-
-                <div class="mulaiselesai">
-                    <h1>Alasan</h1>
+    
+                <div class="content-text">
+                    <h3>Alasan</h3>
                 </div>
-                <div class="box_ket">
+                <div class="content-ket">
                     <textarea class="input_ket" type="text" id="keterangan" placeholder="Alasan..." name="keterangan"></textarea>
                 </div>
-
-                <div class="text_lampiran">
-                    <h1>Lampiran Bukti (optional)</h1>
+    
+                <div class="content-text">
+                    <h3>Lampiran Bukti</h3>
                 </div>
                 <div class="pilih">
-                    <input type="file" id="fileInput" name="bukti">
+                    <input class="choose" type="file" id="fileInput" name="bukti">
                 </div>
-
+    
                 <!-- Button trigger modal -->
                 <button type="submit" onclick="notifSukses()" class="btn btn-primary">
                     Buat Pengajuan
@@ -69,27 +69,6 @@
 @endsection
 
 <script>
-    // Fungsi untuk menampilkan pop-up
-    function togglePopup() {
-        var popup = document.getElementById("myPopup");
-        var overlay = document.getElementById("overlay");
-        var prosesButton = document.getElementById("prosesButton");
-        var notifBerhasil = document.querySelector('.notif_berhasil');
-        var overlay_berhasil = document.getElementById("overlay_berhasil");
-
-        if (popup.style.display === "none" || overlay.style.display === "none") {
-            popup.style.display = "block";
-            overlay.style.display = "block";
-            prosesButton.style.display = "block";
-            notifBerhasil.style.display = "none";
-            overlay_berhasil.style.display = "none";
-        } else {
-            popup.style.display = "none";
-            overlay.style.display = "none";
-            prosesButton.style.display = "none";
-        }
-    }
-
     function notifSukses() {
         var notifBerhasil = document.querySelector('.notif_berhasil');
         var overlay_berhasil = document.getElementById("overlay_berhasil");
@@ -115,36 +94,6 @@
         }
     }
 
-    // Fungsi untuk menutup pop-up
-    function closePopup() {
-        var popup = document.getElementById("myPopup");
-        var overlay = document.getElementById("overlay");
-        popup.style.display = "none";
-
-        // Menghilangkan tombol "Proses Pengajuan"
-        var prosesButton = document.getElementById("prosesButton");
-        prosesButton.style.display = "none";
-        overlay.style.display = "none";
-    }
-
-    document.getElementById('fileInput').addEventListener('change', function() {
-        var selectedFile = this.files[0];
-
-        if (selectedFile) {
-            // Di sini Anda dapat mengirimkan gambar yang dipilih ke server atau melakukan tindakan lain sesuai kebutuhan Anda.
-            // Misalnya, Anda dapat menggunakan FormData untuk mengirim gambar tersebut ke server.
-            // Contoh:
-            var formData = new FormData();
-            formData.append('profile_image', selectedFile);
-
-            // Selanjutnya, Anda dapat melakukan pengiriman data ini ke server menggunakan XMLHttpRequest atau fetch.
-
-            // Setelah pengiriman gambar berhasil, Anda dapat melakukan tindakan seperti menampilkan gambar profil yang baru.
-            // Anda juga dapat menyimpan gambar tersebut di server dan mengatur URL gambar profil.
-        }
-    });
-</script>
-<script>
     function checkDate() {
         var inputDate = document.getElementById('Tanggal_izin').value;
         var today = new Date().toISOString().split('T')[0];

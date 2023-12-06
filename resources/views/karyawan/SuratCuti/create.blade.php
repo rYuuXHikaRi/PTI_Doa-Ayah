@@ -5,89 +5,60 @@
     <link rel="stylesheet" href="../css/cutimobile.css">
 
     <div class="container">
-        <div class="card_header">
+        <div class="card-header">
             <h1><b>Ajukan Permohonan Cuti</b></h1>
         </div>
         <div class="card-body">
             <Form method="POST" action="{{route('suratcuti.store')}}" enctype="multipart/form-data">
                 @csrf
-                <div class="mulaiselesai">
-                    <h1>Tanggal Mulai</h1>
+                <div class="content-text">
+                    <h3>Tanggal Mulai</h3>
                 </div>
-                <div class="box">
+                <div class="content-box">
                     <input class="input_waktu" type="date" id="Tanggal_Mulai" name="tanggal_mulai">
                 </div>
-
-                <div class="mulaiselesai">
-                    <h1>Tanggal Selesai</h1>
+    
+                <div class="content-text">
+                    <h3>Tanggal Selesai</h3>
                 </div>
-                <div class="box">
+    
+                <div class="content-box">
                     <input class="input_waktu" type="date" id="Tanggal_izin" name="tanggal_selesai">
                 </div>
-
-                <div class="mulaiselesai">
-                    <h1>Bagian</h1>
+    
+                <div class="content-text">
+                    <h3>Bagian</h3>
                 </div>
-                <div class="box">
-                    <input class="input_ket" type="text" id="keterangan" placeholder="Bagian" name="bagian">
+                <div class="content-box">
+                    <input class="input_waktu" type="text" id="keterangan" placeholder="Bagian" name="bagian">
                 </div>
-
-                <div class="mulaiselesai">
-                    <h1>Alamat</h1>
+    
+                <div class="content-text">
+                    <h3>Alamat</h3>
                 </div>
-                <div class="box">
-                    <input class="input_ket" type="text" id="keterangan" placeholder="alamat" name="alamat">
+                <div class="content-box">
+                    <input class="input_waktu" type="text" id="keterangan" placeholder="alamat" name="alamat">
                 </div>
-
-                <div class="mulaiselesai">
-                    <h1>Jabatan</h1>
+    
+                <div class="content-text">
+                    <h3>Jabatan</h3>
                 </div>
-                <div class="box">
-                    <input class="input_ket" type="text" id="keterangan" placeholder="jabatan" name="jabatan">
+                <div class="content-box">
+                    <input class="input_waktu" type="text" id="keterangan" placeholder="jabatan" name="jabatan">
                 </div>
-
-                <div class="mulaiselesai">
-                    <h1>Keterangan</h1>
+    
+                <div class="content-text">
+                    <h3>Keterangan</h3>
                 </div>
-                <div class="box_ket">
-                    <textarea class="input_ket" type="text" id="keterangan" placeholder="Keterangan..." name="keterangan"></textarea>
+                <div class="content-ket">
+                    <textarea class="input_ket" type="text" id="keterangan" placeholder="Alasan..." name="keterangan"></textarea>
                 </div>
-
-                {{-- <div class="text_lampiran">
-                    <h1>Lampiran Bukti (Optional)</h1>
-                </div>
-                <div class="pilih">
-                    <input type="file" id="fileInput" name="bukti">
-                </div> --}}
-
-                {{-- <div class="text_lampiran">
-                    <h1>Pilih File</h1>
-                </div>
-                <div class="pilih">
-                    <input type="file" id="fileInput" name="file">
-                </div> --}}
-
+    
                 <!-- Button trigger modal -->
                 <button type="submit" onclick="notifSukses()" class="btn btn-primary">
                     Buat Pengajuan
                 </button>
             </Form>
-
-            {{-- <div id="overlay" class="overlay" style="display: none;"></div>
-            <div id="myPopup" class="popup" style="display: none;">
-                <div class="header_popup">
-                    <h1>Pratinjau Permohonan</h1>
-                    <div onclick="closePopup()" class="close-button">
-                        <i class="fa-solid fa-xmark"></i>
-                    </div>
-                </div>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi possimus error totam velit ex, maxime a,
-                    debitis adipisci fugiat fuga culpa neque natus.
-                    Ipsum quia consectetur sunt, placeat provident laboriosam.</p>
-            </div>
-            <button id="prosesButton" class="popup_submit" onclick="notifSukses()" style="display: none;">
-                Proses Pengajuan
-            </button> --}}
 
             <div id="overlay_berhasil" class="overlay_berhasil" style="display: none;"></div>
             <div class="notif_berhasil" style="display: none;">
@@ -114,27 +85,6 @@
 @endsection
 
 <script>
-    // Fungsi untuk menampilkan pop-up
-    function togglePopup() {
-        var popup = document.getElementById("myPopup");
-        var overlay = document.getElementById("overlay");
-        var prosesButton = document.getElementById("prosesButton");
-        var notifBerhasil = document.querySelector('.notif_berhasil');
-        var overlay_berhasil = document.getElementById("overlay_berhasil");
-
-        if (popup.style.display === "none" || overlay.style.display === "none") {
-            popup.style.display = "block";
-            overlay.style.display = "block";
-            prosesButton.style.display = "block";
-            notifBerhasil.style.display = "none";
-            overlay_berhasil.style.display = "none";
-        } else {
-            popup.style.display = "none";
-            overlay.style.display = "none";
-            prosesButton.style.display = "none";
-        }
-    }
-
     function notifSukses() {
         var notifBerhasil = document.querySelector('.notif_berhasil');
         var overlay_berhasil = document.getElementById("overlay_berhasil");
@@ -159,33 +109,4 @@
             overlay_berhasil.style.display = "none";
         }
     }
-
-    // Fungsi untuk menutup pop-up
-    function closePopup() {
-        var popup = document.getElementById("myPopup");
-        var overlay = document.getElementById("overlay");
-        popup.style.display = "none";
-
-        // Menghilangkan tombol "Proses Pengajuan"
-        var prosesButton = document.getElementById("prosesButton");
-        prosesButton.style.display = "none";
-        overlay.style.display = "none";
-    }
-
-    document.getElementById('fileInput').addEventListener('change', function() {
-        var selectedFile = this.files[0];
-
-        if (selectedFile) {
-            // Di sini Anda dapat mengirimkan gambar yang dipilih ke server atau melakukan tindakan lain sesuai kebutuhan Anda.
-            // Misalnya, Anda dapat menggunakan FormData untuk mengirim gambar tersebut ke server.
-            // Contoh:
-            var formData = new FormData();
-            formData.append('profile_image', selectedFile);
-
-            // Selanjutnya, Anda dapat melakukan pengiriman data ini ke server menggunakan XMLHttpRequest atau fetch.
-
-            // Setelah pengiriman gambar berhasil, Anda dapat melakukan tindakan seperti menampilkan gambar profil yang baru.
-            // Anda juga dapat menyimpan gambar tersebut di server dan mengatur URL gambar profil.
-        }
-    });
 </script>
