@@ -17,7 +17,7 @@
                 height: fit-content;
                 font-size: 11px;
                 color: #02BA62;
-                margin-left: 57%;
+                margin-left: 46%;
                 margin-top: -0.6rem;">
                 FORM.UM.RSAS.72</p>
 
