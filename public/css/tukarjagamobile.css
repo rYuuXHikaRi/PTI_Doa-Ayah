@@ -144,22 +144,33 @@
       z-index: 5; /* Atur z-index untuk menutupi elemen-elemen latar belakang */
   }
   .dropdown-menu {
+    display: flex;
+    justify-content: center;
     position: relative;
   }
   .select {
       background: var(--heading-color);
       border-radius: 5px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       margin: -1rem 3rem 1rem;
       width: 74%;
       height: 2rem;
       cursor: pointer;
       transition: .3s ease;
+      border: none;
+      appearance: none;
+      margin-left: 36px;
+      font-size: 12px;
   }
   .select:hover {
-    background: skyblue;
+    background: #e1d7d7;
+  }
+  .icon {
+    position: absolute;
+    margin: -1.2rem;
+    margin-left: 15.4rem;
+  }
+  .icon i {
+    font-size: 31px;
   }
 }
 

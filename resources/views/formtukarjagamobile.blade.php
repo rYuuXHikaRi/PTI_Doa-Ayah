@@ -34,6 +34,9 @@
                     <option value="second">Brimstone</option>
                     <option value="third">Viper</option>
                 </select>
+                <div class="icon">
+                    <i class='bx bx-chevron-down'></i>
+                </div>
             </div>
 
             <div class="content-text">
@@ -127,4 +130,25 @@
             });
         });
     });
+
+    // Mendapatkan elemen input tanggal pertama dengan id Tanggal_Mulai
+var tanggalMulaiInput = document.getElementById('Tanggal_Mulai');
+
+// Mendapatkan elemen input tanggal kedua dengan id Tanggal_izin
+var tanggalIzinInput = document.getElementById('Tanggal_izin');
+
+// Mendapatkan tanggal hari ini
+var today = new Date().toISOString().split('T')[0];
+
+// Mengatur nilai minimum pada elemen input tanggal pertama ke hari ini
+tanggalMulaiInput.setAttribute('min', today);
+
+// Mengatur nilai minimum pada elemen input tanggal kedua ke hari ini
+tanggalIzinInput.setAttribute('min', today);
+
+// Mengatur event listener untuk memastikan tanggal kedua tidak lebih kecil dari tanggal pertama
+tanggalMulaiInput.addEventListener('change', function() {
+    tanggalIzinInput.setAttribute('min', this.value);
+});
+
 </script>
