@@ -33,21 +33,21 @@ Route::resource('surattukarjaga', SuratTukarJagaController::class);
 
 
 
-// Route::get('/TukarJaga', function () {
-//     return view('formtukarjagamobile');
-// });
+Route::get('/TukarJaga', function () {
+    return view('formtukarjagamobile');
+});
 
-// Route::get('/PermohonanIzin', function () {
-//     return view('formizinmobile');
-// });
+Route::get('/PermohonanIzin', function () {
+    return view('formizinmobile');
+});
 
-// Route::get('/mobile', function () {
-//     return view('homemobile');
-// });
+Route::get('/mobile', function () {
+    return view('homemobile');
+});
 
-// Route::get('/PermohonanCuti', function () {
-//     return view('formcutimobile');
-// });
+Route::get('/PermohonanCuti', function () {
+    return view('formcutimobile');
+});
 
 Route::get('/lihat', function () {
     return view('lihatstatusmobile');
@@ -63,6 +63,14 @@ Route::get('/statusizinmobile', function () {
 
 Route::get('/statuscutimobile', function () {
     return view('statuscutimobile');
+});
+
+Route::get('/profile', function () {
+    return view('profilemobile');
+});
+
+Route::get('/login', function () {
+    return view('auth/login');
 });
 
 // Route::get('/templateizinn', function () {

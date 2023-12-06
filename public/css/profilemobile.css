@@ -1,6 +1,12 @@
-@media screen and (max-width:  575.98px) {
+* {
+    font-family:sans-serif;
+}
+
+@media (max-width: 616px) {
     .container {
         margin: 5%;
+        margin-top: 78px;
+        margin-left: 77px;
     }
     .card {
         background: rgba(230, 239, 250, 0.80);
@@ -47,8 +53,7 @@
         background: #CCD9EC;
         width: 90%;
         height: 37px;
-        margin: 3%;
-        margin-left: 14px;
+        margin: 0.5rem 1.5rem;
         border-radius: 10px;
         display: flex;
         flex-direction: row;
@@ -92,9 +97,7 @@
         width: 90%;
         height: 40px;
         border-radius: 5px;
-        margin: 2%;
-        margin-left: 14.5px;
-        margin-top: 75%;
+        margin: 14.6rem 1.3rem;
     }
     .icon_belum {
         color: #F62222;
@@ -175,5 +178,17 @@
         font-style: normal;
         line-height: normal;
         margin-top: 6px;
+    }
+}
+
+@media (max-width: 497px) {
+    .container {
+        margin-left: 61px;
+    }
+    .ganti_foto {
+        width: 83%;
+    }
+    .box_gelap {
+        margin: .2rem 1rem;
     }
 }

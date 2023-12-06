@@ -11,15 +11,15 @@
     <div class="card-body">
         <div class="card-content">
             <h2>Tukar Jaga</h2>
-            <a href="#"><i class='bx bx-right-arrow-circle' ></i></a>
+            <a href="TukarJaga"><i class='bx bx-right-arrow-circle' ></i></a>
         </div>
         <div class="card-content">
             <h2>Permohonan Cuti</h2>
-            <a href="#"><i class='bx bx-right-arrow-circle' ></i></a>
+            <a href="PermohonanCuti"><i class='bx bx-right-arrow-circle' ></i></a>
         </div>
         <div class="card-content">
             <h2>Permohonan Izin</h2>
-            <a href="#"><i class='bx bx-right-arrow-circle' ></i></a>
+            <a href="PermohonanIzin"><i class='bx bx-right-arrow-circle' ></i></a>
         </div>
     </div>
 </div>

@@ -30,7 +30,7 @@
                         <div class="popup-options" style="display: none;">
                         <div id="overlay_daftar" class="overlay_daftar"></div>
                             <div class="menu-popup">
-                                <h1>Batalkan Permohonan tukar jaga?</h1>
+                                <h1>Batalkan Permohonan Cuti?</h1>
                                 <button class="button_ya">Ya</button>
                                 <button class="button_tidak">Tidak</button>
                             </div>
@@ -123,7 +123,7 @@
                         <div class="popup-options" style="display: none;">
                         <div id="overlay_daftar" class="overlay_daftar"></div>
                             <div class="menu-popup">
-                                <h1>Batalkan Permohonan tukar jaga?</h1>
+                                <h1>Batalkan Permohonan Cuti?</h1>
                                 <button class="button_ya">Ya</button>
                                 <button class="button_tidak">Tidak</button>
                             </div>

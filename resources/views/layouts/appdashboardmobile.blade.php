@@ -66,9 +66,9 @@
 
         <div class="navbar-content">
             <div class="navbar">
-                <a href="#" class="active"><i class='bx bxs-file-plus'></i></a>
-                <a href="#"><i class='bx bxs-file-find' ></i></a>
-                <a href="#"><i class='bx bx-cog' ></i></a>
+                <a href="mobile" class="active"><i class='bx bxs-file-plus'></i></a>
+                <a href="lihat"><i class='bx bxs-file-find' ></i></a>
+                <a href="profile"><i class='bx bxs-user' ></i></a>
             </div>
         </div>
         
