@@ -16,12 +16,15 @@
                 </div>
                 <div class="box">
                     <input class="input_waktu" type="date" id="Tanggal_Pengajuan" name="jadwal_asli">
+                    <input class="input_waktu" type="date" id="Tanggal_asli" placeholder="Tanggal Pengajuan..."
+                        name="jadwal_asli"  onchange="checkDate()">
                 </div>
                 <div class="mulaiselesai">
                     <h1>Jadwal Yang Ingin Diubah</h1>
                 </div>
                 <div class="box">
                     <input class="input_waktu" type="date" id="Tanggal_Target" name="jadwal_dirubah">
+                    <input class="input_waktu" type="date" id="Tanggal_diubah" placeholder="Tanggal Target..." name="jadwal_dirubah" onchange="checkDate()">
                 </div>
                 <div class="text_lampiran">
                     <h1>Nama Target</h1>
@@ -106,4 +109,15 @@
             // Anda juga dapat menyimpan gambar tersebut di server dan mengatur URL gambar profil.
         }
     });
+</script>
+<script>
+    function checkDate(inputId) {
+        var inputDate = document.getElementById(inputId).value;
+        var today = new Date().toISOString().split('T')[0];
+
+        if (inputDate < today) {
+            alert('Tanggal yang dimasukkan sudah lewat!');
+            // Tambahkan logika atau tindakan lain yang sesuai
+        }
+    }
 </script>
