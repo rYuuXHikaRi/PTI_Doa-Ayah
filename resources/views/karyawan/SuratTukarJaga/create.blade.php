@@ -16,13 +16,13 @@
                 </div>
                 <div class="box">
                     <input class="input_waktu" type="date" id="Tanggal_asli" placeholder="Tanggal Pengajuan..."
-                        name="jadwal_asli"  onchange="checkDate()">
+                        name="jadwal_asli"  onchange="checkDate('Tanggal_asli')">
                 </div>
                 <div class="mulaiselesai">
                     <h1>Jadwal Yang Ingin Diubah</h1>
                 </div>
                 <div class="box">
-                    <input class="input_waktu" type="date" id="Tanggal_diubah" placeholder="Tanggal Target..." name="jadwal_dirubah" onchange="checkDate()">
+                    <input class="input_waktu" type="date" id="Tanggal_diubah" placeholder="Tanggal Target..." name="jadwal_dirubah" onchange="checkDate('Tanggal_diubah')">
                 </div>
                 <div class="text_lampiran">
                     <h1>Nama Target</h1>
@@ -115,6 +115,7 @@
 
         if (inputDate < today) {
             alert('Tanggal yang dimasukkan sudah lewat!');
+            document.getElementById(inputId).value = "";
             // Tambahkan logika atau tindakan lain yang sesuai
         }
     }

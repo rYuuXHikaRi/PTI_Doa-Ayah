@@ -15,14 +15,14 @@
                     <h1>Tanggal Mulai</h1>
                 </div>
                 <div class="box">
-                    <input class="input_waktu" type="date" id="Tanggal_Mulai" name="tanggal_mulai">
+                    <input class="input_waktu" type="date" id="Tanggal_Mulai" name="tanggal_mulai" onchange="checkDate('Tanggal_Mulai')">
                 </div>
 
                 <div class="mulaiselesai">
                     <h1>Tanggal Selesai</h1>
                 </div>
                 <div class="box">
-                    <input class="input_waktu" type="date" id="Tanggal_izin" name="tanggal_selesai">
+                    <input class="input_waktu" type="date" id="Tanggal_Selesai" name="tanggal_selesai" onchange="checkDate('Tanggal_Selesai')">
                 </div>
 
                 <div class="mulaiselesai">
@@ -188,4 +188,23 @@
             // Anda juga dapat menyimpan gambar tersebut di server dan mengatur URL gambar profil.
         }
     });
+</script>
+<script>
+    function checkDate(inputId) {
+        var inputDate = document.getElementById(inputId).value;
+        var today = new Date().toISOString().split('T')[0];
+        var startDate =document.getElementById('Tanggal_Mulai').value;
+        var endDate =document.getElementById('Tanggal_Selesai').value;
+
+        if (inputDate < today) {
+            alert('Tanggal yang dimasukkan sudah lewat!');
+            document.getElementById(inputId).value = "";
+            // Tambahkan logika atau tindakan lain yang sesuai
+        }
+        else if(endDate != "" && endDate < startDate ){
+            alert('Tanggal selesai Salah ! Tanggal Selesai Harus setelah tanggal mulai');
+            document.getElementById("Tanggal_Mulai").value = "";
+            document.getElementById("Tanggal_Selesai").value = "";
+        }
+    }
 </script>

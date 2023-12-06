@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.appdashboardkabag')
 
 @section('content')
     <!DOCTYPE html>
@@ -66,7 +66,7 @@
                     <div class="ttd_koor">
                         <p>Mengetahui<br>
                             Ka./Koor.Bagian:</p>
-                            @if ($suratCuti->manajer)
+                            @if ($suratCuti->kepala_bagian)
                             <img style="height: 120px ; width:120px;"
                             src="{{ asset('assets/ttd/'.$suratCuti->kepala_bagian) }}"
                             alt="Tanda Tangan">

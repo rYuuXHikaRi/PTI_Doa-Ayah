@@ -168,6 +168,7 @@
 
         if (inputDate < today) {
             alert('Tanggal yang dimasukkan sudah lewat!');
+            document.getElementById("Tanggal_izin").value = "";
             // Tambahkan logika atau tindakan lain yang sesuai
         }
     }
