@@ -69,7 +69,7 @@
                                                                 <td>{{ $user->jabatan }}</td>
                                                                 <td>{{ $user->nik }}</td>
                                                                 <td> <a href="{{ route('user.show', $user->id) }}"><button
-                                                                            class="btn btn-primary"><i
+                                                                            class="btn btn-info"style="padding: 0.25rem 0.5rem;font-size: 10px;"><i
                                                                                 class="fas fa-eye"></i></button></a>
                                                                     <a href="{{ route('user.edit', $user->nik) }}"><button
                                                                             class="btn btn-warning"><i

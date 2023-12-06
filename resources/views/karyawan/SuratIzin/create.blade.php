@@ -15,7 +15,7 @@
                     <h1>Tanggal Izin</h1>
                 </div>
                 <div class="box">
-                    <input class="input_waktu" type="date" id="Tanggal_izin" name="tanggal_izin">
+                    <input class="input_waktu" type="date" id="Tanggal_izin" name="tanggal_izin" onchange="checkDate()">
                 </div>
 
                 <div class="mulaiselesai">
@@ -160,4 +160,15 @@
             // Anda juga dapat menyimpan gambar tersebut di server dan mengatur URL gambar profil.
         }
     });
+</script>
+<script>
+    function checkDate() {
+        var inputDate = document.getElementById('Tanggal_izin').value;
+        var today = new Date().toISOString().split('T')[0];
+
+        if (inputDate < today) {
+            alert('Tanggal yang dimasukkan sudah lewat!');
+            // Tambahkan logika atau tindakan lain yang sesuai
+        }
+    }
 </script>

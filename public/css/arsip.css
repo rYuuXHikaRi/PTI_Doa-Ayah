@@ -23,6 +23,14 @@ body {
     padding: 0.25rem 0.5rem;
     font-size: 10px;
 }
+.btn-info{
+  padding: 0.25rem 0.5rem;
+  font-size: 10px;
+}
+.btn-secondary{
+  padding: 0.25rem 0.5rem;
+  font-size: 5px;
+}
 /* Menentukan lebar tabel */
 table {
     width: 100%;

@@ -147,7 +147,7 @@
                                                         @endif
                                                         @if ($suratkeluarr->file)
                                                         <a href="{{ route('kbsuratkeluar.download', ['id' => $suratkeluarr->id, 'file' => $suratkeluarr->file]) }}"
-                                                            class="btn btn-warning" target="_blank"><i
+                                                            class="btn btn-success" target="_blank"><i
                                                                 class="fas fa-download"></i></a>
                                                         @endif
                                                         <a href="{{ route('kbdisposisi.showsurat', ['id' => $suratkeluarr->id, 'nama' => $suratkeluarr->nama_surat]) }}"><button
@@ -157,7 +157,7 @@
                                                         @if ($suratkeluarr->status == auth()->user()->jabatan)
                                                         <a
                                                             href="{{ route('kbdisposisi.tambah', ['id' => $suratkeluarr->id, 'jenis' => "surat keluar"]) }}"><button
-                                                                class="btn btn-success"><i
+                                                                class="btn btn-secondary"style="padding: 0.25rem 0.5rem;font-size: 10px;"><i
                                                                     class="fa-solid fa-share-from-square"></i></button></a>
                                                         @endif
 
