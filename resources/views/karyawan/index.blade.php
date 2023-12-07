@@ -11,15 +11,15 @@
     <div class="card-body">
         <div class="card-content">
             <h2>Tukar Jaga</h2>
-            <a href="TukarJaga"><i class='bx bx-right-arrow-circle' ></i></a>
+            <a href="{{ route('surattukarjaga.create') }}"><i class='bx bx-right-arrow-circle' ></i></a>
         </div>
         <div class="card-content">
             <h2>Permohonan Cuti</h2>
-            <a href="PermohonanCuti"><i class='bx bx-right-arrow-circle' ></i></a>
+            <a href="{{ route('suratcuti.create') }}"><i class='bx bx-right-arrow-circle' ></i></a>
         </div>
         <div class="card-content">
             <h2>Permohonan Izin</h2>
-            <a href="PermohonanIzin"><i class='bx bx-right-arrow-circle' ></i></a>
+            <a href="{{ route('suratizin.create') }}"><i class='bx bx-right-arrow-circle' ></i></a>
         </div>
     </div>
 </div>

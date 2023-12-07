@@ -13,6 +13,11 @@ body {
     overflow: hidden;
 }
 
+.bungkus {
+    display: flex;
+    width: 100%;
+}
+
 .container {
     background: linear-gradient(51deg, #0051B9 0.78%, #0760C0 35.49%, #3EDCFF 100%);
     box-shadow: 10px 0px 8px 0px rgba(0, 0, 0, 0.25);
@@ -26,14 +31,10 @@ body {
     margin: 15px;
 }
 
-.img {
-    margin-top: 7.3rem;
-    margin-left: 20rem;
-}
-
 .lambang {
     width: 500px;
-    height: 400px;
+    margin-left: 32rem;
+    margin-top: 17rem;
 }
 
 .halo {
@@ -54,8 +55,8 @@ body {
 }
 
 .form-box {
-    margin-top: 25%;
-    margin-left: -19%;
+    margin-top: 22rem;
+    margin-left: -19.4rem;
 }
 
 .form-control {
@@ -71,7 +72,7 @@ body {
     text-indent: 35px;
 }
 
-.user {
+.icon .user {
     position: absolute;
     color: #C7C7C7;
     width: 50px;
@@ -112,9 +113,28 @@ body {
         width: 57%;
     }
     .titleApp h1 {
-        font-size: 15px;
+        font-size: 20px;
     }
     .lambang {
         width: 448px;
+        margin-left: 17rem;
+        margin-top: 22.2rem;
+    }
+    .form-box {
+        margin-top: 22rem;
+        margin-left: -19rem;
+    }
+}
+
+@media (max-width: 1286px) {
+    .lambang {
+        margin-left: 13rem;
+    }
+}
+
+@media (max-width: 1088px) {
+    .lambang {
+        margin-top: 20.7rem;
+        margin-left: 8rem;
     }
 }

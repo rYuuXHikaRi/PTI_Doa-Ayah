@@ -110,13 +110,35 @@ Route::middleware(['auth','role:2'])->group(function () {
     Route::get('/DaftarPermohonanTukarJaga', [ListRequestLetterController::class, 'indexTukarJaga'])->name('DaftarPermohonan.indexTukarJaga');
     Route::get('/DaftarPermohonanIzin', [ListRequestLetterController::class, 'indexIzin'])->name('DaftarPermohonan.indexIzin');
 
+    
+
 });
 
 
 Route::middleware(['auth','role:3'])->group(function () { 
+    Route::resource('suratizin', SuratIzinController::class);
+    Route::resource('suratcuti', SuratCutiController::class);
+    Route::resource('surattukarjaga', SuratTukarJagaController::class);
 
+    Route::get('/home',function(){
+        return view('karyawan.index');
+    });
+    Route::get('/status',function(){
+        return view('karyawan.lihatstatusmobile');
+    });
+    Route::get('/profile',function(){
+        return view('karyawan.profilemobile');
+    });
 
-
+    Route::get('/tukarjaga',function(){
+        return view('karyawan.statustukarjagamobile');
+    });
+    Route::get('/cuti',function(){
+        return view('karyawan.statuscutimobile');
+    });
+    Route::get('/izin',function(){
+        return view('karyawan.statusizinmobile');
+    });
 });
 
 // route::resource('suratkeluar', SuratKeluarController::class);
@@ -132,9 +154,3 @@ Route::middleware(['auth','role:3'])->group(function () {
 // Route::get('/template/priview/{id}', [TemplateSKController::class, 'priview'])->name('templateSK.priview');
 // Route::put('/template/priview/{id}', [TemplateSKController::class, 'Sign'])->name('templateSK.Sign');
 // // Route::get('/suratkeluar/{id}', [TemplateSKController::class, 'signature'])->name('templateSK.signature');
-
-
-
-
-
-

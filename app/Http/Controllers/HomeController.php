@@ -31,5 +31,8 @@ class HomeController extends Controller
         else if (Auth::user()->role == 2) {
         return view('kepalabagian.index');
         }
+        else if (Auth::user()->role == 3) {
+            return view('karyawan.index');
+            }
 }
 }
