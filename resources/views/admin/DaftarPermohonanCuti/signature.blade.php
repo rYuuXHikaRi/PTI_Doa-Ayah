@@ -45,12 +45,32 @@
                 <p><b>Assalamu’alaikum Wr. Wb.</b> <br> Saya yang bertandatangan di bawah ini:</p>
             </div>
             <div class="box_pengaju">
-                <p>Nama : {{ $suratCuti->nama_pengaju }}</p>
-                <p>Bagian : {{ $suratCuti->bagian }}</p>
-                <p>Jabatan : {{ $suratCuti->jabatan }}</p>
-                <p>Alamat : {{ $suratCuti->alamat }}</p>
-                <p>Tanggal Mulai : {{ $suratCuti->tanggal_mulai }}</p>
-                <p>Tanggal Selesai : {{ $suratCuti->tanggal_selesai }}</p>
+                <table>
+                    <tr>
+                        <td>Nama</td>
+                        <td>: {{ $suratCuti->nama_pengaju }}</td>
+                    </tr>
+                    <tr>
+                        <td>Bagian</td>
+                        <td>: {{ $suratCuti->bagian }}</td>
+                    </tr>
+                    <tr>
+                        <td>Jabatan</td>
+                        <td>: {{ $suratCuti->jabatan }}</td>
+                    </tr>
+                    <tr>
+                        <td>Alamat</td>
+                        <td>: {{ $suratCuti->alamat }}</td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal Mulai</td>
+                        <td>: {{ $suratCuti->tanggal_mulai }}</td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal Selesai</td>
+                        <td>: {{ $suratCuti->tanggal_selesai }}</td>
+                    </tr>
+                </table>
             </div>
 
             <div class="demikian">

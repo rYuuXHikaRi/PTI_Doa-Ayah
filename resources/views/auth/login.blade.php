@@ -11,9 +11,9 @@
                 <h1>
                     SISTEM INFORMASI
                 </h1>
-                <h2>
+                <h1>
                     PENGELOLAAN SURAT DAN ARSIP (SURATIN FEAT ARSIPIN)
-                </h2>
+                </h1>
             </div>  
             <div class="img">
                 <svg class='lambang' viewBox="0 0 592 446" fill="none" xmlns="http://www.w3.org/2000/svg">

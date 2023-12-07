@@ -66,11 +66,14 @@
   }
   .salam p {
     margin-block-start: 1em;
-    margin-block-end: -1.2em;
+    margin-block-end: -0.2em;
   }
   .box_pengaju {
     display: grid;
     margin-top: 20px;
+  }
+  .box_pengaju table {
+    text-align: left;
   }
   .box_pengaju p {
     margin-block-end: -0.2em;

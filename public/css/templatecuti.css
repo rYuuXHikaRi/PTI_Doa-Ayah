@@ -65,6 +65,9 @@
   .box_pengaju p {
     margin-block-end: -1.2em;
   }
+  .box_pengaju table {
+    text-align: left;
+  }
   .demikian {
     margin-top: 20px;
   }
