@@ -16,20 +16,15 @@
                 </div>
                 <div class="content-box">
                     <input class="input_waktu" type="date" id="Tanggal_Mulai" name="tanggal_mulai">
-                <div class="box">
-                    <input class="input_waktu" type="date" id="Tanggal_Mulai" name="tanggal_mulai" onchange="checkDate('Tanggal_Mulai')">
                 </div>
-    
+                
                 <div class="content-text">
                     <h3>Tanggal Selesai</h3>
                 </div>
-    
                 <div class="content-box">
                     <input class="input_waktu" type="date" id="Tanggal_izin" name="tanggal_selesai">
-                <div class="box">
-                    <input class="input_waktu" type="date" id="Tanggal_Selesai" name="tanggal_selesai" onchange="checkDate('Tanggal_Selesai')">
                 </div>
-    
+
                 <div class="content-text">
                     <h3>Bagian</h3>
                 </div>
