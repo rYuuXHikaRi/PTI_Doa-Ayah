@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Karyawan\StatusSuratController;
 use App\Http\Controllers\ListRequestLetterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -90,17 +91,17 @@ Route::middleware(['auth','role:2'])->group(function () {
     Route::put('/kbtemplate/sign/{id}', [TemplateSKController::class, 'Sign'])->name('kbtemplateSK.Sign');
 
 
-    Route::resource('suratizin', SuratIzinController::class);
+   
     Route::get('/suratizin/priview/{id}', [SuratIzinController::class, 'priview'])->name('PermohonanIzin.priview');
     Route::put('/suratizin/sign/{id}', [SuratIzinController::class, 'Sign'])->name('PermohonanIzin.Sign');
     Route::get('/suratizin/{id}/{file}', [SuratIzinController::class, 'downloadSuratIzin'])->name('PermohonanIzin.download');
 
-    Route::resource('suratcuti', SuratCutiController::class);
+  
     Route::get('/suratcuti/priview/{id}', [SuratCutiController::class, 'priview'])->name('PermohonanCuti.priview');
     Route::put('/suratcuti/sign/{id}', [SuratCutiController::class, 'Sign'])->name('PermohonanCuti.Sign');
     Route::get('/suratcuti/{id}/{file}', [SuratCutiController::class, 'downloadSuratCuti'])->name('PermohonanCuti.download');
 
-    Route::resource('surattukarjaga', SuratTukarJagaController::class);
+    
     Route::get('/surattukarjaga/priview/{id}', [SuratTukarJagaController::class, 'priview'])->name('PermohonanTukarJaga.priview');
     Route::put('/surattukarjaga/sign/{id}/{jenis}', [SuratTukarJagaController::class, 'Sign'])->name('PermohonanTukarJaga.Sign');
     Route::get('/surattukarjaga/{id}/{file}', [SuratTukarJagaController::class, 'downloadSuratTukarJaga'])->name('PermohonanTukarJaga.download');
@@ -119,6 +120,17 @@ Route::middleware(['auth','role:3'])->group(function () {
     Route::resource('suratizin', SuratIzinController::class);
     Route::resource('suratcuti', SuratCutiController::class);
     Route::resource('surattukarjaga', SuratTukarJagaController::class);
+    Route::get('/statuscuti/{id}', [StatusSuratController::class, 'statuscuti'])->name('status.cuti');
+    Route::get('/statusizin/{id}', [StatusSuratController::class, 'statusizin'])->name('status.izin');
+    Route::get('/statustukarjaga/{id}', [StatusSuratController::class, 'statustukarjaga'])->name('status.tukarjaga');
+    Route::get('/statuscuti/download/{id}/{file}', [StatusSuratController::class, 'downloadSuratCuti'])->name('statuscuti.download');
+    Route::get('/statusizin/download/{id}/{file}', [StatusSuratController::class, 'downloadSuratIzin'])->name('statusizin.download');
+    Route::get('/statustukarjaga/download/{id}/{file}', [StatusSuratController::class, 'downloadSuratTukarJaga'])->name('statustukarjaga.download');
+    Route::delete('statuscuti/destroy/{id}',[StatusSuratController::class,'destroyCuti'])->name('statuscuti.destroy');
+    Route::delete('statusizin/destroy/{id}',[StatusSuratController::class,'destroyIzin'])->name('statusizin.destroy');
+    Route::delete('statustukarjaga/destroy/{id}',[StatusSuratController::class,'destroyTukarJaga'])->name('statustukarjaga.destroy');
+
+    
 
     Route::get('/home',function(){
         return view('karyawan.index');
