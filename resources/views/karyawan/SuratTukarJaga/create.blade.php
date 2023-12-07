@@ -16,6 +16,9 @@
                 </div>
                 <div class="content-box">
                     <input class="input_waktu" type="date" id="Tanggal_Mulai" name="tanggal_mulai">
+                <div class="box">
+                    <input class="input_waktu" type="date" id="Tanggal_asli" placeholder="Tanggal Pengajuan..."
+                        name="jadwal_asli"  onchange="checkDate('Tanggal_asli')">
                 </div>
     
                 <div class="content-text">
@@ -23,6 +26,8 @@
                 </div>
                 <div class="content-box">
                     <input class="input_waktu" type="date" id="Tanggal_izin" name="tanggal_selesai">
+                <div class="box">
+                    <input class="input_waktu" type="date" id="Tanggal_diubah" placeholder="Tanggal Target..." name="jadwal_dirubah" onchange="checkDate('Tanggal_diubah')">
                 </div>
     
                 <div class="content-text">
@@ -75,3 +80,54 @@
         </div>
     </div>
 @endsection
+    </div>
+@endsection
+
+<script>
+    // Fungsi untuk menampilkan pop-up
+    function togglePopup() {
+        var notifBerhasil = document.querySelector('.notif_berhasil');
+        var overlay_berhasil = document.getElementById("overlay_berhasil");
+
+        if (overlay_berhasil.style.display === "none" || notifBerhasil.style.display === "none") {
+            notifBerhasil.style.display = "block";
+            overlay_berhasil.style.display = "block";
+        } else {
+            notifBerhasil.style.display = "block";
+            overlay_berhasil.style.display = "block";
+        }
+        setTimeout(function() {
+            notifBerhasil.style.display = "none";
+            overlay_berhasil.style.display = "none";
+        }, 1000);
+    }
+
+    document.getElementById('fileInput').addEventListener('change', function() {
+        var selectedFile = this.files[0];
+
+        if (selectedFile) {
+            // Di sini Anda dapat mengirimkan gambar yang dipilih ke server atau melakukan tindakan lain sesuai kebutuhan Anda.
+            // Misalnya, Anda dapat menggunakan FormData untuk mengirim gambar tersebut ke server.
+            // Contoh:
+            var formData = new FormData();
+            formData.append('profile_image', selectedFile);
+
+            // Selanjutnya, Anda dapat melakukan pengiriman data ini ke server menggunakan XMLHttpRequest atau fetch.
+
+            // Setelah pengiriman gambar berhasil, Anda dapat melakukan tindakan seperti menampilkan gambar profil yang baru.
+            // Anda juga dapat menyimpan gambar tersebut di server dan mengatur URL gambar profil.
+        }
+    });
+</script>
+<script>
+    function checkDate(inputId) {
+        var inputDate = document.getElementById(inputId).value;
+        var today = new Date().toISOString().split('T')[0];
+
+        if (inputDate < today) {
+            alert('Tanggal yang dimasukkan sudah lewat!');
+            document.getElementById(inputId).value = "";
+            // Tambahkan logika atau tindakan lain yang sesuai
+        }
+    }
+</script>
