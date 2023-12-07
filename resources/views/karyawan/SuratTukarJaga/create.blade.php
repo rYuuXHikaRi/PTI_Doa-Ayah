@@ -30,7 +30,7 @@
                     <h3>Nama Target</h3>
                 </div>
                 <div class="dropdown-menu">
-                    <select class="select-menu">
+                    <select class="select">
                         <option value="">Pilih Nama Target</option>
                         <option value="first">Astra</option>
                         <option value="second">Brimstone</option>

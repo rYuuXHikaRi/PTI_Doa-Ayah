@@ -10,7 +10,7 @@
 @media (max-width: 616px) {
   .container {
       margin: 5%;
-      margin-top: 33%;
+      margin-top: 7%;
       margin-left: 12%;
   }
   .card-header {
@@ -95,7 +95,7 @@
       color: white;
       width: 58%;
       height: 2.8rem;
-      margin: 3rem 5rem;
+      margin: 1rem 5rem;
   }
   span {
     margin: 1rem 1rem 1rem;
@@ -175,6 +175,15 @@
   }
 }
 
+@media (max-width: 589px) {
+  .icon {
+    margin-left: 13.4rem;
+  }
+  .select {
+    margin-left: 47px;
+  }
+}
+
 @media (max-width: 541px) {
   .card-header h1 {
     margin-left: 0.5rem;
@@ -187,14 +196,37 @@
     margin: -1rem 1.4rem 1rem;
   }
   .select {
-    width: 85%;
-    margin: -1rem 1.4rem 1rem;
-  }.content-ket {
+    width: 84.4%;
+    margin: -1rem -1.6rem 1rem;
+    margin-left: -38px;
+  }
+  .icon {
+    margin-left: 15.7rem;
+  }
+  .icon i {
+    font-size: 25px;
+  }
+  .content-ket {
     width: 85%;
     margin: -1rem 1.4rem 1rem;
   }
   button {
-    margin: 3rem 4.7rem;
+    margin: 1rem 4.7rem;
+  }
+}
+
+@media (max-width: 507px) {
+  .icon {
+    margin-left: 14.7rem;
+  }
+}
+
+@media (max-width: 472px) {
+  .select {
+    margin-left: -27px;
+  }
+  .icon {
+    margin-left: 12rem;
   }
 }
 
@@ -216,12 +248,23 @@
       margin: -1rem 1rem 1rem;
   }
   button {
-      margin: 3rem 3rem;
+      margin: 0rem 3.7rem;
   }
   .notif_berhasil {
       margin-left: -24px;
   }
   .select {
     margin: -1rem 1rem 1rem;
+    margin-left: .1rem;
+  }
+}
+
+@media (max-width: 408px) {
+  .select {
+    margin-left: 0.2rem;
+  }
+  .icon {
+    margin-left: 10.7rem;
+    margin-top: -1rem;
   }
 }
