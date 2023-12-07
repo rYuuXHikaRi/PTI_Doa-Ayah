@@ -123,26 +123,7 @@ class SuratTukarJagaController extends Controller
         return redirect()->route('DaftarPermohonan.indexTukarJaga')
             ->with('success', 'Data berhasil disimpan!');
     }
-    public function downloadSuratTukarJaga(Request $request, $id, $file)
-    {
-        $suratTukarJaga = SuratTukarJaga::find($id);
-        if (!$suratTukarJaga) {
-            abort(404);
-        }
-        $file_path = storage_path('../public/assets/SuratTukarJaga/') . $suratTukarJaga->file;
-
-        // Tentukan nama file yang akan di-download
-        $file = $suratTukarJaga->file;
-        $extension = pathinfo($file_path, PATHINFO_EXTENSION);
-
-        $mime_types = [
-            'pdf' => 'application/pdf',
-            'doc' => 'application/msword',
-            'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-        ];
-        $mime_type = $mime_types[$extension] ?? 'application/octet-stream';
-        return response()->download($file_path, $file, ['Content-Type' => $mime_type]);
-    }
+   
     public function show(SuratTukarJaga $suratTukarJaga)
     {
         //

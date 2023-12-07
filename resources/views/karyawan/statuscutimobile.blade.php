@@ -2,7 +2,7 @@
 
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
-<link rel="stylesheet" href="css/statusmobile.css">
+<link rel="stylesheet" href="{{ asset('css/statusmobile.css') }}">
 
 <div class="container">
     <div class="card-header">
@@ -10,15 +10,26 @@
     </div>
     <div class="card-body">
         <div class="gabung_box">
+            @foreach ($suratcuti as $surat)
+                
+            
             <div class="content-box">
+                @if ($surat->status != 'disetujui')
                 <div class="icon-time">
                     <i class='bx bx-time' ></i>
                 </div>
-                <div class="info">
-                    <h1>Tukar jaga dengan <b>Viper</b></h1>
-                    <p>Tanggal mulai:</p>
-                    <p>Tanggal selesai:</p>
+                @else
+                <div class="icon-check">
+                    <i class='bx bx-check'></i>
                 </div>
+                @endif
+                
+                <div class="info">
+                    <h1>{{ $surat->nama_surat }}</h1>
+                    <p>Status: menunggu {{ $surat->status }}</p>
+                    <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
+                </div>
+                @if ($surat->status!='disetujui')
                 <div class="list">
                     <div class="svg_container" onclick="toggleBatal(this)">
                         <i class='bx bx-dots-vertical-rounded dots'></i>
@@ -29,119 +40,36 @@
                         </div>
                         <div class="popup-options" style="display: none;">
                         <div id="overlay_daftar" class="overlay_daftar"></div>
+                        <form action="{{ route('statuscuti.destroy', $surat->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                        
                             <div class="menu-popup">
                                 <h1>Batalkan Permohonan Cuti?</h1>
-                                <button class="button_ya">Ya</button>
-                                <button class="button_tidak">Tidak</button>
+                                <button class="button_ya" type="submit">Ya</button>
+                                <button class="button_tidak" type="button" onclick="cancelDelete()">Tidak</button>
                             </div>
+                        </form>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="content-box">
-                <div class="icon-check">
-                    <i class='bx bx-check'></i>
-                </div>
-                <div class="info">
-                    <h1>Tukar jaga dengan <b>Phoenix</b></h1>
-                    <p>Tanggal mulai:</p>
-                    <p>Tanggal selesai:</p>
-                </div>
+                @else
                 <div class="list">
                     <div class="svg_container_unduh" onclick="toggleUnduh(this)">
                         <i class='bx bx-dots-vertical-rounded dots'></i>
                     </div>
                     <div class="popup_unduh" id="svgPopupUnduh" style="display: none">
                         <div class="unduh">
-                            <h1>Unduh</h1>
+                            <a href="{{ route('statuscuti.download', ['id' => $surat->id, 'file' => $surat->file]) }}"><h1>Unduh</h1></a>
                         </div>
                     </div>
                 </div>
+                @endif
+
             </div>
 
-            <div class="content-box">
-                <div class="icon-x">
-                    <i class='bx bx-x'></i>
-                </div>
-                <div class="info">
-                    <h1>Tukar jaga dengan <b>Astra</b></h1>
-                    <p>Tanggal mulai:</p>
-                    <p>Tanggal selesai:</p>
-                </div>
-            </div>
+            @endforeach
 
-            <div class="content-box">
-                <div class="icon-check">
-                    <i class='bx bx-check'></i>
-                </div>
-                <div class="info">
-                    <h1>Tukar jaga dengan <b>Iso</b></h1>
-                    <p>Tanggal mulai:</p>
-                    <p>Tanggal selesai:</p>
-                </div>
-                <div class="list">
-                    <div class="svg_container_unduh" onclick="toggleUnduh(this)">
-                        <i class='bx bx-dots-vertical-rounded dots'></i>
-                    </div>
-                    <div class="popup_unduh" id="svgPopupUnduh" style="display: none">
-                        <div class="unduh">
-                            <h1>Unduh</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content-box">
-                <div class="icon-x">
-                    <i class='bx bx-x'></i>
-                </div>
-                <div class="info">
-                    <h1>Tukar jaga dengan <b>Skye</b></h1>
-                    <p>Tanggal mulai:</p>
-                    <p>Tanggal selesai:</p>
-                </div>
-            </div>
-
-            <div class="content-box">
-                <div class="icon-time">
-                    <i class='bx bx-time' ></i>
-                </div>
-                <div class="info">
-                    <h1>Tukar jaga dengan <b>Jet</b></h1>
-                    <p>Tanggal mulai:</p>
-                    <p>Tanggal selesai:</p>
-                </div>
-                <div class="list">
-                    <div class="svg_container" onclick="toggleBatal(this)">
-                        <i class='bx bx-dots-vertical-rounded dots'></i>
-                    </div>
-                    <div class="popup_batal" id="svgPopup" style="display: none;">
-                        <div class="click_batal" onclick="toggleOpsi(this)">
-                            <h1>Batalkan</h1>
-                        </div>
-                        <div class="popup-options" style="display: none;">
-                        <div id="overlay_daftar" class="overlay_daftar"></div>
-                            <div class="menu-popup">
-                                <h1>Batalkan Permohonan Cuti?</h1>
-                                <button class="button_ya">Ya</button>
-                                <button class="button_tidak">Tidak</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="content-box">
-                <div class="icon-x">
-                    <i class='bx bx-x'></i>
-                </div>
-                <div class="info">
-                    <h1>Tukar jaga dengan <b>Harbor</b></h1>
-                    <p>Tanggal mulai:</p>
-                    <p>Tanggal selesai:</p>
-                </div>
-            </div>
         </div>
         <div class="pencarian">
             <div class="search">
@@ -177,13 +105,12 @@
             popupOptions.style.display = 'none';
         }
 
-        var buttonsYa = popupOptions.querySelectorAll('.button_ya');
         var buttonsTidak = popupOptions.querySelectorAll('.button_tidak');
 
         buttonsYa.forEach(function(button) {
         button.addEventListener('click', function() {
             // Hapus content-box saat tombol "Ya" diklik
-            contentBox.remove();
+            
         });
     });
 
