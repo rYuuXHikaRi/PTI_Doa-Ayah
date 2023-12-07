@@ -8,6 +8,9 @@
     <div class="card-header">
         <h1><b>Daftar permohonan Izin</b></h1>
     </div>
+    <div class="icon-back">
+        <i class='bx bx-arrow-back'></i>
+    </div>
     <div class="card-body">
         <div class="gabung_box">
             @foreach ($suratizin as $surat)

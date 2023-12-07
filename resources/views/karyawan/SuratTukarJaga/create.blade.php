@@ -8,6 +8,9 @@
         <form method="post" action="{{route('surattukarjaga.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="card-header">
+                <div class="icon-back">
+                    <i class='bx bx-arrow-back'></i>
+                </div>
                 <h1><b>Ajukan Tukar Jaga</b></h1>
             </div>
             <div class="card-body">

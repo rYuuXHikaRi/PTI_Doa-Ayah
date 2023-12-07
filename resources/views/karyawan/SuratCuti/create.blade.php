@@ -6,6 +6,9 @@
 
     <div class="container">
         <div class="card-header">
+            <div class="icon-back">
+                <i class='bx bx-arrow-back'></i>
+            </div>
             <h1><b>Ajukan Permohonan Cuti</b></h1>
         </div>
         <div class="card-body">
@@ -17,7 +20,7 @@
                 <div class="content-box">
                     <input class="input_waktu" type="date" id="Tanggal_Mulai" name="tanggal_mulai">
                 </div>
-                
+
                 <div class="content-text">
                     <h3>Tanggal Selesai</h3>
                 </div>

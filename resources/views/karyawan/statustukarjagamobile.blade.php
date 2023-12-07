@@ -6,13 +6,15 @@
 
 <div class="container">
     <div class="card-header">
+        <div class="icon-back">
+            <i class='bx bx-arrow-back'></i>
+        </div>
         <h1><b>Daftar permohonan tukar jaga</b></h1>
     </div>
     <div class="card-body">
         <div class="gabung_box">
             @foreach ($surattukarjaga as $surat)
                 
-            
             <div class="content-box">
                 @if ($surat->status != 'disetujui')
                 <div class="icon-time">

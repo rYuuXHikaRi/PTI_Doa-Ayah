@@ -8,11 +8,13 @@
     <div class="card-header">
         <h1><b>Daftar permohonan cuti</b></h1>
     </div>
+    <div class="icon-back">
+        <i class='bx bx-arrow-back'></i>
+    </div>
     <div class="card-body">
         <div class="gabung_box">
             @foreach ($suratcuti as $surat)
                 
-            
             <div class="content-box">
                 @if ($surat->status != 'disetujui')
                 <div class="icon-time">
