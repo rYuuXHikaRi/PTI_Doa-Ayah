@@ -56,8 +56,14 @@
                     </div>
                     <div class="line"></div>
                     <div class="icon">
-                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                        <h1>Keluar</h1>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                        class="d-none">
+                        @csrf
+                        <button type="submit">                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        
+                            <h1>Keluar</h1></button>
+                       </form>
+
                     </div>
                 </div>
             </div>
