@@ -141,6 +141,16 @@
         background: rgba(0, 0, 0, 0.5); /* Latar belakang semi-transparan */
         z-index: 5; /* Atur z-index untuk menutupi elemen-elemen latar belakang */
     }
+    .popup-tgl {
+        display: none;
+        position: fixed;
+        padding: 20px;
+        background-color: var(--text-color);
+        border: 1px solid #ccc;
+        margin-top: 10rem;
+        z-index: 1000;
+        margin-left: .5rem;
+      }
 }
 
 @media (max-width: 432px) {

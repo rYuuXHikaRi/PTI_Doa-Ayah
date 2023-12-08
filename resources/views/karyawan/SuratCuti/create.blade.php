@@ -18,14 +18,16 @@
                     <h3>Tanggal Mulai</h3>
                 </div>
                 <div class="content-box">
-                    <input class="input_waktu" type="date" id="Tanggal_Mulai" name="tanggal_mulai">
+                    <input class="input_waktu" type="date" id="Tanggal_Mulai" name="tanggal_mulai"
+                    onchange="checkDate('Tanggal_Mulai')">
                 </div>
 
                 <div class="content-text">
                     <h3>Tanggal Selesai</h3>
                 </div>
                 <div class="content-box">
-                    <input class="input_waktu" type="date" id="Tanggal_izin" name="tanggal_selesai">
+                    <input class="input_waktu" type="date" id="Tanggal_izin" name="tanggal_selesai"
+                    onchange="checkDate('Tanggal_izin')">
                 </div>
 
                 <div class="content-text">
@@ -116,19 +118,22 @@
     function checkDate(inputId) {
         var inputDate = document.getElementById(inputId).value;
         var today = new Date().toISOString().split('T')[0];
-        var startDate =document.getElementById('Tanggal_Mulai').value;
-        var endDate =document.getElementById('Tanggal_Selesai').value;
 
         if (inputDate < today) {
-            alert('Tanggal yang dimasukkan sudah lewat!');
-            document.getElementById(inputId).value = "";
+            showPopup();
+            document.getElementById(inputId).value="";
             // Tambahkan logika atau tindakan lain yang sesuai
         }
-        else if(endDate != "" && endDate < startDate ){
-            alert('Tanggal selesai Salah ! Tanggal Selesai Harus setelah tanggal mulai');
-            document.getElementById("Tanggal_Mulai").value = "";
-            document.getElementById("Tanggal_Selesai").value = "";
-        }
+    }
+    function showPopup() {
+        var popup = document.getElementById("myPopup-tgl");
+        var overlay = document.getElementById("overlay_berhasil")
+        popup.style.display = "block"; // Tampilkan popup
+        overlay.style.display = "block";
+        setTimeout(function () {
+            popup.style.display = "none";
+            overlay.style.display = "none"; // Setelah beberapa waktu, sembunyikan kembali popup
+        },2000); // Misalnya, disetel untuk hilang setelah 3 detik (3000 milidetik)
     }
 
     function goBack() {

@@ -45,6 +45,7 @@ class UserController extends Controller
             'foto' => 'required|mimes:jpeg,png,jpg,gif|max:5120 ',
             'tanda_tangan' => 'required|mimes:jpeg,png,jpg,gif|max:5120 ',
         ]);
+     
         $file1 = $validatedData[('foto')];
         $file2 = $validatedData[('tanda_tangan')];
 
