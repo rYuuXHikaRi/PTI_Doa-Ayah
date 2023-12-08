@@ -71,6 +71,7 @@
   .box_pengaju {
     display: grid;
     margin-top: 20px;
+    margin-left: 3rem;
   }
   .box_pengaju table {
     text-align: left;

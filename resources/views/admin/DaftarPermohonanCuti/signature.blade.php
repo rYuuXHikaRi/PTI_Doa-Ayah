@@ -64,11 +64,11 @@
                     </tr>
                     <tr>
                         <td>Tanggal Mulai</td>
-                        <td>: {{ $suratCuti->tanggal_mulai }}</td>
+                        <td>: {{ $suratCuti->tanggal_mulai->format('d F Y') }}</td>
                     </tr>
                     <tr>
                         <td>Tanggal Selesai</td>
-                        <td>: {{ $suratCuti->tanggal_selesai }}</td>
+                        <td>: {{ $suratCuti->tanggal_selesai->format('d F Y') }}</td>
                     </tr>
                 </table>
             </div>
