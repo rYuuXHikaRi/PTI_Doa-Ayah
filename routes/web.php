@@ -153,6 +153,9 @@ Route::middleware(['auth','role:3'])->group(function () {
     Route::get('/izin',function(){
         return view('karyawan.statusizinmobile');
     });
+    Route::get('/permintaan',function(){
+        return view('karyawan.permintaan');
+    });
 });
 
 // route::resource('suratkeluar', SuratKeluarController::class);

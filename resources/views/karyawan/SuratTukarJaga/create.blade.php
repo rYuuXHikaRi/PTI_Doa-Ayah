@@ -40,11 +40,7 @@
                     <h3>Nama Target</h3>
                 </div>
                 <div class="dropdown-menu">
-<<<<<<< Updated upstream
-                    <select class="select">
-=======
-                    <select class="select-menu" name="target_tukar_jaga">
->>>>>>> Stashed changes
+                    <select class="select" name="target_tukar_jaga">
                         <option value="">Pilih Nama Target</option>
                         <option value="first">Astra</option>
                         <option value="second">Brimstone</option>

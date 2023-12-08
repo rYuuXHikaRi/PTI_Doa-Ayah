@@ -41,7 +41,7 @@
                 <p>Perizinan</p>
             </div>
             <div class="icon-belt">
-                <i class='bx bxs-bell'></i>
+                <a href="/permintaan"><i class='bx bxs-bell'></i></a>
             </div>
             <div class="elips">
                 <img src="../img/chibi.png" alt="logo_user">
@@ -59,11 +59,11 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                         class="d-none">
                         @csrf
-                        <button type="submit">                         <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                        
-                            <h1>Keluar</h1></button>
+                            <button type="submit">
+                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                <h1>Keluar</h1>
+                            </button>
                        </form>
-
                     </div>
                 </div>
             </div>

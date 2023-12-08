@@ -31,7 +31,7 @@
                     <p>Status: menunggu {{ $surat->status }}</p>
                     <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
                 </div>
-                @if ($surat->status!='disetujui')
+               
                 <div class="list">
                     <div class="svg_container" onclick="toggleBatal(this)">
                         <i class='bx bx-dots-vertical-rounded dots'></i>
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                 </div>
-                @else
+                
                 <div class="list">
                     <div class="svg_container_unduh" onclick="toggleUnduh(this)">
                         <i class='bx bx-dots-vertical-rounded dots'></i>
@@ -64,9 +64,15 @@
                         <div class="unduh">
                             <a href="{{ route('statustukarjaga.download', ['id' => $surat->id, 'file' => $surat->file]) }}"><h1>Unduh</h1></a>
                         </div>
+                        <div class="click_batal" onclick="toggleOpsi(this)">
+                            <h1>Batalkan</h1>
+                        </div>
+                        <div class="click_ttd" onclick="toggleTanda(this)">
+                            <h1>Tanda Tangani</h1>
+                        </div>
                     </div>
                 </div>
-                @endif
+                
 
             </div>
 
@@ -135,6 +141,17 @@
             unduh.style.display = 'block';
         } else {
             unduh.style.display = 'none';
+        }
+    }
+
+    function toggleTanda(clickedElement) {
+        var contentBox = clickedElement.closest('.content-box');
+        var ttd = contentBox.querySelector('.click_ttd');
+
+        if (ttd.style.display == 'none') {
+            ttd.style.display = 'block';
+        } else {
+            ttd.style.display = 'none';
         }
     }
 

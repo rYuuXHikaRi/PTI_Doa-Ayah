@@ -18,7 +18,13 @@
                     <h3>Tanggal Izin</h3>
                 </div>
                 <div class="content-box">
-                    <input class="input_waktu" type="date" id="Tanggal_izin" name="tanggal_izin">
+                    <input class="input_waktu" type="date" id="Tanggal_izin" name="tanggal_izin"
+                    onchange="checkDate('Tanggal_izin')">
+                </div>
+                <!-- Popup -->
+                <div class="popup-tgl" id="myPopup-tgl">
+                    <!-- Isi popup di sini -->
+                    Tanggal yang dimasukkan telah lewat
                 </div>
     
                 <div class="content-text">
@@ -106,6 +112,26 @@
             document.getElementById("Tanggal_izin").value = "";
             // Tambahkan logika atau tindakan lain yang sesuai
         }
+    }
+
+    function checkDate(inputId) {
+        var inputDate = document.getElementById(inputId).value;
+        var today = new Date().toISOString().split('T')[0];
+
+        if (inputDate < today) {
+            showPopup();
+            // Tambahkan logika atau tindakan lain yang sesuai
+        }
+    }
+    function showPopup() {
+        var popup = document.getElementById("myPopup-tgl");
+        var overlay = document.getElementById("overlay_berhasil")
+        popup.style.display = "block"; // Tampilkan popup
+        overlay.style.display = "block";
+        setTimeout(function () {
+            popup.style.display = "none";
+            overlay.style.display = "none"; // Setelah beberapa waktu, sembunyikan kembali popup
+        },2000); // Misalnya, disetel untuk hilang setelah 3 detik (3000 milidetik)
     }
 
     function goBack() {
