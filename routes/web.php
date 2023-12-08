@@ -32,6 +32,7 @@ Route::get('/',function(){
 
 
 Route::middleware(['auth','role:1'])->group(function () {
+
     Route::resource('arsip', ArsipController::class);
     Route::get('/arsip/{id}/{file}', [ArsipController::class, 'downloadarsip'])->name('arsipdownload');
 
@@ -68,9 +69,7 @@ Route::middleware(['auth','role:1'])->group(function () {
 
 
 Route::middleware(['auth','role:2'])->group(function () {
-    Route::get('/welcome', function () {
-        return view('welcome');
-    });
+
     Route::resource('kbsuratkeluar', KBSuratKeluarController::class);
     Route::resource('kbdisposisi',KBDisposisiController::class);
     Route::get('/kbdisposisi/add/{id}/{jenis}', [KBDisposisiController::class,'tambah'])->name('kbdisposisi.tambah');
@@ -134,7 +133,7 @@ Route::middleware(['auth','role:3'])->group(function () {
 
     
 
-    Route::get('/home',function(){
+    Route::get('/dashboardkaryawan',function(){
         return view('karyawan.index');
     });
     Route::get('/status',function(){

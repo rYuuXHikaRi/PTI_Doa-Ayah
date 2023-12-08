@@ -96,6 +96,7 @@ class SuratCutiController extends Controller
 
         // Update the file attribute in the database
         $suratCuti->file = $file_name;
+        $suratCuti->status = "disetujui";
         $suratCuti->save();
 
         Disposisi::create([
