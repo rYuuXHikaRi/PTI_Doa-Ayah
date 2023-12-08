@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Karyawan\ProfileKaryawanController;
 use App\Http\Controllers\Karyawan\StatusSuratController;
 use App\Http\Controllers\ListRequestLetterController;
 use Illuminate\Support\Facades\Auth;
@@ -129,6 +130,7 @@ Route::middleware(['auth','role:3'])->group(function () {
     Route::delete('statuscuti/destroy/{id}',[StatusSuratController::class,'destroyCuti'])->name('statuscuti.destroy');
     Route::delete('statusizin/destroy/{id}',[StatusSuratController::class,'destroyIzin'])->name('statusizin.destroy');
     Route::delete('statustukarjaga/destroy/{id}',[StatusSuratController::class,'destroyTukarJaga'])->name('statustukarjaga.destroy');
+    Route::post('/changepassword', [ProfileKaryawanController::class, 'changePassword'])->name('change.password');
 
     
 

@@ -10,7 +10,7 @@
     </div>
     <div class="card-body">
         <div class="box_foto">
-            <input type="file" id="fileInput" style="display: none;">
+            <input type="file" id="fileInput" style="display: none;" name="foto">
             <button class="ganti_foto" onclick="document.getElementById('fileInput').click()">Ganti Foto</button>
         </div>
         <div class="lapisan">
@@ -18,13 +18,13 @@
                 <h1>Nama</h1>
             </div>
             <div class="box_gelap">
-                <input type="text" id="namaInput" class="box_input" style="display: none;">
+                <input type="text" name="nama_karyawan" id="namaInput" class="box_input" style="display: none;">
             </div>
             <div class="teks">
                 <h1>Alamat</h1>
             </div>
             <div class="box_gelap">
-                <input type="text" id="alamatInput" class="box_input" style="display: none;">
+                <input type="text" name="alamat" id="alamatInput" class="box_input" style="display: none;">
             </div>
             <div class="teks">
                 <h1>Nomor Induk Karyawan</h1>
@@ -44,7 +44,7 @@
                 <div class="belum_unggah" id="unggah">
                     <h1>Belum diunggah</h1>
                 </div>
-                <input type="file" id="fileInput" style="display: none;">
+                <input type="file" name="tanda_tangan" id="fileInput" style="display: none;">
                 <div onclick="document.getElementById('fileInput').click()" class="pilih" id="pilih_file" style="display: none;">
                     <h1>Pilih File</h1>
                 </div>
@@ -63,26 +63,31 @@
             </div>
             <button id="toggle-button">Ubah Profile</button>
             <button id="simpan-button" style="display: none;">Simpan Perubahan</button>
-            <div class="teks" id="sandi_lama" style="display: none;">
-                <h1>Kata Sandi Lama</h1>
-            </div>
-            <div class="box_gelap" style="display: none;" id="sandi_lamaInput">
-                <input type="text" class="box_input">
-            </div>
-            <div class="teks" id="sandi_baru" style="display: none;">
-                <h1>Kata Sandi Baru</h1>
-            </div>
-            <div class="box_gelap" style="display: none;" id="sandi_baruInput">
-                <input type="text" class="box_input">
-            </div>
-            <div class="teks" id="konfirmasi" style="display: none;">
-                <h1>Konfirmasi Kata Sandi Baru</h1>
-            </div>
-            <div class="box_gelap" style="display: none;" id="konfirmasiInput">
-                <input type="text" class="box_input">
-            </div>
             <button id="ubah-sandi-button">Ubah Kata Sandi</button>
-            <button id="simpan-sandi-button" style="display: none;">Simpan Kata Sandi</button>
+            <form action="{{ route('change.password') }} " method="POST">
+                @method('POST')
+                @csrf
+                <div class="teks" id="sandi_lama" style="display: none;">
+                    <h1>Kata Sandi Lama</h1>
+                </div>
+                <div class="box_gelap" style="display: none;" id="sandi_lamaInput">
+                    <input type="text" class="box_input" name="password_lama">
+                </div>
+                <div class="teks" id="sandi_baru" style="display: none;">
+                    <h1>Kata Sandi Baru</h1>
+                </div>
+                <div class="box_gelap" style="display: none;" id="sandi_baruInput">
+                    <input type="text" class="box_input" name="password_baru">
+                </div>
+                <div class="teks" id="konfirmasi" style="display: none;">
+                    <h1>Konfirmasi Kata Sandi Baru</h1>
+                </div>
+                <div class="box_gelap" style="display: none;" id="konfirmasiInput">
+                    <input type="text" class="box_input" name="konfirmasi_password">
+                </div>
+                
+                <button type="submit" id="simpan-sandi-button" style="display: none;">Simpan Kata Sandi</button>
+            </form>
     </div>
 </div>
 <script>
@@ -194,5 +199,16 @@ document.getElementById('fileInput').addEventListener('change', function() {
         // Anda juga dapat menyimpan gambar tersebut di server dan mengatur URL gambar profil.
     }
 });
+
+document.getElementById('simpan-sandi-button').addEventListener('click', function(event) {
+        var passwordBaru = document.getElementsByName('password_baru')[0].value;
+        var konfirmasiPassword = document.getElementsByName('konfirmasi_password')[0].value;
+
+        // Periksa kesamaan
+        if (passwordBaru !== konfirmasiPassword) {
+            alert('Kata sandi baru dan konfirmasi kata sandi baru harus sama.');
+            event.preventDefault(); // Mencegah pengiriman formulir jika kata sandi tidak cocok
+        }
+    });
 </script>
 @endsection
