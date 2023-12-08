@@ -6,7 +6,7 @@
 
     <div class="container">
         <div class="card-header">
-            <div class="icon-back">
+            <div class="icon-back" onclick="goBack()">
                 <i class='bx bx-arrow-back'></i>
             </div>
             <h1><b>Ajukan Permohonan Cuti</b></h1>
@@ -129,5 +129,9 @@
             document.getElementById("Tanggal_Mulai").value = "";
             document.getElementById("Tanggal_Selesai").value = "";
         }
+    }
+
+    function goBack() {
+        window.history.back();
     }
 </script>

@@ -6,7 +6,7 @@
 
     <div class="container">
         <div class="card-header">
-            <div class="icon-back">
+            <div class="icon-back" onclick="goBack()">
                 <i class='bx bx-arrow-back'></i>
             </div>
             <h1><b>Ajukan Permohonan Izin</b></h1>
@@ -106,5 +106,9 @@
             document.getElementById("Tanggal_izin").value = "";
             // Tambahkan logika atau tindakan lain yang sesuai
         }
+    }
+
+    function goBack() {
+        window.history.back();
     }
 </script>

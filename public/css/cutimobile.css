@@ -22,7 +22,9 @@
         align-items: center;
     }
     .icon-back i {
+        color: var(--text-color);
         font-size: 1.4rem;
+        margin-left: .4rem;
     }
     .card-header h1 {
         color: var(--text-color);
@@ -143,7 +145,7 @@
 
 @media (max-width: 432px) {
     .card-header h1 {
-        margin-left: .2rem;
+        margin-left: -.4rem;
         padding: .8rem;     
     }
     .content-text h3 {

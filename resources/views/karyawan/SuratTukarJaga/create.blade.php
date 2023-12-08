@@ -8,7 +8,7 @@
         <form method="post" action="{{route('surattukarjaga.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="card-header">
-                <div class="icon-back">
+                <div class="icon-back" onclick="goBack()">
                     <i class='bx bx-arrow-back'></i>
                 </div>
                 <h1><b>Ajukan Tukar Jaga</b></h1>
@@ -126,5 +126,8 @@
             document.getElementById(inputId).value = "";
             // Tambahkan logika atau tindakan lain yang sesuai
         }
+    }
+    function goBack() {
+        window.history.back();
     }
 </script>

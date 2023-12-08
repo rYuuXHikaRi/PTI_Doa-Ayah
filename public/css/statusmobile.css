@@ -9,7 +9,7 @@
 
 @media (max-width: 616px) {
     .container {
-        height: 42rem;
+        height: 32.4rem;
         margin: 5%;
         margin-top: 6%;
         margin-left: 12%;
@@ -24,7 +24,9 @@
         border-radius: 10px 10px 0px 0px;
     }
     .icon-back i {
+        color: var(--text-color);
         font-size: 1.4rem;
+        margin-left: .4rem;
       }
     .card-header h1 {
         color: var(--text-color);
@@ -36,12 +38,12 @@
         background: rgba(230, 239, 250, 0.65);
         display: grid;
         width: 88%;
-        height: 39rem;
+        height: 30rem;
         border-radius: 0px 0px 10px 10px;
     }
     .gabung_box {
         overflow: scroll;
-        height: 34rem;
+        height: 26rem;
     }
     .content-box {
         position: relative;
@@ -349,7 +351,7 @@
 
 @media (max-width: 424px) {
     .card-header h1 {
-        margin-left: 0;
+        margin-left: -.4rem;
         font-size: 14px;
     }
     .content-box {
@@ -365,7 +367,7 @@
         width: 7.2rem;
     }
     .pencarian {
-        margin: 0 1.4rem;
+        margin: 0 1.8rem;
     }
 }
 

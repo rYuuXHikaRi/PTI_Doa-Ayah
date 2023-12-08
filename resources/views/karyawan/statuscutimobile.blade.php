@@ -6,10 +6,10 @@
 
 <div class="container">
     <div class="card-header">
+        <div class="icon-back" onclick="goBack()">
+            <i class='bx bx-arrow-back'></i>
+        </div>
         <h1><b>Daftar permohonan cuti</b></h1>
-    </div>
-    <div class="icon-back">
-        <i class='bx bx-arrow-back'></i>
     </div>
     <div class="card-body">
         <div class="gabung_box">
@@ -163,6 +163,9 @@
 // Memanggil fungsi cariData() saat input berubah
 document.getElementById('cariInput').addEventListener('input', cariData);
 
+function goBack() {
+        window.history.back();
+    }
 </script>
 </div>
 @endsection

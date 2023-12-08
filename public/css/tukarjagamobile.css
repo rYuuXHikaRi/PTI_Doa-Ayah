@@ -22,7 +22,9 @@
       align-items: center;
   }
   .icon-back i {
+    color: var(--text-color);
     font-size: 1.4rem;
+    margin-left: .4rem;
   }
   .card-header h1 {
       color: var(--text-color);
@@ -210,6 +212,8 @@
   }
   .icon i {
     font-size: 25px;
+    margin-left: 2.8rem;
+    margin-top: 0.4rem;
   }
   .content-ket {
     width: 85%;
@@ -237,7 +241,7 @@
 
 @media (max-width: 431px) {
   .card-header h1 {
-      margin-left: .2rem;
+      margin-left: -.4rem;
       padding: .8rem;     
   }
   .content-text h3 {
@@ -261,6 +265,10 @@
   .select {
     margin: -1rem 1rem 1rem;
     margin-left: .1rem;
+  }
+  .icon {
+    margin-left: 12rem;
+    margin-top: -.9rem;
   }
 }
 

@@ -6,7 +6,7 @@
 
 <div class="container">
     <div class="card-header">
-        <div class="icon-back">
+        <div class="icon-back" onclick="goBack()">
             <i class='bx bx-arrow-back'></i>
         </div>
         <h1><b>Daftar permohonan tukar jaga</b></h1>
@@ -164,6 +164,9 @@
 // Memanggil fungsi cariData() saat input berubah
 document.getElementById('cariInput').addEventListener('input', cariData);
 
+function goBack() {
+        window.history.back();
+    }
 </script>
 </div>
 @endsection
