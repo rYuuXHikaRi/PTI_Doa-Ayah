@@ -59,15 +59,11 @@
             <img src="/img/logo.png" alt="logo" style="width:40%;margin-left:50px;">
             <div class="menu-box">
                 <ul class="menu">
-                    <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="/dashboardadmin"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                     <li><a href="{{ route('arsip.index') }}"><i class="fas fa-archive"></i> Arsip</a></li>
-                    <li class="dropdown">
-                        <a href="#"><i class="fas fa-envelope"></i> Surat <i class="fas fa-caret-down"></i></a>
-                        <ul class="submenu">
-                            <li><a href="#">Template Surat</a></li>
-                            <li><a href="#">Kelola Surat</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="{{ route('templateSK.create') }}"><i class="fas fa-file"></i> Template Surat</a></li>
+                    <li><a href="{{ route('suratkeluar.index') }}"><i class="fas fa-envelope"></i> Kelola Surat</a></li>
+                 
                     <li><a href="{{ route('user.index') }}"><i class="fas fa-users"></i> Pengguna</a></li>
                 </ul>
                 <br><br><br><br>

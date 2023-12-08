@@ -16,7 +16,7 @@
                             <div class="card-header" style="background-color: blue; color: white; border-bottom: 2px solid white;">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div style="display: flex; align-items: center;">
-                                        <a href="{{route('suratkeluar.index')}}" style="text-decoration: none; margin-right: 10px;color:white">
+                                        <a href="{{route('kbsuratkeluar.index')}}" style="text-decoration: none; margin-right: 10px;color:white">
                                             <i class="fa-sharp fa-solid fa-arrow-left" style="font-size: 30px;"></i>
                                         </a>
                                         <span class="font-weight-bold" style="font-size: 30px;">Buat Surat Masuk</span>

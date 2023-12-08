@@ -29,10 +29,9 @@
                                 <span class="font-weight-bold" style="font-size: 30px;">{{ $title }}</span>
                             </div>
                             <div>
-                                <span class="btn btn-success"
-                                    style="font-size: 24px; border-radius: 100px; background-color: #0D72F2">+</span>
-                                <a href="{{ route('arsip.create') }}"><button class="btn btn-primary" id="openPopupButton"
-                                        style="font-size: 20px; border-radius: 20px;">
+                                
+                                <a href="{{ route('arsip.create') }}"><button class="button" id="openPopupButton"
+                                        style="font-size: 15px; border-radius: 20px;">
                                         Tambah Arsip Baru</button></a>
                             </div>
                         </div>

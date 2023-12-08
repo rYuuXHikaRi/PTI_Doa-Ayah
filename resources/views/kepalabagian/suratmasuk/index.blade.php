@@ -18,9 +18,6 @@
                     <div>
                         <span class="font-weight-bold" style="font-size: 30px;">Kelola Surat</span>
                     </div>
-                    <div>
-                        <a href="{{ route('kbsuratmasuk.create') }}"><button class="btn btn-primary" style="font-size: 15px;border-radius:20px;">Tambah Surat Baru</button></a>
-                    </div>
                 </div>
                 <br>
             <div class="row py-6">

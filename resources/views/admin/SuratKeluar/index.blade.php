@@ -49,17 +49,10 @@
                             <span class="font-weight-bold" style="font-size: 30px;">Kelola Surat</span>
                         </div>
 
-                        <div class="btn-group dropdown">
-                            <button type="button" class="btn btn-primary"
-                                style="font-size: 15px; border-radius: 20px;">Tambah Surat Baru</button>
-                            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="sr-only">Toggle Dropdown</span>
-                            </button>
-                            <div class="dropdown-menu dropdown-content">
-                                <a class="dropdown-item" href="{{route('suratmasuk.create')}}">Buat Surat Masuk</a>
-                                <a class="dropdown-item" href="{{ route('suratkeluar.create') }}">Buat Surat keluar</a>
-                            </div>
+                        <div class="">
+                            <a href="{{ route('suratkeluar.create') }}"><button  type="button" class="button"
+                                style="font-size: 15px; border-radius: 20px;">Tambah Surat Baru</button></a>
+    
                         </div>
 
                     </div>

@@ -19,36 +19,23 @@
                         <div>
                             <span class="font-weight-bold" style="font-size: 30px;">Kelola Pengguna</span>
                         </div>
-                    </div><br>
+                        <div style="text-align: right">
+                     
+                            <a href="{{ route('user.create') }}"><button class="button"
+                                    style="font-size: 15px;border-radius:20px;">Tambah Pengguna</button></a>
+                        </div>
+                    </div>
 
                     <div class="row py-6">
                         <div class="col-lg-12 mx-auto">
                             <div class="card rounded shadow border-2">
                                 <div class="card-body p-5 bg-white rounded">
-                                    <div style="text-align: right">
-                                        <button class="btn btn-success"
-                                            style="font-size: 24px;border-radius:100px;background-color:#0D72F2">+</button>
-                                        <a href="{{ route('user.create') }}"><button class="btn btn-primary"
-                                                style="font-size: 20px;border-radius:20px;">Tambah Pengguna</button></a>
-                                    </div><br><br>
+
 
 
                                     <div class="row">
-                                        <div class="col-md-3" style="margin-top: 45px;">
-                                            <div class="card">
-                                                <div class="card-header" style="background-color: #0051B9; color: white;">
-                                                    <p class="card-title">Jenis Pengguna</p>
-                                                </div>
-                                                <div class="card-body">
-                                                    <ul style="color: blue">
-                                                        <li>HRD </li>
-                                                        <li>Kepala Bagian</li>
-                                                        <li>Karyawan</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-9">
+
+                                        <div class="col-md-12">
                                             <div class="table-responsive">
                                                 <table id="example" style="width: 100%"
                                                     class="table table-striped table-bordered">
