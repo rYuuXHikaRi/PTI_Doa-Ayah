@@ -19,14 +19,21 @@
                 </div>
                 <div class="content-box">
                     <input class="input_waktu" type="date" id="Tanggal_Pengajuan" placeholder="Tanggal Pengajuan..."
-                        name="jadwal_asli">
+                        name="jadwal_asli" onchange="checkDate('Tanggal_Pengajuan')">
                 </div>
+                <!-- Popup -->
+                <div class="popup-tgl" id="myPopup-tgl">
+                    <!-- Isi popup di sini -->
+                    Tanggal yang dimasukkan telah lewat
+                </div>
+                <div id="overlay_berhasil" class="overlay_berhasil" style="display: none;"></div>
 
                 <div class="content-text">
                     <h3>Jadwal Yang Ingin Diubah</h3>
                 </div>
                 <div class="content-box">
-                    <input class="input_waktu" type="date" id="Tanggal_Target" placeholder="Tanggal Target..." name="jadwal_dirubah">
+                    <input class="input_waktu" type="date" id="Tanggal_Target" placeholder="Tanggal Target..." name="jadwal_dirubah"
+                    onchange="checkDate('Tanggal_Target')">
                 </div>
 
                 <div class="content-text">
@@ -122,10 +129,19 @@
         var today = new Date().toISOString().split('T')[0];
 
         if (inputDate < today) {
-            alert('Tanggal yang dimasukkan sudah lewat!');
-            document.getElementById(inputId).value = "";
+            showPopup();
             // Tambahkan logika atau tindakan lain yang sesuai
         }
+    }
+    function showPopup() {
+        var popup = document.getElementById("myPopup-tgl");
+        var overlay = document.getElementById("overlay_berhasil")
+        popup.style.display = "block"; // Tampilkan popup
+        overlay.style.display = "block";
+        setTimeout(function () {
+            popup.style.display = "none";
+            overlay.style.display = "none"; // Setelah beberapa waktu, sembunyikan kembali popup
+        },2000); // Misalnya, disetel untuk hilang setelah 3 detik (3000 milidetik)
     }
     function goBack() {
         window.history.back();

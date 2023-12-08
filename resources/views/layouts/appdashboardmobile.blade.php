@@ -40,6 +40,9 @@
             <div class="atur_jarak">
                 <p>Perizinan</p>
             </div>
+            <div class="icon-belt">
+                <i class='bx bxs-bell'></i>
+            </div>
             <div class="elips">
                 <img src="../img/chibi.png" alt="logo_user">
             </div>

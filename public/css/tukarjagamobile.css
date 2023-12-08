@@ -180,6 +180,16 @@
   .icon i {
     font-size: 31px;
   }
+  .popup-tgl {
+    display: none;
+    position: fixed;
+    padding: 20px;
+    background-color: var(--text-color);
+    border: 1px solid #ccc;
+    margin-top: 10rem;
+    z-index: 1000;
+    margin-left: .5rem;
+  }
 }
 
 @media (max-width: 589px) {
