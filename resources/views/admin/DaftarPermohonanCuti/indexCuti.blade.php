@@ -61,7 +61,7 @@
                                                         <td>{{ $Cuti->status }}</td>
 
                                                         <td>
-                                                            @if ($Cuti->status == auth()->user()->jabatan)
+                                                            @if ($Cuti->status == auth()->user()->jabatan && $Cuti->kepala_bagian == NULL)
                                                             <a href="{{ route('PermohonanCuti.priview', $Cuti->id) }}"><button
                                                                 class="btn btn-warning" style="background:#1AACAC">
                                                                 <i class="fa-solid fa-file-signature"></i></button></a>

@@ -31,7 +31,7 @@
                     <p>Status: menunggu {{ $surat->status }}</p>
                     <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
                 </div>
-                @if ($surat->status!='disetujui')
+                @if ($surat->status !='disetujui')
                 <div class="list">
                     <div class="svg_container" onclick="toggleBatal(this)">
                         <i class='bx bx-dots-vertical-rounded dots'></i>
