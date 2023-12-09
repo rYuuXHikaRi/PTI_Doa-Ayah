@@ -135,6 +135,8 @@ Route::middleware(['auth','role:3'])->group(function () {
     Route::delete('statusizin/destroy/{id}',[StatusSuratController::class,'destroyIzin'])->name('statusizin.destroy');
     Route::delete('statustukarjaga/destroy/{id}',[StatusSuratController::class,'destroyTukarJaga'])->name('statustukarjaga.destroy');
     Route::post('/changepassword', [ProfileKaryawanController::class, 'changePassword'])->name('change.password');
+    Route::resource('profile', SuratIzinController::class);
+    Route::put('/updateprofile',[ProfileKaryawanController::class,'updateprofile'])->name('update.profile');
 
     
 

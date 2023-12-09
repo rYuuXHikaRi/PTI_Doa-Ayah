@@ -44,7 +44,7 @@
                 <a href="/permintaan"><i class='bx bxs-bell'></i></a>
             </div>
             <div class="elips">
-                <img src="../img/chibi.png" alt="logo_user">
+                <a href="/profile"><img src="{{ asset('assets/profil/'.auth()->user()->foto )}}" alt="logo_user"></a>
             </div>
             <div class="dropdown">
                 <div class="menu">
