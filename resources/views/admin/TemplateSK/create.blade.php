@@ -63,7 +63,7 @@
         <div class="form-group row">
             <label for="hari/tanggalundangan" class="col-md-4 col-form-label">hari/Tanggal Undangan</label>
             <div class="col-md-8">
-                <input type="date" class="form-control" id="hari/tanggalundangan"  name="hari/tanggalundangan" style="background-color: #E0E0E0;"
+                <input type="date" class="form-control" id="hari/tanggalundangan"  name="hari_tanggal" style="background-color: #E0E0E0;"
                  style="background-color: #E0E0E0;"
                 >
             </div>
@@ -79,7 +79,7 @@
             <label for="tempat" class="col-md-4 col-form-label">Tempat</label>
             <div class="col-md-8">
                 <input type="text" class="form-control" id="tempat" placeholder="Tempat" style="background-color:#EBF1FA"
-                name="template">
+                name="tempat">
             </div>
         </div>
           
