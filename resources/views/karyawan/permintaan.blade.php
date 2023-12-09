@@ -9,7 +9,7 @@
         <div class="icon-back" onclick="goBack()">
             <i class='bx bx-arrow-back'></i>
         </div>
-        <h1><b>Daftar permohonan cuti</b></h1>
+        <h1><b>Permintaan Tukar Jaga</b></h1>
     </div>
     <div class="card-body">
         <div class="gabung_box">

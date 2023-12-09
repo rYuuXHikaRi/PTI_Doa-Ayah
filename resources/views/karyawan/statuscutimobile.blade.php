@@ -28,7 +28,11 @@
                 
                 <div class="info">
                     <h1>{{ $surat->nama_surat }}</h1>
+                    @if ($surat->status!='disetujui')
                     <p>Status: menunggu {{ $surat->status }}</p>
+                    @else
+                    <p>Status: disetujui</p>
+                    @endif
                     <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
                 </div>
                 @if ($surat->status !='disetujui')
