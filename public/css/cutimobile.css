@@ -145,12 +145,26 @@
         display: none;
         position: fixed;
         padding: 20px;
-        background-color: var(--text-color);
+        align-items: center;
+        display: grid;
+        justify-content: center;
+    }
+    .popup-tgl-sel {
+        display: none;
+        position: fixed;
+        padding: 20px;
+        background-color: white;
         border: 1px solid #ccc;
-        margin-top: 10rem;
-        z-index: 1000;
-        margin-left: .5rem;
-      }
+        z-index: 100;
+        margin-left: 1.4rem;
+    }
+    .popup-tgl-sel i {
+        color: #05AFF2;
+        font-size: 7rem;
+        align-items: center;
+        display: grid;
+        justify-content: center;
+    }
 }
 
 @media (max-width: 432px) {
@@ -159,7 +173,6 @@
         padding: .8rem;     
     }
     .content-text h3 {
-        margin: 0.7rem 1rem 1rem;  
     }
     .content-box {
         width: 85%;

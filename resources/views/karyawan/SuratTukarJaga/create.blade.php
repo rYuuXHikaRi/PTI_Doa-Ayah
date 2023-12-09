@@ -24,9 +24,9 @@
                 <!-- Popup -->
                 <div class="popup-tgl" id="myPopup-tgl">
                     <!-- Isi popup di sini -->
-                    Tanggal yang dimasukkan telah lewat
+                    <i class='bx bx-error'></i>
+                    <b>Tanggal yang dimasukkan telah lewat</b>
                 </div>
-                <div id="overlay_berhasil" class="overlay_berhasil" style="display: none;"></div>
 
                 <div class="content-text">
                     <h3>Jadwal Yang Ingin Diubah</h3>
@@ -34,6 +34,12 @@
                 <div class="content-box">
                     <input class="input_waktu" type="date" id="Tanggal_Target" placeholder="Tanggal Target..." name="jadwal_dirubah"
                     onchange="checkDate('Tanggal_Target')">
+                </div>
+                <!-- Popup -->
+                <div class="popup-tgl" id="myPopup-tgl">
+                    <!-- Isi popup di sini -->
+                    <i class='bx bx-error'></i>
+                    <b>Tanggal yang dimasukkan telah lewat</b>
                 </div>
 
                 <div class="content-text">
@@ -127,12 +133,19 @@
     function checkDate(inputId) {
         var inputDate = document.getElementById(inputId).value;
         var today = new Date().toISOString().split('T')[0];
+        var startDate =document.getElementById('Tanggal_Pengajuan').value;
+        var endDate =document.getElementById('Tanggal_Target').value;
 
-        if (inputDate < today) {
+        if (inputDate <= today) {
             showPopup();
             document.getElementById(inputId).value="";
             // Tambahkan logika atau tindakan lain yang sesuai
-        }
+            document.getElementById(inputId).value = "";
+        } else if(endDate != "" && endDate < startDate ){
+        showPopup();
+        document.getElementById("Tanggal_Pengajuan").value = "";
+        document.getElementById("Tanggal_Target").value = "";
+    }
     }
     function showPopup() {
         var popup = document.getElementById("myPopup-tgl");

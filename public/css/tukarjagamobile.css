@@ -184,12 +184,18 @@
     display: none;
     position: fixed;
     padding: 20px;
-    background-color: var(--text-color);
+    background-color: white;
     border: 1px solid #ccc;
-    margin-top: 10rem;
-    z-index: 1000;
-    margin-left: .5rem;
-  }
+    z-index: 100;
+    margin-left: -1.6rem;
+}
+.popup-tgl i {
+    color: #05AFF2;
+    font-size: 7rem;
+    align-items: center;
+    display: grid;
+    justify-content: center;
+}
 }
 
 @media (max-width: 589px) {

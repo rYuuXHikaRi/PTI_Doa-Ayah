@@ -24,7 +24,8 @@
                 <!-- Popup -->
                 <div class="popup-tgl" id="myPopup-tgl">
                     <!-- Isi popup di sini -->
-                    Tanggal yang dimasukkan telah lewat
+                    <i class='bx bx-error'></i>
+                    <b>Tanggal yang dimasukkan telah lewat</b>
                 </div>
     
                 <div class="content-text">
@@ -122,6 +123,7 @@
             showPopup();
             document.getElementById(inputId).value="";
             // Tambahkan logika atau tindakan lain yang sesuai
+            document.getElementById(inputId).value = "";
         }
     }
     function showPopup() {

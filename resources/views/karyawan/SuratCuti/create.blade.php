@@ -21,6 +21,12 @@
                     <input class="input_waktu" type="date" id="Tanggal_Mulai" name="tanggal_mulai"
                     onchange="checkDate('Tanggal_Mulai')">
                 </div>
+                <!-- Popup -->
+                <div class="popup-tgl" id="myPopup-tgl">
+                    <!-- Isi popup di sini -->
+                    <i class='bx bx-error'></i>
+                    <b>Tanggal telah lewat!!!</b>
+                </div>
 
                 <div class="content-text">
                     <h3>Tanggal Selesai</h3>
@@ -28,6 +34,12 @@
                 <div class="content-box">
                     <input class="input_waktu" type="date" id="Tanggal_izin" name="tanggal_selesai"
                     onchange="checkDate('Tanggal_izin')">
+                </div>
+                <!-- Popup -->
+                <div class="popup-tgl-sel" id="myPopup-tgl-sel">
+                    <!-- Isi popup di sini -->
+                    <i class='bx bx-error'></i>
+                    <b>Tanggal selesai salah!!!</b>
                 </div>
 
                 <div class="content-text">
@@ -118,15 +130,31 @@
     function checkDate(inputId) {
         var inputDate = document.getElementById(inputId).value;
         var today = new Date().toISOString().split('T')[0];
+        var startDate =document.getElementById('Tanggal_Mulai').value;
+        var endDate =document.getElementById('Tanggal_izin').value;
 
-        if (inputDate < today) {
+        if (inputDate <= today) {
             showPopup();
-            document.getElementById(inputId).value="";
             // Tambahkan logika atau tindakan lain yang sesuai
-        }
+            document.getElementById(inputId).value = "";
+        } else if(endDate != "" && endDate < startDate ){
+        showPopupSel();
+        document.getElementById("Tanggal_Mulai").value = "";
+        document.getElementById("Tanggal_izin").value = "";
+    }
     }
     function showPopup() {
         var popup = document.getElementById("myPopup-tgl");
+        var overlay = document.getElementById("overlay_berhasil")
+        popup.style.display = "block"; // Tampilkan popup
+        overlay.style.display = "block";
+        setTimeout(function () {
+            popup.style.display = "none";
+            overlay.style.display = "none"; // Setelah beberapa waktu, sembunyikan kembali popup
+        },2000); // Misalnya, disetel untuk hilang setelah 3 detik (3000 milidetik)
+    }
+    function showPopupSel() {
+        var popup = document.getElementById("myPopup-tgl-sel");
         var overlay = document.getElementById("overlay_berhasil")
         popup.style.display = "block"; // Tampilkan popup
         overlay.style.display = "block";

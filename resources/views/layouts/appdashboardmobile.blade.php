@@ -75,9 +75,9 @@
 
         <div class="navbar-content">
             <div class="navbar">
-                <a href="/home" class="active"><i class='bx bx-home'></i></a>
-                <a href="/status"><i class='bx bx-menu'></i></i></a>
-                <a href="/profile"><i class='bx bxs-user' ></i></a>
+                <a href="/home" class="{{ Request::is('/home') ? 'active' : '' }}"><i class='bx bx-home'></i></a>
+                <a href="/status" class="{{ Request::is('/status') ? 'active' : '' }}"><i class="fa-solid fa-list-check"></i></a>
+                <a href="/profile" class="{{ Request::is('/profile') ? 'active' : '' }}"><i class='bx bxs-user' ></i></a>
             </div>
         </div>
         
@@ -106,8 +106,6 @@
                 dropdownContent.style.display = "none";
             }
         });
-
-        var active = document.querySelector(".active");
 
         // Menambahkan event listener untuk tombol dropdown
         active.addEventListener("click", function() {
