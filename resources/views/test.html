@@ -34,3 +34,20 @@
 
 </body>
 </html>
+function checkDate(inputId) {
+    var inputDate = document.getElementById(inputId).value;
+    var today = new Date().toISOString().split('T')[0];
+    var startDate =document.getElementById('Tanggal_Mulai').value;
+    var endDate =document.getElementById('Tanggal_izin').value;
+
+    if (inputDate < today) {
+        alert('Tanggal yang dimasukkan sudah lewat!');
+        document.getElementById(inputId).value = "";
+        // Tambahkan logika atau tindakan lain yang sesuai
+    }
+    else if(endDate != "" && endDate < startDate ){
+        alert('Tanggal selesai Salah ! Tanggal Selesai Harus setelah tanggal mulai');
+        document.getElementById("Tanggal_Mulai").value = "";
+        document.getElementById("Tanggal_izin").value = "";
+    }
+}
