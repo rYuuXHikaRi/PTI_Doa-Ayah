@@ -197,7 +197,10 @@ document.getElementById('simpan-button').addEventListener('click', function() {
     }
 });
 
-document.getElementById('ubah-sandi-button').addEventListener('click', function() {
+document.getElementById('ubah-sandi-button').addEventListener('click', function(event) {
+    event.preventDefault(); // Mencegah formulir diajukan secara otomatis
+
+    // Logika perubahan tampilan tombol "Ubah Kata Sandi"
     var sandiLamaInput = document.getElementById('sandi_lamaInput');
     var sandiBaruInput = document.getElementById('sandi_baruInput');
     var konfirmasiInput = document.getElementById('konfirmasiInput');
@@ -219,7 +222,7 @@ document.getElementById('ubah-sandi-button').addEventListener('click', function(
 });
 document.getElementById('simpan-sandi-button').addEventListener('click', function() {
     var sandiLamaInput = document.getElementById('sandi_lamaInput');
-    var sandiBaruInput = document.getElementById('sandi_baruInput');
+    var sandiBaruInput = document.getElementById('sandi_baruInput'); 
     var konfirmasiInput = document.getElementById('konfirmasiInput');
     var sandiLama = document.getElementById('sandi_lama');
     var sandiBaru = document.getElementById('sandi_baru');
