@@ -55,11 +55,11 @@
                         <h1>Permohonan <b>Tukar Jaga dengan Ningguang</b> telah disetujui</h1>
                     </div>
                     <div class="line"></div>
-                    <div class="icon">
+                    <div class="icon-exit">
                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
                         class="d-none">
                         @csrf
-                            <button type="submit">
+                            <button type="submit" class="submit">
                                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
                                 <h1>Keluar</h1>
                             </button>
