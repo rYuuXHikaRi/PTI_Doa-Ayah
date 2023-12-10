@@ -86,6 +86,7 @@
                             <form method="POST" action="{{ route('setujui.tukarjaga', ['id' => $surat->id]) }}">
                                 @csrf
                                 @method('put')
+
                                 <button type="submit">Tanda Tangani</button>
                             </form>
                             
