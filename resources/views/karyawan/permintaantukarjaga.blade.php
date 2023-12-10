@@ -16,11 +16,11 @@
             @foreach ($surattukarjaga as $surat)
                 
             <div class="content-box">
-                @if ($surat->status != 'disetujui')
+                @if ($surat->status == 'Termohon')
                 <div class="icon-time">
                     <i class='bx bx-time' ></i>
                 </div>
-                @else
+                @elseif($surat->status == 'Kepala Ruangan')
                 <div class="icon-check">
                     <i class='bx bx-check'></i>
                 </div>
@@ -37,7 +37,7 @@
                         <i class='bx bx-dots-vertical-rounded dots'></i>
                     </div>
                     <div class="popup_unduh" id="svgPopupUnduh" style="display: none">
-                        <div class="unduh">
+                        <div class="unduh-permintaan">
                             <a href="{{ route('statustukarjaga.download', ['id' => $surat->id, 'file' => $surat->file]) }}"><h1>Unduh</h1></a>
                         </div>
                         <div class="popup_batal" id="svgPopup" style="">
