@@ -137,6 +137,8 @@ Route::middleware(['auth','role:3'])->group(function () {
     Route::post('/changepassword', [ProfileKaryawanController::class, 'changePassword'])->name('change.password');
     Route::resource('profile', SuratIzinController::class);
     Route::put('/updateprofile',[ProfileKaryawanController::class,'updateprofile'])->name('update.profile');
+    Route::get('/permintaantukarjaga', [SuratTukarJagaController::class, 'permintaantukarjaga'])->name('tukarjaga.permintaan');
+    Route::put('/permintaansurattukarjaga/setujui/{id}', [SuratTukarJagaController::class, 'setujui'])->name('setujui.tukarjaga');
 
     
 
@@ -159,9 +161,7 @@ Route::middleware(['auth','role:3'])->group(function () {
     Route::get('/izin',function(){
         return view('karyawan.statusizinmobile');
     });
-    Route::get('/permintaan',function(){
-        return view('karyawan.permintaan');
-    });
+ 
 });
 
 // route::resource('suratkeluar', SuratKeluarController::class);

@@ -48,9 +48,9 @@
                 <div class="dropdown-menu">
                     <select class="select" name="target_tukar_jaga">
                         <option value="">Pilih Nama Target</option>
-                        <option value="first">Astra</option>
-                        <option value="second">Brimstone</option>
-                        <option value="third">Viper</option>
+                        @foreach ($karyawan as $user)
+                        <option value="{{ $user->nama_karyawan }}">{{ $user->nama_karyawan }}</option>
+                        @endforeach
                     </select>
                     <div class="icon">
                         <i class='bx bx-chevron-down'></i>

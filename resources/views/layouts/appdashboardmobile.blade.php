@@ -41,7 +41,7 @@
                 <p>Perizinan</p>
             </div>
             <div class="icon-belt">
-                <a href="/permintaan"><i class='bx bxs-bell'></i></a>
+                <a href="/permintaantukarjaga"><i class='bx bxs-bell'></i></a>
             </div>
             <div class="elips">
                 <a href="/profile"><img src="{{ asset('assets/profil/'.auth()->user()->foto )}}" alt="logo_user"></a>

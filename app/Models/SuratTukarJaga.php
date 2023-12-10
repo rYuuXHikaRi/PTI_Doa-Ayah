@@ -27,6 +27,7 @@ class SuratTukarJaga extends Model
         'termohon',
         'created_at',
         'updated_at',
-        'nama_surat'
+        'nama_surat',
+        'tanda_tangan'
     ];
 }

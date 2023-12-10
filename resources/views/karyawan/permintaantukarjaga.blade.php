@@ -64,11 +64,31 @@
                         <div class="unduh">
                             <a href="{{ route('statustukarjaga.download', ['id' => $surat->id, 'file' => $surat->file]) }}"><h1>Unduh</h1></a>
                         </div>
-                        <div class="click_batal" onclick="toggleOpsi(this)">
-                            <h1>Batalkan</h1>
+                        <div class="popup_batal" id="svgPopup" style="">
+                            <div class="click_batal" onclick="toggleOpsi(this)">
+                                <h1>Batalkan</h1>
+                            </div>
+                            <div class="popup-options" style="display: none;">
+                            <div id="overlay_daftar" class="overlay_daftar"></div>
+                            <form action="{{ route('statustukarjaga.destroy', $surat->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                            
+                                <div class="menu-popup">
+                                    <h1>Batalkan Permohonan Tukar Jaga?</h1>
+                                    <button class="button_ya" type="submit">Ya</button>
+                                    <button class="button_tidak" type="button" onclick="cancelDelete()">Tidak</button>
+                                </div>
+                            </form>
+                            </div>
                         </div>
                         <div class="click_ttd" onclick="toggleTanda(this)">
-                            <h1>Tanda Tangani</h1>
+                            <form method="POST" action="{{ route('setujui.tukarjaga', ['id' => $surat->id]) }}">
+                                @csrf
+                                @method('put')
+                                <button type="submit">Tanda Tangani</button>
+                            </form>
+                            
                         </div>
                     </div>
                 </div>
