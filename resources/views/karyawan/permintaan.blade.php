@@ -2,18 +2,18 @@
 
 @section('content')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
-<link rel="stylesheet" href="{{ asset('css/statusmobile.css') }}">
+<link rel="stylesheet" href=" {{ asset('css/statusmobile.css') }}">
 
 <div class="container">
     <div class="card-header">
         <div class="icon-back" onclick="goBack()">
             <i class='bx bx-arrow-back'></i>
         </div>
-        <h1><b>Permintaan Tukar Jaga</b></h1>
+        <h1><b>Daftar permohonan tukar jaga</b></h1>
     </div>
     <div class="card-body">
         <div class="gabung_box">
-            @foreach ($suratcuti as $surat)
+            @foreach ($surattukarjaga as $surat)
                 
             <div class="content-box">
                 @if ($surat->status != 'disetujui')
@@ -31,47 +31,29 @@
                     <p>Status: menunggu {{ $surat->status }}</p>
                     <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
                 </div>
-                @if ($surat->status!='disetujui')
-                <div class="list">
-                    <div class="svg_container" onclick="toggleBatal(this)">
-                        <i class='bx bx-dots-vertical-rounded dots'></i>
-                    </div>
-                    <div class="popup_batal" id="svgPopup" style="display: none;">
-                        <div class="click_batal" onclick="toggleOpsi(this)">
-                            <h1>Batalkan</h1>
-                        </div>
-                        <div class="popup-options" style="display: none;">
-                        <div id="overlay_daftar" class="overlay_daftar"></div>
-                        <form action="{{ route('statuscuti.destroy', $surat->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                        
-                            <div class="menu-popup">
-                                <h1>Batalkan Permohonan Cuti?</h1>
-                                <button class="button_ya" type="submit">Ya</button>
-                                <button class="button_tidak" type="button" onclick="cancelDelete()">Tidak</button>
-                            </div>
-                        </form>
-                        </div>
-                    </div>
-                </div>
-                @else
+                
                 <div class="list">
                     <div class="svg_container_unduh" onclick="toggleUnduh(this)">
                         <i class='bx bx-dots-vertical-rounded dots'></i>
                     </div>
                     <div class="popup_unduh" id="svgPopupUnduh" style="display: none">
-                        <div class="unduh">
-                            <a href="{{ route('statuscuti.download', ['id' => $surat->id, 'file' => $surat->file]) }}"><h1>Unduh</h1></a>
+                        <div class="unduh-permintaan">
+                            <a href="{{ route('statustukarjaga.download', ['id' => $surat->id, 'file' => $surat->file]) }}"><h1>Unduh</h1></a>
+                        </div>
+                        <div class="click_batal" onclick="toggleOpsi(this)">
+                            <h1>Tolak</h1>
+                        </div>
+                        <div class="click_ttd" onclick="toggleTanda(this)">
+                            <h1>Tanda Tangani</h1>
                         </div>
                     </div>
                 </div>
-                @endif
+                
 
             </div>
 
             @endforeach
-
+  
         </div>
         <div class="pencarian">
             <div class="search">
@@ -107,12 +89,13 @@
             popupOptions.style.display = 'none';
         }
 
+ 
         var buttonsTidak = popupOptions.querySelectorAll('.button_tidak');
 
         buttonsYa.forEach(function(button) {
         button.addEventListener('click', function() {
             // Hapus content-box saat tombol "Ya" diklik
-            
+   
         });
     });
 
@@ -134,6 +117,17 @@
             unduh.style.display = 'block';
         } else {
             unduh.style.display = 'none';
+        }
+    }
+
+    function toggleTanda(clickedElement) {
+        var contentBox = clickedElement.closest('.content-box');
+        var ttd = contentBox.querySelector('.click_ttd');
+
+        if (ttd.style.display == 'none') {
+            ttd.style.display = 'block';
+        } else {
+            ttd.style.display = 'none';
         }
     }
 
