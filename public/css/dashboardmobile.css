@@ -98,19 +98,24 @@
         width: 100%;
         background: black;
     }
-    .icon {
+    .submit {
+        background: none;
+    }
+    .icon-exit {
         display: flex;
     }
-    .icon i {
+    .icon-exit i {
         color: #0253BA;
-        margin-top: 6.4%;
-        margin-left: 12px;
+        margin-top: 0.6rem;
+        margin-left: 0.7rem;
+        font-size: 1.5rem;
     }
-    .icon h1 {
+    .icon-exit h1 {
         color: #0253BA;
-        font-size: 14px;
-        margin-top: 6.4%;
-        margin-left: 7px;
+        position: absolute;
+        font-size: 19px;
+        margin-top: -1.4rem;
+        margin-left: 2.6rem;
     }
     .navbar-content {
         margin-left: 31px;

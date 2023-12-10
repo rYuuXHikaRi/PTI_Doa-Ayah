@@ -31,30 +31,6 @@
                     <p>Status: menunggu {{ $surat->status }}</p>
                     <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
                 </div>
-               
-                <div class="list">
-                    <div class="svg_container" onclick="toggleBatal(this)">
-                        <i class='bx bx-dots-vertical-rounded dots'></i>
-                    </div>
-                    <div class="popup_batal" id="svgPopup" style="display: none;">
-                        <div class="click_batal" onclick="toggleOpsi(this)">
-                            <h1>Batalkan</h1>
-                        </div>
-                        <div class="popup-options" style="display: none;">
-                        <div id="overlay_daftar" class="overlay_daftar"></div>
-                        <form action="{{ route('statustukarjaga.destroy', $surat->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                        
-                            <div class="menu-popup">
-                                <h1>Batalkan Permohonan Tukar Jaga?</h1>
-                                <button class="button_ya" type="submit">Ya</button>
-                                <button class="button_tidak" type="button" onclick="cancelDelete()">Tidak</button>
-                            </div>
-                        </form>
-                        </div>
-                    </div>
-                </div>
                 
                 <div class="list">
                     <div class="svg_container_unduh" onclick="toggleUnduh(this)">
