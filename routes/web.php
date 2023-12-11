@@ -16,8 +16,7 @@ use App\Http\Controllers\KepalaBagian\KBDisposisiController;
 use App\Http\Controllers\KepalaBagian\KBSuratMasukController;
 use App\Http\Controllers\KepalaBagian\KBSuratKeluarController;
 use App\Http\Controllers\KepalaBagian\KBTemplateSKController;
-
-
+use App\Http\Controllers\ProfileAdminController;
 use App\Http\Controllers\SuratCutiController;
 use App\Http\Controllers\SuratIzinController;
 use App\Http\Controllers\SuratTukarJagaController;
@@ -39,6 +38,16 @@ Route::middleware(['auth','role:1'])->group(function () {
     Route::resource('suratmasuk',SuratMasukController::class);
     Route::get('/suratmasuk/download/{id}/{file}', [SuratMasukController::class, 'downloadsuratmasuk'])->name('suratmasukdownload');
 
+<<<<<<< Updated upstream
+=======
+    // Route::resource('User-Profile', ProfileAdminController::class);
+    Route::get('/User-Profile', [ProfileAdminController::class, 'index'])->name('profile.user');
+    Route::post('/User-Profile', [ProfileAdminController::class, 'update'])->name('profile.update');
+    Route::get('/User-Profile/GantiPassword', [ProfileAdminController::class, 'EditPassword'])->name('profile.EditPassword');
+    Route::post('/User-Profile/GantiPassword', [ProfileAdminController::class, 'changePassword'])->name('profile.changePassword');
+
+
+>>>>>>> Stashed changes
 
     Route::resource('user', UserController::class);
     Route::resource('disposisi', DisposisiController::class);
@@ -62,6 +71,7 @@ Route::middleware(['auth','role:1'])->group(function () {
     Route::put('/template/sign/{id}', [TemplateSKController::class, 'Sign'])->name('templateSK.Sign');
     // Route::get('/suratkeluar/{id}', [TemplateSKController::class, 'signature'])->name('templateSK.signature');
 
+    Route::resource('profile' , ProfileAdminController::class);
 
 
 
