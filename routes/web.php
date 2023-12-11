@@ -38,8 +38,6 @@ Route::middleware(['auth','role:1'])->group(function () {
     Route::resource('suratmasuk',SuratMasukController::class);
     Route::get('/suratmasuk/download/{id}/{file}', [SuratMasukController::class, 'downloadsuratmasuk'])->name('suratmasukdownload');
 
-<<<<<<< Updated upstream
-=======
     // Route::resource('User-Profile', ProfileAdminController::class);
     Route::get('/User-Profile', [ProfileAdminController::class, 'index'])->name('profile.user');
     Route::post('/User-Profile', [ProfileAdminController::class, 'update'])->name('profile.update');
@@ -47,7 +45,6 @@ Route::middleware(['auth','role:1'])->group(function () {
     Route::post('/User-Profile/GantiPassword', [ProfileAdminController::class, 'changePassword'])->name('profile.changePassword');
 
 
->>>>>>> Stashed changes
 
     Route::resource('user', UserController::class);
     Route::resource('disposisi', DisposisiController::class);
