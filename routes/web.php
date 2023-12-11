@@ -40,16 +40,11 @@ Route::middleware(['auth','role:1'])->group(function () {
     Route::get('/suratmasuk/download/{id}/{file}', [SuratMasukController::class, 'downloadsuratmasuk'])->name('suratmasukdownload');
 
 
-    Route::get('/disposisi/add/{id}/{jenis}', [DisposisiController::class,'tambah'])->name('disposisi.tambah');
-    Route::post('/disposisi/store/{id}/{jenis}', [DisposisiController::class,'store'])->name('disposisi.tambahdisposisi');
-    Route::get('/disposisi/showsurat/{id}/{nama}', [DisposisiController::class,'showsurat'])->name('disposisi.showsurat');
-
     Route::resource('user', UserController::class);
     Route::resource('disposisi', DisposisiController::class);
     Route::get('/disposisi/add/{id}/{jenis}', [DisposisiController::class,'tambah'])->name('disposisi.tambah');
     Route::post('/disposisi/store/{id}/{jenis}', [DisposisiController::class,'store'])->name('disposisi.tambahdisposisi');
     Route::get('/disposisi/showsurat/{id}/{nama}', [DisposisiController::class,'showsurat'])->name('disposisi.showsurat');
-
 
 
     Route::resource('suratkeluar', SuratKeluarController::class);
