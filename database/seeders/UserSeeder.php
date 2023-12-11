@@ -76,7 +76,7 @@ class UserSeeder extends Seeder
             'nama_bagian' => 'Bagian RS',
             'created_at' => now(),
             'updated_at' => now(),
-     
+
         ]);
 
         // Data Direktur PT
@@ -94,7 +94,7 @@ class UserSeeder extends Seeder
             'nama_bagian' => 'Bagian PT',
             'created_at' => now(),
             'updated_at' => now(),
-          
+
         ]);
 
         DB::table('users')->insert([
@@ -111,7 +111,7 @@ class UserSeeder extends Seeder
             'nama_bagian' => 'Bagian PT',
             'created_at' => now(),
             'updated_at' => now(),
-          
+
         ]);
 
         DB::table('users')->insert([
@@ -128,7 +128,7 @@ class UserSeeder extends Seeder
             'nama_bagian' => 'HRD',
             'created_at' => now(),
             'updated_at' => now(),
-          
+
         ]);
 
         DB::table('users')->insert([
@@ -145,7 +145,7 @@ class UserSeeder extends Seeder
             'nama_bagian' => 'HRD',
             'created_at' => now(),
             'updated_at' => now(),
-          
+
         ]);
     }
 }
