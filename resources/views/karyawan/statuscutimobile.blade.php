@@ -53,7 +53,7 @@
                             <div class="menu-popup">
                                 <h1>Batalkan Permohonan Cuti?</h1>
                                 <button class="button_ya" type="submit">Ya</button>
-                                <button class="button_tidak" type="button" onclick="cancelDelete()">Tidak</button>
+                                <button class="button_tidak" type="button">Tidak</button>
                             </div>
                         </form>
                         </div>
@@ -86,6 +86,11 @@
     </div>
     <script>
     function toggleBatal(clickedElement) {
+         // Menyembunyikan popup toggle batal sebelumnya yang terbuka
+        var allPopups = document.querySelectorAll('.popup_batal');
+        allPopups.forEach(function(popup) {
+            popup.style.display = 'none';
+        });
         // Traverse the DOM to find the related popup within the clicked content-box
         var contentBox = clickedElement.closest('.content-box');
         var popup = contentBox.querySelector('.popup_batal');
@@ -99,6 +104,19 @@
         }
     }
 
+    document.addEventListener('click', function(event) {
+    var isClickInsidePopup = event.target.closest('.popup_batal');
+    var isClickInsideContentBox = event.target.closest('.content-box');
+
+    if (!isClickInsidePopup && !isClickInsideContentBox) {
+        // Sembunyikan semua popup toggle batal saat klik dilakukan di luar area tersebut
+        var allPopups = document.querySelectorAll('.popup_batal');
+        allPopups.forEach(function(popup) {
+            popup.style.display = 'none';
+        });
+    }
+});
+
     function toggleOpsi(clickedElement) {
         var contentBox = clickedElement.closest('.content-box');
         var popupOptions = contentBox.querySelector('.popup-options');
@@ -107,22 +125,16 @@
 
         if (popupOptions.style.display === "none") {
             popupOptions.style.display = 'block';
+            overlay.style.display = 'block';
         } else {
             popupOptions.style.display = 'none';
         }
 
+ 
         var buttonsTidak = popupOptions.querySelectorAll('.button_tidak');
-
-        buttonsYa.forEach(function(button) {
-        button.addEventListener('click', function() {
-            // Hapus content-box saat tombol "Ya" diklik
-            
-        });
-    });
 
         buttonsTidak.forEach(function(button) {
         button.addEventListener('click', function() {
-            // Sembunyikan popup saat tombol "Tidak" diklik
             popupOptions.style.display = 'none';
             overlay.style.display = 'none';
             popup.style.display = 'none';

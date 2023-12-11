@@ -42,7 +42,7 @@
                         </div>
                         <div class="popup_batal" id="svgPopup" style="">
                             <div class="click_batal" onclick="toggleOpsi(this)">
-                                <h1>Batalkan</h1>
+                                <h1>Tolak</h1>
                             </div>
                             <div class="popup-options" style="display: none;">
                             <div id="overlay_daftar" class="overlay_daftar"></div>
@@ -53,7 +53,7 @@
                                 <div class="menu-popup">
                                     <h1>Batalkan Permohonan Tukar Jaga?</h1>
                                     <button class="button_ya" type="submit">Ya</button>
-                                    <button class="button_tidak" type="button" onclick="cancelDelete()">Tidak</button>
+                                    <button class="button_tidak" type="button">Tidak</button>
                                 </div>
                             </form>
                             </div>
@@ -69,8 +69,6 @@
                         </div>
                     </div>
                 </div>
-                
-
             </div>
 
             @endforeach

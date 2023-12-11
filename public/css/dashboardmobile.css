@@ -1,10 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Linefont:wght@100&display=swap');
+
 @media screen and (min-width: 617px) {
     body {
         display: none;
     }
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600;700;800&family=Linefont:wght@100&display=swap');
 
 * {
     margin: 0;

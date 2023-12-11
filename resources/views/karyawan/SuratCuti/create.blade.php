@@ -133,7 +133,7 @@
         var startDate =document.getElementById('Tanggal_Mulai').value;
         var endDate =document.getElementById('Tanggal_izin').value;
 
-        if (inputDate <= today) {
+        if (inputDate < today) {
             showPopup();
             // Tambahkan logika atau tindakan lain yang sesuai
             document.getElementById(inputId).value = "";

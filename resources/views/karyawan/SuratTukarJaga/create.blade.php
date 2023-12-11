@@ -136,7 +136,7 @@
         var startDate =document.getElementById('Tanggal_Pengajuan').value;
         var endDate =document.getElementById('Tanggal_Target').value;
 
-        if (inputDate <= today) {
+        if (inputDate < today) {
             showPopup();
             document.getElementById(inputId).value="";
             // Tambahkan logika atau tindakan lain yang sesuai
