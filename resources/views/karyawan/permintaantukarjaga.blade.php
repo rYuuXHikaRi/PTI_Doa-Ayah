@@ -20,7 +20,7 @@
                 <div class="icon-time">
                     <i class='bx bx-time' ></i>
                 </div>
-                @elseif($surat->status == 'Kepala Ruangan')
+                @else
                 <div class="icon-check">
                     <i class='bx bx-check'></i>
                 </div>
