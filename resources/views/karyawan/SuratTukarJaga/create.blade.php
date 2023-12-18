@@ -48,9 +48,9 @@
                 <div class="dropdown-menu">
                     <select class="select" name="target_tukar_jaga">
                         <option value="">Pilih Nama Target</option>
-                        <option value="first">Astra</option>
-                        <option value="second">Brimstone</option>
-                        <option value="third">Viper</option>
+                        @foreach ($karyawan as $user)
+                        <option value="{{ $user->nama_karyawan }}">{{ $user->nama_karyawan }}</option>
+                        @endforeach
                     </select>
                     <div class="icon">
                         <i class='bx bx-chevron-down'></i>
@@ -136,8 +136,9 @@
         var startDate =document.getElementById('Tanggal_Pengajuan').value;
         var endDate =document.getElementById('Tanggal_Target').value;
 
-        if (inputDate <= today) {
+        if (inputDate < today) {
             showPopup();
+            document.getElementById(inputId).value="";
             // Tambahkan logika atau tindakan lain yang sesuai
             document.getElementById(inputId).value = "";
         } else if(endDate != "" && endDate < startDate ){

@@ -31,7 +31,31 @@
                     <p>Status: menunggu {{ $surat->status }}</p>
                     <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
                 </div>
-                
+                @if ($surat->status!='disetujui')
+                <div class="list">
+                    <div class="svg_container" onclick="toggleBatal(this)">
+                        <i class='bx bx-dots-vertical-rounded dots'></i>
+                    </div>
+                    <div class="popup_batal" id="svgPopup" style="display: none;">
+                        <div class="click_batal" onclick="toggleOpsi(this)">
+                            <h1>Batalkan</h1>
+                        </div>
+                        <div class="popup-options" style="display: none;">
+                        <div id="overlay_daftar" class="overlay_daftar"></div>
+                        <form action="{{ route('statustukarjaga.destroy', $surat->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                        
+                            <div class="menu-popup">
+                                <h1>Batalkan Permohonan Tukar Jaga?</h1>
+                                <button class="button_ya" type="submit">Ya</button>
+                                <button class="button_tidak" type="button">Tidak</button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+                @else
                 <div class="list">
                     <div class="svg_container_unduh" onclick="toggleUnduh(this)">
                         <i class='bx bx-dots-vertical-rounded dots'></i>
@@ -64,6 +88,11 @@
     </div>
     <script>
     function toggleBatal(clickedElement) {
+         // Menyembunyikan popup toggle batal sebelumnya yang terbuka
+        var allPopups = document.querySelectorAll('.popup_batal');
+        allPopups.forEach(function(popup) {
+            popup.style.display = 'none';
+        });
         // Traverse the DOM to find the related popup within the clicked content-box
         var contentBox = clickedElement.closest('.content-box');
         var popup = contentBox.querySelector('.popup_batal');
@@ -77,6 +106,20 @@
         }
     }
 
+    document.addEventListener('click', function(event) {
+    var isClickInsidePopup = event.target.closest('.popup_batal');
+    var isClickInsideContentBox = event.target.closest('.content-box');
+
+    if (!isClickInsidePopup && !isClickInsideContentBox) {
+        // Sembunyikan semua popup toggle batal saat klik dilakukan di luar area tersebut
+        var allPopups = document.querySelectorAll('.popup_batal');
+        allPopups.forEach(function(popup) {
+            popup.style.display = 'none';
+        });
+    }
+});
+
+
     function toggleOpsi(clickedElement) {
         var contentBox = clickedElement.closest('.content-box');
         var popupOptions = contentBox.querySelector('.popup-options');
@@ -85,6 +128,7 @@
 
         if (popupOptions.style.display === "none") {
             popupOptions.style.display = 'block';
+            overlay.style.display = 'block';
         } else {
             popupOptions.style.display = 'none';
         }
@@ -92,16 +136,8 @@
  
         var buttonsTidak = popupOptions.querySelectorAll('.button_tidak');
 
-        buttonsYa.forEach(function(button) {
-        button.addEventListener('click', function() {
-            // Hapus content-box saat tombol "Ya" diklik
-   
-        });
-    });
-
         buttonsTidak.forEach(function(button) {
         button.addEventListener('click', function() {
-            // Sembunyikan popup saat tombol "Tidak" diklik
             popupOptions.style.display = 'none';
             overlay.style.display = 'none';
             popup.style.display = 'none';
@@ -120,18 +156,7 @@
         }
     }
 
-    function toggleTanda(clickedElement) {
-        var contentBox = clickedElement.closest('.content-box');
-        var ttd = contentBox.querySelector('.click_ttd');
-
-        if (ttd.style.display == 'none') {
-            ttd.style.display = 'block';
-        } else {
-            ttd.style.display = 'none';
-        }
-    }
-
-    function cariData() {
+    function cariData(clickedElement) {
     var input = document.getElementById('cariInput').value.toLowerCase();
 
     // Loop melalui setiap elemen dengan class "content-box"

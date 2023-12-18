@@ -58,13 +58,15 @@
                     <p>
                         @if ($suratTukarJaga->tanda_tangan)
                         <img style="height: 120px ; width:120px;"
-                        src="{{ asset('assets/ttd/' . $suratTukarJaga->tanda_tangan) }}"
+                        src="{{ asset('assets/ttd/'.$suratTukarJaga->tanda_tangan) }}"
                         alt="Tanda Tangan">
                         @endif
                     </p>
                     <b>{{ $suratTukarJaga->nama_pengaju }}</b>
                     <div class="line"></div>
                 </div>
+
+
                 <div class="ttd_B">
                     <p>Termohon, <b>{{ $suratTukarJaga->target_tukar_jaga}}<b></p>
                     <br><br>
@@ -72,7 +74,7 @@
                     <img style="height: 120px ; width:120px;"
                     src="{{ asset('assets/ttd/' . $suratTukarJaga->termohon) }}"
                     alt="Tanda Tangan">
-                    @else
+                    @elseif($suratTukarJaga->termohon == NULL && $suratTukarJaga->status =='Termohon')
                     <form method="POST" action="{{route("PermohonanTukarJaga.Sign",['id' => $suratTukarJaga->id,'jenis'=>'Termohon'])}}">
                         @csrf
                         @method('put')
@@ -90,7 +92,7 @@
                     <img style="height: 120px ; width:120px;"
                     src="{{ asset('assets/ttd/' . $suratTukarJaga->kepala_ruangan) }}"
                     alt="Tanda Tangan">
-                    @else
+                    @elseif($suratTukarJaga->kepala_ruangan == NULL && $suratTukarJaga->status =='Kepala Ruangan')
                     <form method="POST" action="{{route("PermohonanTukarJaga.Sign",['id' => $suratTukarJaga->id,'jenis'=>'Kepala Ruangan'])}}">
                         @csrf
                         @method('put')
@@ -99,13 +101,15 @@
                     @endif
                     <div class="line"></div>
                 </div>
+
+
                 <div class="ttd_kab">
                     <p>Ka. Bagian</p>
                     @if ($suratTukarJaga->kepala_bagian)
                     <img style="height: 120px ; width:120px;"
                     src="{{ asset('assets/ttd/' . $suratTukarJaga->kepala_bagian) }}"
                     alt="Tanda Tangan">
-                    @else
+                    @elseif($suratTukarJaga->kepala_bagian == NULL && $suratTukarJaga->status =='Kepala Bagian')
                     <form method="POST" action="{{route("PermohonanTukarJaga.Sign",['id' => $suratTukarJaga->id,'jenis'=>'Kepala Bagian'])}}">
                         @csrf
                         @method('put')

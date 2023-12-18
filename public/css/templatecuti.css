@@ -61,6 +61,7 @@
   .box_pengaju {
     display: flex;
     margin-top: 20px;
+    margin-left: 1.5rem;
   }
   .box_pengaju p {
     margin-block-end: -1.2em;

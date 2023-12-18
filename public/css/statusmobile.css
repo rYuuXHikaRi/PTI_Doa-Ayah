@@ -75,7 +75,7 @@
     }
     .icon-x i {
         color: #F62222;
-        font-size: 4.6rem;
+        font-size: 3.5rem;
         margin: -0.5rem -0.5rem;
     }
     .info {
@@ -184,6 +184,13 @@
     .click_ttd h1 {
         font-size: 18px;
     }
+    button[type="submit"] {
+        font-size: 18px; /* Atur ukuran font */
+        color: var(--text-color);
+        background: transparent;
+        border: none; /* Hapus border */
+        font-weight: bold; /* Atur ukuran font */
+    }
     .popup-options {
         position: absolute;
         border-radius: 15px;
@@ -281,6 +288,15 @@
     .popup-options {
         left: -1%;
     }
+    .unduh-permintaan {
+        margin-left: -4.2rem;
+    }
+    .click_ttd {
+        margin-left: -4.2rem;
+    }
+    button[type="submit"] {
+        font-size: 17px; /* Atur ukuran font */
+    }
 }
 
 @media (max-width: 581px)  {
@@ -314,6 +330,9 @@
     .icon-check i {
         font-size: 2.5rem;
         margin: 0.1rem -0.4rem;
+    }
+    button[type="submit"] {
+        font-size: 14px; /* Atur ukuran font */
     }
 }
 
@@ -360,9 +379,15 @@
         margin: 1.5rem 0.3rem;
     }
     .icon-x i {
-        font-size: 2.8rem;
+        font-size: 1.7rem;
     }
     .click_batal {
+        margin-left: -7.2rem;
+    }
+    .unduh-permintaan {
+        margin-left: -7.2rem;
+    }
+    .click_ttd {
         margin-left: -7.2rem;
     }
     .popup-options {
@@ -376,6 +401,9 @@
         width: 84px;
         height: 35px;
         margin-left: 42px;
+    }
+    button[type="submit"] {
+        font-size: 15px; /* Atur ukuran font */
     }
 }
 

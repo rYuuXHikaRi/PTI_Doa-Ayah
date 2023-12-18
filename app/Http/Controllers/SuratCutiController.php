@@ -79,6 +79,7 @@ class SuratCutiController extends Controller
     {
         $suratCuti = SuratCuti::where('id', $id)->first();
         $suratCuti->kepala_bagian = auth()->user()->tanda_tangan;
+        $suratCuti->nama_kepala_bagian = auth()->user()->nama_karyawan;
         $suratCuti->save();
 
         $pdf = PDF::loadView('admin.DaftarPermohonanCuti.signature', compact('suratCuti'));

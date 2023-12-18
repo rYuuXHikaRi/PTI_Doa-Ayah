@@ -79,10 +79,8 @@ class ArsipController extends Controller
         $arsip->lokasi_arsip = $request->input('lokasi_arsip');
         $arsip->kategori = $request->input('kategori');
         $arsip->tanggal_selesai = $request->input('tanggal_selesai');
-     
 
         $arsip->save();
-
 
         $title = "Edit Arsip";
         Session::flash('success', 'Data Arsip Berhasil DiUbah');

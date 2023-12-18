@@ -25,14 +25,7 @@
                         <div class="col-lg-12 mx-auto">
                             <div class="card rounded shadow border-2">
                                 <div class="card-body p-5 bg-white rounded">
-                                    <div class="button-container">
-                                        <select id="menuDropdown" style="background-color: #EBF1FA">
-                                            <option value="izin"><a href="">Izin</a></option>
-                                            <option value="cuti"><a href="">Cuti</a></option>
-                                            <option value="tukarJaga"><a href="">Tukar Jaga</a></option>
-                                        </select>
-                                    </div>
-                                    <br><br>
+                                    
                                     <div class="table-responsive">
                                         <table id="example" style="width: 100%"
                                             class="table table-striped table-bordered">

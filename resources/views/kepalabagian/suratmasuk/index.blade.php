@@ -18,9 +18,6 @@
                     <div>
                         <span class="font-weight-bold" style="font-size: 30px;">Kelola Surat</span>
                     </div>
-                    <div>
-                        <a href="{{ route('kbsuratmasuk.create') }}"><button class="btn btn-primary" style="font-size: 15px;border-radius:20px;">Tambah Surat Baru</button></a>
-                    </div>
                 </div>
                 <br>
             <div class="row py-6">
@@ -86,7 +83,7 @@
                               @if ($item->status == auth()->user()->jabatan)
                                   <a
                                       href="{{ route('kbdisposisi.tambah', ['id' => $item->id, 'jenis' => "surat masuk"]) }}"><button
-                                          class="btn btn-success"><i
+                                          class="btn btn-secondary"style="padding: 0.25rem 0.5rem;font-size: 10px;"><i
                                               class="fa-solid fa-share-from-square"></i></button></a>
                               @endif
                           

@@ -64,11 +64,11 @@
                     </tr>
                     <tr>
                         <td>Tanggal Mulai</td>
-                        <td>: {{ $suratCuti->tanggal_mulai->format('d F Y') }}</td>
+                        <td>: {{ \Carbon\Carbon::parse($suratCuti->tanggal_mulai)->format('d-m-Y') }}</td>
                     </tr>
                     <tr>
                         <td>Tanggal Selesai</td>
-                        <td>: {{ $suratCuti->tanggal_selesai->format('d F Y') }}</td>
+                        <td>: {{ \Carbon\Carbon::parse($suratCuti->tanggal_selesai)->format('d-m-Y') }}</td>
                     </tr>
                 </table>
             </div>
@@ -83,9 +83,9 @@
                     Ka./Koor.Bagian
                 @if ($suratCuti->kepala_bagian)</p>
                 <img style="height: 120px ; width:120px;"
-                    src="{{ public_path('assets/ttd/' . $suratCuti->kepala_bagian) }}" alt="Tanda Tangan">
+                    src="{{ public_path('assets/ttd/'.$suratCuti->kepala_bagian) }}" alt="Tanda Tangan">
                 @endif
-            <p>{{ $suratCuti->nama_pengaju }}</p>
+            <p>{{ $suratCuti->nama_kepala_bagian }}</p>
 
             </div>
             <div class="ttd_pemohon">
@@ -94,7 +94,7 @@
                 <p>
                 @if ($suratCuti->tanda_tangan)
                 <img style="height: 120px ; width:120px;"
-                    src="{{ public_path('assets/ttd/' . $suratCuti->tanda_tangan) }}" alt="Tanda Tangan">
+                    src="{{ public_path('assets/ttd/'.$suratCuti->tanda_tangan) }}" alt="Tanda Tangan">
                 @endif
                 </p>
                 <p>{{ $suratCuti->nama_pengaju }}</p>

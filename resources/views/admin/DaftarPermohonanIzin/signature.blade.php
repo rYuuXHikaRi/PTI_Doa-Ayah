@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ public_path('css/templateizin.css') }}">
 </head>
 <body>
-    <p style="margin-left:65%">Karang Endah,{{ $suratIzin->updated_at->format('d F Y') }}
+    <p style="margin-left:65%">Karang Endah,{{ \Carbon\Carbon::parse($suratIzin->updated_at)->format('d-m-Y') }}
     </p>
     <div class="kepada">
         <p> Kepada Yth,<br>
@@ -22,7 +22,7 @@
         Bagian      : {{ $suratIzin->bagian }}
     </p>
     <div class="keterangan">
-        <p>Bersama Surat ini Saya sampaikan bahwa pada tanggal <b>{{ $suratIzin->tanggal_izin }}</b> Saya tidak
+        <p>Bersama Surat ini Saya sampaikan bahwa pada tanggal <b>{{ \Carbon\Carbon::parse($suratIzin->tanggal_izin)->format('d-m-Y') }}</b> Saya tidak
             dapat bekerja seperti biasa,
             dikarenakan ada <b>{{ $suratIzin->keterangan }}</b>. Mohon kiranya Ibu Direktur dapat memberikan izin kepada
             Saya.

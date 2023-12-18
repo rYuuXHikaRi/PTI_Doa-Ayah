@@ -20,6 +20,6 @@ class SuratCuti extends Model
         'jabatan',
         'keterangan',
         'status',
-        'file', 'bagian', 'nama_pengaju', 'tanda_tangan','kepala_bagian'
+        'file', 'bagian', 'nama_pengaju', 'tanda_tangan','kepala_bagian','nama_kepala_bagian'
     ];
 }

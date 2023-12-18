@@ -5,7 +5,7 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
-    <link rel="stylesheet" href="css/kelolasuratkeluar.css">
+    <link rel="stylesheet" href="css/kelolasuratmasuk.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
 </head>
     <body>
@@ -63,7 +63,7 @@
                                                 @foreach ($suratkeluar as $suratkeluarr)
                                                     <tr>
                                                         <td>{{ $no++ }}</td>
-                                                        <td hidden>{{ $suratkeluarr->id }}</td>
+                                                        {{-- <td hidden>{{ $suratkeluarr->id }}</td> --}}
                                                         <td>{{ $suratkeluarr->nama_surat }}</td>
                                                         <td>{{ $suratkeluarr->tanggal_dibuat }}</td>
                                                         <td>{{ $suratkeluarr->tujuan_surat }}</td>
@@ -209,6 +209,7 @@
                                             </tbody>
                                         </table>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -216,11 +217,16 @@
                 </div>
             </div>
 
-            {{-- <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
             <!-- Sisipkan script untuk DataTables -->
-            <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script> --}}
-            <script src="{{ asset('js/kelolasuratkeluar.js') }}"></script>
-            {{-- <script src="{{ asset('js/arsip.js') }}"></script> --}}
+            <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+            <script src="js/kelolasuratkeluar.js"></script>
+           
+
+              <!-- Bootstrap v5 JavaScript -->
+  <script src="https://unpkg.com/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+            
         </body>
     </html>
         @endsection

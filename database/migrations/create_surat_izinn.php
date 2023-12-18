@@ -15,7 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id'); // Kolom id Utama
             $table->string('nama_pengaju');
             $table->string('nama_surat')->nullable(); // Kolom nama_surat dapat NULL
-            $table->string('tanggal_izin');
+            $table->date('tanggal_izin');
             $table->text('keterangan');
             $table->string('bukti');
             $table->string('status');

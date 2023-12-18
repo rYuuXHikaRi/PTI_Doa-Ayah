@@ -22,7 +22,7 @@
 
         <form method="POST" action="{{ route('templateSK.storeSKForm') }}" enctype="multipart/form-data">
             @csrf
-            <fieldset>
+           
             <div class="form-group row">
               <label for="namaSurat" class="col-md-4 col-form-label">Nama Surat</label>
               <div class="col-md-8">
@@ -52,38 +52,40 @@
                   name="kode_surat">
               </div>
           </div>
-            </fieldset>
-            <fieldset>
-            <div class="form-group">
-                <label for="perihal">Perihal:</label>
-                <input type="text" class="form-control" id="perihal" name="perihal" placeholder="Masukkan perihal">
+  
+          <div class="form-group row">
+            <label for="perihal" class="col-md-4 col-form-label">Perihal</label>
+            <div class="col-md-8">
+                <input type="text" class="form-control" id="perihal" style="background-color:#EBF1FA"
+                name="perihal" placeholder="Perihal">
             </div>
-
-            <div class="form-group">
-                <label for="hari_tanggal">Hari/Tanggal:</label>
-                <input type="text" class="form-control" id="hari_tanggal" name="hari_tanggal" placeholder="Masukkan hari/tanggal">
+        </div>
+        <div class="form-group row">
+            <label for="hari/tanggalundangan" class="col-md-4 col-form-label">hari/Tanggal Undangan</label>
+            <div class="col-md-8">
+                <input type="date" class="form-control" id="hari/tanggalundangan"  name="hari_tanggal" style="background-color: #E0E0E0;"
+                 style="background-color: #E0E0E0;"
+                >
             </div>
-
-            <div class="form-group">
-                <label for="waktu">Waktu:</label>
-                <input type="text" class="form-control" id="waktu" name="waktu" placeholder="Masukkan waktu">
+        </div>
+        <div class="form-group row">
+            <label for="waktu" class="col-md-4 col-form-label">Waktu</label>
+            <div class="col-md-8">
+                <input type="text" class="form-control" id="waktu" placeholder="Waktu" style="background-color:#EBF1FA"
+                name="waktu">
             </div>
-
-            <div class="form-group">
-                <label for="tempat">Tempat:</label>
-                <input type="text" class="form-control" id="tempat" name="tempat" placeholder="Masukkan tempat">
+        </div>
+        <div class="form-group row">
+            <label for="tempat" class="col-md-4 col-form-label">Tempat</label>
+            <div class="col-md-8">
+                <input type="text" class="form-control" id="tempat" placeholder="Tempat" style="background-color:#EBF1FA"
+                name="tempat">
             </div>
-
-   
-
-            <div class="form-group" hidden>
-                <label for="pembuat_surat">Pembuat Surat:</label>
-                <input type="text" class="form-control" id="pembuat_surat" name="pembuat_surat" placeholder="Masukkan pembuat surat">
-            </div>
+        </div>
           
 
             <button type="submit" class="btn btn-primary">Buat Surat</button>
-          </fieldset>
+    
         </form>
 
 

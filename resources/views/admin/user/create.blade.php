@@ -104,7 +104,7 @@
                          
                                     <div class="form-group">
                                         <label for="lang1">Roles</label>
-                                        <select  id="lang1" name="id_roles" class="form-control" style="background-color: #CCD9EC">
+                                        <select  id="lang1" name="role" class="form-control" style="background-color: #CCD9EC">
                                             <option value=1>Kepala Bagian</option>
                                             <option value=2>Admin / HRD</option>
                                             <option value=3>Karyawan / Staff</option>

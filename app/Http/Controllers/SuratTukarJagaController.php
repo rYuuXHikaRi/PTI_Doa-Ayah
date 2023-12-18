@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SuratTukarJaga;
+use App\Models\User;
 use App\Models\Disposisi;
+use Illuminate\Http\Request;
+use App\Models\SuratTukarJaga;
+use Barryvdh\DomPDF\Facade\Pdf;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Session;
 use App\Http\Requests\StoreSuratTukarJagaRequest;
 use App\Http\Requests\UpdateSuratTukarJagaRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
-use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Support\Facades\File;
 
 
 class SuratTukarJagaController extends Controller
@@ -27,7 +29,9 @@ class SuratTukarJagaController extends Controller
      */
     public function create()
     {
-        return view("karyawan.SuratTukarJaga.create");
+        $karyawan=User::where('nama_bagian',auth()->user()->nama_bagian)->get();
+
+        return view("karyawan.SuratTukarJaga.create",compact('karyawan'));
     }
 
     /**
@@ -38,6 +42,7 @@ class SuratTukarJagaController extends Controller
         $validatedData = $request->validate([
             'file' => 'mimes:pdf,doc,docx|max:5120',
         ]);
+       
 
         // $location1 = 'assets/suratTukarJaga/';
 
@@ -49,7 +54,7 @@ class SuratTukarJagaController extends Controller
             'target_tukar_jaga' => $request->target_tukar_jaga,
             'keterangan' => $request->keterangan,
             'tanda_tangan'=>auth()->user()->tanda_tangan,
-            'status' => "Kepala Bagian",
+            'status' => "Termohon",
         ]);
 
       
@@ -92,10 +97,9 @@ class SuratTukarJagaController extends Controller
             $suratTukarJaga->kepala_bagian = auth()->user()->tanda_tangan;
             $suratTukarJaga->status= 'disetujui';
         }
-        else if($jenis == 'Termohon'){
-            $suratTukarJaga->termohon = auth()->user()->tanda_tangan;
-            $suratTukarJaga->status= 'Kepala Ruangan';
-        }
+
+
+
         $suratTukarJaga->save();
 
         $pdf = PDF::loadView('admin.DaftarPermohonanTukarJaga.signature', compact('suratTukarJaga'));
@@ -116,12 +120,95 @@ class SuratTukarJagaController extends Controller
             'id_surat'=> $suratTukarJaga->id,
             'nama_surat' => $suratTukarJaga->nama_surat,
             'status' => $suratTukarJaga->status,
-            'deskripsi' => "Surat Telah disetujui ".$suratTukarJaga->status,
+            'deskripsi' => "Surat Telah disetujui ".$jenis,
             // Tambahkan kolom-kolom lainnya sesuai kebutuhan
         ]);
+
+
         // Redirect ke halaman SuratCuti.show dengan menambahkan ID baru
         return redirect()->route('DaftarPermohonan.indexTukarJaga')
             ->with('success', 'Data berhasil disimpan!');
+    }
+
+    public function permintaantukarjaga(){
+        $surattukarjaga= SuratTukarJaga::where('target_tukar_jaga',auth()->user()->nama_karyawan)->get();
+        return view('karyawan.permintaantukarjaga',compact('surattukarjaga'));
+    }
+
+    public function setujui($id)
+    {
+
+        $suratTukarJaga = SuratTukarJaga::where('id', $id)->first();
+      
+            $suratTukarJaga->termohon = auth()->user()->tanda_tangan;
+            $suratTukarJaga->status= 'Kepala Ruangan';
+
+
+        $suratTukarJaga->save();
+
+        $pdf = PDF::loadView('admin.DaftarPermohonanTukarJaga.signature', compact('suratTukarJaga'));
+        $file_name = $suratTukarJaga->file;
+        $file_path = storage_path('../public/assets/SuratTukarJaga/') . $file_name;
+
+        $FileToDelete = public_path('../public/assets/SuratTukarJaga/') . $suratTukarJaga->file;
+
+        if (File::exists($FileToDelete)) {
+            File::delete($FileToDelete);
+            $pdf->save($file_path);
+        } 
+        else {
+            $pdf->save($file_path);
+            // return 'Filer not found';
+        }
+
+        Disposisi::create([
+            'id_surat'=> $suratTukarJaga->id,
+            'nama_surat' => $suratTukarJaga->nama_surat,
+            'status' => $suratTukarJaga->status,
+            'deskripsi' => "Surat Telah disetujui Termohon",
+            // Tambahkan kolom-kolom lainnya sesuai kebutuhan
+        ]);
+        // Redirect ke halaman SuratCuti.show dengan menambahkan ID baru
+        return redirect()->route('tukarjaga.permintaan')
+            ->with('success', 'Data berhasil disimpan!');
+    }
+
+    public function tolak($id){
+        $suratTukarJaga = SuratTukarJaga::where('id', $id)->first();
+
+        $suratTukarJaga->status= 'ditolak';
+
+        $suratTukarJaga->save();
+
+        Disposisi::create([
+            'id_surat'=> $suratTukarJaga->id,
+            'nama_surat' => $suratTukarJaga->nama_surat,
+            'status' => $suratTukarJaga->status,
+            'deskripsi' => "Surat Telah Ditolak oleh Termohon",
+            // Tambahkan kolom-kolom lainnya sesuai kebutuhan
+        ]);
+    }
+
+
+    public function downloadSuratTukarJaga(Request $request, $id, $file)
+    {
+        $suratTukarJaga = SuratTukarJaga::find($id);
+        if (!$suratTukarJaga) {
+            abort(404);
+        }
+        $file_path = storage_path('../public/assets/suratTukarJaga/') . $suratTukarJaga->file;
+
+        // Tentukan nama file yang akan di-download
+        $file = $suratTukarJaga->file;
+        $extension = pathinfo($file_path, PATHINFO_EXTENSION);
+
+        $mime_types = [
+            'pdf' => 'application/pdf',
+            'doc' => 'application/msword',
+            'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        ];
+        $mime_type = $mime_types[$extension] ?? 'application/octet-stream';
+        return response()->download($file_path, $file, ['Content-Type' => $mime_type]);
     }
    
     public function show(SuratTukarJaga $suratTukarJaga)

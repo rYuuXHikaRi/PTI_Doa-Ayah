@@ -25,14 +25,7 @@
                         <div class="col-lg-12 mx-auto">
                             <div class="card rounded shadow border-2">
                                 <div class="card-body p-5 bg-white rounded">
-                                    <div class="button-container">
-                                        <select id="menuDropdown" style="background-color: #EBF1FA">
-                                            <option value="izin"><a href="{{route('DaftarPermohonan.index')}}">Izin</a></option>
-                                            <option value="cuti"><a href="{{route('DaftarPermohonan.indexCuti')}}">Cuti</a></option>
-                                            <option value="tukarJaga"><a href="{{route('DaftarPermohonan.indexTukarJaga')}}">Tukar Jaga</a></option>
-                                        </select>
-                                    </div>
-                                    <br><br>
+                                    
                                     <div class="table-responsive">
                                         <table id="example" style="width: 100%"
                                             class="table table-striped table-bordered">
@@ -63,7 +56,7 @@
                                                         <td>{{ $Izin->status }}</td>
 
                                                         <td>
-                                                            @if ($Izin->status == auth()->user()->jabatan)
+                                                            @if ($Izin->status == auth()->user()->jabatan && $Izin->manajer== NULL)
                                                             <a href="{{ route('PermohonanIzin.priview', $Izin->id) }}"><button
                                                                 class="btn btn-warning" style="background:#1AACAC">
                                                                 <i class="fa-solid fa-file-signature"></i></button></a>

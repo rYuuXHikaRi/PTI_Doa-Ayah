@@ -16,11 +16,16 @@
             @foreach ($surattukarjaga as $surat)
                 
             <div class="content-box">
-                @if ($surat->status != 'disetujui')
+                @if ($surat->status == 'Termohon')
                 <div class="icon-time">
                     <i class='bx bx-time' ></i>
                 </div>
+                @elseif($surat->status == 'ditolak')
+                <div class="icon-x">
+                    <i class='bx bx-x'></i>
+                </div>
                 @else
+
                 <div class="icon-check">
                     <i class='bx bx-check'></i>
                 </div>
@@ -31,43 +36,46 @@
                     <p>Status: menunggu {{ $surat->status }}</p>
                     <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
                 </div>
-                @if ($surat->status!='disetujui')
-                <div class="list">
-                    <div class="svg_container" onclick="toggleBatal(this)">
-                        <i class='bx bx-dots-vertical-rounded dots'></i>
-                    </div>
-                    <div class="popup_batal" id="svgPopup" style="display: none;">
-                        <div class="click_batal" onclick="toggleOpsi(this)">
-                            <h1>Batalkan</h1>
-                        </div>
-                        <div class="popup-options" style="display: none;">
-                        <div id="overlay_daftar" class="overlay_daftar"></div>
-                        <form action="{{ route('statustukarjaga.destroy', $surat->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                        
-                            <div class="menu-popup">
-                                <h1>Batalkan Permohonan Tukar Jaga?</h1>
-                                <button class="button_ya" type="submit">Ya</button>
-                                <button class="button_tidak" type="button" onclick="cancelDelete()">Tidak</button>
-                            </div>
-                        </form>
-                        </div>
-                    </div>
-                </div>
-                @else
+                
+                @if ($surat->status == 'Termohon')
                 <div class="list">
                     <div class="svg_container_unduh" onclick="toggleUnduh(this)">
                         <i class='bx bx-dots-vertical-rounded dots'></i>
                     </div>
                     <div class="popup_unduh" id="svgPopupUnduh" style="display: none">
-                        <div class="unduh">
+                        <div class="unduh-permintaan">
                             <a href="{{ route('statustukarjaga.download', ['id' => $surat->id, 'file' => $surat->file]) }}"><h1>Unduh</h1></a>
+                        </div>
+                        <div class="popup_batal" id="svgPopup" style="">
+                            <div class="click_batal" onclick="toggleOpsi(this)">
+                                <h1>Tolak</h1>
+                            </div>
+                            <div class="popup-options" style="display: none;">
+                            <div id="overlay_daftar" class="overlay_daftar"></div>
+                            <form action="{{ route('tolak.tukarjaga', $surat->id) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                            
+                                <div class="menu-popup">
+                                    <h1>Tolak Permohonan Tukar Jaga?</h1>
+                                    <button class="button_ya" type="submit">Ya</button>
+                                    <button class="button_tidak" type="button">Tidak</button>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                        <div class="click_ttd" onclick="toggleTanda(this)">
+                            <form method="POST" action="{{ route('setujui.tukarjaga', ['id' => $surat->id]) }}">
+                                @csrf
+                                @method('put')
+
+                                <button type="submit">Tanda Tangani</button>
+                            </form>
+                            
                         </div>
                     </div>
                 </div>
                 @endif
-
             </div>
 
             @endforeach
@@ -135,6 +143,17 @@
             unduh.style.display = 'block';
         } else {
             unduh.style.display = 'none';
+        }
+    }
+
+    function toggleTanda(clickedElement) {
+        var contentBox = clickedElement.closest('.content-box');
+        var ttd = contentBox.querySelector('.click_ttd');
+
+        if (ttd.style.display == 'none') {
+            ttd.style.display = 'block';
+        } else {
+            ttd.style.display = 'none';
         }
     }
 

@@ -121,6 +121,7 @@
 
         if (inputDate < today) {
             showPopup();
+            document.getElementById(inputId).value="";
             // Tambahkan logika atau tindakan lain yang sesuai
             document.getElementById(inputId).value = "";
         }
