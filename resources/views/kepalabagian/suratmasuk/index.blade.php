@@ -83,7 +83,7 @@
                               @if ($item->status == auth()->user()->jabatan)
                                   <a
                                       href="{{ route('kbdisposisi.tambah', ['id' => $item->id, 'jenis' => "surat masuk"]) }}"><button
-                                          class="btn btn-success"><i
+                                          class="btn btn-secondary"style="padding: 0.25rem 0.5rem;font-size: 10px;"><i
                                               class="fa-solid fa-share-from-square"></i></button></a>
                               @endif
                           

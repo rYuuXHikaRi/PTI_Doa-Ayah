@@ -56,7 +56,7 @@
                                                         <td>{{ $Izin->status }}</td>
 
                                                         <td>
-                                                            @if ($Izin->status == auth()->user()->jabatan)
+                                                            @if ($Izin->status == auth()->user()->jabatan && $Izin->manajer== NULL)
                                                             <a href="{{ route('PermohonanIzin.priview', $Izin->id) }}"><button
                                                                 class="btn btn-warning" style="background:#1AACAC">
                                                                 <i class="fa-solid fa-file-signature"></i></button></a>

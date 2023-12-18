@@ -155,7 +155,8 @@ class SuratTukarJagaController extends Controller
         if (File::exists($FileToDelete)) {
             File::delete($FileToDelete);
             $pdf->save($file_path);
-        } else {
+        } 
+        else {
             $pdf->save($file_path);
             // return 'Filer not found';
         }
@@ -170,6 +171,44 @@ class SuratTukarJagaController extends Controller
         // Redirect ke halaman SuratCuti.show dengan menambahkan ID baru
         return redirect()->route('tukarjaga.permintaan')
             ->with('success', 'Data berhasil disimpan!');
+    }
+
+    public function tolak($id){
+        $suratTukarJaga = SuratTukarJaga::where('id', $id)->first();
+
+        $suratTukarJaga->status= 'ditolak';
+
+        $suratTukarJaga->save();
+
+        Disposisi::create([
+            'id_surat'=> $suratTukarJaga->id,
+            'nama_surat' => $suratTukarJaga->nama_surat,
+            'status' => $suratTukarJaga->status,
+            'deskripsi' => "Surat Telah Ditolak oleh Termohon",
+            // Tambahkan kolom-kolom lainnya sesuai kebutuhan
+        ]);
+    }
+
+
+    public function downloadSuratTukarJaga(Request $request, $id, $file)
+    {
+        $suratTukarJaga = SuratTukarJaga::find($id);
+        if (!$suratTukarJaga) {
+            abort(404);
+        }
+        $file_path = storage_path('../public/assets/suratTukarJaga/') . $suratTukarJaga->file;
+
+        // Tentukan nama file yang akan di-download
+        $file = $suratTukarJaga->file;
+        $extension = pathinfo($file_path, PATHINFO_EXTENSION);
+
+        $mime_types = [
+            'pdf' => 'application/pdf',
+            'doc' => 'application/msword',
+            'docx' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        ];
+        $mime_type = $mime_types[$extension] ?? 'application/octet-stream';
+        return response()->download($file_path, $file, ['Content-Type' => $mime_type]);
     }
    
     public function show(SuratTukarJaga $suratTukarJaga)

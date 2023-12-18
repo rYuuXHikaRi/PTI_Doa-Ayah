@@ -20,7 +20,12 @@
                 <div class="icon-time">
                     <i class='bx bx-time' ></i>
                 </div>
+                @elseif($surat->status == 'ditolak')
+                <div class="icon-x">
+                    <i class='bx bx-x'></i>
+                </div>
                 @else
+
                 <div class="icon-check">
                     <i class='bx bx-check'></i>
                 </div>
@@ -32,6 +37,7 @@
                     <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
                 </div>
                 
+                @if ($surat->status == 'Termohon')
                 <div class="list">
                     <div class="svg_container_unduh" onclick="toggleUnduh(this)">
                         <i class='bx bx-dots-vertical-rounded dots'></i>
@@ -46,12 +52,12 @@
                             </div>
                             <div class="popup-options" style="display: none;">
                             <div id="overlay_daftar" class="overlay_daftar"></div>
-                            <form action="{{ route('statustukarjaga.destroy', $surat->id) }}" method="POST">
+                            <form action="{{ route('tolak.tukarjaga', $surat->id) }}" method="POST">
                                 @csrf
-                                @method('DELETE')
+                                @method('PUT')
                             
                                 <div class="menu-popup">
-                                    <h1>Batalkan Permohonan Tukar Jaga?</h1>
+                                    <h1>Tolak Permohonan Tukar Jaga?</h1>
                                     <button class="button_ya" type="submit">Ya</button>
                                     <button class="button_tidak" type="button">Tidak</button>
                                 </div>
@@ -69,6 +75,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
 
             @endforeach

@@ -148,6 +148,7 @@ Route::middleware(['auth','role:3'])->group(function () {
     Route::put('/updateprofile',[ProfileKaryawanController::class,'updateprofile'])->name('update.profile');
     Route::get('/permintaantukarjaga', [SuratTukarJagaController::class, 'permintaantukarjaga'])->name('tukarjaga.permintaan');
     Route::put('/permintaansurattukarjaga/setujui/{id}', [SuratTukarJagaController::class, 'setujui'])->name('setujui.tukarjaga');
+    Route::put('/permintaansurattukarjaga/tolak/{id}', [SuratTukarJagaController::class, 'tolak'])->name('tolak.tukarjaga');
 
 
     Route::get('/dashboardkaryawan',function(){

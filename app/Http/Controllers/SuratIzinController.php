@@ -147,6 +147,7 @@ class SuratIzinController extends Controller
 
         $suratIzin = suratIzin::where('id', $id)->first();
         $suratIzin->manajer = auth()->user()->tanda_tangan;
+        $suratIzin->nama_manajer = auth()->user()->nama_karyawan;
         $suratIzin->save();
 
         $pdf = PDF::loadView('admin.DaftarPermohonanIzin.signature', compact('suratIzin'));
@@ -164,6 +165,7 @@ class SuratIzinController extends Controller
 
         // Update the file attribute in the database
         $suratIzin->file = $file_name;
+        $suratIzin->status = "disetujui";
         $suratIzin->save();
 
         Disposisi::create([
