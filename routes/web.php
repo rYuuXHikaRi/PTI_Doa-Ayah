@@ -31,12 +31,18 @@ Route::get('/',function(){
 
 
 Route::middleware(['auth','role:1'])->group(function () {
-
+    Route::get('/dashboardadmin',function(){
+        return view('admin.index');
+    });
     Route::resource('arsip', ArsipController::class);
     Route::get('/arsip/{id}/{file}', [ArsipController::class, 'downloadarsip'])->name('arsipdownload');
 
     Route::resource('suratmasuk',SuratMasukController::class);
     Route::get('/suratmasuk/download/{id}/{file}', [SuratMasukController::class, 'downloadsuratmasuk'])->name('suratmasukdownload');
+
+    Route::get('/disposisi/add/{id}/{jenis}', [DisposisiController::class,'tambah'])->name('disposisi.tambah');
+    Route::post('/disposisi/store/{id}/{jenis}', [DisposisiController::class,'store'])->name('disposisi.tambahdisposisi');
+    Route::get('/disposisi/showsurat/{id}/{nama}', [DisposisiController::class,'showsurat'])->name('disposisi.showsurat');
 
     // Route::resource('User-Profile', ProfileAdminController::class);
     Route::get('/User-Profile', [ProfileAdminController::class, 'index'])->name('profile.user');
@@ -138,6 +144,10 @@ Route::middleware(['auth','role:3'])->group(function () {
     Route::delete('statustukarjaga/destroy/{id}',[StatusSuratController::class,'destroyTukarJaga'])->name('statustukarjaga.destroy');
     Route::post('/changepassword', [ProfileKaryawanController::class, 'changePassword'])->name('change.password');
 
+    Route::resource('profile', SuratIzinController::class);
+    Route::put('/updateprofile',[ProfileKaryawanController::class,'updateprofile'])->name('update.profile');
+    Route::get('/permintaantukarjaga', [SuratTukarJagaController::class, 'permintaantukarjaga'])->name('tukarjaga.permintaan');
+    Route::put('/permintaansurattukarjaga/setujui/{id}', [SuratTukarJagaController::class, 'setujui'])->name('setujui.tukarjaga');
 
 
     Route::get('/dashboardkaryawan',function(){
