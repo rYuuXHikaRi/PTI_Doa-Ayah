@@ -194,7 +194,7 @@ body {
         width: 30px;
         height: 15px;
         top: 50%;
-        right: 266px; /* Jarak antara ikon dan elemen input */
+        right: 252px; /* Jarak antara ikon dan elemen input */
         transform: translateY(-50%);
     }
     

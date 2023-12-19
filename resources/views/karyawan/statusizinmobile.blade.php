@@ -21,6 +21,10 @@
                 <div class="icon-time">
                     <i class='bx bx-time' ></i>
                 </div>
+                @elseif($surat->status == 'ditolak')
+                <div class="icon-x">
+                    <i class='bx bx-x'></i>
+                </div>
                 @else
                 <div class="icon-check">
                     <i class='bx bx-check'></i>
@@ -85,7 +89,11 @@
     function toggleBatal(clickedElement) {
          // Menyembunyikan popup toggle batal sebelumnya yang terbuka
         var allPopups = document.querySelectorAll('.popup_batal');
+        var allUnduh = document.querySelectorAll('.popup_unduh');
         allPopups.forEach(function(popup) {
+            popup.style.display = 'none';
+        });
+        allUnduh.forEach(function(popup) {
             popup.style.display = 'none';
         });
         // Traverse the DOM to find the related popup within the clicked content-box
@@ -100,19 +108,6 @@
             popup.style.display = 'none';
         }
     }
-
-    document.addEventListener('click', function(event) {
-    var isClickInsidePopup = event.target.closest('.popup_batal');
-    var isClickInsideContentBox = event.target.closest('.content-box');
-
-    if (!isClickInsidePopup && !isClickInsideContentBox) {
-        // Sembunyikan semua popup toggle batal saat klik dilakukan di luar area tersebut
-        var allPopups = document.querySelectorAll('.popup_batal');
-        allPopups.forEach(function(popup) {
-            popup.style.display = 'none';
-        });
-    }
-});
 
     function toggleOpsi(clickedElement) {
         var contentBox = clickedElement.closest('.content-box');
@@ -139,14 +134,44 @@
     });
     }
 
-    function toggleUnduh(clickedElement) {
-        var contentBox = clickedElement.closest('.content-box');
-        var unduh = contentBox.querySelector('.popup_unduh');
+    document.addEventListener('click', function(event) {
+    var isClickInsidePopup = event.target.closest('.popup_batal');
+    var isClickInsideUnduh = event.target.closest('.popup_unduh');
+    var isClickInsideContentBox = event.target.closest('.content-box');
 
-        if (unduh.style.display == 'none') {
-            unduh.style.display = 'block';
+    if (!isClickInsidePopup && !isClickInsideContentBox && !isClickInsideUnduh) {
+        // Sembunyikan semua popup toggle batal saat klik dilakukan di luar area tersebut
+        var allPopups = document.querySelectorAll('.popup_batal');
+        var allUnduh = document.querySelectorAll('.popup_unduh');
+        allPopups.forEach(function(popup) {
+            popup.style.display = 'none';
+        });
+        allUnduh.forEach(function(popup) {
+            popup.style.display = 'none';
+        });
+    }
+});
+
+function toggleUnduh(clickedElement) {
+         // Menyembunyikan popup toggle batal sebelumnya yang terbuka
+        var allunduh = document.querySelectorAll('.popup_unduh');
+        var allBatal = document.querySelectorAll('.popup_batal');
+        allunduh.forEach(function(popup) {
+            popup.style.display = 'none';
+        });
+        allBatal.forEach(function(popup) {
+            popup.style.display = 'none';
+        });
+        // Traverse the DOM to find the related popup within the clicked content-box
+        var contentBox = clickedElement.closest('.content-box');
+        var popup = contentBox.querySelector('.popup_unduh');
+
+        if (popup.style.display === "none") {
+            // Show the popup
+            popup.style.display = "block";
         } else {
-            unduh.style.display = 'none';
+            // Hide the popup
+            popup.style.display = 'none';
         }
     }
 

@@ -23,4 +23,25 @@
         </div>
     </div>
 </div>
+
+<script>
+    window.addEventListener('DOMContentLoaded', function() {
+    var container = document.querySelector('.container');
+    var cardBody = document.querySelector('.card-body');
+
+    // Fungsi untuk mengatur overflow berdasarkan ukuran konten dan container
+    function checkOverflow() {
+        if (cardBody.scrollHeight > container.clientHeight) {
+            cardBody.style.overflowY = 'scroll'; // Jika melebihi, atur overflow menjadi scroll
+        } else {
+            cardBody.style.overflowY = 'hidden'; // Jika tidak, sembunyikan overflow
+        }
+    }
+
+    // Panggil fungsi saat dokumen dimuat dan saat window di-resize
+    checkOverflow();
+    window.addEventListener('resize', checkOverflow);
+});
+
+</script>
 @endsection

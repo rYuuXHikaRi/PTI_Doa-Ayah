@@ -46,7 +46,7 @@
                     <h3>Lampiran Bukti</h3>
                 </div>
                 <div class="pilih">
-                    <input class="choose" type="file" id="fileInput" name="bukti">
+                    <input class="choose" type="file" id="fileInput" name="bukti" accept=".pdf">
                 </div>
     
                 <!-- Button trigger modal -->

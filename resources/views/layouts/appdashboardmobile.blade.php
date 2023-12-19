@@ -69,10 +69,6 @@
             </div>
         </div>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
-
         <div class="navbar-content">
             <div class="navbar">
                 <a href="/home" class="{{ Request::is('/home') ? 'active' : '' }}"><i class='bx bx-home'></i></a>
@@ -80,6 +76,10 @@
                 <a href="/profile" class="{{ Request::is('/profile') ? 'active' : '' }}"><i class='bx bxs-user' ></i></a>
             </div>
         </div>
+
+        <main class="py-4">
+            @yield('content')
+        </main>
         
     </div>
 
@@ -97,23 +97,6 @@
                 dropdownContent.style.display = "none"; // Jika ditampilkan, sembunyikan
             } else {
                 dropdownContent.style.display = "block"; // Jika tidak ditampilkan, tampilkan
-            }
-        });
-
-        // Menambahkan event listener untuk menutup dropdown saat klik di luar dropdown
-        document.addEventListener("click", function(event) {
-            if (event.target !== dropdownButton && event.target !== dropdownContent) {
-                dropdownContent.style.display = "none";
-            }
-        });
-
-        // Menambahkan event listener untuk tombol dropdown
-        active.addEventListener("click", function() {
-            // Memeriksa apakah isi dropdown sedang ditampilkan atau tidak
-            if (active.style.display === "block") {
-                active.style.display = "none"; // Jika ditampilkan, sembunyikan
-            } else {
-                active.style.display = "block"; // Jika tidak ditampilkan, tampilkan
             }
         });
     </script>

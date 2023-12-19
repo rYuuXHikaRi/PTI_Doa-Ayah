@@ -3,6 +3,7 @@
 @media screen and (min-width: 617px) {
     body {
         display: none;
+        overflow: hidden;
     }
 }
 
@@ -119,6 +120,9 @@
     }
     .navbar-content {
         margin-left: 31px;
+        position: absolute;
+        width: 22.9rem;
+        bottom: 0.5rem;
     }
     .navbar {
         background: #0253BA;
@@ -135,8 +139,7 @@
         align-items: center;
         width: 2.5rem;
         height: 2.5rem;
-        background: transparent;
-        border: .2rem solid skyblue;
+        background: transparent; 
         font-size: 2rem;
         color: white;
         margin: 0.8rem 0 0.8rem 0rem;
