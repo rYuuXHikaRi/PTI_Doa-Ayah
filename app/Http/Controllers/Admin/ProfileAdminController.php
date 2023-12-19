@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\File;
+
 use App\Models\User;
 
 class ProfileAdminController extends Controller
@@ -43,32 +45,15 @@ class ProfileAdminController extends Controller
     public function changePassword(Request $request)
     {
         $request->validate([
-            'current_password' => 'required',
-            'new_password' => 'required|string|min:8|confirmed',
+            'password_lama' => 'required',
+            'password_baru' => 'required|min:8|different:password_lama',
         ]);
-
         $user = auth()->user();
+        if (!Hash::check($request->password_lama, $user->password)) {
+            return redirect()->back()->with('error', 'Kata sandi lama tidak cocok.');
 
-        // Cek jika password lama sesuai
-        if (!Hash::check($request->current_password, $user->password)) {
-            Session::flash('error', 'Password lama tidak cocok');
-            return redirect()->route('profile.EditPassword')->with('error', 'Password lama tidak cocok');
         }
-
-        // Cek jika password lama sama dengan password baru
-        if (Hash::check($request->new_password, $user->password)) {
-            Session::flash('error', 'Password baru tidak boleh sama dengan password lama');
-            return redirect()->route('profile.EditPassword')->with('error', 'Password baru tidak boleh sama dengan password lama');
-        }
-        // Update password
-        // $user->update([
-        //     'password' => Hash::make($request->new_password),
-        // ]);
-        // $passwordBaru = $user-> password = hash::make($request->new_password);
-        $passwordBaru = $user-> password = $request->new_password;
-        $user->password = $passwordBaru;
-        $user->save();
-
+        $user->update(['password' => $request->password_baru]);
         Session::flash('success', 'Profile berhasil diubah');
         return redirect()->route('profile.user')->with('success', 'profile berhasil diupdate.');
     }
@@ -77,32 +62,17 @@ class ProfileAdminController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    // public function updatePassword($newPassword)
-    // {
-    //     $this->password = $newPassword;
-    //     $this->save();
-    // }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         //
     }
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+        $user = auth()->user();
         $request->validate([
-            // 'role' => 'required',
             'nama_karyawan' => 'required',
-            // 'jabatan' => 'required',
-            // 'nik' => 'required|unique:users,nik,'.$id,
             'alamat' => 'required',
             'nomor_hp' => 'required',
-            // 'nama_bagian' => 'required',
         ]);
 
         $validatedData = $request->validate([
@@ -110,54 +80,37 @@ class ProfileAdminController extends Controller
             'tanda_tangan' => 'nullable|mimes:jpeg,png,jpg,gif|max:5120',
         ]);
 
-        $user = auth()->user();
 
-        if (!$user) {
-            return redirect()->route('profile.user')->with('error', 'User not found.');
-        }
-
-        // Update existing user data
-        // $user->id_roles = $request->input('id_roles');
         $user->nama_karyawan = $request->input('nama_karyawan');
-        // $user->jabatan = $request->input('jabatan');
-        // $user->nik = $request->input('nik');
         $user->alamat = $request->input('alamat');
         $user->nomor_hp = $request->input('nomor_hp');
-        // $user->nama_bagian = $request->input('nama_bagian');
 
-        // Update foto if provided
         if ($request->hasFile('foto')) {
-            $file1 = $validatedData['foto'];
-            $filename1 = $file1->getClientOriginalName();
+            // Delete old profile photo if it exists
+            if ($user->foto) {
+                File::delete(public_path('assets/profil/' . $user->foto));
+            }
+            $file1 = $validatedData[('foto')];
+            $filename1 =  $file1->getClientOriginalName();
+            // File upload location
             $location1 = '../public/assets/profil/';
 
-            // Move the new photo to the destination
             $file1->move(public_path($location1), $filename1);
-
-            // Delete the old photo if it exists
-            if ($user->foto) {
-                unlink(public_path($location1 . $user->foto));
-            }
-
-            // Update the user's foto attribute
             $user->foto = $filename1;
         }
-
         // Update tanda_tangan if provided
         if ($request->hasFile('tanda_tangan')) {
-            $file2 = $validatedData['tanda_tangan'];
-            $filename2 = $file2->getClientOriginalName();
-            $location2 = '../public/assets/ttd/';
-
-            // Move the new tanda_tangan to the destination
-            $file2->move(public_path($location2), $filename2);
-
-            // Delete the old tanda_tangan if it exists
-            if ($user->tanda_tangan) {
-                unlink(public_path($location2 . $user->tanda_tangan));
+            // Delete old profile photo if it exists
+            if ($user->foto) {
+                File::delete(public_path('assets/ttd/' . $user->tanda_tangan));
             }
 
-            // Update the user's tanda_tangan attribute
+            $file2 = $validatedData[('tanda_tangan')];
+
+            $filename2 = $file2->getClientOriginalName();
+
+            $location2 = '../public/assets/ttd/';
+            $file2->move(public_path($location2), $filename2);
             $user->tanda_tangan = $filename2;
         }
 

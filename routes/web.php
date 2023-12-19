@@ -47,7 +47,7 @@ Route::middleware(['auth', 'role:1'])->group(function () {
     // Route::resource('User-Profile', ProfileAdminController::class);
     // Route::resource('User-Profile', ProfileAdminController::class);
     Route::get('/User-Profile', [ProfileAdminController::class, 'index'])->name('profile.user');
-    Route::post('/User-Profile', [ProfileAdminController::class, 'update'])->name('Adminprofile.update');
+    Route::put('/User-Profile', [ProfileAdminController::class, 'update'])->name('Adminprofile.update');
     Route::get('/User-Profile/GantiPassword', [ProfileAdminController::class, 'EditPassword'])->name('profile.EditPassword');
     Route::post('/User-Profile/GantiPassword', [ProfileAdminController::class, 'changePassword'])->name('profile.changePassword');
 

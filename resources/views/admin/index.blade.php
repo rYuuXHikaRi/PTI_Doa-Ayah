@@ -97,7 +97,7 @@
             var suratData = {!! json_encode($suratData) !!};
              var suratDataJson = {!! $suratDataJson !!};
 
-            alert("The Data: " + suratDataJson); // Cetak data ke konsol
+            // alert("The Data: " + suratDataJson);
 
             // Jika suratData bukan array, Anda perlu menyesuaikan langkah-langkah berikutnya
             if (!Array.isArray(suratData)) {

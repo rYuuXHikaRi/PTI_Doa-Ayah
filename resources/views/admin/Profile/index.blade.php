@@ -47,7 +47,7 @@
                                     <div class="row no-gutters row-bordered row-border-light"
                                         style="justify-content: center">
                                         <div class="col-md-9">
-                                            <form action="{{ route('profile.update', auth()->user()->id) }}" method="post"
+                                            <form action="{{ route('Adminprofile.update', auth()->user()->id) }}" method="post"
                                                 enctype="multipart/form-data">
                                                 @csrf
                                                 @method('PUT')
