@@ -59,9 +59,8 @@
             <img src="/img/logo.png" alt="logo" style="width:40%;margin-left:50px;">
             <div class="menu-box">
                 <ul class="menu">
-                    <li><a href="/dashboardadmin"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="{{route('admin.index')}}"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                     <li><a href="{{route('profile.user')}}"><i class="fas fa-tachometer-alt"></i> Profile</a></li>
-                    <li><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                     <li><a href="{{ route('arsip.index') }}"><i class="fas fa-archive"></i> Arsip</a></li>
                     <li><a href="{{ route('templateSK.create') }}"><i class="fas fa-file"></i> Template Surat</a></li>
                     <li><a href="{{ route('suratkeluar.index') }}"><i class="fas fa-envelope"></i> Kelola Surat</a></li>

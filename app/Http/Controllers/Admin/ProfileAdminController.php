@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,18 +10,13 @@ use App\Models\User;
 
 class ProfileAdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         // $user=User::find($id);
         return view('admin.Profile.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
@@ -74,7 +69,7 @@ class ProfileAdminController extends Controller
         $user->password = $passwordBaru;
         $user->save();
 
-        Session::flash('success', 'Password berhasil diubah');
+        Session::flash('success', 'Profile berhasil diubah');
         return redirect()->route('profile.user')->with('success', 'profile berhasil diupdate.');
     }
     public function edit(string $id)

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Arsip;
+use App\Models\SuratKeluar;
+use App\Models\SuratMasuk;
 
 class DashboardController extends Controller
 {
@@ -11,7 +15,12 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        //
+        $countUsers = User::count();
+        $countArsips = Arsip::count();
+        $countSuratMasuk = SuratMasuk::count();
+        $countSuratKeluar = SuratKeluar::count();
+
+        return view('admin.index', compact('countUsers', 'countArsips', 'countSuratMasuk', 'countSuratKeluar'));
     }
 
     /**

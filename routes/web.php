@@ -16,7 +16,7 @@ use App\Http\Controllers\KepalaBagian\KBDisposisiController;
 use App\Http\Controllers\KepalaBagian\KBSuratMasukController;
 use App\Http\Controllers\KepalaBagian\KBSuratKeluarController;
 use App\Http\Controllers\KepalaBagian\KBTemplateSKController;
-use App\Http\Controllers\ProfileAdminController;
+use App\Http\Controllers\Admin\ProfileAdminController;
 use App\Http\Controllers\SuratCutiController;
 use App\Http\Controllers\SuratIzinController;
 use App\Http\Controllers\SuratTukarJagaController;
@@ -24,29 +24,30 @@ use App\Models\ListRequestLetter;
 
 
 Auth::routes();
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/',function(){
+Route::get('/home', [HomeController::class, 'index'])->name('admin.index');
+Route::get('/', function () {
     return view('auth.login');
 });
 
 
-Route::middleware(['auth','role:1'])->group(function () {
-    Route::get('/dashboardadmin',function(){
+Route::middleware(['auth', 'role:1'])->group(function () {
+    Route::get('/dashboardadmin', function () {
         return view('admin.index');
     });
     Route::resource('arsip', ArsipController::class);
     Route::get('/arsip/{id}/{file}', [ArsipController::class, 'downloadarsip'])->name('arsipdownload');
 
-    Route::resource('suratmasuk',SuratMasukController::class);
+    Route::resource('suratmasuk', SuratMasukController::class);
     Route::get('/suratmasuk/download/{id}/{file}', [SuratMasukController::class, 'downloadsuratmasuk'])->name('suratmasukdownload');
 
-    Route::get('/disposisi/add/{id}/{jenis}', [DisposisiController::class,'tambah'])->name('disposisi.tambah');
-    Route::post('/disposisi/store/{id}/{jenis}', [DisposisiController::class,'store'])->name('disposisi.tambahdisposisi');
-    Route::get('/disposisi/showsurat/{id}/{nama}', [DisposisiController::class,'showsurat'])->name('disposisi.showsurat');
+    Route::get('/disposisi/add/{id}/{jenis}', [DisposisiController::class, 'tambah'])->name('disposisi.tambah');
+    Route::post('/disposisi/store/{id}/{jenis}', [DisposisiController::class, 'store'])->name('disposisi.tambahdisposisi');
+    Route::get('/disposisi/showsurat/{id}/{nama}', [DisposisiController::class, 'showsurat'])->name('disposisi.showsurat');
 
     // Route::resource('User-Profile', ProfileAdminController::class);
+    // Route::resource('User-Profile', ProfileAdminController::class);
     Route::get('/User-Profile', [ProfileAdminController::class, 'index'])->name('profile.user');
-    Route::post('/User-Profile', [ProfileAdminController::class, 'update'])->name('profile.update');
+    Route::post('/User-Profile', [ProfileAdminController::class, 'update'])->name('Adminprofile.update');
     Route::get('/User-Profile/GantiPassword', [ProfileAdminController::class, 'EditPassword'])->name('profile.EditPassword');
     Route::post('/User-Profile/GantiPassword', [ProfileAdminController::class, 'changePassword'])->name('profile.changePassword');
 
@@ -54,9 +55,9 @@ Route::middleware(['auth','role:1'])->group(function () {
 
     Route::resource('user', UserController::class);
     Route::resource('disposisi', DisposisiController::class);
-    Route::get('/disposisi/add/{id}/{jenis}', [DisposisiController::class,'tambah'])->name('disposisi.tambah');
-    Route::post('/disposisi/store/{id}/{jenis}', [DisposisiController::class,'store'])->name('disposisi.tambahdisposisi');
-    Route::get('/disposisi/showsurat/{id}/{nama}', [DisposisiController::class,'showsurat'])->name('disposisi.showsurat');
+    Route::get('/disposisi/add/{id}/{jenis}', [DisposisiController::class, 'tambah'])->name('disposisi.tambah');
+    Route::post('/disposisi/store/{id}/{jenis}', [DisposisiController::class, 'store'])->name('disposisi.tambahdisposisi');
+    Route::get('/disposisi/showsurat/{id}/{nama}', [DisposisiController::class, 'showsurat'])->name('disposisi.showsurat');
 
 
     Route::resource('suratkeluar', SuratKeluarController::class);
@@ -74,23 +75,23 @@ Route::middleware(['auth','role:1'])->group(function () {
     Route::put('/template/sign/{id}', [TemplateSKController::class, 'Sign'])->name('templateSK.Sign');
     // Route::get('/suratkeluar/{id}', [TemplateSKController::class, 'signature'])->name('templateSK.signature');
 
-    Route::resource('profile' , ProfileAdminController::class);
+    // Route::resource('profile' , ProfileAdminController::class);
 
 
 
 });
 
 
-Route::middleware(['auth','role:2'])->group(function () {
+Route::middleware(['auth', 'role:2'])->group(function () {
 
     Route::resource('kbsuratkeluar', KBSuratKeluarController::class);
-    Route::resource('kbdisposisi',KBDisposisiController::class);
-    Route::get('/kbdisposisi/add/{id}/{jenis}', [KBDisposisiController::class,'tambah'])->name('kbdisposisi.tambah');
-    Route::get('/kbdisposisi/showsurat/{id}/{nama}', [KBDisposisiController::class,'showsurat'])->name('kbdisposisi.showsurat');
-    Route::post('/kbdisposisi/store/{id}/{jenis}', [KBDisposisiController::class,'store'])->name('kbdisposisi.tambahdisposisi');
+    Route::resource('kbdisposisi', KBDisposisiController::class);
+    Route::get('/kbdisposisi/add/{id}/{jenis}', [KBDisposisiController::class, 'tambah'])->name('kbdisposisi.tambah');
+    Route::get('/kbdisposisi/showsurat/{id}/{nama}', [KBDisposisiController::class, 'showsurat'])->name('kbdisposisi.showsurat');
+    Route::post('/kbdisposisi/store/{id}/{jenis}', [KBDisposisiController::class, 'store'])->name('kbdisposisi.tambahdisposisi');
     Route::get('/kbsuratkeluar/download/{id}/{file}', [KBSuratKeluarController::class, 'downloadSurat'])->name('kbsuratkeluar.download');
 
-    Route::resource('kbsuratmasuk',KBSuratMasukController::class);
+    Route::resource('kbsuratmasuk', KBSuratMasukController::class);
     Route::get('/kbsuratmasuk/download/{id}/{file}', [KBSuratMasukController::class, 'downloadsuratmasuk'])->name('kbsuratmasukdownload');
 
 
@@ -123,13 +124,10 @@ Route::middleware(['auth','role:2'])->group(function () {
     Route::get('/DaftarPermohonanCuti', [ListRequestLetterController::class, 'indexCuti'])->name('DaftarPermohonan.indexCuti');
     Route::get('/DaftarPermohonanTukarJaga', [ListRequestLetterController::class, 'indexTukarJaga'])->name('DaftarPermohonan.indexTukarJaga');
     Route::get('/DaftarPermohonanIzin', [ListRequestLetterController::class, 'indexIzin'])->name('DaftarPermohonan.indexIzin');
-
-
-
 });
 
 
-Route::middleware(['auth','role:3'])->group(function () {
+Route::middleware(['auth', 'role:3'])->group(function () {
     Route::resource('suratizin', SuratIzinController::class);
     Route::resource('suratcuti', SuratCutiController::class);
     Route::resource('surattukarjaga', SuratTukarJagaController::class);
@@ -139,38 +137,38 @@ Route::middleware(['auth','role:3'])->group(function () {
     Route::get('/statuscuti/download/{id}/{file}', [StatusSuratController::class, 'downloadSuratCuti'])->name('statuscuti.download');
     Route::get('/statusizin/download/{id}/{file}', [StatusSuratController::class, 'downloadSuratIzin'])->name('statusizin.download');
     Route::get('/statustukarjaga/download/{id}/{file}', [StatusSuratController::class, 'downloadSuratTukarJaga'])->name('statustukarjaga.download');
-    Route::delete('statuscuti/destroy/{id}',[StatusSuratController::class,'destroyCuti'])->name('statuscuti.destroy');
-    Route::delete('statusizin/destroy/{id}',[StatusSuratController::class,'destroyIzin'])->name('statusizin.destroy');
-    Route::delete('statustukarjaga/destroy/{id}',[StatusSuratController::class,'destroyTukarJaga'])->name('statustukarjaga.destroy');
+    Route::delete('statuscuti/destroy/{id}', [StatusSuratController::class, 'destroyCuti'])->name('statuscuti.destroy');
+    Route::delete('statusizin/destroy/{id}', [StatusSuratController::class, 'destroyIzin'])->name('statusizin.destroy');
+    Route::delete('statustukarjaga/destroy/{id}', [StatusSuratController::class, 'destroyTukarJaga'])->name('statustukarjaga.destroy');
     Route::post('/changepassword', [ProfileKaryawanController::class, 'changePassword'])->name('change.password');
 
     Route::resource('profile', SuratIzinController::class);
-    Route::put('/updateprofile',[ProfileKaryawanController::class,'updateprofile'])->name('update.profile');
+    Route::put('/updateprofile', [ProfileKaryawanController::class, 'updateprofile'])->name('update.profile');
     Route::get('/permintaantukarjaga', [SuratTukarJagaController::class, 'permintaantukarjaga'])->name('tukarjaga.permintaan');
     Route::put('/permintaansurattukarjaga/setujui/{id}', [SuratTukarJagaController::class, 'setujui'])->name('setujui.tukarjaga');
     Route::put('/permintaansurattukarjaga/tolak/{id}', [SuratTukarJagaController::class, 'tolak'])->name('tolak.tukarjaga');
 
 
-    Route::get('/dashboardkaryawan',function(){
+    Route::get('/dashboardkaryawan', function () {
         return view('karyawan.index');
     });
-    Route::get('/status',function(){
+    Route::get('/status', function () {
         return view('karyawan.lihatstatusmobile');
     });
-    Route::get('/profile',function(){
+    Route::get('/profile', function () {
         return view('karyawan.profilemobile');
     });
 
-    Route::get('/tukarjaga',function(){
+    Route::get('/tukarjaga', function () {
         return view('karyawan.statustukarjagamobile');
     });
-    Route::get('/cuti',function(){
+    Route::get('/cuti', function () {
         return view('karyawan.statuscutimobile');
     });
-    Route::get('/izin',function(){
+    Route::get('/izin', function () {
         return view('karyawan.statusizinmobile');
     });
-    Route::get('/permintaan',function(){
+    Route::get('/permintaan', function () {
         return view('karyawan.permintaan');
     });
 });
