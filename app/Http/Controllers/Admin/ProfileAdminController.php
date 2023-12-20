@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
+
 
 use App\Models\User;
 
@@ -44,22 +46,26 @@ class ProfileAdminController extends Controller
     }
     public function changePassword(Request $request)
     {
-        // dd('$password');
         $request->validate([
             'password_lama' => 'required',
             'password_baru' => 'required|min:8|different:password_lama',
         ]);
-        $user = auth()->user();
+
+        // $user = auth()->user();
+
+        $user = Auth::user();
+
         if (!Hash::check($request->password_lama, $user->password)) {
             return redirect()->back()->with('error', 'Kata sandi lama tidak cocok.');
 
         }
-        $user->password = $request->input('password_baru');
+        // DD($request->password_baru,$user->password);
+        $user->password = $request->password_baru;
         $user->save();
-        // $user->update(['password' => $request->password_baru]);
-        Session::flash('success', 'Profile berhasil diubah');
-        return redirect()->route('profile.user')->with('success', 'profile berhasil diupdate.');
+        // $user->update(['password' => Hash::make($request->password_baru)]);
+        return redirect()->route('profile.user')->with('success', 'Profile berhasil diubah.');
     }
+
     public function edit(string $id)
     {
         //
