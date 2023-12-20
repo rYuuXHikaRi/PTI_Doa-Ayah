@@ -20,7 +20,6 @@ class ProfileAdminController extends Controller
         // $user=User::find($id);
         return view('admin.Profile.index');
     }
-
     public function create()
     {
         //

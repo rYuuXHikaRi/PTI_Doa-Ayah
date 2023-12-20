@@ -17,6 +17,7 @@ use App\Http\Controllers\KepalaBagian\KBSuratMasukController;
 use App\Http\Controllers\KepalaBagian\KBSuratKeluarController;
 use App\Http\Controllers\KepalaBagian\KBTemplateSKController;
 use App\Http\Controllers\Admin\ProfileAdminController;
+use App\Http\Controllers\KepalaBagian\KBProfileController;
 use App\Http\Controllers\SuratCutiController;
 use App\Http\Controllers\SuratIzinController;
 use App\Http\Controllers\SuratTukarJagaController;
@@ -93,6 +94,12 @@ Route::middleware(['auth', 'role:2'])->group(function () {
 
     Route::resource('kbsuratmasuk', KBSuratMasukController::class);
     Route::get('/kbsuratmasuk/download/{id}/{file}', [KBSuratMasukController::class, 'downloadsuratmasuk'])->name('kbsuratmasukdownload');
+
+    Route::get('/Profile-Pengguna', [KBProfileController::class, 'index'])->name('KBprofile.user');
+    Route::put('/Profile-Pengguna', [KBProfileController::class, 'update'])->name('KBprofile.update');
+    Route::get('/Profile-Pengguna/GantiPassword', [KBProfileController::class, 'EditPassword'])->name('KBprofile.EditPassword');
+    Route::post('/Profile-Pengguna/GantiPassword', [KBProfileController::class, 'changePassword'])->name('KBprofile.changePassword');
+
 
 
     route::resource('kbtemplateSK', TemplateSKController::class);
