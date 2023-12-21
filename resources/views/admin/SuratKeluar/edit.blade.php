@@ -19,7 +19,7 @@
                                         <a href="{{route('suratkeluar.index')}}" style="text-decoration: none; margin-right: 10px;color:white">
                                             <i class="fa-sharp fa-solid fa-arrow-left" style="font-size: 30px;"></i>
                                         </a>
-                                        <span class="font-weight-bold" style="font-size: 30px;">Buat Surat Keluar</span>
+                                        <span class="font-weight-bold" style="font-size: 30px;">Edit Surat Keluar</span>
                                     </div>
                                 </div>
                             </div><br>
