@@ -16,7 +16,7 @@
             @foreach ($surattukarjaga as $surat)
                 
             <div class="content-box">
-                @if ($surat->status != 'disetujui')
+                @if ($surat->status == 'Termohon')
                 <div class="icon-time">
                     <i class='bx bx-time' ></i>
                 </div>
@@ -35,7 +35,7 @@
                     <p>Status: menunggu {{ $surat->status }}</p>
                     <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
                 </div>
-                @if ($surat->status!='disetujui')
+                @if ($surat->status =='Termohon')
                 <div class="list">
                     <div class="svg_container" onclick="toggleBatal(this)">
                         <i class='bx bx-dots-vertical-rounded dots'></i>
@@ -59,6 +59,8 @@
                         </div>
                     </div>
                 </div>
+                @elseif ($surat->status == 'ditolak')
+                
                 @else
                 <div class="list">
                     <div class="svg_container_unduh" onclick="toggleUnduh(this)">
