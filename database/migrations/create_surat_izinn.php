@@ -22,7 +22,8 @@ return new class extends Migration
             $table->string('tanda_tangan')->nullable(); // Kolom tanda_tangan dapat NULL
             $table->string('file')->nullable(); // Kolom file dapat NULL
             $table->string('bagian');
-            $table->string('manajer')->nullable(); // Kolom manajer dapat NULL
+            $table->string('manajer')->nullable();
+            $table->string('nama_manajer')->nullable(); // Kolom manajer dapat NULL
             $table->timestamps(); // Tambahkan kolom created_at dan updated_at
         });
     }
