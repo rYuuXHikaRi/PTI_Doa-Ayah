@@ -20,10 +20,6 @@
                 <div class="icon-time">
                     <i class='bx bx-time' ></i>
                 </div>
-                @elseif($surat->status == 'ditolak')
-                <div class="icon-x">
-                    <i class='bx bx-x'></i>
-                </div>
                 @else
                 <div class="icon-check">
                     <i class='bx bx-check'></i>
