@@ -25,7 +25,7 @@ class User extends Authenticatable
 
         'email',
         'id',
-        'id_roles',
+        'role',
         'nama_karyawan',
         'jabatan',
         'nik',
