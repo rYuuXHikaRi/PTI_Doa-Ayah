@@ -16,26 +16,40 @@
             @foreach ($suratcuti as $surat)
                 
             <div class="content-box">
-                @if ($surat->status != 'disetujui')
-                <div class="icon-time">
-                    <i class='bx bx-time' ></i>
-                </div>
-                @else
+                @if ($surat->status == 'disetujui')
                 <div class="icon-check">
                     <i class='bx bx-check'></i>
+                </div>
+                @elseif ($surat->status == 'ditolak')
+                <div class="icon-x">
+                    <i class='bx bx-x'></i>
+                </div>
+                @else
+                <div class="icon-time">
+                    <i class='bx bx-time' ></i>
                 </div>
                 @endif
                 
                 <div class="info">
                     <h1>{{ $surat->nama_surat }}</h1>
-                    @if ($surat->status!='disetujui')
-                    <p>Status: menunggu {{ $surat->status }}</p>
-                    @else
-                    <p>Status: disetujui</p>
-                    @endif
+                    <p>Status: {{ $surat->status }}</p>
                     <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
                 </div>
-                @if ($surat->status !='disetujui')
+                @if ($surat->status == 'disetujui')
+                <div class="list">
+                    <div class="svg_container_unduh" onclick="toggleUnduh(this)">
+                        <i class='bx bx-dots-vertical-rounded dots'></i>
+                    </div>
+                    <div class="popup_unduh" id="svgPopupUnduh" style="display: none">
+                        <div class="unduh">
+                            <a href="{{ route('statusizin.download', ['id' => $surat->id, 'file' => $surat->file]) }}"><h1>Unduh</h1></a>
+                        </div>
+                    </div>
+                </div>
+
+                @elseif ($surat->status == 'ditolak')
+                
+                @else
                 <div class="list">
                     <div class="svg_container" onclick="toggleBatal(this)">
                         <i class='bx bx-dots-vertical-rounded dots'></i>
@@ -46,12 +60,12 @@
                         </div>
                         <div class="popup-options" style="display: none;">
                         <div id="overlay_daftar" class="overlay_daftar"></div>
-                        <form action="{{ route('statuscuti.destroy', $surat->id) }}" method="POST">
+                        <form action="{{ route('statusizin.destroy', $surat->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                         
                             <div class="menu-popup">
-                                <h1>Batalkan Permohonan Cuti?</h1>
+                                <h1>Batalkan Permohonan Izin?</h1>
                                 <button class="button_ya" type="submit">Ya</button>
                                 <button class="button_tidak" type="button">Tidak</button>
                             </div>
@@ -59,17 +73,7 @@
                         </div>
                     </div>
                 </div>
-                @else
-                <div class="list">
-                    <div class="svg_container_unduh" onclick="toggleUnduh(this)">
-                        <i class='bx bx-dots-vertical-rounded dots'></i>
-                    </div>
-                    <div class="popup_unduh" id="svgPopupUnduh" style="display: none">
-                        <div class="unduh">
-                            <a href="{{ route('statuscuti.download', ['id' => $surat->id, 'file' => $surat->file]) }}"><h1>Unduh</h1></a>
-                        </div>
-                    </div>
-                </div>
+
                 @endif
 
             </div>

@@ -92,10 +92,12 @@ class SuratTukarJagaController extends Controller
         if($jenis == 'Kepala Ruangan'){
             $suratTukarJaga->kepala_ruangan = auth()->user()->tanda_tangan;
             $suratTukarJaga->status= 'Kepala Bagian';
+            $suratTukarJaga->nama_kepala_ruangan=auth()->user()->nama_karyawan;
         }
         else if($jenis == 'Kepala Bagian'){
             $suratTukarJaga->kepala_bagian = auth()->user()->tanda_tangan;
             $suratTukarJaga->status= 'disetujui';
+            $suratTukarJaga->nama_kepala_bagian=auth()->user()->nama_karyawan;
         }
 
 
@@ -187,6 +189,9 @@ class SuratTukarJagaController extends Controller
             'deskripsi' => "Surat Telah Ditolak oleh Termohon",
             // Tambahkan kolom-kolom lainnya sesuai kebutuhan
         ]);
+
+        return redirect()->route('tukarjaga.permintaan')
+            ->with('success', 'Data berhasil disimpan!');
     }
 
 
@@ -209,6 +214,25 @@ class SuratTukarJagaController extends Controller
         ];
         $mime_type = $mime_types[$extension] ?? 'application/octet-stream';
         return response()->download($file_path, $file, ['Content-Type' => $mime_type]);
+    }
+
+    public function TolakTukarJaga($id,$jenis){
+        $suratTukarJaga = SuratTukarJaga::where('id', $id)->first();
+
+        $suratTukarJaga->status= 'ditolak';
+
+        $suratTukarJaga->save();
+
+        Disposisi::create([
+            'id_surat'=> $suratTukarJaga->id,
+            'nama_surat' => $suratTukarJaga->nama_surat,
+            'status' => $suratTukarJaga->status,
+            'deskripsi' => "Surat Telah Ditolak oleh ".$jenis,
+            // Tambahkan kolom-kolom lainnya sesuai kebutuhan
+        ]);
+
+        return redirect()->route('DaftarPermohonan.indexTukarJaga')
+            ->with('success', 'Permohonan Tukar Jaga Ditolak!');
     }
    
     public function show(SuratTukarJaga $suratTukarJaga)

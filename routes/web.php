@@ -115,16 +115,19 @@ Route::middleware(['auth', 'role:2'])->group(function () {
 
     Route::get('/suratizin/priview/{id}', [SuratIzinController::class, 'priview'])->name('PermohonanIzin.priview');
     Route::put('/suratizin/sign/{id}', [SuratIzinController::class, 'Sign'])->name('PermohonanIzin.Sign');
+    Route::put('/suratizin/tolak/{id}', [SuratIzinController::class, 'Tolak'])->name('PermohonanIzin.Tolak');
     Route::get('/suratizin/{id}/{file}', [SuratIzinController::class, 'downloadSuratIzin'])->name('PermohonanIzin.download');
 
 
     Route::get('/suratcuti/priview/{id}', [SuratCutiController::class, 'priview'])->name('PermohonanCuti.priview');
     Route::put('/suratcuti/sign/{id}', [SuratCutiController::class, 'Sign'])->name('PermohonanCuti.Sign');
+    Route::put('/suratcuti/tolak/{id}', [SuratCutiController::class, 'Tolak'])->name('PermohonanCuti.Tolak');
     Route::get('/suratcuti/{id}/{file}', [SuratCutiController::class, 'downloadSuratCuti'])->name('PermohonanCuti.download');
 
 
     Route::get('/surattukarjaga/priview/{id}', [SuratTukarJagaController::class, 'priview'])->name('PermohonanTukarJaga.priview');
     Route::put('/surattukarjaga/sign/{id}/{jenis}', [SuratTukarJagaController::class, 'Sign'])->name('PermohonanTukarJaga.Sign');
+    Route::put('/surattukarjaga/tolak/{id}/{jenis}', [SuratTukarJagaController::class, 'TolakTukarJaga'])->name('PermohonanTukarJaga.Tolak');
     Route::get('/surattukarjaga/{id}/{file}', [SuratTukarJagaController::class, 'downloadSuratTukarJaga'])->name('PermohonanTukarJaga.download');
 
     Route::resource('DaftarPermohonan', ListRequestLetterController::class);

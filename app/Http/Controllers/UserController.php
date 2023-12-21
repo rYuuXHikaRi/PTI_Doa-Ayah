@@ -128,7 +128,7 @@ class UserController extends Controller
         }
 
         // Update existing user data
-        $user->id_roles = $request->input('id_roles');
+        $user->role = $request->input('role');
         $user->nama_karyawan = $request->input('nama_karyawan');
         $user->jabatan = $request->input('jabatan');
         $user->nik = $request->input('nik');

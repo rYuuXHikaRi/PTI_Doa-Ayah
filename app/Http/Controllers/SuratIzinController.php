@@ -200,4 +200,23 @@ class SuratIzinController extends Controller
         $mime_type = $mime_types[$extension] ?? 'application/octet-stream';
         return response()->download($file_path, $file, ['Content-Type' => $mime_type]);
     }
+
+    public function Tolak($id){
+        $suratIzin = SuratIzin::where('id', $id)->first();
+
+        $suratIzin->status= 'ditolak';
+
+        $suratIzin->save();
+
+        Disposisi::create([
+            'id_surat'=> $suratIzin->id,
+            'nama_surat' => $suratIzin->nama_surat,
+            'status' => $suratIzin->status,
+            'deskripsi' => "Surat Telah Ditolak oleh Kepala Bagian",
+            // Tambahkan kolom-kolom lainnya sesuai kebutuhan
+        ]);
+
+        return redirect()->route('DaftarPermohonan.indexIzin')
+            ->with('success', 'Permohonan Izin Ditolak!');
+    }
 }

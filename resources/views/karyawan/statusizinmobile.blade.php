@@ -16,22 +16,40 @@
             @foreach ($suratizin as $surat)
                   
             <div class="content-box">
-                @if ($surat->status != 'disetujui')
-                <div class="icon-time">
-                    <i class='bx bx-time' ></i>
-                </div>
-                @else
+                @if ($surat->status == 'disetujui')
                 <div class="icon-check">
                     <i class='bx bx-check'></i>
+                </div>
+                @elseif ($surat->status == 'ditolak')
+                <div class="icon-x">
+                    <i class='bx bx-x'></i>
+                </div>
+                @else
+                <div class="icon-time">
+                    <i class='bx bx-time' ></i>
                 </div>
                 @endif
                 
                 <div class="info">
                     <h1>{{ $surat->nama_surat }}</h1>
-                    <p>Status: menunggu {{ $surat->status }}</p>
+                    <p>Status: {{ $surat->status }}</p>
                     <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
                 </div>
-                @if ($surat->status!='disetujui')
+                @if ($surat->status == 'disetujui')
+                <div class="list">
+                    <div class="svg_container_unduh" onclick="toggleUnduh(this)">
+                        <i class='bx bx-dots-vertical-rounded dots'></i>
+                    </div>
+                    <div class="popup_unduh" id="svgPopupUnduh" style="display: none">
+                        <div class="unduh">
+                            <a href="{{ route('statusizin.download', ['id' => $surat->id, 'file' => $surat->file]) }}"><h1>Unduh</h1></a>
+                        </div>
+                    </div>
+                </div>
+
+                @elseif ($surat->status == 'ditolak')
+                
+                @else
                 <div class="list">
                     <div class="svg_container" onclick="toggleBatal(this)">
                         <i class='bx bx-dots-vertical-rounded dots'></i>
@@ -55,17 +73,7 @@
                         </div>
                     </div>
                 </div>
-                @else
-                <div class="list">
-                    <div class="svg_container_unduh" onclick="toggleUnduh(this)">
-                        <i class='bx bx-dots-vertical-rounded dots'></i>
-                    </div>
-                    <div class="popup_unduh" id="svgPopupUnduh" style="display: none">
-                        <div class="unduh">
-                            <a href="{{ route('statusizin.download', ['id' => $surat->id, 'file' => $surat->file]) }}"><h1>Unduh</h1></a>
-                        </div>
-                    </div>
-                </div>
+
                 @endif
 
             </div>

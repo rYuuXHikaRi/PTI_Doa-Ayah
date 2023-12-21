@@ -36,7 +36,8 @@ class User extends Authenticatable
         'nama_bagian',
         'jumlah_izin',
         'jumlah_cuti',
-        'jumlah_tukar_jaga'
+        'jumlah_tukar_jaga',
+        'password'
     ];
     public function setPasswordAttribute($value)
     {

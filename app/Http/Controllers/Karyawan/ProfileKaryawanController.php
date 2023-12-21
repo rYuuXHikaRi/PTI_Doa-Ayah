@@ -42,6 +42,7 @@ class ProfileKaryawanController extends Controller
             return redirect()->back()->with('error', 'Kata sandi lama tidak cocok.');
 
         }
+      
 
         $user->update(['password' => $request->password_baru]);
 

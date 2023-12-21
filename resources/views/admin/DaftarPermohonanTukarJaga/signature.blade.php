@@ -25,8 +25,8 @@
                 <td>{{ $suratTukarJaga->nama_pengaju }}</td>
                 {{-- <td>......</td> --}}
                 {{-- <td>......</td> --}}
-                <td>{{ $suratTukarJaga->jadwal_asli }}</td>
-                <td>{{ $suratTukarJaga->jadwal_dirubah }}</td>
+                <td>{{ \Carbon\Carbon::parse($suratTukarJaga->jadwal_asli)->format('d-m-Y')}}</td>
+                <td>{{ \Carbon\Carbon::parse($suratTukarJaga->jadwal_dirubah)->format('d-m-Y')}}</td>
 
             </tr>
             <tr>
@@ -39,9 +39,9 @@
             <tr>
                 <td>{{ $suratTukarJaga->target_tukar_jaga}}</td>
                 {{-- <td>......</td> --}}
-                <td>{{ $suratTukarJaga->jadwal_dirubah }}</td>
+                <td>{{ \Carbon\Carbon::parse($suratTukarJaga->jadwal_dirubah)->format('d-m-Y')}}</td>
                 {{-- <td>......</td> --}}
-                <td>{{ $suratTukarJaga->jadwal_asli }}</td>
+                <td>{{ \Carbon\Carbon::parse($suratTukarJaga->jadwal_asli)->format('d-m-Y')}}</td>
             </tr>
         </table>
         <p>Tgl. PENYERAHAN BLANKO</p>
@@ -57,6 +57,7 @@
             </p>
             <p><b>{{ $suratTukarJaga->nama_pengaju }}</b></p>
         </div>
+
         <div class="ttd_B">
             <p>Termohon, <b>{{ $suratTukarJaga->target_tukar_jaga}}<b></p>
             @if ($suratTukarJaga->termohon)
@@ -72,7 +73,7 @@
             <img style="height: 120px ; width:120px;"
                 src="{{ public_path('assets/ttd/' . $suratTukarJaga->kepala_ruangan) }}" alt="Tanda Tangan">
         @endif
-        <p><b>{{ $suratTukarJaga->nama_pengaju }}</b></p>
+        <p><b>{{ $suratTukarJaga->nama_kepala_ruangan }}</b></p>
         </div>
         <div class="ttd_kab">
             <p>Ka. Bagian</p>
@@ -80,7 +81,7 @@
             <img style="height: 120px ; width:120px;"
                 src="{{ public_path('assets/ttd/' . $suratTukarJaga->kepala_bagian) }}" alt="Tanda Tangan">
         @endif
-        <p><b>{{ $suratTukarJaga->nama_pengaju }}</b></p>
+        <p><b>{{ $suratTukarJaga->nama_kepala_bagian }}</b></p>
         </div>
         </div>
 </body>

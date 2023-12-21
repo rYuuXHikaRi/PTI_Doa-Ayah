@@ -30,12 +30,14 @@
                 </div>
                 @endif
                 
+
+                @if ($surat->status =='Termohon')
                 <div class="info">
                     <h1>{{ $surat->nama_surat }}</h1>
-                    <p>Status: menunggu {{ $surat->status }}</p>
+                    <p>Status: dikirim ke {{ $surat->status }}</p>
                     <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
                 </div>
-                @if ($surat->status =='Termohon')
+
                 <div class="list">
                     <div class="svg_container" onclick="toggleBatal(this)">
                         <i class='bx bx-dots-vertical-rounded dots'></i>
@@ -60,8 +62,19 @@
                     </div>
                 </div>
                 @elseif ($surat->status == 'ditolak')
+                <div class="info">
+                    <h1>{{ $surat->nama_surat }}</h1>
+                    <p>Status: {{ $surat->status }}</p>
+                    <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
+                </div>
                 
                 @else
+                <div class="info">
+                    <h1>{{ $surat->nama_surat }}</h1>
+                    <p>Status: disetujui {{ $surat->status }}</p>
+                    <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
+                </div>
+
                 <div class="list">
                     <div class="svg_container_unduh" onclick="toggleUnduh(this)">
                         <i class='bx bx-dots-vertical-rounded dots'></i>
