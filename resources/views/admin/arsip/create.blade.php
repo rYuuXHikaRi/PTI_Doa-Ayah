@@ -100,7 +100,7 @@
                                                 <div class="col-md-8">
                                                     <input type="file" class="form-control" id="file"
                                                         name="file" style="background-color: #E0E0E0;" required 
-                                                        accept=".docx, .pdf">
+                                                        accept=".pdf">
                                                 </div>
                                             </div>
                                             <button type="submit" class="btn btn-default"
