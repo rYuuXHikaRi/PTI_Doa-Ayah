@@ -15,7 +15,7 @@
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Jumlah Pengguna <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('user.index') }}" class="small-box-footer">Jumlah Pengguna <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 
@@ -28,7 +28,7 @@
                     <div class="icon">
                         <i class="ion ion-stats-bars"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Jumlah Arsip <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('arsip.index') }}" class="small-box-footer">Jumlah Arsip <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 
@@ -41,7 +41,7 @@
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Jumlah Surat Masuk <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('suratkeluar.index') }}" class="small-box-footer">Jumlah Surat Masuk <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 
@@ -54,7 +54,7 @@
                     <div class="icon">
                         <i class="ion ion-pie-graph"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Jumlah Surat Keluar <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('suratmasuk.index') }}" class="small-box-footer">Jumlah Surat Keluar <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>

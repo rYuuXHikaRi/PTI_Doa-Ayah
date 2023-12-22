@@ -15,7 +15,7 @@
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Jumlah Pengguna <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('KBprofile.user') }}" class="small-box-footer">Jumlah Pengguna <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 
