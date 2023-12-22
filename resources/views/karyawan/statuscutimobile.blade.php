@@ -42,7 +42,7 @@
                     </div>
                     <div class="popup_unduh" id="svgPopupUnduh" style="display: none">
                         <div class="unduh">
-                            <a href="{{ route('statusizin.download', ['id' => $surat->id, 'file' => $surat->file]) }}"><h1>Unduh</h1></a>
+                            <a href="{{ route('statuscuti.download', ['id' => $surat->id, 'file' => $surat->file]) }}"><h1>Unduh</h1></a>
                         </div>
                     </div>
                 </div>
