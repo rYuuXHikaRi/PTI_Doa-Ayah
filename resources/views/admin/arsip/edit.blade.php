@@ -122,8 +122,8 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn btn-primary"
-                                                style="background-color: #00adf1;">Submit</button>
+                                            <button type="submit" class="btn btn-default"
+                                            style="background-color: blue;color:white">Submit</button>
                                         </form>
                                     </div>
                                 </div>

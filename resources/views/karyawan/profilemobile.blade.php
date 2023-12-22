@@ -32,6 +32,11 @@
         cursor: pointer;
     }
 </style>
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
 
 <div class="container">
     <div class="card">

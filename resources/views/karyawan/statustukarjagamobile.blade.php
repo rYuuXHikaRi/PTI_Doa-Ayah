@@ -16,9 +16,13 @@
             @foreach ($surattukarjaga as $surat)
                 
             <div class="content-box">
-                @if ($surat->status != 'disetujui')
+                @if ($surat->status == 'Termohon')
                 <div class="icon-time">
                     <i class='bx bx-time' ></i>
+                </div>
+                @elseif($surat->status == 'ditolak')
+                <div class="icon-x">
+                    <i class='bx bx-x'></i>
                 </div>
                 @else
                 <div class="icon-check">
@@ -26,12 +30,14 @@
                 </div>
                 @endif
                 
+
+                @if ($surat->status =='Termohon')
                 <div class="info">
                     <h1>{{ $surat->nama_surat }}</h1>
-                    <p>Status: menunggu {{ $surat->status }}</p>
+                    <p>Status: dikirim ke {{ $surat->status }}</p>
                     <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
                 </div>
-                @if ($surat->status!='disetujui')
+
                 <div class="list">
                     <div class="svg_container" onclick="toggleBatal(this)">
                         <i class='bx bx-dots-vertical-rounded dots'></i>
@@ -55,7 +61,20 @@
                         </div>
                     </div>
                 </div>
+                @elseif ($surat->status == 'ditolak')
+                <div class="info">
+                    <h1>{{ $surat->nama_surat }}</h1>
+                    <p>Status: {{ $surat->status }}</p>
+                    <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
+                </div>
+                
                 @else
+                <div class="info">
+                    <h1>{{ $surat->nama_surat }}</h1>
+                    <p>Status: disetujui {{ $surat->status }}</p>
+                    <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
+                </div>
+
                 <div class="list">
                     <div class="svg_container_unduh" onclick="toggleUnduh(this)">
                         <i class='bx bx-dots-vertical-rounded dots'></i>
@@ -84,7 +103,11 @@
     function toggleBatal(clickedElement) {
          // Menyembunyikan popup toggle batal sebelumnya yang terbuka
         var allPopups = document.querySelectorAll('.popup_batal');
+        var allUnduh = document.querySelectorAll('.popup_unduh');
         allPopups.forEach(function(popup) {
+            popup.style.display = 'none';
+        });
+        allUnduh.forEach(function(popup) {
             popup.style.display = 'none';
         });
         // Traverse the DOM to find the related popup within the clicked content-box
@@ -102,17 +125,44 @@
 
     document.addEventListener('click', function(event) {
     var isClickInsidePopup = event.target.closest('.popup_batal');
+    var isClickInsideUnduh = event.target.closest('.popup_unduh');
     var isClickInsideContentBox = event.target.closest('.content-box');
 
-    if (!isClickInsidePopup && !isClickInsideContentBox) {
+    if (!isClickInsidePopup && !isClickInsideContentBox && !isClickInsideUnduh) {
         // Sembunyikan semua popup toggle batal saat klik dilakukan di luar area tersebut
         var allPopups = document.querySelectorAll('.popup_batal');
+        var allUnduh = document.querySelectorAll('.popup_unduh');
         allPopups.forEach(function(popup) {
+            popup.style.display = 'none';
+        });
+        allUnduh.forEach(function(popup) {
             popup.style.display = 'none';
         });
     }
 });
 
+function toggleUnduh(clickedElement) {
+         // Menyembunyikan popup toggle batal sebelumnya yang terbuka
+        var allunduh = document.querySelectorAll('.popup_unduh');
+        var allBatal = document.querySelectorAll('.popup_batal');
+        allunduh.forEach(function(popup) {
+            popup.style.display = 'none';
+        });
+        allBatal.forEach(function(popup) {
+            popup.style.display = 'none';
+        });
+        // Traverse the DOM to find the related popup within the clicked content-box
+        var contentBox = clickedElement.closest('.content-box');
+        var popup = contentBox.querySelector('.popup_unduh');
+
+        if (popup.style.display === "none") {
+            // Show the popup
+            popup.style.display = "block";
+        } else {
+            // Hide the popup
+            popup.style.display = 'none';
+        }
+    }
 
     function toggleOpsi(clickedElement) {
         var contentBox = clickedElement.closest('.content-box');
@@ -137,17 +187,6 @@
             popup.style.display = 'none';
         });
     });
-    }
-
-    function toggleUnduh(clickedElement) {
-        var contentBox = clickedElement.closest('.content-box');
-        var unduh = contentBox.querySelector('.popup_unduh');
-
-        if (unduh.style.display == 'none') {
-            unduh.style.display = 'block';
-        } else {
-            unduh.style.display = 'none';
-        }
     }
 
     function cariData(clickedElement) {

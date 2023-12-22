@@ -25,19 +25,19 @@
                     <i class='bx bx-x'></i>
                 </div>
                 @else
-
                 <div class="icon-check">
                     <i class='bx bx-check'></i>
                 </div>
                 @endif
                 
+                
+                @if ($surat->status == 'Termohon')
                 <div class="info">
                     <h1>{{ $surat->nama_surat }}</h1>
                     <p>Status: menunggu {{ $surat->status }}</p>
                     <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
                 </div>
-                
-                @if ($surat->status == 'Termohon')
+
                 <div class="list">
                     <div class="svg_container_unduh" onclick="toggleUnduh(this)">
                         <i class='bx bx-dots-vertical-rounded dots'></i>
@@ -54,7 +54,7 @@
                             <div id="overlay_daftar" class="overlay_daftar"></div>
                             <form action="{{ route('tolak.tukarjaga', $surat->id) }}" method="POST">
                                 @csrf
-                                @method('PUT')
+                                @method('put')
                             
                                 <div class="menu-popup">
                                     <h1>Tolak Permohonan Tukar Jaga?</h1>
@@ -74,6 +74,18 @@
                             
                         </div>
                     </div>
+                </div>
+                @elseif($surat->status == 'ditolak')
+                <div class="info">
+                    <h1>{{ $surat->nama_surat }}</h1>
+                    <p>Status: {{ $surat->status }}</p>
+                    <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
+                </div>
+                @else
+                <div class="info">
+                    <h1>{{ $surat->nama_surat }}</h1>
+                    <p>Status: disetujui {{ $surat->status }}</p>
+                    <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
                 </div>
                 @endif
             </div>
@@ -95,7 +107,6 @@
         var popup = contentBox.querySelector('.popup_batal');
 
         if (popup.style.display === "none") {
-            // Show the popup
             popup.style.display = "block";
         } else {
             // Hide the popup
@@ -103,49 +114,37 @@
         }
     }
 
-    function toggleOpsi(clickedElement) {
-        var contentBox = clickedElement.closest('.content-box');
-        var popupOptions = contentBox.querySelector('.popup-options');
-        var overlay = document.querySelector('.overlay_daftar');
-        var popup = contentBox.querySelector('.popup_batal');
+    document.addEventListener('click', function(event) {
+    var isClickInsideUnduh = event.target.closest('.popup_unduh');
+    var isClickInsideContentBox = event.target.closest('.content-box');
 
-        if (popupOptions.style.display === "none") {
-            popupOptions.style.display = 'block';
-        } else {
-            popupOptions.style.display = 'none';
-        }
-
- 
-        var buttonsTidak = popupOptions.querySelectorAll('.button_tidak');
-
-        buttonsYa.forEach(function(button) {
-        button.addEventListener('click', function() {
-            // Hapus content-box saat tombol "Ya" diklik
-   
-        });
-    });
-
-        buttonsTidak.forEach(function(button) {
-        button.addEventListener('click', function() {
-            // Sembunyikan popup saat tombol "Tidak" diklik
-            popupOptions.style.display = 'none';
-            overlay.style.display = 'none';
+    if (!isClickInsideContentBox && !isClickInsideUnduh) {
+        // Sembunyikan semua popup toggle batal saat klik dilakukan di luar area tersebut
+        var allUnduh = document.querySelectorAll('.popup_unduh');
+        allUnduh.forEach(function(popup) {
             popup.style.display = 'none';
         });
-    });
     }
+});
 
-    function toggleUnduh(clickedElement) {
+function toggleUnduh(clickedElement) {
+         // Menyembunyikan popup toggle batal sebelumnya yang terbuka
+        var allunduh = document.querySelectorAll('.popup_unduh');
+        allunduh.forEach(function(popup) {
+            popup.style.display = 'none';
+        });
+        // Traverse the DOM to find the related popup within the clicked content-box
         var contentBox = clickedElement.closest('.content-box');
-        var unduh = contentBox.querySelector('.popup_unduh');
+        var popup = contentBox.querySelector('.popup_unduh');
 
-        if (unduh.style.display == 'none') {
-            unduh.style.display = 'block';
+        if (popup.style.display === "none") {
+            // Show the popup
+            popup.style.display = "block";
         } else {
-            unduh.style.display = 'none';
+            // Hide the popup
+            popup.style.display = 'none';
         }
     }
-
     function toggleTanda(clickedElement) {
         var contentBox = clickedElement.closest('.content-box');
         var ttd = contentBox.querySelector('.click_ttd');
@@ -156,6 +155,30 @@
             ttd.style.display = 'none';
         }
     }
+
+    function toggleOpsi(clickedElement) {
+        var contentBox = clickedElement.closest('.content-box');
+        var popupOptions = contentBox.querySelector('.popup-options');
+        var overlay = document.querySelector('.overlay_daftar');
+
+        if (popupOptions.style.display === "none") {
+            popupOptions.style.display = 'block';
+            overlay.style.display = 'block';
+        } else {
+            popupOptions.style.display = 'none';
+        }
+
+ 
+        var buttonsTidak = popupOptions.querySelectorAll('.button_tidak');
+
+        buttonsTidak.forEach(function(button) {
+        button.addEventListener('click', function() {
+            popupOptions.style.display = 'none';
+            overlay.style.display = 'none';
+        });
+    });
+    }
+   
 
     function cariData() {
     var input = document.getElementById('cariInput').value.toLowerCase();

@@ -29,21 +29,20 @@ class ProfileKaryawanController extends Controller
 
     public function changePassword(Request $request)
     {
-        
+
         $request->validate([
             'password_lama' => 'required',
             'password_baru' => 'required|min:8|different:password_lama',
         ]);
 
-        
-   
 
         $user = Auth::user();
 
         if (!Hash::check($request->password_lama, $user->password)) {
             return redirect()->back()->with('error', 'Kata sandi lama tidak cocok.');
-         
+
         }
+      
 
         $user->update(['password' => $request->password_baru]);
 
@@ -60,9 +59,9 @@ class ProfileKaryawanController extends Controller
             'alamat' => 'required|string',
          // Adjust file type and size as needed
         ]);
-    
 
-       
+
+
 
         $validatedData = $request->validate([
 
@@ -82,16 +81,16 @@ class ProfileKaryawanController extends Controller
             }
             $file1 = $validatedData[('foto')];
 
-    
+
             $filename1 =  $file1->getClientOriginalName();
-         
+
             // File upload location
             $location1 = '../public/assets/profil/';
 
             $file1->move(public_path($location1), $filename1);
             $user->foto = $filename1;
-     
-        
+
+
 
         }
         if ($request->hasFile('tanda_tangan')) {
@@ -113,7 +112,7 @@ class ProfileKaryawanController extends Controller
         $user->update([
             'nama_karyawan' => $request->input('nama_karyawan'),
             'alamat' => $request->input('alamat'),
-         
+
 
         ]);
 
@@ -153,7 +152,7 @@ class ProfileKaryawanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-  
+
 
     /**
      * Remove the specified resource from storage.

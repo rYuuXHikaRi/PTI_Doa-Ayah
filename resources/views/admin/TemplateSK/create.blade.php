@@ -84,7 +84,8 @@
         </div>
           
 
-            <button type="submit" class="btn btn-primary">Buat Surat</button>
+        <button type="submit" class="btn btn-default"
+        style="background-color: blue;color:white">Buat Surat</button>
     
         </form>
 

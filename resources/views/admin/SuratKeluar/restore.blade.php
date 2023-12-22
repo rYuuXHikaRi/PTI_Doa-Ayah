@@ -48,7 +48,8 @@
                                                         placeholder="Deskripsi">
                                                     </div>
                                                     <div class="col-md-8">
-                                                        <button type="submit" class="btn btn-primary" style="background-color: blue;color:white">Ajukan Kembali</button>
+                                                        <button type="submit" class="btn btn-default"
+                                            style="background-color: blue;color:white">Ajukan kembali</button>
                                                     </div>
                                             </form>
 

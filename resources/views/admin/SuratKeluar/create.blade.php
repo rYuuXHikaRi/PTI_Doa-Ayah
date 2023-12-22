@@ -66,13 +66,14 @@
                                                 <div class="form-group row">
                                                     <label for="uploadSurat" class="col-md-4 col-form-label">Upload Surat</label>
                                                     <div class="col-md-8">
-                                                        <input type="file" class="form-control" id="uploadSurat" name="file" style="background-color:#EBF1FA">
+                                                        <input type="file" class="form-control" id="uploadSurat" name="file" style="background-color:#EBF1FA" accept=".pdf">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-md-4"></div>
                                                     <div class="col-md-8">
-                                                        <button type="submit" class="btn btn-primary" style="background-color: #338BFD;color:white">Submit</button>
+                                                        <button type="submit" class="btn btn-default"
+                                            style="background-color: blue;color:white">Submit</button>
                                                     </div>
                                                 </div>
                                             </form>

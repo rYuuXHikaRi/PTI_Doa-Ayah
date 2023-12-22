@@ -47,7 +47,7 @@
                                     <div class="row no-gutters row-bordered row-border-light"
                                         style="justify-content: center">
                                         <div class="col-md-9">
-                                            <form action="{{ route('profile.update', auth()->user()->id) }}" method="post"
+                                            <form action="{{ route('Adminprofile.update', auth()->user()->id) }}" method="post"
                                                 enctype="multipart/form-data">
                                                 @csrf
                                                 @method('PUT')
@@ -61,7 +61,7 @@
                                                                 style="display:none; max-width: 200px; margin-top: 10px; width:20%;">
                                                             <input name="foto" class="btn btn-outline-primary"
                                                                 title="Upload Foto" type="file" id="photo"
-                                                                onchange="previewImage(event)" accept="image/*"
+                                                                onchange="previewImage(event)" accept=".jpg, .jpeg, .png, .gif"
                                                                 value="{{ auth()->user()->foto }}"
                                                                 placeholder="{{ auth()->user()->foto }}">
                                                         </div>
@@ -179,7 +179,7 @@
                                                                         class="btn btn-outline-primary"
                                                                         title="Upload Tanda Tangan" type="file"
                                                                         id="tanda_tangan" onchange="previewTTD(event)"
-                                                                        accept="image/*"
+                                                                        accept=".jpg, .jpeg, .png, .gif"
                                                                         value="{{ auth()->user()->tanda_tangan}}"
                                                                         placeholder="{{ auth()->user()->tanda_tangan }}">
 

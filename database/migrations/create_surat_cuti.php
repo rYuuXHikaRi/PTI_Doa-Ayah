@@ -23,7 +23,8 @@ return new class extends Migration
             $table->string('status');
             $table->string('file')->nullable(); // Kolom file dapat NULL
             $table->string('nama_surat')->nullable(); // Kolom nama_surat dapat NULL
-            $table->string('kepala_bagian')->nullable(); // Kolom kepala_bagian dapat NULL
+            $table->string('kepala_bagian')->nullable();
+            $table->string('nama_kepala_bagian')->nullable(); // Kolom kepala_bagian dapat NULL
             $table->string('tanda_tangan')->nullable(); // Kolom tanda_tangan dapat NULL
             $table->timestamps();
         });

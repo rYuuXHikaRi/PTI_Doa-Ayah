@@ -132,6 +132,25 @@ class SuratCutiController extends Controller
         $mime_type = $mime_types[$extension] ?? 'application/octet-stream';
         return response()->download($file_path, $file, ['Content-Type' => $mime_type]);
     }
+
+    public function Tolak($id){
+        $suratCuti = SuratCuti::where('id', $id)->first();
+
+        $suratCuti->status= 'ditolak';
+
+        $suratCuti->save();
+
+        Disposisi::create([
+            'id_surat'=> $suratCuti->id,
+            'nama_surat' => $suratCuti->nama_surat,
+            'status' => $suratCuti->status,
+            'deskripsi' => "Surat Telah Ditolak oleh Kepala Bagian",
+            // Tambahkan kolom-kolom lainnya sesuai kebutuhan
+        ]);
+
+        return redirect()->route('DaftarPermohonan.indexCuti')
+            ->with('success', 'Permohonan Cuti Ditolak!');
+    }
     public function show(SuratCuti $suratCuti)
     {
         //

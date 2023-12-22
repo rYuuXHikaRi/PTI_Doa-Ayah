@@ -49,7 +49,9 @@
                     <select class="select" name="target_tukar_jaga">
                         <option value="">Pilih Nama Target</option>
                         @foreach ($karyawan as $user)
+                        @if ($user->nama_karyawan!= auth()->user()->nama_karyawan)
                         <option value="{{ $user->nama_karyawan }}">{{ $user->nama_karyawan }}</option>
+                        @endif
                         @endforeach
                     </select>
                     <div class="icon">

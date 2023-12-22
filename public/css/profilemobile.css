@@ -5,7 +5,7 @@
 @media (max-width: 616px) {
     .container {
         margin: 5%;
-        margin-top: 78px;
+        margin-top: 12px;
         margin-left: 77px;
     }
     .card {
@@ -24,7 +24,7 @@
     .card-body {
         background: rgba(230, 239, 250, 0.65);
         width: 90%;
-        height: 580px;
+        height: 502px;
         overflow-y: scroll;
     }
     .box_foto {

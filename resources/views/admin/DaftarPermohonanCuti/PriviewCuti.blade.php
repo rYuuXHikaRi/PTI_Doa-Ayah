@@ -96,6 +96,11 @@
                                 @method('put')
                                 <button type="submit">Tanda Tangani</button>
                             </form>
+                            <form method="POST" action="{{ route('PermohonanCuti.Tolak', ['id' => $suratCuti->id]) }}">
+                                @csrf
+                                @method('put')
+                                <button type="submit">Tolak</button>
+                            </form>
                             @endif
 
                         <br><br>

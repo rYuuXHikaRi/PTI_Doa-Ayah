@@ -19,7 +19,7 @@
                                         <a href="{{route('suratkeluar.index')}}" style="text-decoration: none; margin-right: 10px;color:white">
                                             <i class="fa-sharp fa-solid fa-arrow-left" style="font-size: 30px;"></i>
                                         </a>
-                                        <span class="font-weight-bold" style="font-size: 30px;">Buat Surat Keluar</span>
+                                        <span class="font-weight-bold" style="font-size: 30px;">Edit Surat Keluar</span>
                                     </div>
                                 </div>
                             </div><br>
@@ -97,7 +97,8 @@
                                                 <div class="form-group row">
                                                     <div class="col-md-4"></div>
                                                     <div class="col-md-8">
-                                                        <button type="submit" class="btn btn-primary" style="background-color: #338BFD;color:white">Submit</button>
+                                                        <button type="submit" class="btn btn-default"
+                                            style="background-color: blue;color:white">Submit</button>
                                                     </div>
                                                 </div>
                                             </form>

@@ -28,6 +28,8 @@ class SuratTukarJaga extends Model
         'created_at',
         'updated_at',
         'nama_surat',
-        'tanda_tangan'
+        'tanda_tangan',
+        'nama_kepala_bagian',
+        'nama_kepala_ruangan'
     ];
 }

@@ -61,7 +61,8 @@
                                                 <div class="form-group row">
                                                     <div class="col-md-4"></div>
                                                     <div class="col-md-8">
-                                                        <button type="submit" class="btn btn-primary" style="background-color: #338BFD;color:white">Submit</button>
+                                                        <button type="submit" class="btn btn-default"
+                                            style="background-color: blue;color:white">Submit</button>
                                                     </div>
                                                 </div>
                                             </form>
