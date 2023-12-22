@@ -22,7 +22,9 @@ return new class extends Migration
             $table->string('status');
             $table->date('jadwal_dirubah')->nullable(); // Kolom jadwal_dirubah dapat NULL
             $table->string('nama_surat')->nullable(); // Kolom nama_surat dapat NULL
-            $table->string('kepala_bagian')->nullable(); // Kolom kepala_bagian dapat NULL
+            $table->string('kepala_bagian')->nullable();
+            $table->string('nama_kepala_bagian')->nullable(); 
+            $table->string('nama_kepala_ruangan')->nullable();// Kolom kepala_bagian dapat NULL
             $table->string('kepala_ruangan')->nullable(); // Kolom kepala_ruangan dapat NULL
             $table->string('termohon')->nullable(); // Kolom termohon dapat NULL
             $table->timestamps();
