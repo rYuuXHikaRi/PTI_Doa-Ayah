@@ -71,7 +71,7 @@
                 @else
                 <div class="info">
                     <h1>{{ $surat->nama_surat }}</h1>
-                    <p>Status: disetujui {{ $surat->status }}</p>
+                    <p>Status: tersampaikan ke {{ $surat->status }}</p>
                     <p>diajukan: {{ \Carbon\Carbon::parse($surat->created_at)->format('d-m-Y') }}</p>
                 </div>
 
