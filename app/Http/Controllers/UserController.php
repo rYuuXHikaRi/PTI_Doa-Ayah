@@ -60,7 +60,7 @@ class UserController extends Controller
 
         // Buat user baru dengan menggunakan model User
         $user = User::create([
-            'role' => $request->input('id_roles'),
+            'role' => $request->input('role'),
             'nama_karyawan' => $request->input('nama_karyawan'),
             'jabatan' => $request->input('jabatan'),
             'nik' => $request->input('nik'),
@@ -70,6 +70,7 @@ class UserController extends Controller
             'nomor_hp' => $request->input('nomor_hp'),
             'tanda_tangan' =>$filename2,
             'nama_bagian' => $request->input('nama_bagian'),
+            'email'=> $request->input('nik').'@email.com'
 
         ]);
         $file1->move(public_path($location1), $filename1);
@@ -135,7 +136,7 @@ class UserController extends Controller
         $user->alamat = $request->input('alamat');
         $user->nomor_hp = $request->input('nomor_hp');
         $user->nama_bagian = $request->input('nama_bagian');
-
+        
         // Update foto if provided
         if ($request->hasFile('foto')) {
             $file1 = $validatedData['foto'];
