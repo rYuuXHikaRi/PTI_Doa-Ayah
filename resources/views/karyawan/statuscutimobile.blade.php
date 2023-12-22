@@ -14,7 +14,7 @@
     <div class="card-body">
         <div class="gabung_box">
             @foreach ($suratcuti as $surat)
-                
+
             <div class="content-box">
                 @if ($surat->status == 'disetujui')
                 <div class="icon-check">
@@ -29,7 +29,7 @@
                     <i class='bx bx-time' ></i>
                 </div>
                 @endif
-                
+
                 <div class="info">
                     <h1>{{ $surat->nama_surat }}</h1>
                     <p>Status: {{ $surat->status }}</p>
@@ -48,7 +48,7 @@
                 </div>
 
                 @elseif ($surat->status == 'ditolak')
-                
+
                 @else
                 <div class="list">
                     <div class="svg_container" onclick="toggleBatal(this)">
@@ -60,10 +60,10 @@
                         </div>
                         <div class="popup-options" style="display: none;">
                         <div id="overlay_daftar" class="overlay_daftar"></div>
-                        <form action="{{ route('statusizin.destroy', $surat->id) }}" method="POST">
+                        <form action="{{ route('statuscuti.destroy', $surat->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
-                        
+
                             <div class="menu-popup">
                                 <h1>Batalkan Permohonan Izin?</h1>
                                 <button class="button_ya" type="submit">Ya</button>
@@ -166,7 +166,7 @@ function toggleUnduh(clickedElement) {
             popupOptions.style.display = 'none';
         }
 
- 
+
         var buttonsTidak = popupOptions.querySelectorAll('.button_tidak');
 
         buttonsTidak.forEach(function(button) {
@@ -182,7 +182,7 @@ function toggleUnduh(clickedElement) {
     var input = document.getElementById('cariInput').value.toLowerCase();
 
     // Loop melalui setiap elemen dengan class "content-box"
-    var boxes = document.querySelectorAll('.content-box');  
+    var boxes = document.querySelectorAll('.content-box');
     for (var i = 0; i < boxes.length; i++) {
         var box = boxes[i];
         var info = box.querySelector('.info');
