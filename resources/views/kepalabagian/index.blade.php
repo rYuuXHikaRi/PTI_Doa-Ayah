@@ -59,7 +59,7 @@
             </div>
         </div>
 
-        <div class="container">
+        {{-- <div class="container">
             <div class="row">
                 <div class="col-md-9">
                     <div class="card">
@@ -88,11 +88,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <!-- Sisipkan script untuk Chart.js (jika belum ada) -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-        <script>
+        {{-- <script>
             // Mengambil data dari database (contoh: menggunakan format JSON)
             var suratData = {!! json_encode($suratData) !!};
              var suratDataJson = {!! $suratDataJson !!};
@@ -165,7 +165,7 @@
                 data: data,
                 options: options
             });
-        </script>
+        </script> --}}
 
 
 

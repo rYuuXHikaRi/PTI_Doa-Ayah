@@ -36,21 +36,21 @@ class HomeController extends Controller
             $countSuratMasuk = SuratMasuk::count();
             $countSuratKeluar = SuratKeluar::count();
 
-            // Mengambil data surat masuk
-            $suratMasukData = SuratMasuk::selectRaw('MONTH(created_at) as month, COUNT(*) as surat_masuk')
-                ->groupByRaw('MONTH(created_at)')
-                ->get();
+            // // Mengambil data surat masuk
+            // $suratMasukData = SuratMasuk::selectRaw('MONTH(created_at) as month, COUNT(*) as surat_masuk')
+            //     ->groupByRaw('MONTH(created_at)')
+            //     ->get();
 
-            // Mengambil data surat keluar
-            $suratKeluarData = SuratKeluar::selectRaw('MONTH(created_at) as month, COUNT(*) as surat_keluar')
-                ->groupByRaw('MONTH(created_at)')
-                ->get();
+            // // Mengambil data surat keluar
+            // $suratKeluarData = SuratKeluar::selectRaw('MONTH(created_at) as month, COUNT(*) as surat_keluar')
+            //     ->groupByRaw('MONTH(created_at)')
+            //     ->get();
 
-            // Menggabungkan data surat masuk dan keluar berdasarkan bulan
-            $suratData = $suratMasukData->merge($suratKeluarData)->groupBy('month')->all();
+            // // Menggabungkan data surat masuk dan keluar berdasarkan bulan
+            // $suratData = $suratMasukData->merge($suratKeluarData)->groupBy('month')->all();
             return view('admin.index')
-                ->with(compact('countUsers', 'countArsips', 'countSuratMasuk', 'countSuratKeluar', 'suratData'))
-                ->with('suratDataJson', json_encode($suratData));
+                ->with(compact('countUsers', 'countArsips', 'countSuratMasuk', 'countSuratKeluar'));
+                // ->with('suratDataJson', json_encode($suratData));
 
         } else if (Auth::user()->role == 2) {
             $countUsers = User::count();
@@ -58,21 +58,21 @@ class HomeController extends Controller
             $countSuratMasuk = SuratMasuk::count();
             $countSuratKeluar = SuratKeluar::count();
             // Mengambil data surat masuk
-            $suratMasukData = SuratMasuk::selectRaw('MONTH(created_at) as month, COUNT(*) as surat_masuk')
-                ->groupByRaw('MONTH(created_at)')
-                ->get();
+            // $suratMasukData = SuratMasuk::selectRaw('MONTH(created_at) as month, COUNT(*) as surat_masuk')
+            //     ->groupByRaw('MONTH(created_at)')
+            //     ->get();
 
-            // Mengambil data surat keluar
-            $suratKeluarData = SuratKeluar::selectRaw('MONTH(created_at) as month, COUNT(*) as surat_keluar')
-                ->groupByRaw('MONTH(created_at)')
-                ->get();
+            // // Mengambil data surat keluar
+            // $suratKeluarData = SuratKeluar::selectRaw('MONTH(created_at) as month, COUNT(*) as surat_keluar')
+            //     ->groupByRaw('MONTH(created_at)')
+            //     ->get();
 
-            // Menggabungkan data surat masuk dan keluar berdasarkan bulan
-            $suratData = $suratMasukData->merge($suratKeluarData)->groupBy('month')->all();
+            // // Menggabungkan data surat masuk dan keluar berdasarkan bulan
+            // $suratData = $suratMasukData->merge($suratKeluarData)->groupBy('month')->all();
             // return view('kepalabagian.index', compact('countUsers', 'countArsips', 'countSuratMasuk', 'countSuratKeluar'));
             return view('kepalabagian.index')
-                ->with(compact('countUsers', 'countArsips', 'countSuratMasuk', 'countSuratKeluar', 'suratData'))
-                ->with('suratDataJson', json_encode($suratData));
+                ->with(compact('countUsers', 'countArsips', 'countSuratMasuk', 'countSuratKeluar'));
+                // ->with('suratDataJson', json_encode($suratData));
         } else if (Auth::user()->role == 3) {
             return view('karyawan.index');
         }
