@@ -18,7 +18,7 @@
                     <a href="{{ route('KBprofile.user') }}" class="small-box-footer">Jumlah Pengguna <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
-
+{{--
             <div class="col-lg-3 col-6">
                 <div class="small-box">
                     <div class="inner">
@@ -30,7 +30,7 @@
                     </div>
                     <a href="#" class="small-box-footer">Jumlah Arsip <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="col-lg-3 col-6">
                 <div class="small-box">
@@ -41,7 +41,7 @@
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Jumlah Surat Masuk <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('kbsuratmasuk.index') }}" class="small-box-footer">Jumlah Surat Masuk <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 
@@ -54,7 +54,7 @@
                     <div class="icon">
                         <i class="ion ion-pie-graph"></i>
                     </div>
-                    <a href="#" class="small-box-footer">Jumlah Surat Keluar <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('kbsuratkeluar.index') }}" class="small-box-footer">Jumlah Surat Keluar <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>
