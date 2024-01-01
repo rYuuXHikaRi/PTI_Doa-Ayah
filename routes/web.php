@@ -3,6 +3,7 @@
 use App\Http\Controllers\Karyawan\ProfileKaryawanController;
 use App\Http\Controllers\Karyawan\StatusSuratController;
 use App\Http\Controllers\ListRequestLetterController;
+use Illuminate\Routing\RouteParameterBinder;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -29,6 +30,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('admin.index');
 Route::get('/', function () {
     return view('auth.login');
 });
+RouteParameterBinder;
 
 
 Route::middleware(['auth', 'role:1'])->group(function () {
